@@ -1,12 +1,13 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { Button } from '../src';
+import * as ReactDOM from 'react-dom';
+import { Default as Button } from '../src/components/Button/Button.stories';
 
 describe('Thing', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div');
-    const root = createRoot(div!);
-    root.render(<Button title="Storybook Button" />);
-    root.unmount();
+    ReactDOM.render(<Button title="Storybook Button"  />, div);
+    ReactDOM.unmountComponentAtNode(div);
   });
 });
+
+
