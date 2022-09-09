@@ -12,6 +12,6 @@ export const Button = ({ disabled, title, ...rest }: ButtonProps) => (
     disabled={disabled}
     {...rest}
   >
-    {"reloaded"} {title}
+    {'reloaded'} {title}
   </button>
 );
