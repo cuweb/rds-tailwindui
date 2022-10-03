@@ -19,7 +19,9 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
+    "format": "prettier -w src",
     "storybook": "start-storybook -p 6006",
+    "test:ci": "concurrently 'yarn start-storybook --quiet --ci -p 6006' 'yarn cypress run'",
     "build-storybook": "build-storybook",
     "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify"
   },
@@ -53,6 +55,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.18.13",
+    "@cypress/react": "^6.2.0",
     "@headlessui/react": "^1.6.6",
     "@heroicons/react": "^2.0.10",
     "@size-limit/preset-small-lib": "^8.0.1",
@@ -73,6 +76,7 @@
     "@whitespace/storybook-addon-html": "^5.0.0",
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
+    "concurrently": "^7.4.0",
     "cypress": "^10.7.0",
     "husky": "^8.0.1",
     "postcss": "^8.4.16",
