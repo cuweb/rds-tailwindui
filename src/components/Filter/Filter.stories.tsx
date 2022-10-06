@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import Filter from './Filter';
+import { Filter, FilterProps } from './Filter';
 import data from './FilterData.json';
 //console.log(data.filters);
 const meta: Meta = {
@@ -10,9 +10,7 @@ const meta: Meta = {
 
 export default meta;
 
-const Template: Story = args => (
-  <Filter filters={[]} sortOptions={[]} {...args} />
-);
+const Template: Story<FilterProps> = args => <Filter {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

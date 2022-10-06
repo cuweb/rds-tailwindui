@@ -9,7 +9,7 @@ import {
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
-interface FilterProps {
+export interface FilterProps {
   sortOptions: {
     name: string;
     href: string;
@@ -31,7 +31,7 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-const Filter: React.FC<FilterProps> = ({
+export const Filter: React.FC<FilterProps> = ({
   sortOptions,
   filters,
 }): JSX.Element => {
@@ -313,5 +313,3 @@ const Filter: React.FC<FilterProps> = ({
     </div>
   );
 };
-
-export default Filter;
