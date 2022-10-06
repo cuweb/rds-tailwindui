@@ -1,1 +1,1 @@
-export { StackedList, StackedListProps } from './StackedList';
+export * from './StackedList';
