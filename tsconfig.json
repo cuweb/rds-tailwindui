@@ -1,6 +1,11 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["types", "test", "src/**/*.ts", "src/**/*.tsx"],
+  "include": [
+    "types",
+    "test",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+  ],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -8,16 +13,18 @@
     "declaration": true,
     "sourceMap": true,
     "strict": true,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "allowJs": true,
     "types": ["cypress", "node"]
-  },
+  }
 }

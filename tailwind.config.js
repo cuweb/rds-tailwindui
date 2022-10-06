@@ -1,8 +1,10 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
-  theme: {
-    extend: {},
-  },
-  variants: {},
-  plugins: [],
+    presets: [
+        require('./tailwind.theme.js'),
+    ],
+    content: [
+        './src/**/*.{js,jsx,ts,tsx}',
+        './src/**/**/*.{js,jsx,ts,tsx}',
+        './src/**/**/**/*.{js,jsx,ts,tsx}'
+    ],
 };
