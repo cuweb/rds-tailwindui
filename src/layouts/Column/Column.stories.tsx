@@ -29,14 +29,14 @@ Default.args = {
   isNested: false,
 };
 
-const TwoColTemplate: Story<ColumnProps> = args => (
+const TwoColumTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Two Column</p>
     <p className={`${styles.column}`}>Two Column</p>
   </Column>
 );
 
-export const TwoColum = TwoColTemplate.bind({});
+export const TwoColum = TwoColumTemplate.bind({});
 TwoColum.args = {
   maxWidth: '7xl',
   gridGap: '8',
@@ -44,7 +44,7 @@ TwoColum.args = {
   isNested: false,
 };
 
-const ThreeColTemplate: Story<ColumnProps> = args => (
+const ThreeColumnTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Three Column</p>
     <p className={`${styles.column}`}>Three Column</p>
@@ -52,7 +52,7 @@ const ThreeColTemplate: Story<ColumnProps> = args => (
   </Column>
 );
 
-export const ThreeColumn = ThreeColTemplate.bind({});
+export const ThreeColumn = ThreeColumnTemplate.bind({});
 ThreeColumn.args = {
   maxWidth: '7xl',
   gridGap: '8',
@@ -60,7 +60,7 @@ ThreeColumn.args = {
   isNested: false,
 };
 
-const FourColTemplate: Story<ColumnProps> = args => (
+const FourColumnTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Four Column</p>
     <p className={`${styles.column}`}>Four Column</p>
@@ -69,7 +69,7 @@ const FourColTemplate: Story<ColumnProps> = args => (
   </Column>
 );
 
-export const FourColumn = FourColTemplate.bind({});
+export const FourColumn = FourColumnTemplate.bind({});
 FourColumn.args = {
   maxWidth: '7xl',
   gridGap: '8',
