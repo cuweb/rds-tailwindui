@@ -1,6 +1,6 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["types", "test", "src/**/*.ts", "src/**/*.tsx"],
+  "include": ["types", "test", "src/**/*.ts", "src/**/*.tsx", "src/**/*.json"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -15,6 +15,7 @@
     "moduleResolution": "node",
     "jsx": "react",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
