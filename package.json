@@ -46,11 +46,11 @@
   "size-limit": [
     {
       "path": "dist/rds-tailwind.cjs.production.min.js",
-      "limit": "1 KB"
+      "limit": "400 KB"
     },
     {
       "path": "dist/rds-tailwind.esm.js",
-      "limit": "1 KB"
+      "limit": "400 KB"
     }
   ],
   "devDependencies": {
