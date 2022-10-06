@@ -12,6 +12,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid';
 interface FilterProps {
   sortOptions: {
     name: string;
+    href: string;
     current: boolean;
   }[];
   filters: {
@@ -173,6 +174,7 @@ const Filter: React.FC<FilterProps> = ({
                       <Menu.Item key={option.name}>
                         {({ active }) => (
                           <a
+                            href={option.href}
                             className={classNames(
                               option.name === sortItem
                                 ? 'font-medium text-gray-900'

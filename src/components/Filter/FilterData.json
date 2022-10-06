@@ -2,9 +2,9 @@
     "title": "Filter",
     "classname": ".filter",
     "sortOptions" : [
-        { "name": "Daily", "current": false },
-        { "name": "Weekly", "current": false },
-        { "name": "Monthly", "current": false }
+        { "name": "Daily", "href": "#", "current": false },
+        { "name": "Weekly", "href": "#", "current": false },
+        { "name": "Monthly", "href": "#", "current": false }
     ],
     "filters": [
         {
