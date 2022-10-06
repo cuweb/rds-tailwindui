@@ -3,7 +3,7 @@ import {
   rdsMaxWidth,
   rdsGridColumns,
   rdsGridSpacing,
-} from '../../helpers/tailwindClasses';
+} from '../../utils/tailwindClasses';
 
 const styles = {
   column: `cu-column mx-auto grid grid-cols-1 [&:last-child]:mb-0`,

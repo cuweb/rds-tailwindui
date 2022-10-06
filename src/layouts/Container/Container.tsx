@@ -1,5 +1,5 @@
 import React from 'react';
-import { rdsColorScheme } from '../../helpers/tailwindClasses';
+import { rdsColorScheme } from '../../utils/tailwindClasses';
 
 const styles = {
   container: `cu-container py-8`,
