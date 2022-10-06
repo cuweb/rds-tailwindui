@@ -45,7 +45,7 @@ WithDividers.args = {
 };
 
 const PanelAndDividersTemplate: Story<StackedListProps> = args => (
-  <Container>
+  <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <StackedList dividers={args.dividers}>
