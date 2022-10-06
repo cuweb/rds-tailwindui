@@ -1,41 +1,41 @@
 {
-    "title": "Filter",
-    "classname": ".filter",
-    "sortOptions" : [
-        { "name": "Daily", "href": "#", "current": false },
-        { "name": "Weekly", "href": "#", "current": false },
-        { "name": "Monthly", "href": "#", "current": false }
-    ],
-    "filters": [
+  "title": "Filter",
+  "classname": ".filter",
+  "sortOptions": [
+    { "name": "Daily", "href": "#", "current": false },
+    { "name": "Weekly", "href": "#", "current": false },
+    { "name": "Monthly", "href": "#", "current": false }
+  ],
+  "filters": [
+    {
+      "id": "category",
+      "name": "Category",
+      "options": [
+        { "value": "planning", "label": "Planning", "checked": false },
         {
-          "id": "category",
-          "name": "Category",
-          "options": [
-            { "value": "planning", "label": "Planning", "checked": false },
-            {
-              "value": "projectmanagement",
-              "label": "Project Management",
-              "checked": false
-            }
-          ]
-        },
-        {
-          "id": "tags",
-          "name": "Tags",
-          "options": [
-            { "value": "general", "label": "General", "checked": false },
-            {
-              "value": "online/virtual",
-              "label": "Online/Virtual",
-              "checked": false
-            },
-            { "value": "finances", "label": "Finances", "checked": false },
-            {
-              "value": "healthyworkplace",
-              "label": "Healthy Workplace",
-              "checked": false
-            }
-          ]
+          "value": "projectmanagement",
+          "label": "Project Management",
+          "checked": false
         }
       ]
+    },
+    {
+      "id": "tags",
+      "name": "Tags",
+      "options": [
+        { "value": "general", "label": "General", "checked": false },
+        {
+          "value": "online/virtual",
+          "label": "Online/Virtual",
+          "checked": false
+        },
+        { "value": "finances", "label": "Finances", "checked": false },
+        {
+          "value": "healthyworkplace",
+          "label": "Healthy Workplace",
+          "checked": false
+        }
+      ]
+    }
+  ]
 }
