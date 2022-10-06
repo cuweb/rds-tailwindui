@@ -13,7 +13,7 @@
   "scripts": {
     "start": "tsdx watch",
     "dev": "tsdx watch --onSuccess 'yarn build-tailwind'",
-    "build": "tsdx lint --fix && tsdx build && yarn build-tailwind",
+    "build": "tsdx lint --fix && tsdx build && yarn build-tailwind && yarn size",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint --fix",
     "prepare": "tsdx build && husky install",
@@ -23,7 +23,8 @@
     "storybook": "start-storybook -p 6006",
     "test:ci": "concurrently 'yarn start-storybook --quiet --ci -p 6006' 'yarn cypress run'",
     "build-storybook": "build-storybook",
-    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify"
+    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify",
+    "packages": "rm -rf node_modules ; yarn install"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -46,11 +47,11 @@
   "size-limit": [
     {
       "path": "dist/rds-tailwind.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "400 KB"
     },
     {
       "path": "dist/rds-tailwind.esm.js",
-      "limit": "10 KB"
+      "limit": "400 KB"
     }
   ],
   "devDependencies": {
