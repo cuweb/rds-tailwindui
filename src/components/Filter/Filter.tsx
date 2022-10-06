@@ -38,6 +38,18 @@ export const Filter: React.FC<FilterProps> = ({
   const [open, setOpen] = useState(false);
   const [sortItem, setSortItem] = useState('');
 
+  const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const isSelected = (name: string) => selectedItems.includes(name);
+  const handleSelect = (name: string) => {
+    const selected: string = name;
+    if (!selectedItems.includes(selected)) {
+      return setSelectedItems([...selectedItems, selected]);
+    }
+    return setSelectedItems(
+      [...selectedItems].filter(item => item !== selected)
+    );
+  };
+
   return (
     <div className="bg-white">
       {/* Mobile filter dialog */}
@@ -116,7 +128,8 @@ export const Filter: React.FC<FilterProps> = ({
                                     name={`${section.id}[]`}
                                     defaultValue={option.value}
                                     type="checkbox"
-                                    defaultChecked={option.checked}
+                                    onChange={() => handleSelect(option.value)}
+                                    defaultChecked={isSelected(option.value)}
                                     className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                                   />
                                   <label
@@ -145,7 +158,6 @@ export const Filter: React.FC<FilterProps> = ({
         <h2 id="filter-heading" className="sr-only">
           Filters
         </h2>
-
         <div className="py-4 border rounded-tl-lg rounded-tr-lg border-cu-black-100 bg-gray-50">
           <div className="flex items-center justify-between px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <Menu as="div" className="relative inline-block text-left">
@@ -240,7 +252,8 @@ export const Filter: React.FC<FilterProps> = ({
                                   name={`${section.id}[]`}
                                   defaultValue={option.value}
                                   type="checkbox"
-                                  defaultChecked={option.checked}
+                                  onChange={() => handleSelect(option.value)}
+                                  defaultChecked={isSelected(option.value)}
                                   className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                                 />
                                 <label
