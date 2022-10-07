@@ -1,6 +1,15 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": ["types", "test", "src/**/*.ts", "src/**/*.tsx"],
+  "include": [
+    "types",
+    "test",
+    "assets/*.svg",
+    "assets/*.jpg",
+    "src/**/*.ts",
+    "src/**/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/**/*.tsx"
+  ],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -19,5 +28,5 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "types": ["cypress", "node"]
-  },
+  }
 }
