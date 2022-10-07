@@ -12,11 +12,7 @@ export interface StackedListProps {
 
 export const StackedList = ({ children, dividers }: StackedListProps) => {
   return (
-    <ul
-      className={`${styles.stackedlist} ${
-        dividers ? styles.dividers : 'bg-white'
-      }`}
-    >
+    <ul className={`${styles.stackedlist} ${dividers ? styles.dividers : ''}`}>
       {children}
     </ul>
   );

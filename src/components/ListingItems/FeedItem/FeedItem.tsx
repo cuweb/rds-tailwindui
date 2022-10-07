@@ -4,6 +4,7 @@ import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
 export interface FeedItemProps {
   children?: React.ReactNode;
+  isListing?: boolean;
   fontSize?: 'base' | 'lg' | 'xl';
   title?: string;
   link?: string;
@@ -12,17 +13,20 @@ export interface FeedItemProps {
   category?: string;
 }
 
-const FeedItemBase = ({ children }: FeedItemProps) => {
+const FeedItemBase = ({ children, link }: FeedItemProps) => {
   return (
-    // <li>
-    <div className="relative flex items-center gap-2 p-6 hover:bg-gray-50">
-      <div className="flex items-start gap-3">{children}</div>
-      <ChevronRightIcon
-        className="flex-none w-5 h-5 ml-auto text-cu-black-300"
-        aria-hidden="true"
-      />
+    <div className="">
+      <a
+        href={link}
+        className="relative flex items-center gap-2 p-6 cursor-pointer hover:bg-gray-50 focus:outline-none group"
+      >
+        <div className="flex items-start gap-3">{children}</div>
+        <ChevronRightIcon
+          className="flex-none w-5 h-5 ml-auto text-cu-black-300"
+          aria-hidden="true"
+        />
+      </a>
     </div>
-    // </li>
   );
 };
 
@@ -30,15 +34,13 @@ const Content = ({ children }: FeedItemProps) => {
   return <div className="flex-auto">{children}</div>;
 };
 
-const Title = ({ fontSize = 'base', title, link }: FeedItemProps) => {
+const Title = ({ fontSize = 'base', title }: FeedItemProps) => {
   return (
     <h3
-      className={`text-sm font-semibold text-cu-black ${rdsFontSizes[fontSize]}`}
+      className={`text-sm font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`}
     >
-      <a href={link} className="hover:text-cu-red focus:outline-none">
-        <span className="absolute inset-0" aria-hidden="true" />
-        {title}
-      </a>
+      {/* <span className="absolute inset-0" aria-hidden="true" /> */}
+      {title}
     </h3>
   );
 };
