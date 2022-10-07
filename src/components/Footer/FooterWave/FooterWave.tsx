@@ -9,7 +9,7 @@ export const FooterWave = () => {
         src={CarletonLogo}
         alt="Carleton University logo"
       />
-      <ul className="flex justify-center space-x-4 text-xs text-gray-400 sm:space-x-6 sm:text-sm">
+      <ul className="flex justify-center space-x-4 text-xs text-gray-400 bg-cu-black-900 sm:space-x-6 sm:text-sm">
         <li key="privacy">
           <a
             href="https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/"
