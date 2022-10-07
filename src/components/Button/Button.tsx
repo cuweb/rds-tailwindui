@@ -15,3 +15,5 @@ export const Button = ({ disabled, title, ...rest }: ButtonProps) => (
     {title}
   </button>
 );
+
+// export default Button;
