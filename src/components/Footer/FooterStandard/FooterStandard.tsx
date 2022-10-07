@@ -1,53 +1,53 @@
 import React from 'react';
 import { FooterWave } from '../FooterWave';
-import RavensLogo from '../../../assets/ravens-logo.svg';
+// import RavensLogo from '../../../assets/ravens-logo.svg';
 
 const navigation = {
   Admissions: [
-    { name: 'Programs', href: '#' },
-    { name: 'Undergraduate', href: '#' },
-    { name: 'Graduate', href: '#' },
-    { name: 'International', href: '#' },
-    { name: 'Financial Aid', href: '#' },
-    { name: 'Virtual Tours', href: '#' },
-    { name: 'Initiatives', href: '#' },
+    { name: 'Programs', href: 'https://carleton.ca' },
+    { name: 'Undergraduate', href: 'https://carleton.ca' },
+    { name: 'Graduate', href: 'https://carleton.ca' },
+    { name: 'International', href: 'https://carleton.ca' },
+    { name: 'Financial Aid', href: 'https://carleton.ca' },
+    { name: 'Virtual Tours', href: 'https://carleton.ca' },
+    { name: 'Initiatives', href: 'https://carleton.ca' },
   ],
   Academics: [
-    { name: 'Support Services', href: '#' },
-    { name: 'Schedules & Dates', href: '#' },
-    { name: 'Bightspace', href: '#' },
-    { name: 'Library', href: '#' },
-    { name: 'Support Services', href: '#' },
-    { name: 'Schedules & Dates', href: '#' },
-    { name: 'Bightspace', href: '#' },
+    { name: 'Support Services', href: 'https://carleton.ca' },
+    { name: 'Schedules & Dates', href: 'https://carleton.ca' },
+    { name: 'Bightspace', href: 'https://carleton.ca' },
+    { name: 'Library', href: 'https://carleton.ca' },
+    { name: 'Support Services', href: 'https://carleton.ca' },
+    { name: 'Schedules & Dates', href: 'https://carleton.ca' },
+    { name: 'Bightspace', href: 'https://carleton.ca' },
   ],
   Campus: [
-    { name: 'Campus Map', href: '#' },
-    { name: 'Directions', href: '#' },
-    { name: 'Events', href: '#' },
-    { name: 'Parking', href: '#' },
-    { name: 'Campus Map', href: '#' },
-    { name: 'Directions', href: '#' },
-    { name: 'Events', href: '#' },
+    { name: 'Campus Map', href: 'https://carleton.ca' },
+    { name: 'Directions', href: 'https://carleton.ca' },
+    { name: 'Events', href: 'https://carleton.ca' },
+    { name: 'Parking', href: 'https://carleton.ca' },
+    { name: 'Campus Map', href: 'https://carleton.ca' },
+    { name: 'Directions', href: 'https://carleton.ca' },
+    { name: 'Events', href: 'https://carleton.ca' },
   ],
   Advancement: [
-    { name: 'Giving to Carleton', href: '#' },
-    { name: 'Athletics & Recreation', href: '#' },
-    { name: 'Go Ravens', href: '#' },
-    { name: 'Career Assistance', href: '#' },
-    { name: 'Giving to Carleton', href: '#' },
-    { name: 'Athletics & Recreation', href: '#' },
-    { name: 'Go Ravens', href: '#' },
+    { name: 'Giving to Carleton', href: 'https://carleton.ca' },
+    { name: 'Athletics & Recreation', href: 'https://carleton.ca' },
+    { name: 'Go Ravens', href: 'https://carleton.ca' },
+    { name: 'Career Assistance', href: 'https://carleton.ca' },
+    { name: 'Giving to Carleton', href: 'https://carleton.ca' },
+    { name: 'Athletics & Recreation', href: 'https://carleton.ca' },
+    { name: 'Go Ravens', href: 'https://carleton.ca' },
   ],
   Ravens: [
-    { name: 'Athletics & Recreation', href: '#' },
-    { name: 'GoRavens Varsity', href: '#' },
-    { name: 'Athletics & Recreation', href: '#' },
+    { name: 'Athletics & Recreation', href: 'https://carleton.ca' },
+    { name: 'GoRavens Varsity', href: 'https://carleton.ca' },
+    { name: 'Athletics & Recreation', href: 'https://carleton.ca' },
   ],
   social: [
     {
       name: 'Facebook',
-      href: '#',
+      href: 'https://carleton.ca',
       icon: (props: any) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: '#',
+      href: 'https://carleton.ca',
       icon: (props: any) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ const navigation = {
     },
     {
       name: 'Twitter',
-      href: '#',
+      href: 'https://carleton.ca',
       icon: (props: any) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +89,7 @@ const navigation = {
     },
     {
       name: 'YouTube',
-      href: '#',
+      href: 'https://carleton.ca',
       icon: (props: any) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +103,7 @@ const navigation = {
     },
     {
       name: 'LinkedIn',
-      href: '#',
+      href: 'https://carleton.ca',
       icon: (props: any) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -188,8 +188,12 @@ export const FooterStandard = () => {
               </li>
             ))}
           </ul>
-          <a href="#" className="w-12 h-auto">
-            <img className="w-12 h-auto mt-8" src={RavensLogo} alt="Carleton" />
+          <a href="https://goravens.carleton.ca" className="w-12 h-auto">
+            <img
+              className="w-12 h-auto mt-8"
+              // src={RavensLogo}
+              alt="Carleton"
+            />
           </a>
         </div>
       </div>
@@ -197,11 +201,17 @@ export const FooterStandard = () => {
       <div className="flex flex-col-reverse gap-1 p-8 mx-auto text-sm max-w-7xl text-cu-black-300 sm:gap-4 sm:pb-8 sm:text-lg lg:grid-cols-3 lg:flex-row lg:justify-between lg:text-left lg:text-sm">
         <p className="text-center">
           Contact us by{' '}
-          <a href="#" className="text-white hover:text-cu-red">
+          <a
+            href="tel:+1-613-520-2600"
+            className="text-white hover:text-cu-red"
+          >
             phone
           </a>{' '}
           or{' '}
-          <a href="#" className="text-white hover:text-cu-red">
+          <a
+            href="https://carleton.ca/about/contact/"
+            className="text-white hover:text-cu-red"
+          >
             email
           </a>{' '}
           now!
