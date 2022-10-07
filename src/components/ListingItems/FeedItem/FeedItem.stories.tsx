@@ -16,13 +16,9 @@ export default {
 } as Meta<typeof FeedItem>;
 
 const DefaultTemplate: Story<FeedItemProps> = args => (
-  <FeedItem>
+  <FeedItem as="div" link={args.link}>
     <FeedItem.Content>
-      <FeedItem.Title
-        fontSize={args.fontSize}
-        title={args.title}
-        link={args.link}
-      />
+      <FeedItem.Title as="h2" fontSize={args.fontSize} title="Title test" />
       <FeedItem.Date date={args.date} />
       <FeedItem.Excerpt excerpt={args.excerpt} />
       <FeedItem.Category category={args.category} />
@@ -46,13 +42,9 @@ const ListingTemplate: Story<FeedItemProps> = args => (
     <Column cols="2" maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <StackedList>
-          <FeedItem isListing>
+          <FeedItem link={args.link}>
             <FeedItem.Content>
-              <FeedItem.Title
-                fontSize={args.fontSize}
-                title={args.title}
-                link={args.link}
-              />
+              <FeedItem.Title fontSize={args.fontSize} title={args.title} />
               <FeedItem.Date date={args.date} />
               <FeedItem.Excerpt excerpt={args.excerpt} />
             </FeedItem.Content>
@@ -80,7 +72,7 @@ const ListingTemplate: Story<FeedItemProps> = args => (
 
 export const Listing = ListingTemplate.bind({});
 Listing.args = {
-  fontSize: 'base',
+  fontSize: 'xl',
   title: 'This is the title',
   link: 'https://carleton.ca',
   date: 'November 24th, 2022',

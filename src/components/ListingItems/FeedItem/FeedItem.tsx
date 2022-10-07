@@ -13,9 +13,9 @@ export interface FeedItemProps {
   category?: string;
 }
 
-const FeedItemBase = ({ children, link }: FeedItemProps) => {
+const FeedItemBase = ({ as: Component, children, link }: any) => {
   return (
-    <div className="">
+    <Component>
       <a
         href={link}
         className="relative flex items-center gap-2 p-6 cursor-pointer hover:bg-gray-50 focus:outline-none group"
@@ -26,7 +26,7 @@ const FeedItemBase = ({ children, link }: FeedItemProps) => {
           aria-hidden="true"
         />
       </a>
-    </div>
+    </Component>
   );
 };
 
@@ -34,12 +34,17 @@ const Content = ({ children }: FeedItemProps) => {
   return <div className="flex-auto">{children}</div>;
 };
 
+// const Title = ({ as: Component, fontSize = 'base', title }: any) => {
+// const Title = (
+//   { as: Component }: any,
+//   { fontSize = 'base', title }: FeedItemProps
+// ) => {
+
 const Title = ({ fontSize = 'base', title }: FeedItemProps) => {
   return (
     <h3
       className={`text-sm font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`}
     >
-      {/* <span className="absolute inset-0" aria-hidden="true" /> */}
       {title}
     </h3>
   );
@@ -62,6 +67,14 @@ const Category = ({ category }: FeedItemProps) => {
       {category}
     </div>
   );
+};
+
+FeedItemBase.defaultProps = {
+  as: 'li',
+};
+
+Title.defaultProps = {
+  as: 'h3',
 };
 
 FeedItemBase.displayName = 'FeedItem';
