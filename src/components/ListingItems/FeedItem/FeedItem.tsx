@@ -2,8 +2,10 @@ import React from 'react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
+type TitleTypesProps = 'h2' | 'h3';
 export interface FeedItemProps {
   children?: React.ReactNode;
+  as?: TitleTypesProps;
   isListing?: boolean;
   fontSize?: 'base' | 'lg' | 'xl';
   title?: string;
@@ -11,6 +13,11 @@ export interface FeedItemProps {
   date?: string;
   excerpt?: string;
   category?: string;
+}
+interface TitleContainerProps {
+  type: TitleTypesProps;
+  children: React.ReactNode;
+  className?: string;
 }
 
 const FeedItemBase = ({ as: Component, children, link }: any) => {
@@ -34,19 +41,22 @@ const Content = ({ children }: FeedItemProps) => {
   return <div className="flex-auto">{children}</div>;
 };
 
-// const Title = ({ as: Component, fontSize = 'base', title }: any) => {
-// const Title = (
-//   { as: Component }: any,
-//   { fontSize = 'base', title }: FeedItemProps
-// ) => {
+const TitleContainer = ({ type, children, className }: TitleContainerProps) => {
+  const types = {
+    h2: <h2 className={className}>{children}</h2>,
+    h3: <h3 className={className}>{children}</h3>,
+  };
+  return types[type];
+};
 
-const Title = ({ fontSize = 'base', title }: FeedItemProps) => {
+const Title = ({ as = 'h3', fontSize = 'base', title }: FeedItemProps) => {
   return (
-    <h3
+    <TitleContainer
+      type={as}
       className={`text-sm font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`}
     >
       {title}
-    </h3>
+    </TitleContainer>
   );
 };
 
@@ -64,17 +74,14 @@ const Category = ({ category }: FeedItemProps) => {
   return (
     <div className="mt-2">
       {/* <Badge>{category}</Badge> */}
-      {category}
+      <p className="mt-2 text-sm text-cu-black-900">{category}</p>
     </div>
   );
 };
 
+// Set default for base component as props
 FeedItemBase.defaultProps = {
   as: 'li',
-};
-
-Title.defaultProps = {
-  as: 'h3',
 };
 
 FeedItemBase.displayName = 'FeedItem';

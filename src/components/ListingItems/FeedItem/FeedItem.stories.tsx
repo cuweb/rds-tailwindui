@@ -4,7 +4,7 @@ import { FeedItem, FeedItemProps } from './FeedItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-// import { StackedList } from '../../../layouts/StackedList';
+import { StackedList } from '../../../layouts/StackedList';
 
 export default {
   title: 'Components/List Items/Feeds',
@@ -21,7 +21,7 @@ const DefaultTemplate: Story<FeedItemProps> = args => (
       <FeedItem.Title as="h2" fontSize={args.fontSize} title="Title test" />
       <FeedItem.Date date={args.date} />
       <FeedItem.Excerpt excerpt={args.excerpt} />
-      {/* <FeedItem.Category category={args.category} /> */}
+      <FeedItem.Category category={args.category} />
     </FeedItem.Content>
   </FeedItem>
 );
@@ -41,13 +41,32 @@ const ListingInPanelTemplate: Story<FeedItemProps> = args => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
-        <FeedItem as="div" link={args.link}>
-          <FeedItem.Content>
-            <FeedItem.Title fontSize={args.fontSize} title={args.title} />
-            <FeedItem.Date date={args.date} />
-            <FeedItem.Excerpt excerpt={args.excerpt} />
-          </FeedItem.Content>
-        </FeedItem>
+        <StackedList dividers>
+          <FeedItem as="li" link={args.link}>
+            <FeedItem.Content>
+              <FeedItem.Title fontSize={args.fontSize} title={args.title} />
+              <FeedItem.Date date={args.date} />
+              <FeedItem.Excerpt excerpt={args.excerpt} />
+              <FeedItem.Category category={args.category} />
+            </FeedItem.Content>
+          </FeedItem>
+          <FeedItem as="li" link={args.link}>
+            <FeedItem.Content>
+              <FeedItem.Title fontSize={args.fontSize} title={args.title} />
+              <FeedItem.Date date={args.date} />
+              <FeedItem.Excerpt excerpt={args.excerpt} />
+              <FeedItem.Category category={args.category} />
+            </FeedItem.Content>
+          </FeedItem>
+          <FeedItem as="li" link={args.link}>
+            <FeedItem.Content>
+              <FeedItem.Title fontSize={args.fontSize} title={args.title} />
+              <FeedItem.Date date={args.date} />
+              <FeedItem.Excerpt excerpt={args.excerpt} />
+              <FeedItem.Category category={args.category} />
+            </FeedItem.Content>
+          </FeedItem>
+        </StackedList>
       </Panel>
     </Column>
   </Container>
