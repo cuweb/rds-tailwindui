@@ -9,7 +9,13 @@ import { StackedList } from '../../../layouts/StackedList';
 export default {
   title: 'Components/List Items/Feeds',
   component: FeedItem,
-  argTypes: {},
+  argTypes: {
+    fontSize: {
+      control: 'inline-radio',
+      options: ['base', 'lg', 'xl'],
+    },
+    // date: { control: 'date' },
+  },
   parameters: {
     controls: { expanded: true },
   },
@@ -18,7 +24,7 @@ export default {
 const DefaultTemplate: Story<FeedItemProps> = args => (
   <FeedItem as="div" link={args.link}>
     <FeedItem.Content>
-      <FeedItem.Title as="h2" fontSize={args.fontSize} title="Title test" />
+      <FeedItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
       <FeedItem.Date date={args.date} />
       <FeedItem.Excerpt excerpt={args.excerpt} />
       <FeedItem.Category category={args.category} />
@@ -26,44 +32,58 @@ const DefaultTemplate: Story<FeedItemProps> = args => (
   </FeedItem>
 );
 
-export const Default = DefaultTemplate.bind({});
-Default.args = {
-  fontSize: 'base',
-  title: 'This is the title',
-  link: 'https://carleton.ca',
-  date: 'November 24th, 2022',
-  excerpt:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum, metus id luctus aliquam, mi libero rutrum massa, ac finibus risus velit in odio.',
-  category: '{Badge component required}',
-};
+const SingleItemPanelTemplate: Story<FeedItemProps> = args => (
+  <Column maxWidth="3xl">
+    <Panel hasBorder>
+      <FeedItem as="div" link={args.link}>
+        <FeedItem.Content>
+          <FeedItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
+          <FeedItem.Date date={args.date} />
+          <FeedItem.Excerpt excerpt={args.excerpt} />
+          <FeedItem.Category category={args.category} />
+        </FeedItem.Content>
+      </FeedItem>
+    </Panel>
+  </Column>
+);
 
-const ListingInPanelTemplate: Story<FeedItemProps> = args => (
+const StackedListPanelTemplate: Story<FeedItemProps> = args => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
-        <StackedList dividers>
-          <FeedItem as="li" link={args.link}>
+        <Panel.Title>News feed listing</Panel.Title>
+        <StackedList>
+          <FeedItem as="div" link={args.link}>
             <FeedItem.Content>
-              <FeedItem.Title fontSize={args.fontSize} title={args.title} />
+              <FeedItem.Title
+                as="h2"
+                fontSize={args.fontSize}
+                title={args.title}
+              />
               <FeedItem.Date date={args.date} />
               <FeedItem.Excerpt excerpt={args.excerpt} />
-              <FeedItem.Category category={args.category} />
             </FeedItem.Content>
           </FeedItem>
-          <FeedItem as="li" link={args.link}>
+          <FeedItem as="div" link={args.link}>
             <FeedItem.Content>
-              <FeedItem.Title fontSize={args.fontSize} title={args.title} />
+              <FeedItem.Title
+                as="h2"
+                fontSize={args.fontSize}
+                title={args.title}
+              />
               <FeedItem.Date date={args.date} />
               <FeedItem.Excerpt excerpt={args.excerpt} />
-              <FeedItem.Category category={args.category} />
             </FeedItem.Content>
           </FeedItem>
-          <FeedItem as="li" link={args.link}>
+          <FeedItem as="div" link={args.link}>
             <FeedItem.Content>
-              <FeedItem.Title fontSize={args.fontSize} title={args.title} />
+              <FeedItem.Title
+                as="h2"
+                fontSize={args.fontSize}
+                title={args.title}
+              />
               <FeedItem.Date date={args.date} />
               <FeedItem.Excerpt excerpt={args.excerpt} />
-              <FeedItem.Category category={args.category} />
             </FeedItem.Content>
           </FeedItem>
         </StackedList>
@@ -72,12 +92,27 @@ const ListingInPanelTemplate: Story<FeedItemProps> = args => (
   </Container>
 );
 
-export const ListingInPanel = ListingInPanelTemplate.bind({});
-ListingInPanel.args = {
+export const Default = DefaultTemplate.bind({});
+Default.args = {
   fontSize: 'base',
-  title: 'This is the title',
+  title: 'Feed item title',
   link: 'https://carleton.ca',
   date: 'November 24th, 2022',
   excerpt:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum, metus id luctus aliquam, mi libero rutrum massa, ac finibus risus velit in odio.',
+  category: '{Badge component required}',
 };
+
+export const SingleItemPanel = SingleItemPanelTemplate.bind({});
+SingleItemPanel.args = {
+  ...Default.args,
+};
+
+export const StackedListPanel = StackedListPanelTemplate.bind({});
+StackedListPanel.args = {
+  ...Default.args,
+};
+
+Default.storyName = 'Default item';
+SingleItemPanel.storyName = 'Single item in panel';
+StackedListPanel.storyName = 'Stacked Listing';

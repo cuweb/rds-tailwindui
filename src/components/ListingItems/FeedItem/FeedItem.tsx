@@ -2,10 +2,12 @@ import React from 'react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
-type TitleTypesProps = 'h2' | 'h3';
+// Set header types, changes the default <FeedItem.Title as="h3">
+type TitleTypeProps = 'h2' | 'h3';
+
+// Set props for FeedItem
 export interface FeedItemProps {
   children?: React.ReactNode;
-  as?: TitleTypesProps;
   isListing?: boolean;
   fontSize?: 'base' | 'lg' | 'xl';
   title?: string;
@@ -14,10 +16,19 @@ export interface FeedItemProps {
   excerpt?: string;
   category?: string;
 }
+
+// Set props for FeedItem.Title container
 interface TitleContainerProps {
-  type: TitleTypesProps;
+  type: TitleTypeProps;
   children: React.ReactNode;
   className?: string;
+}
+
+export interface TitleProps {
+  as?: TitleTypeProps;
+  //   fontSize?: 'base' | 'lg' | 'xl';
+  //   children: React.ReactNode;
+  //   title?: string;
 }
 
 const FeedItemBase = ({ as: Component, children, link }: any) => {
@@ -25,7 +36,7 @@ const FeedItemBase = ({ as: Component, children, link }: any) => {
     <Component>
       <a
         href={link}
-        className="relative flex items-center gap-2 p-6 cursor-pointer hover:bg-gray-50 focus:outline-none group"
+        className="relative flex items-center gap-2 p-6 overflow-hidden cursor-pointer hover:bg-gray-50 focus:outline-none group"
       >
         <div className="flex items-start gap-3">{children}</div>
         <ChevronRightIcon
@@ -49,7 +60,11 @@ const TitleContainer = ({ type, children, className }: TitleContainerProps) => {
   return types[type];
 };
 
-const Title = ({ as = 'h3', fontSize = 'base', title }: FeedItemProps) => {
+const Title = ({
+  as = 'h3',
+  fontSize = 'base',
+  title,
+}: TitleProps & FeedItemProps) => {
   return (
     <TitleContainer
       type={as}
