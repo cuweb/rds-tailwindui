@@ -5,6 +5,7 @@ import { Container } from '../Container';
 import { Column } from '../Column';
 import { Panel } from '../Panel';
 import { FeedItem } from '../../components';
+import { feedItemData as data } from '../../components/ListingItems/FeedItem/FeedItemData';
 
 const styles = {
   spacing: `p-5`,
@@ -60,30 +61,16 @@ const WithFeedItemTemplate: Story<StackedListProps> = args => (
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <StackedList hasDividers={args.hasDividers}>
-          <FeedItem link={'https://carleton.ca'}>
-            <FeedItem.Content>
-              <FeedItem.Title title={'Feed item title'} />
-              <FeedItem.Date date={'September 27th, 2023'} />
-            </FeedItem.Content>
-          </FeedItem>
-          <FeedItem link={'https://carleton.ca'}>
-            <FeedItem.Content>
-              <FeedItem.Title title={'Feed item title'} />
-              <FeedItem.Date date={'September 27th, 2023'} />
-            </FeedItem.Content>
-          </FeedItem>
-          <FeedItem link={'https://carleton.ca'}>
-            <FeedItem.Content>
-              <FeedItem.Title title={'Feed item title'} />
-              <FeedItem.Date date={'September 27th, 2023'} />
-            </FeedItem.Content>
-          </FeedItem>
-          <FeedItem link={'https://carleton.ca'}>
-            <FeedItem.Content>
-              <FeedItem.Title title={'Feed item title'} />
-              <FeedItem.Date date={'September 27th, 2023'} />
-            </FeedItem.Content>
-          </FeedItem>
+          {data.map(({ id, title, link, date, excerpt, category }) => (
+            <FeedItem key={id}>
+              <FeedItem.Content>
+                <FeedItem.Title title={title} link={link} />
+                <FeedItem.Date date={date} />
+                <FeedItem.Excerpt excerpt={excerpt} />
+                <FeedItem.Category category={category} />
+              </FeedItem.Content>
+            </FeedItem>
+          ))}
         </StackedList>
       </Panel>
     </Column>

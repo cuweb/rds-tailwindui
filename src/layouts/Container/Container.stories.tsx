@@ -47,11 +47,11 @@ const WithPanelsTemplate: Story<ContainerProps> = args => (
     <Column cols="2">
       <Panel hasBorder hasShadow>
         <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-8">{content.paragraph}</p>
+        <p className="p-6">{content.paragraph}</p>
       </Panel>
       <Panel hasBorder hasShadow>
         <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-8">{content.paragraph}</p>
+        <p className="p-6">{content.paragraph}</p>
       </Panel>
     </Column>
   </Container>

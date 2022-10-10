@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Panel, PanelProps } from './Panel';
 
 const content = {
-  spacing: `p-8`,
+  spacing: `p-6`,
   paragraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id augue id est iaculis auctor. Vestibulum lobortis hendrerit enim, sit amet viverra velit tincidunt a. Sed lobortis consectetur sapien a egestas. Ut vestibulum turpis non molestie aliquam. Quisque dictum iaculis tellus, vel vehicula diam lobortis non.`,
 };
 

@@ -5,6 +5,7 @@ import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
 import { StackedList } from '../../../layouts/StackedList';
+import { feedItemData as data } from './FeedItemData';
 
 export default {
   title: 'Components/List Items/Feeds',
@@ -14,7 +15,6 @@ export default {
       control: 'inline-radio',
       options: ['base', 'lg', 'xl'],
     },
-    // date: { control: 'date' },
   },
   parameters: {
     controls: { expanded: true },
@@ -47,45 +47,22 @@ const SingleItemPanelTemplate: Story<FeedItemProps> = args => (
   </Column>
 );
 
-const StackedListPanelTemplate: Story<FeedItemProps> = args => (
+const StackedListPanelTemplate: Story<FeedItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>News feed listing</Panel.Title>
-        <StackedList>
-          <FeedItem as="div" link={args.link}>
-            <FeedItem.Content>
-              <FeedItem.Title
-                as="h2"
-                fontSize={args.fontSize}
-                title={args.title}
-              />
-              <FeedItem.Date date={args.date} />
-              <FeedItem.Excerpt excerpt={args.excerpt} />
-            </FeedItem.Content>
-          </FeedItem>
-          <FeedItem as="div" link={args.link}>
-            <FeedItem.Content>
-              <FeedItem.Title
-                as="h2"
-                fontSize={args.fontSize}
-                title={args.title}
-              />
-              <FeedItem.Date date={args.date} />
-              <FeedItem.Excerpt excerpt={args.excerpt} />
-            </FeedItem.Content>
-          </FeedItem>
-          <FeedItem as="div" link={args.link}>
-            <FeedItem.Content>
-              <FeedItem.Title
-                as="h2"
-                fontSize={args.fontSize}
-                title={args.title}
-              />
-              <FeedItem.Date date={args.date} />
-              <FeedItem.Excerpt excerpt={args.excerpt} />
-            </FeedItem.Content>
-          </FeedItem>
+        <StackedList hasDividers>
+          {data.map(({ id, title, link, date, excerpt, category }) => (
+            <FeedItem key={id}>
+              <FeedItem.Content>
+                <FeedItem.Title title={title} link={link} />
+                <FeedItem.Date date={date} />
+                <FeedItem.Excerpt excerpt={excerpt} />
+                <FeedItem.Category category={category} />
+              </FeedItem.Content>
+            </FeedItem>
+          ))}
         </StackedList>
       </Panel>
     </Column>
@@ -115,4 +92,4 @@ StackedListPanel.args = {
 
 Default.storyName = 'Default item';
 SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'Stacked Listing';
+StackedListPanel.storyName = 'In a stacked list';

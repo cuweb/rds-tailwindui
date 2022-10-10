@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Column, ColumnProps } from './Column';
 
 const styles = {
-  column: `p-8 bg-slate-200`,
+  column: `p-6 bg-slate-200`,
 };
 
 export default {
