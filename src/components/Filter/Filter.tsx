@@ -37,13 +37,12 @@ export const Filter: React.FC<FilterProps> = ({
 }): JSX.Element => {
   const [open, setOpen] = useState(false);
   const [sortItem, setSortItem] = useState('');
-
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const isSelected = (name: string) => selectedItems.includes(name);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+
   const handleSelect = (name: string) => {
     const selected: string = name;
-
     if (!selectedItems.includes(selected)) {
       return setSelectedItems([...selectedItems, selected]);
     }
@@ -51,16 +50,19 @@ export const Filter: React.FC<FilterProps> = ({
       [...selectedItems].filter(item => item !== selected)
     );
   };
+
   const handleRemove = (name: string) => {
     const selected: string = name;
     return setSelectedItems(
       [...selectedItems].filter(item => item !== selected)
     );
   };
+
   useEffect(() => {
+    setSortItem(sortItem);
     setActiveFilters(selectedItems);
-  });
-  console.log(selectedItems);
+  }, [sortItem, selectedItems]);
+
   return (
     <div className="bg-white">
       {/* Mobile filter dialog */}
