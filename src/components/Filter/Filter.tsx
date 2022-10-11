@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import {
   Dialog,
   Disclosure,
@@ -26,7 +26,7 @@ export interface FilterProps {
   }[];
 }
 
-const activeFilters: any[] = [];
+//const activeFilters: any[] = ['Planning', 'Project Management', 'General'];
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
@@ -40,8 +40,10 @@ export const Filter: React.FC<FilterProps> = ({
 
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const isSelected = (name: string) => selectedItems.includes(name);
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const handleSelect = (name: string) => {
     const selected: string = name;
+
     if (!selectedItems.includes(selected)) {
       return setSelectedItems([...selectedItems, selected]);
     }
@@ -49,7 +51,16 @@ export const Filter: React.FC<FilterProps> = ({
       [...selectedItems].filter(item => item !== selected)
     );
   };
-
+  const handleRemove = (name: string) => {
+    const selected: string = name;
+    return setSelectedItems(
+      [...selectedItems].filter(item => item !== selected)
+    );
+  };
+  useEffect(() => {
+    setActiveFilters(selectedItems);
+  });
+  console.log(selectedItems);
   return (
     <div className="bg-white">
       {/* Mobile filter dialog */}
@@ -120,16 +131,16 @@ export const Filter: React.FC<FilterProps> = ({
                             <div className="space-y-6">
                               {section.options.map((option, optionIdx) => (
                                 <div
-                                  key={option.value}
+                                  key={optionIdx}
                                   className="flex items-center"
                                 >
                                   <input
                                     id={`filter-mobile-${section.id}-${optionIdx}`}
                                     name={`${section.id}[]`}
-                                    defaultValue={option.value}
+                                    defaultValue={option.label}
                                     type="checkbox"
-                                    onChange={() => handleSelect(option.value)}
-                                    defaultChecked={isSelected(option.value)}
+                                    onChange={() => handleSelect(option.label)}
+                                    defaultChecked={isSelected(option.label)}
                                     className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                                   />
                                   <label
@@ -244,16 +255,16 @@ export const Filter: React.FC<FilterProps> = ({
                           <form className="space-y-4">
                             {section.options.map((option, optionIdx) => (
                               <div
-                                key={option.value}
+                                key={optionIdx}
                                 className="flex items-center"
                               >
                                 <input
                                   id={`filter-${section.id}-${optionIdx}`}
                                   name={`${section.id}[]`}
-                                  defaultValue={option.value}
+                                  defaultValue={option.label}
                                   type="checkbox"
-                                  onChange={() => handleSelect(option.value)}
-                                  defaultChecked={isSelected(option.value)}
+                                  onChange={() => handleSelect(option.label)}
+                                  defaultChecked={isSelected(option.label)}
                                   className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
                                 />
                                 <label
@@ -290,18 +301,19 @@ export const Filter: React.FC<FilterProps> = ({
 
             <div className="mt-2 sm:mt-0 sm:ml-4">
               <div className="flex flex-wrap items-center -m-1">
-                {activeFilters.map(activeFilter => (
+                {activeFilters.map((activeFilter, index) => (
                   <span
-                    key={activeFilter.value}
+                    key={index}
                     className="m-1 inline-flex items-center rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 text-sm font-medium text-gray-900"
                   >
-                    <span>{activeFilter.label}</span>
+                    <span>{activeFilter}</span>
                     <button
                       type="button"
+                      onClick={() => handleRemove(activeFilter)}
                       className="inline-flex flex-shrink-0 w-4 h-4 p-1 ml-1 text-gray-400 rounded-full hover:bg-gray-200 hover:text-gray-500"
                     >
                       <span className="sr-only">
-                        Remove filter for {activeFilter.label}
+                        Remove filter for {activeFilter}
                       </span>
                       <svg
                         className="w-2 h-2"
