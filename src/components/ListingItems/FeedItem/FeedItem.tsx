@@ -8,7 +8,6 @@ type TitleTypeProps = 'h2' | 'h3';
 // Set props for FeedItem
 export interface FeedItemProps {
   children?: React.ReactNode;
-  isListing?: boolean;
   fontSize?: 'base' | 'lg' | 'xl';
   title?: string;
   link?: string;

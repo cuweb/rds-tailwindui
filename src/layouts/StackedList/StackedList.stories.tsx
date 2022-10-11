@@ -5,7 +5,7 @@ import { Container } from '../Container';
 import { Column } from '../Column';
 import { Panel } from '../Panel';
 import { FeedItem } from '../../components';
-import { feedItemData as data } from '../../components/ListingItems/FeedItem/FeedItemData';
+import { FeedItemData as data } from '../../components/ListingItems/FeedItem/FeedItemData';
 
 const styles = {
   spacing: `p-5`,

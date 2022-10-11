@@ -5,7 +5,7 @@ import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
 import { StackedList } from '../../../layouts/StackedList';
-import { feedItemData as data } from './FeedItemData';
+import { FeedItemData as data } from './FeedItemData';
 
 export default {
   title: 'Components/List Items/Feeds',

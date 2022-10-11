@@ -1,4 +1,4 @@
-export const feedItemData = [
+export const FeedItemData = [
   {
     id: 1,
     title: 'Office closed on July 2nd',
