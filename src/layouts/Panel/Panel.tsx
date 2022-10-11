@@ -5,7 +5,7 @@ const styles = {
   panel: `cu-panel rounded-lg bg-white`,
   border: `border border-cu-black-100`,
   shadow: `shadow-lg`,
-  title: `px-6 py-4 text-base font-bold border-b rounded-t-lg bg-gradient-to-r from-gray-50 to-white text-cu-black-900`,
+  title: `px-6 py-4 text-base font-bold border-b rounded-t-lg bg-gray-50 text-cu-black-900`,
 };
 
 export interface PanelProps {

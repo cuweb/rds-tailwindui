@@ -37,7 +37,7 @@ const SingleItemPanelTemplate: Story<FeedItemProps> = args => (
     <Panel hasBorder>
       <FeedItem as="div" link={args.link}>
         <FeedItem.Content>
-          <FeedItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
+          <FeedItem.Title as="h3" fontSize={args.fontSize} title={args.title} />
           <FeedItem.Date date={args.date} />
           <FeedItem.Excerpt excerpt={args.excerpt} />
           <FeedItem.Category category={args.category} />

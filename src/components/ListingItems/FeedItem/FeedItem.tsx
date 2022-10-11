@@ -17,18 +17,8 @@ export interface FeedItemProps {
   category?: string;
 }
 
-// Set props for FeedItem.Title container
-interface TitleContainerProps {
-  type: TitleTypeProps;
-  children: React.ReactNode;
-  className?: string;
-}
-
 export interface TitleProps {
   as?: TitleTypeProps;
-  //   fontSize?: 'base' | 'lg' | 'xl';
-  //   children: React.ReactNode;
-  //   title?: string;
 }
 
 const FeedItemBase = ({ as: Component, children, link }: any) => {
@@ -52,26 +42,17 @@ const Content = ({ children }: FeedItemProps) => {
   return <div className="flex-auto">{children}</div>;
 };
 
-const TitleContainer = ({ type, children, className }: TitleContainerProps) => {
-  const types = {
-    h2: <h2 className={className}>{children}</h2>,
-    h3: <h3 className={className}>{children}</h3>,
-  };
-  return types[type];
-};
-
 const Title = ({
   as = 'h3',
   fontSize = 'base',
   title,
 }: TitleProps & FeedItemProps) => {
-  return (
-    <TitleContainer
-      type={as}
-      className={`text-sm font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`}
-    >
-      {title}
-    </TitleContainer>
+  return React.createElement(
+    as,
+    {
+      className: `text-sm font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`,
+    },
+    title
   );
 };
 
