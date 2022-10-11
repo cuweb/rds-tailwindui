@@ -1,15 +1,15 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { FileItem, FileItemProps } from './FileItem';
+import { JobItem, JobItemProps } from './JobItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
 import { StackedList } from '../../../layouts/StackedList';
-import { FileItemData as data } from './FileItemData';
+import { JobItemData as data } from './JobItemData';
 
 export default {
-  title: 'Components/List Items/Files',
-  component: FileItem,
+  title: 'Components/List Items/Jobs',
+  component: JobItem,
   argTypes: {
     fontSize: {
       control: 'inline-radio',
@@ -19,43 +19,43 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
-} as Meta<typeof FileItem>;
+} as Meta<typeof JobItem>;
 
-const DefaultTemplate: Story<FileItemProps> = args => (
-  <FileItem as="div" link={args.link}>
-    <FileItem.Content>
-      <FileItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
-      <FileItem.Details filesize={args.filesize} date={args.date} />
-    </FileItem.Content>
-  </FileItem>
+const DefaultTemplate: Story<JobItemProps> = args => (
+  <JobItem as="div" link={args.link}>
+    <JobItem.Content>
+      <JobItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
+      <JobItem.Details dateData={args.dateData} date={args.date} />
+    </JobItem.Content>
+  </JobItem>
 );
 
-const SingleItemPanelTemplate: Story<FileItemProps> = args => (
+const SingleItemPanelTemplate: Story<JobItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
-      <FileItem as="div" link={args.link}>
-        <FileItem.Content>
-          <FileItem.Title as="h3" fontSize={args.fontSize} title={args.title} />
-          <FileItem.Details filesize={args.filesize} date={args.date} />
-        </FileItem.Content>
-      </FileItem>
+      <JobItem as="div" link={args.link}>
+        <JobItem.Content>
+          <JobItem.Title as="h3" fontSize={args.fontSize} title={args.title} />
+          <JobItem.Details dateData={args.dateData} date={args.date} />
+        </JobItem.Content>
+      </JobItem>
     </Panel>
   </Column>
 );
 
-const StackedListPanelTemplate: Story<FileItemProps> = () => (
+const StackedListPanelTemplate: Story<JobItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>News feed listing</Panel.Title>
         <StackedList hasDividers>
-          {data.map(({ id, title, link, filesize, date }) => (
-            <FileItem key={id}>
-              <FileItem.Content>
-                <FileItem.Title title={title} link={link} />
-                <FileItem.Details filesize={filesize} date={date} />
-              </FileItem.Content>
-            </FileItem>
+          {data.map(({ id, title, link, dateData, date }) => (
+            <JobItem key={id}>
+              <JobItem.Content>
+                <JobItem.Title title={title} link={link} />
+                <JobItem.Details dateData={dateData} date={date} />
+              </JobItem.Content>
+            </JobItem>
           ))}
         </StackedList>
       </Panel>
@@ -66,10 +66,10 @@ const StackedListPanelTemplate: Story<FileItemProps> = () => (
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   fontSize: 'base',
-  title: 'File item title',
+  title: 'Job item title',
   link: 'https://carleton.ca',
-  filesize: '175KB',
   date: 'September 24th, 2020',
+  dateData: '2020-01-07',
 };
 
 export const SingleItemPanel = SingleItemPanelTemplate.bind({});
