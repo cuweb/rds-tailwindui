@@ -47,7 +47,7 @@ const StackedListPanelTemplate: Story<FileItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
-        <Panel.Title>News feed listing</Panel.Title>
+        <Panel.Title>File listing</Panel.Title>
         <StackedList hasDividers>
           {data.map(({ id, title, link, filesize, date }) => (
             <FileItem key={id}>

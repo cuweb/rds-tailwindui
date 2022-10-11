@@ -47,7 +47,7 @@ const StackedListPanelTemplate: Story<JobItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
-        <Panel.Title>News feed listing</Panel.Title>
+        <Panel.Title>Job listing</Panel.Title>
         <StackedList hasDividers>
           {data.map(({ id, title, link, dateData, date }) => (
             <JobItem key={id}>
