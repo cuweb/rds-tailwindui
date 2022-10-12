@@ -7,3 +7,4 @@ export {
   MarketplaceItem,
   MarketplaceItemProps,
 } from './ListingItems/MarketplaceItem';
+export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
