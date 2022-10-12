@@ -31,7 +31,7 @@ const DefaultTemplate: Story<EventItemProps> = args => (
         time={args.time}
         location={args.location}
       />
-      <EventItem.Category />
+      <EventItem.Category category={args.category} />
     </EventItem.Content>
   </EventItem>
 );
@@ -52,7 +52,7 @@ const SingleItemPanelTemplate: Story<EventItemProps> = args => (
             time={args.time}
             location={args.location}
           />
-          <EventItem.Category />
+          <EventItem.Category category={args.category} />
         </EventItem.Content>
       </EventItem>
     </Panel>
@@ -60,25 +60,74 @@ const SingleItemPanelTemplate: Story<EventItemProps> = args => (
 );
 
 const StackedListPanelTemplate: Story<EventItemProps> = () => (
+  <Container>
+    <Column maxWidth="3xl">
+      <Panel hasShadow>
+        <StackedList hasDividers>
+          {data.map(
+            ({
+              id,
+              title,
+              link,
+              month,
+              day,
+              date,
+              time,
+              location,
+              category,
+            }) => (
+              <EventItem key={id}>
+                <EventItem.DateBox month={month} day={day} />
+                <EventItem.Content>
+                  <EventItem.Title title={title} link={link} />
+                  <EventItem.Details
+                    date={date}
+                    time={time}
+                    location={location}
+                  />
+                  <EventItem.Category category={category} />
+                </EventItem.Content>
+              </EventItem>
+            )
+          )}
+        </StackedList>
+      </Panel>
+    </Column>
+  </Container>
+);
+
+const StackedListPanelTitleTemplate: Story<EventItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Event listing</Panel.Title>
         <StackedList hasDividers>
-          {data.map(({ id, title, link, month, day, date, time, location }) => (
-            <EventItem key={id}>
-              <EventItem.DateBox month={month} day={day} />
-              <EventItem.Content>
-                <EventItem.Title title={title} link={link} />
-                <EventItem.Details
-                  date={date}
-                  time={time}
-                  location={location}
-                />
-                <EventItem.Category />
-              </EventItem.Content>
-            </EventItem>
-          ))}
+          {data.map(
+            ({
+              id,
+              title,
+              link,
+              month,
+              day,
+              date,
+              time,
+              location,
+              category,
+            }) => (
+              <EventItem key={id}>
+                <EventItem.DateBox month={month} day={day} />
+                <EventItem.Content>
+                  <EventItem.Title title={title} link={link} />
+                  <EventItem.Details
+                    date={date}
+                    time={time}
+                    location={location}
+                  />
+                  <EventItem.Category category={category} />
+                </EventItem.Content>
+              </EventItem>
+            )
+          )}
         </StackedList>
       </Panel>
     </Column>
@@ -95,6 +144,7 @@ Default.args = {
   month: 'Sept',
   day: '15',
   date: 'September 15th, 2020',
+  category: 'Future Students',
 };
 
 export const SingleItemPanel = SingleItemPanelTemplate.bind({});
@@ -107,6 +157,12 @@ StackedListPanel.args = {
   ...Default.args,
 };
 
+export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
+StackedListPanelTitle.args = {
+  ...Default.args,
+};
+
 Default.storyName = 'Default item';
 SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'In a stacked list';
+StackedListPanel.storyName = 'Stacked list w/shadow';
+StackedListPanelTitle.storyName = 'Stacked list w/title';
