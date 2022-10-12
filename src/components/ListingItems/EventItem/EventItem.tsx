@@ -7,6 +7,9 @@ import {
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
 // Set header types, changes the default <EventItem.Title as="h3">
+type BaseItemTypeProps = 'li' | 'div';
+
+// Set header types, changes the default <EventItem.Title as="h3">
 type TitleTypeProps = 'h2' | 'h3';
 
 // Set props for EventItem
@@ -21,6 +24,10 @@ export interface EventItemProps {
   day?: string;
   date?: string;
   category?: string;
+}
+
+export interface BaseItemProps {
+  as?: BaseItemTypeProps;
 }
 
 export interface TitleProps {
