@@ -63,6 +63,27 @@ const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
 );
 
 const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
+  <Container>
+    <Column maxWidth="3xl">
+      <Panel hasShadow>
+        <StackedList hasDividers>
+          {data.map(({ id, title, link, image, condition, cost }) => (
+            <MarketplaceItem key={id}>
+              <MarketplaceItem.Image image={image} />
+              <MarketplaceItem.Content>
+                <MarketplaceItem.Title title={title} link={link} />
+                <MarketplaceItem.Details condition={condition} cost={cost} />
+                <MarketplaceItem.Category />
+              </MarketplaceItem.Content>
+            </MarketplaceItem>
+          ))}
+        </StackedList>
+      </Panel>
+    </Column>
+  </Container>
+);
+
+const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
@@ -104,6 +125,12 @@ StackedListPanel.args = {
   ...Default.args,
 };
 
+export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
+StackedListPanelTitle.args = {
+  ...Default.args,
+};
+
 Default.storyName = 'Default item';
 SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'In a stacked list';
+StackedListPanel.storyName = 'Stacked list w/shadow';
+StackedListPanelTitle.storyName = 'Stacked list w/title';

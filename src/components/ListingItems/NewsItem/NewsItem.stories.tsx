@@ -48,6 +48,27 @@ const SingleItemPanelTemplate: Story<NewsItemProps> = args => (
 );
 
 const StackedListPanelTemplate: Story<NewsItemProps> = () => (
+  <Container>
+    <Column maxWidth="3xl">
+      <Panel hasShadow>
+        <StackedList hasDividers>
+          {data.map(({ id, title, link, image, date, excerpt }) => (
+            <NewsItem key={id}>
+              <NewsItem.Image image={image} />
+              <NewsItem.Content>
+                <NewsItem.Title title={title} link={link} />
+                <NewsItem.Date date={date} />
+                <NewsItem.Excerpt excerpt={excerpt} />
+              </NewsItem.Content>
+            </NewsItem>
+          ))}
+        </StackedList>
+      </Panel>
+    </Column>
+  </Container>
+);
+
+const StackedListPanelTitleTemplate: Story<NewsItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
@@ -90,6 +111,12 @@ StackedListPanel.args = {
   ...Default.args,
 };
 
+export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
+StackedListPanelTitle.args = {
+  ...Default.args,
+};
+
 Default.storyName = 'Default item';
 SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'In a stacked list';
+StackedListPanel.storyName = 'Stacked list w/shadow';
+StackedListPanelTitle.storyName = 'Stacked list w/title';

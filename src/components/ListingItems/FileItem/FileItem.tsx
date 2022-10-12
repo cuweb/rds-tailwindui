@@ -24,9 +24,9 @@ const FileItemBase = ({ as: Component, children, link }: any) => {
     <Component>
       <a
         href={link}
-        className="relative flex items-center gap-2 p-6 overflow-hidden cursor-pointer hover:bg-gray-50 focus:outline-none group"
+        className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <div className="flex-none w-auto">
             <svg
               className="flex items-start flex-none w-12 h-12"

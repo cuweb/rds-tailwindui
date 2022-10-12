@@ -104,14 +104,7 @@ const Details = ({ date, time, location }: EventItemProps) => {
 };
 
 const Category = ({ category }: EventItemProps) => {
-  return (
-    <div>
-      <Badge>{category}</Badge>
-      {/* <Badge>Multi-Day</Badge>
-      <Badge>Student Event</Badge>
-      <Badge>Faculty Luncheon</Badge> */}
-    </div>
-  );
+  return <Badge>{category}</Badge>;
 };
 
 // Set default for base component as props

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
+import { Badge } from '../../Badge';
 
 // Set header types, changes the default <FeedItem.Title as="h3">
 type TitleTypeProps = 'h2' | 'h3';
@@ -25,9 +26,9 @@ const FeedItemBase = ({ as: Component, children, link }: any) => {
     <Component>
       <a
         href={link}
-        className="relative flex items-center gap-2 p-6 overflow-hidden cursor-pointer hover:bg-gray-50 focus:outline-none group"
+        className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
       >
-        <div className="flex items-start gap-3">{children}</div>
+        <div className="flex items-start gap-4">{children}</div>
         <ChevronRightIcon
           className="flex-none w-5 h-5 ml-auto text-cu-black-300"
           aria-hidden="true"
@@ -38,7 +39,7 @@ const FeedItemBase = ({ as: Component, children, link }: any) => {
 };
 
 const Content = ({ children }: FeedItemProps) => {
-  return <div className="flex-auto">{children}</div>;
+  return <div className="flex flex-col flex-auto gap-2">{children}</div>;
 };
 
 const Title = ({
@@ -56,22 +57,15 @@ const Title = ({
 };
 
 const Date = ({ date }: FeedItemProps) => {
-  return (
-    <p className="mt-1 mb-1 mr-4 text-sm italic text-cu-black-700">{date}</p>
-  );
+  return <p className="mr-4 text-sm italic text-cu-black-700">{date}</p>;
 };
 
 const Excerpt = ({ excerpt }: FeedItemProps) => {
-  return <p className="mt-2 text-sm text-cu-black-900">{excerpt}</p>;
+  return <p className="text-sm text-cu-black-900">{excerpt}</p>;
 };
 
 const Category = ({ category }: FeedItemProps) => {
-  return (
-    <div className="mt-2">
-      {/* <Badge>{category}</Badge> */}
-      <p className="mt-2 text-sm text-cu-black-900">{category}</p>
-    </div>
-  );
+  return <Badge>{category}</Badge>;
 };
 
 // Set default for base component as props

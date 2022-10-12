@@ -24,7 +24,7 @@ const LinkItemBase = ({ as: Component, children, link }: any) => {
         href={link}
         className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1">
           <div className="flex-none w-auto">
             <LinkIcon className="flex-none w-4 h-4 mr-2 text-cu-red" />
           </div>
@@ -40,7 +40,7 @@ const LinkItemBase = ({ as: Component, children, link }: any) => {
 };
 
 const Content = ({ children }: LinkItemProps) => {
-  return <div className="flex flex-col flex-auto gap-1">{children}</div>;
+  return <div className="flex flex-col flex-auto gap-2">{children}</div>;
 };
 
 const Title = ({

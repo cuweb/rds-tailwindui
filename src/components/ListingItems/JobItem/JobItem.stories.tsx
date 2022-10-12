@@ -44,6 +44,25 @@ const SingleItemPanelTemplate: Story<JobItemProps> = args => (
 );
 
 const StackedListPanelTemplate: Story<JobItemProps> = () => (
+  <Container>
+    <Column maxWidth="3xl">
+      <Panel hasShadow>
+        <StackedList hasDividers>
+          {data.map(({ id, title, link, dateData, date }) => (
+            <JobItem key={id}>
+              <JobItem.Content>
+                <JobItem.Title title={title} link={link} />
+                <JobItem.Details dateData={dateData} date={date} />
+              </JobItem.Content>
+            </JobItem>
+          ))}
+        </StackedList>
+      </Panel>
+    </Column>
+  </Container>
+);
+
+const StackedListPanelTitleTemplate: Story<JobItemProps> = () => (
   <Container bgColor="gray">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
@@ -82,6 +101,12 @@ StackedListPanel.args = {
   ...Default.args,
 };
 
+export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
+StackedListPanelTitle.args = {
+  ...Default.args,
+};
+
 Default.storyName = 'Default item';
 SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'In a stacked list';
+StackedListPanel.storyName = 'Stacked list w/shadow';
+StackedListPanelTitle.storyName = 'Stacked list w/title';

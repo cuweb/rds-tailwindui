@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  ChevronRightIcon,
-  CurrencyDollarIcon,
-} from '@heroicons/react/24/outline';
+import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
+import { Badge } from '../../Badge';
 
 // Set header types, changes the default <MarketplaceItem.Title as="h3">
 type TitleTypeProps = 'h2' | 'h3';
@@ -31,7 +29,7 @@ const MarketplaceItemBase = ({ as: Component, children, link }: any) => {
         href={link}
         className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
       >
-        <div className="flex items-center gap-3">{children}</div>
+        <div className="flex items-center gap-4">{children}</div>
         <ChevronRightIcon
           className="flex-none w-5 h-5 ml-auto text-cu-black-300"
           aria-hidden="true"
@@ -71,31 +69,14 @@ const Details = ({ cost, condition }: MarketplaceItemProps) => {
   return (
     <ul className="flex flex-wrap sm:gap-2">
       <li className="flex items-center mr-2 text-sm text-cu-black-700">
-        <CurrencyDollarIcon
-          className="mr-1.5 h-5 w-5 flex-shrink-0 text-cu-red-300"
-          aria-hidden="true"
-        />
         {condition} condition for {cost}
       </li>
-      {/* <li className="flex items-center mt-2 text-sm text-cu-black-700 sm:mt-0">
-          <CurrencyDollarIcon
-            className="mr-1.5 h-5 w-5 flex-shrink-0 text-cu-red-300"
-            aria-hidden="true"
-          />
-          {location}
-        </li> */}
     </ul>
   );
 };
 
 const Category = ({ category }: MarketplaceItemProps) => {
-  return (
-    <div className="mt-1">
-      <p>{category}</p>
-      {/* <Badge>Fair</Badge>
-        <Badge>Available</Badge> */}
-    </div>
-  );
+  return <Badge>{category}</Badge>;
 };
 
 // Set default for base component as props

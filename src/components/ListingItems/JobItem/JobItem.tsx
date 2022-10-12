@@ -27,7 +27,7 @@ const JobItemBase = ({ as: Component, children, link }: any) => {
         href={link}
         className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
       >
-        <div className="flex items-center gap-3">{children}</div>
+        <div className="flex items-center gap-4">{children}</div>
         <ChevronRightIcon
           className="flex-none w-5 h-5 ml-auto text-cu-black-300"
           aria-hidden="true"
@@ -38,7 +38,7 @@ const JobItemBase = ({ as: Component, children, link }: any) => {
 };
 
 const Content = ({ children }: JobItemProps) => {
-  return <div className="flex flex-col flex-auto gap-1">{children}</div>;
+  return <div className="flex flex-col flex-auto gap-2">{children}</div>;
 };
 
 const Title = ({
@@ -57,11 +57,9 @@ const Title = ({
 
 const Details = ({ dateData, date }: JobItemProps) => {
   return (
-    <p className="flex mt-2 text-xs text-cu-black-900">
+    <p className="flex text-xs text-cu-black-900">
       <CalendarIcon className="w-4 h-4 mr-1 text-cu-red" aria-hidden="true" />
-      <time className="mr-4" dateTime={dateData}>
-        Closes {date}
-      </time>
+      <time dateTime={dateData}>Closes {date}</time>
     </p>
   );
 };
