@@ -76,7 +76,11 @@ const Details = ({ cost, condition }: MarketplaceItemProps) => {
 };
 
 const Category = ({ category }: MarketplaceItemProps) => {
-  return <Badge>{category}</Badge>;
+  return (
+    <div>
+      <Badge>{category}</Badge>
+    </div>
+  );
 };
 
 // Set default for base component as props

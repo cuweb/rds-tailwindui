@@ -104,7 +104,11 @@ const Details = ({ date, time, location }: EventItemProps) => {
 };
 
 const Category = ({ category }: EventItemProps) => {
-  return <Badge>{category}</Badge>;
+  return (
+    <div>
+      <Badge>{category}</Badge>
+    </div>
+  );
 };
 
 // Set default for base component as props

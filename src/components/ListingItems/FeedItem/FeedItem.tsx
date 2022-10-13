@@ -65,7 +65,11 @@ const Excerpt = ({ excerpt }: FeedItemProps) => {
 };
 
 const Category = ({ category }: FeedItemProps) => {
-  return <Badge>{category}</Badge>;
+  return (
+    <div>
+      <Badge>{category}</Badge>
+    </div>
+  );
 };
 
 // Set default for base component as props
