@@ -1,0 +1,14 @@
+.rdp-day_today:not(.rdp-day_outside) {
+  @apply font-bold text-xl;
+}
+
+.rdp-day_selected,
+.rdp-day_selected:focus-visible,
+.rdp-day_selected:hover,
+.rdp-button:hover:not([disabled]):not(.rdp-day_selected) {
+  @apply bg-cu-red;
+}
+
+.rdp-table {
+  @apply overflow-x-auto relative shadow-md sm:rounded-lg;
+}

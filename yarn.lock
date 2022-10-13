@@ -5636,7 +5636,7 @@ data-urls@^1.1.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@^2.29.1:
+date-fns@^2.29.1, date-fns@^2.29.3:
   version "2.29.3"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.29.3.tgz#27402d2fc67eb442b511b70bbdf98e6411cd68a8"
   integrity sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==
@@ -11311,6 +11311,11 @@ react-clientside-effect@^1.2.6:
   integrity sha512-XGGGRQAKY+q25Lz9a/4EPqom7WRjz3z9R2k4jhVKA/puQFH/5Nt27vFZYql4m4NVNdUvX8PS3O7r/Zzm7cjUlg==
   dependencies:
     "@babel/runtime" "^7.12.13"
+
+react-day-picker@^8.3.5:
+  version "8.3.5"
+  resolved "https://registry.yarnpkg.com/react-day-picker/-/react-day-picker-8.3.5.tgz#db00f7657e71f697055dcecbe2d9e91f84e4b026"
+  integrity sha512-cSMNjbn5IKZLVgfvPopbg+Dk5qQPesi2prlxXBrXlCODUThk5Zyu5fDn7njZt3y7ih65gWbZId0D0lnhyiF1GQ==
 
 react-docgen-typescript@^2.1.1:
   version "2.2.2"
