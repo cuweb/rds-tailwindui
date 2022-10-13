@@ -59,7 +59,7 @@ const Title = ({
 
 const Image = ({ image }: MarketplaceItemProps) => {
   return (
-    <div className="flex-none w-16 md:w-20">
+    <div className="flex-none w-16 md:w-24">
       <img className="w-auto h-auto rounded lg:w-24" src={image} alt="" />
     </div>
   );

@@ -98,7 +98,7 @@ Default.args = {
   date: 'November 24th, 2022',
   excerpt:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dictum, metus id luctus aliquam, mi libero rutrum massa, ac finibus risus velit in odio.',
-  category: '{Badge component required}',
+  category: 'Human Resources',
 };
 
 export const SingleItemPanel = SingleItemPanelTemplate.bind({});

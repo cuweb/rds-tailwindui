@@ -33,7 +33,7 @@ const DefaultTemplate: Story<MarketplaceItemProps> = args => (
         cost={args.cost}
       />
       <MarketplaceItem.Details condition={args.condition} cost={args.cost} />
-      <MarketplaceItem.Category />
+      <MarketplaceItem.Category category={args.category} />
     </MarketplaceItem.Content>
   </MarketplaceItem>
 );
@@ -55,7 +55,7 @@ const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
             condition={args.condition}
             cost={args.cost}
           />
-          <MarketplaceItem.Category />
+          <MarketplaceItem.Category category={args.category} />
         </MarketplaceItem.Content>
       </MarketplaceItem>
     </Panel>
@@ -67,13 +67,13 @@ const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
     <Column maxWidth="3xl">
       <Panel hasShadow>
         <StackedList hasDividers>
-          {data.map(({ id, title, link, image, condition, cost }) => (
+          {data.map(({ id, title, link, image, condition, cost, category }) => (
             <MarketplaceItem key={id}>
               <MarketplaceItem.Image image={image} />
               <MarketplaceItem.Content>
                 <MarketplaceItem.Title title={title} link={link} />
                 <MarketplaceItem.Details condition={condition} cost={cost} />
-                <MarketplaceItem.Category />
+                <MarketplaceItem.Category category={category} />
               </MarketplaceItem.Content>
             </MarketplaceItem>
           ))}
@@ -89,13 +89,13 @@ const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
       <Panel hasBorder hasShadow>
         <Panel.Title>Marketplace listing</Panel.Title>
         <StackedList hasDividers>
-          {data.map(({ id, title, link, image, condition, cost }) => (
+          {data.map(({ id, title, link, image, condition, cost, category }) => (
             <MarketplaceItem key={id}>
               <MarketplaceItem.Image image={image} />
               <MarketplaceItem.Content>
                 <MarketplaceItem.Title title={title} link={link} />
                 <MarketplaceItem.Details condition={condition} cost={cost} />
-                <MarketplaceItem.Category />
+                <MarketplaceItem.Category category={category} />
               </MarketplaceItem.Content>
             </MarketplaceItem>
           ))}
@@ -113,6 +113,7 @@ Default.args = {
   cost: '$100.00',
   condition: 'Like New',
   image: 'https://source.unsplash.com/random/400x300',
+  category: 'Category',
 };
 
 export const SingleItemPanel = SingleItemPanelTemplate.bind({});
