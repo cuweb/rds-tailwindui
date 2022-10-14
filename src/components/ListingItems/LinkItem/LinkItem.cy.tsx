@@ -9,20 +9,20 @@ describe('LinkItem', () => {
     cy.get('a').should('have.attr', 'href');
   });
 
-  //single item in panel  panel
+  //single item in panel panel
   it(' Single LinkItem in Panel ', () => {
     cy.visit('/iframe.html?id=components-list-items-links--single-item-panel');
     cy.get(`.cu-panel`).should('exist');
   });
 
   // item list in panel and has shawdows
-  it('LinkItem  stack list with shadows ', () => {
+  it('LinkItem stack list with shadows ', () => {
     cy.visit('/iframe.html?id=components-list-items-links--stacked-list-panel');
     cy.get(`.shadow-lg`).should('exist');
   });
 
   //with panel and panel title
-  it('LinkItem  stack list with title ', () => {
+  it('LinkItem stack list with title ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-links--stacked-list-panel-title'
     );

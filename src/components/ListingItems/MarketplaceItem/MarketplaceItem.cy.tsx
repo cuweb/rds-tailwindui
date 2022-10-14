@@ -10,7 +10,7 @@ describe('Marketplace', () => {
     cy.get('p').should('exist');
   });
 
-  //single item in panel  panel
+  //single item in panel panel
   it(' Single Marketplace in Panel ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-marketplace--single-item-panel'
@@ -20,7 +20,7 @@ describe('Marketplace', () => {
   });
 
   // item list in panel and has shawdows
-  it('Marketplace  stack list with shadows ', () => {
+  it('Marketplace stack list with shadows ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-marketplace--stacked-list-panel'
     );
@@ -29,7 +29,7 @@ describe('Marketplace', () => {
   });
 
   //with panel and panel title
-  it('Marketplace  stack list with title ', () => {
+  it('Marketplace stack list with title ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-marketplace--stacked-list-panel-title'
     );

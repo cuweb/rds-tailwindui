@@ -9,20 +9,20 @@ describe('FeedItems', () => {
     cy.get('a').should('have.attr', 'href');
   });
 
-  //single item in panel  panel
+  //single item in panel panel
   it(' Single FeedItems in Panel ', () => {
     cy.visit('/iframe.html?id=components-list-items-feeds--single-item-panel');
     cy.get(`.cu-panel`).should('exist');
   });
 
   // item list in panel and has shawdows
-  it('FeedItems  stack list with shadows ', () => {
+  it('FeedItems stack list with shadows ', () => {
     cy.visit('/iframe.html?id=components-list-items-feeds--stacked-list-panel');
     cy.get(`.shadow-lg`).should('exist');
   });
 
   //with panel and panel title
-  it('FeedItems  stack list with title ', () => {
+  it('FeedItems stack list with title ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-feeds--stacked-list-panel-title'
     );

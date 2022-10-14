@@ -10,7 +10,7 @@ describe('Marketplace', () => {
     cy.get('p').should('exist');
   });
 
-  //single item in panel  panel
+  //single item in panel panel
   it(' Single NewsItem in Panel ', () => {
     cy.visit('/iframe.html?id=components-list-items-news--single-item-panel');
     cy.get(`.cu-panel`).should('exist');
@@ -18,14 +18,14 @@ describe('Marketplace', () => {
   });
 
   // item list in panel and has shawdows
-  it('NewsItem  stack list with shadows ', () => {
+  it('NewsItem stack list with shadows ', () => {
     cy.visit('/iframe.html?id=components-list-items-news--stacked-list-panel');
     cy.get(`.shadow-lg`).should('exist');
     cy.get('img').should('exist');
   });
 
   //with panel and panel title
-  it('NewsItem  stack list with title ', () => {
+  it('NewsItem stack list with title ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-news--stacked-list-panel-title'
     );

@@ -8,7 +8,7 @@ describe('Events', () => {
   });
 
   //with shawdows and panel
-  it('Event  stack list with shadows ', () => {
+  it('Event stack list with shadows ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-events--stacked-list-panel'
     );
@@ -16,7 +16,7 @@ describe('Events', () => {
   });
 
   //with panel and panel title
-  it('Event  stack list with title ', () => {
+  it('Event stack list with title ', () => {
     cy.visit(
       '/iframe.html?id=components-list-items-events--stacked-list-panel-title'
     );
