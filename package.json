@@ -14,7 +14,7 @@
     "start": "tsdx watch",
     "dev": "tsdx watch --onSuccess 'yarn build-tailwind'",
     "build": "tsdx lint --fix && tsdx build && yarn build-tailwind && yarn size",
-    "test": "yarn cypress run open",
+    "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint --fix",
     "prepare": "tsdx build && husky install",
     "size": "size-limit",
