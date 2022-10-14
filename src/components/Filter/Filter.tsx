@@ -9,6 +9,11 @@ import {
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
+const styles = {
+  dropDownTitles: `inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900`,
+  chevron: `flex-shrink-0 w-5 h-5 ml-1 text-cu-black-300 group-hover:text-cu-black-600`,
+};
+
 export interface FilterProps {
   sortOptions: {
     name: string;
@@ -31,13 +36,16 @@ function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const Filter: React.FC<FilterProps> = ({
-  sortOptions,
-  filters,
-}): JSX.Element => {
+// export const Filter: React.FC<FilterProps> = ({
+//   sortOptions,
+//   filters,
+// }): JSX.Element => {
+
+export const Filter = ({ sortOptions, filters }: FilterProps) => {
   const [open, setOpen] = useState(false);
   const [sortItem, setSortItem] = useState('');
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
+
   const isSelected = (name: string) => selectedItems.includes(name);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
@@ -64,7 +72,7 @@ export const Filter: React.FC<FilterProps> = ({
   }, [sortItem, selectedItems]);
 
   return (
-    <div className="bg-white">
+    <div>
       {/* Mobile filter dialog */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 sm:hidden" onClose={setOpen}>
@@ -166,19 +174,20 @@ export const Filter: React.FC<FilterProps> = ({
         </Dialog>
       </Transition.Root>
 
-      {/* Filters */}
       <section aria-labelledby="filter-heading">
         <h2 id="filter-heading" className="sr-only">
           Filters
         </h2>
+
+        {/* Filter selectors */}
         <div className="py-4 border rounded-tl-lg rounded-tr-lg border-cu-black-100 bg-gray-50">
-          <div className="flex items-center justify-between px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <Menu as="div" className="relative inline-block text-left">
+          <div className="flex justify-between px-4 sm:px-6">
+            <Menu as="div" className="relative">
               <div>
-                <Menu.Button className="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
+                <Menu.Button className={styles.dropDownTitles}>
                   Sort
                   <ChevronDownIcon
-                    className="flex-shrink-0 w-5 h-5 ml-1 -mr-1 text-gray-400 group-hover:text-gray-500"
+                    className={styles.chevron}
                     aria-hidden="true"
                   />
                 </Menu.Button>
@@ -193,7 +202,8 @@ export const Filter: React.FC<FilterProps> = ({
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Menu.Items className="absolute left-0 z-10 w-40 mt-2 origin-top-left bg-white rounded-md shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                {/* Sort drop down menu */}
+                <Menu.Items className="absolute z-10 w-40 mt-2 bg-white rounded-md shadow-lg -left-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   <div className="py-1">
                     {sortOptions.map(option => (
                       <Menu.Item key={option.name}>
@@ -201,9 +211,10 @@ export const Filter: React.FC<FilterProps> = ({
                           <a
                             href={option.href}
                             className={classNames(
+                              // TODO: update styles
                               option.name === sortItem
-                                ? 'font-medium text-gray-900'
-                                : 'text-gray-500',
+                                ? 'font-medium text-cu-black-800'
+                                : 'text-cu-black-600',
                               active ? 'bg-gray-100' : '',
                               'block px-4 py-2 text-sm'
                             )}
@@ -236,10 +247,10 @@ export const Filter: React.FC<FilterProps> = ({
                       key={sectionIdx}
                       className="relative inline-block px-4 text-left"
                     >
-                      <Popover.Button className="inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900">
+                      <Popover.Button className={styles.dropDownTitles}>
                         <span>{section.name}</span>
                         <ChevronDownIcon
-                          className="flex-shrink-0 w-5 h-5 ml-1 -mr-1 text-gray-400 group-hover:text-gray-500"
+                          className={styles.chevron}
                           aria-hidden="true"
                         />
                       </Popover.Button>
@@ -253,7 +264,7 @@ export const Filter: React.FC<FilterProps> = ({
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Popover.Panel className="absolute right-0 z-10 p-4 mt-2 origin-top-right bg-white rounded-md shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Popover.Panel className="absolute right-0 z-10 p-4 mt-2 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <form className="space-y-4">
                             {section.options.map((option, optionIdx) => (
                               <div
@@ -267,11 +278,11 @@ export const Filter: React.FC<FilterProps> = ({
                                   type="checkbox"
                                   onChange={() => handleSelect(option.label)}
                                   defaultChecked={isSelected(option.label)}
-                                  className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                  className="w-4 h-4 rounded border-cu-black-200 text-cu-red focus:ring-cu-red-100"
                                 />
                                 <label
                                   htmlFor={`filter-${section.id}-${optionIdx}`}
-                                  className="pr-6 ml-3 text-sm font-medium text-gray-900 whitespace-nowrap"
+                                  className="pr-6 ml-3 text-sm text-cu-black-600 whitespace-nowrap"
                                 >
                                   {option.label}
                                 </label>
@@ -289,9 +300,9 @@ export const Filter: React.FC<FilterProps> = ({
         </div>
 
         {/* Active filters */}
-        <div className="border border-t-0 rounded-bl-lg rounded-br-lg border-cu-black-100 bg-gray-50">
-          <div className="px-4 py-3 mx-auto max-w-7xl sm:flex sm:items-center sm:px-6 lg:px-8">
-            <h3 className="text-sm font-medium text-gray-500">
+        <div className="bg-white border border-t-0 rounded-bl-lg rounded-br-lg border-cu-black-100">
+          <div className="px-4 py-3 sm:flex sm:items-center sm:px-6">
+            <h3 className="py-1 text-sm text-cu-black-600">
               Filters
               <span className="sr-only">, active</span>
             </h3>
@@ -301,18 +312,18 @@ export const Filter: React.FC<FilterProps> = ({
               className="hidden w-px h-5 bg-gray-300 sm:ml-4 sm:block"
             />
 
-            <div className="mt-2 sm:mt-0 sm:ml-4">
-              <div className="flex flex-wrap items-center -m-1">
+            <div className="mt-4 sm:mt-0 sm:ml-4">
+              <div className="flex flex-wrap items-center gap-3 -m-1">
                 {activeFilters.map((activeFilter, index) => (
                   <span
                     key={index}
-                    className="m-1 inline-flex items-center rounded-full border border-gray-200 bg-white py-1.5 pl-3 pr-2 text-sm font-medium text-gray-900"
+                    className="inline-flex items-center py-1 pl-3 pr-2 text-sm bg-white border rounded-lg border-cu-black-100 text-cu-black-600"
                   >
                     <span>{activeFilter}</span>
                     <button
                       type="button"
                       onClick={() => handleRemove(activeFilter)}
-                      className="inline-flex flex-shrink-0 w-4 h-4 p-1 ml-1 text-gray-400 rounded-full hover:bg-gray-200 hover:text-gray-500"
+                      className="inline-flex flex-shrink-0 w-4 h-4 p-1 ml-1 rounded-full text-cu-black-400 hover:bg-cu-red hover:text-white"
                     >
                       <span className="sr-only">
                         Remove filter for {activeFilter}

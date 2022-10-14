@@ -4,7 +4,7 @@ import { Filter, FilterProps } from './Filter';
 import data from './FilterData.json';
 //console.log(data.filters);
 const meta: Meta = {
-  title: 'Input/Filter',
+  title: 'Components/Filter',
   component: Filter,
 };
 
