@@ -1,7 +1,13 @@
-describe('Button', () => {
-  it('Does Button exist?', () => {
-    cy.visit('/iframe.html?id=badge--default&viewMode=story');
-    cy.get('button').should('exist');
+describe('Badge', () => {
+  const types = ['default', 'single-item-panel'];
+
+  types.map(type => {
+    it(`${type}: Should render the p`, () => {
+      cy.visit(
+        `${Cypress.env('baseUrl')}/iframe.html?id=components-badge--${type}`
+      );
+      cy.get(`p`).should('exist');
+    });
   });
 });
 export {};
