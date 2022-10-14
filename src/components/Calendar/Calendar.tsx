@@ -3,9 +3,11 @@ import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 import './Calendar.css';
-export interface CalendarProps {}
+export interface CalendarProps {
+  any: any; //for future props
+}
 
-export const Calendar: React.FC<CalendarProps> = ({}): JSX.Element => {
+export const Calendar: React.FC<CalendarProps> = (): JSX.Element => {
   const [selectedDay, setSelectedDay] = useState<Date>();
 
   const footer = selectedDay ? (
