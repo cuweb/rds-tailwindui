@@ -7,6 +7,7 @@ import {
   endOfMonth,
   format,
   getDay,
+  isBefore,
   isEqual,
   isSameDay,
   isSameMonth,
@@ -113,6 +114,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 >
                   <button
                     type="button"
+                    disabled={isBefore(day, today)}
                     onClick={() => setSelectedDay(day)}
                     className={classNames(
                       isEqual(day, selectedDay) && 'text-white',
@@ -132,7 +134,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                       !isEqual(day, selectedDay) && 'hover:bg-cu-red-500',
                       (isEqual(day, selectedDay) || isToday(day)) &&
                         'font-semibold',
-                      'mx-auto flex h-8 w-8 items-center justify-center rounded-full'
+                      'mx-auto flex h-8 w-8 items-center justify-center rounded-full disabled:bg-cu-black-50'
                     )}
                   >
                     <time dateTime={format(day, 'yyyy-MM-dd')}>
