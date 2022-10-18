@@ -120,7 +120,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                       isEqual(day, selectedDay) && 'text-white',
                       !isEqual(day, selectedDay) &&
                         isToday(day) &&
-                        'text-cu-red',
+                        'text-cu-red hover:text-cu-black-900',
                       !isEqual(day, selectedDay) &&
                         !isToday(day) &&
                         isSameMonth(day, firstDayCurrentMonth) &&
