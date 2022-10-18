@@ -95,6 +95,17 @@ ChildrenInButton.args = {
   },
 };
 
+export const IconButton: Story = args => (
+  <Button {...args}>
+    <PlusIcon className="-ml-0.5 h-4 w-4" aria-hidden="true" />
+  </Button>
+);
+IconButton.args = {
+  onClick: () => {
+    alert('button has been clicked ');
+  },
+};
+
 export const disabledButton = Template.bind({});
 disabledButton.args = {
   title: 'Storybook Button',
