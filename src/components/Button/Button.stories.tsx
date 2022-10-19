@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
-import { PlusIcon } from '@heroicons/react/20/solid';
+import { PlusIcon, MapPinIcon } from '@heroicons/react/20/solid';
 
 const meta: Meta = {
   title: 'Components/Input/Button',
@@ -83,24 +83,18 @@ centeredButton.args = {
   },
 };
 
-export const ChildrenInButton: Story = args => (
-  <Button {...args}>
-    <PlusIcon className="-ml-0.5 h-4 w-4" aria-hidden="true" />
-    Sample Button
-  </Button>
-);
-ChildrenInButton.args = {
+export const IconTextButton = Template.bind({});
+IconTextButton.args = {
+  title: 'Storybook Button',
+  icon: <MapPinIcon className="-ml-0.5 h-4 w-4" aria-hidden="true" />,
   onClick: () => {
     alert('button has been clicked ');
   },
 };
 
-export const IconButton: Story = args => (
-  <Button {...args}>
-    <PlusIcon className="-ml-0.5 h-4 w-4" aria-hidden="true" />
-  </Button>
-);
+export const IconButton = Template.bind({});
 IconButton.args = {
+  icon: <PlusIcon className="-ml-0.5 h-6 w-6" aria-hidden="true" />,
   onClick: () => {
     alert('button has been clicked ');
   },

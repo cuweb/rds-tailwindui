@@ -3,10 +3,10 @@ import React from 'react';
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
+  icon?: React.ReactNode;
   ghost?: boolean;
   full?: boolean;
   center?: boolean;
-  children?: React.ReactNode;
   grey?: boolean;
   white?: boolean;
 }
@@ -24,11 +24,11 @@ const styles = {
 export const Button = ({
   disabled,
   title,
+  icon,
   ghost,
   full,
   center,
   white,
-  children,
   grey,
   ...rest
 }: ButtonProps) => {
@@ -38,6 +38,7 @@ export const Button = ({
   const isFull = full ? 'w-full' : '';
   const isCenter = center ? 'relative left-1/2 -translate-x-1/2 ' : '';
   const isDisabled = disabled ? styles.disabled : '';
+  //icon sr-only for only icon
 
   return (
     <button
@@ -50,7 +51,8 @@ export const Button = ({
       disabled={disabled}
       {...rest}
     >
-      {children}
+      {/* margin with icon when title exist  */}
+      <span className={`${title ? 'mr-1' : ''} `}>{icon}</span>
       {title}
     </button>
   );
