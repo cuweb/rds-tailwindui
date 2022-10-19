@@ -100,8 +100,8 @@ IconButton.args = {
   },
 };
 
-export const disabledButton = Template.bind({});
-disabledButton.args = {
+export const DisabledButton = Template.bind({});
+DisabledButton.args = {
   title: 'Storybook Button',
   disabled: true,
   onClick: () => {
