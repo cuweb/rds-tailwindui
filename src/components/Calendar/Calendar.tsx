@@ -68,9 +68,6 @@ export const Calendar: React.FC<CalendarProps> = ({
         <div className="md:grid md:grid-cols-2 md:divide-x md:divide-cu-black-200">
           <div className="md:pr-14">
             <div className="flex items-center">
-              <h2 className="flex-auto font-semibold text-cu-black-900">
-                {format(firstDayCurrentMonth, 'MMMM yyyy')}
-              </h2>
               <button
                 type="button"
                 onClick={previousMonth}
@@ -79,6 +76,9 @@ export const Calendar: React.FC<CalendarProps> = ({
                 <span className="sr-only">Previous month</span>
                 <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
               </button>
+              <h2 className="text-center flex-auto font-semibold text-cu-black-900">
+                {format(firstDayCurrentMonth, 'MMMM yyyy')}
+              </h2>
               <button
                 onClick={nextMonth}
                 type="button"
@@ -97,13 +97,13 @@ export const Calendar: React.FC<CalendarProps> = ({
               <div>F</div>
               <div>S</div>
             </div>
-            <div className="grid grid-cols-7 mt-2 text-sm">
+            <div className="grid grid-cols-7 gap-px mt-2 text-sm bg-cu-black-50 rounded-lg shadow isolate ring-1 ring-gray-200">
               {days.map((day, dayIdx) => (
                 <div
                   key={day.toString()}
                   className={classNames(
                     dayIdx === 0 && colStartClasses[getDay(day)],
-                    'py-1.5'
+                    'py-1.5 bg-white'
                   )}
                 >
                   <button
@@ -146,8 +146,8 @@ export const Calendar: React.FC<CalendarProps> = ({
                 </div>
               ))}
             </div>
-            <h2 className="text-center font-semibold text-cu-black-900">
-              Selected{' '}
+            <h2 className="mt-5 text-center font-semibold text-cu-black-900">
+              Date Selected{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                 {format(selectedDay, 'MMM dd, yyy')}
               </time>
