@@ -1,11 +1,13 @@
 describe('Filter', () => {
   //default
-  it('Default Filter exist?', () => {
-    cy.visit('/iframe.html?id=components-filter--default');
-    cy.get('button').should('exist');
+  it('Should render the Filter', () => {
+    cy.clearCookies();
+    cy.visit('/iframe.html?id=components-input-filter--default');
     cy.get('h2').should('exist');
     cy.get('h3').should('exist');
+    cy.get('button').should('exist');
     cy.get('span').should('exist');
+    cy.get('svg').should('exist');
   });
 });
 export {};
