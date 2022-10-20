@@ -76,7 +76,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 <span className="sr-only">Previous month</span>
                 <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
               </button>
-              <h2 className="text-center flex-auto font-semibold text-cu-black-900">
+              <h2 className="flex-auto font-semibold text-center text-cu-black-900">
                 {format(firstDayCurrentMonth, 'MMMM yyyy')}
               </h2>
               <button
@@ -88,7 +88,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
               </button>
             </div>
-            <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-cu-black-500">
+            <div className="grid grid-cols-7 mt-10 text-xs leading-6 text-center text-cu-black-600">
               <div>S</div>
               <div>M</div>
               <div>T</div>
@@ -97,7 +97,7 @@ export const Calendar: React.FC<CalendarProps> = ({
               <div>F</div>
               <div>S</div>
             </div>
-            <div className="grid grid-cols-7 gap-px mt-2 text-sm bg-cu-black-50 rounded-lg shadow isolate ring-1 ring-gray-200">
+            <div className="grid grid-cols-7 gap-px mt-2 text-sm rounded-lg shadow bg-cu-black-50 isolate ring-1 ring-gray-200">
               {days.map((day, dayIdx) => (
                 <div
                   key={day.toString()}
@@ -146,7 +146,7 @@ export const Calendar: React.FC<CalendarProps> = ({
                 </div>
               ))}
             </div>
-            <h2 className="mt-5 text-center font-semibold text-cu-black-900">
+            <h2 className="mt-5 font-semibold text-center text-cu-black-900">
               Date Selected{' '}
               <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
                 {format(selectedDay, 'MMM dd, yyy')}
