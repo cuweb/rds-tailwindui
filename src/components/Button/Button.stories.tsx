@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
 import { PlusIcon, MapPinIcon } from '@heroicons/react/20/solid';
 
-const meta: Meta = {
+export default {
   title: 'Components/Input/Button',
   component: Button,
   argTypes: {
@@ -22,9 +22,7 @@ const meta: Meta = {
   parameters: {
     controls: { expanded: true },
   },
-};
-
-export default meta;
+} as Meta<typeof Button>;
 
 const Template: Story<ButtonProps> = args => <Button {...args} />;
 
