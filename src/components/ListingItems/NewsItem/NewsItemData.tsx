@@ -7,6 +7,7 @@ export const NewsItemData = [
     date: 'January 7, 2020',
     link: '#',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const NewsItemData = [
     date: 'January 7, 2020',
     link: '#',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ export const NewsItemData = [
     date: 'January 7, 2020',
     link: '#',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ export const NewsItemData = [
     date: 'January 7, 2020',
     link: '#',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
   },
   {
     id: 5,
@@ -43,5 +47,6 @@ export const NewsItemData = [
     date: 'January 7, 2020',
     link: '#',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
   },
 ];

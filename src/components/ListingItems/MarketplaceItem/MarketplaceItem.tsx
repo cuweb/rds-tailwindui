@@ -13,6 +13,7 @@ export interface MarketplaceItemProps {
   title?: string;
   link?: string;
   image?: string;
+  alt?: string;
   cost?: string;
   condition?: string;
   category?: string;
@@ -57,10 +58,10 @@ const Title = ({
   );
 };
 
-const Image = ({ image }: MarketplaceItemProps) => {
+const Image = ({ image, alt }: MarketplaceItemProps) => {
   return (
     <div className="flex-none w-16 md:w-24">
-      <img className="w-auto h-auto rounded lg:w-24" src={image} alt="" />
+      <img className="w-auto h-auto rounded lg:w-24" src={image} alt={alt} />
     </div>
   );
 };

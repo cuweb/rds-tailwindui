@@ -6,6 +6,7 @@ export const MarketplaceItemData = [
     cost: '$100.00',
     condition: 'Mint',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
     category: 'category',
   },
   {
@@ -15,6 +16,7 @@ export const MarketplaceItemData = [
     cost: '$40.00',
     condition: 'Mint',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
     category: 'category',
   },
   {
@@ -24,6 +26,7 @@ export const MarketplaceItemData = [
     cost: '$10000.00',
     condition: 'Open Box',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
     category: 'category',
   },
   {
@@ -33,6 +36,7 @@ export const MarketplaceItemData = [
     cost: '$90.00',
     condition: 'Like New',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
     category: 'category',
   },
   {
@@ -42,6 +46,7 @@ export const MarketplaceItemData = [
     cost: '$100.00',
     condition: 'Trash',
     image: 'https://source.unsplash.com/random/400x300',
+    alt: 'Image alt tag',
     category: 'category',
   },
 ];

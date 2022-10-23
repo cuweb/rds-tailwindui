@@ -13,6 +13,7 @@ export interface NewsItemProps {
   link?: string;
   cost?: string;
   image?: string;
+  alt?: string;
   date?: string;
   excerpt?: string;
 }
@@ -56,10 +57,10 @@ const Title = ({
   );
 };
 
-const Image = ({ image }: NewsItemProps) => {
+const Image = ({ image, alt }: NewsItemProps) => {
   return (
     <div className="flex-none hidden w-20 md:w-32 lg:block">
-      <img className="w-auto h-auto rounded" src={image} alt="" />
+      <img className="w-auto h-auto rounded" src={image} alt={alt} />
     </div>
   );
 };
