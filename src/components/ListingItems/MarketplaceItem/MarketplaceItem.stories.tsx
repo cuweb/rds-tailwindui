@@ -23,7 +23,7 @@ export default {
 
 const DefaultTemplate: Story<MarketplaceItemProps> = args => (
   <MarketplaceItem as="div" link={args.link}>
-    <MarketplaceItem.Image image={args.image} />
+    <MarketplaceItem.Image image={args.image} alt={args.alt} />
     <MarketplaceItem.Content>
       <MarketplaceItem.Title
         as="h2"
@@ -42,7 +42,7 @@ const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <MarketplaceItem as="div" link={args.link}>
-        <MarketplaceItem.Image image={args.image} />
+        <MarketplaceItem.Image image={args.image} alt={args.alt} />
         <MarketplaceItem.Content>
           <MarketplaceItem.Title
             as="h2"
@@ -67,16 +67,18 @@ const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
     <Column maxWidth="3xl">
       <Panel hasShadow>
         <StackedList hasDividers>
-          {data.map(({ id, title, link, image, condition, cost, category }) => (
-            <MarketplaceItem key={id}>
-              <MarketplaceItem.Image image={image} />
-              <MarketplaceItem.Content>
-                <MarketplaceItem.Title title={title} link={link} />
-                <MarketplaceItem.Details condition={condition} cost={cost} />
-                <MarketplaceItem.Category category={category} />
-              </MarketplaceItem.Content>
-            </MarketplaceItem>
-          ))}
+          {data.map(
+            ({ id, title, link, image, alt, condition, cost, category }) => (
+              <MarketplaceItem key={id}>
+                <MarketplaceItem.Image image={image} alt={alt} />
+                <MarketplaceItem.Content>
+                  <MarketplaceItem.Title title={title} link={link} />
+                  <MarketplaceItem.Details condition={condition} cost={cost} />
+                  <MarketplaceItem.Category category={category} />
+                </MarketplaceItem.Content>
+              </MarketplaceItem>
+            )
+          )}
         </StackedList>
       </Panel>
     </Column>
@@ -89,16 +91,18 @@ const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
       <Panel hasBorder hasShadow>
         <Panel.Title>Marketplace listing</Panel.Title>
         <StackedList hasDividers>
-          {data.map(({ id, title, link, image, condition, cost, category }) => (
-            <MarketplaceItem key={id}>
-              <MarketplaceItem.Image image={image} />
-              <MarketplaceItem.Content>
-                <MarketplaceItem.Title title={title} link={link} />
-                <MarketplaceItem.Details condition={condition} cost={cost} />
-                <MarketplaceItem.Category category={category} />
-              </MarketplaceItem.Content>
-            </MarketplaceItem>
-          ))}
+          {data.map(
+            ({ id, title, link, image, alt, condition, cost, category }) => (
+              <MarketplaceItem key={id}>
+                <MarketplaceItem.Image image={image} alt={alt} />
+                <MarketplaceItem.Content>
+                  <MarketplaceItem.Title title={title} link={link} />
+                  <MarketplaceItem.Details condition={condition} cost={cost} />
+                  <MarketplaceItem.Category category={category} />
+                </MarketplaceItem.Content>
+              </MarketplaceItem>
+            )
+          )}
         </StackedList>
       </Panel>
     </Column>
