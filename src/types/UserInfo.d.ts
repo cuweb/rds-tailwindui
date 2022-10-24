@@ -1,9 +1,9 @@
-import { ReactNode } from 'react'
-import { ImageType } from './Image'
+import { ReactNode } from 'react';
+import { ImageType } from './Image';
 
 export type UserInfoType = {
-    firstName: string
-    lastName: string
-    image?: ImageType
-    info?: ReactNode
-}
+  firstName: string;
+  lastName: string;
+  image?: ImageType;
+  info?: ReactNode;
+};

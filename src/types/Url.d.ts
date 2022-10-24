@@ -1,3 +1,3 @@
-import { UrlObject } from 'url'
+import { UrlObject } from 'url';
 
-type Url = string | UrlObject
+type Url = string | UrlObject;
