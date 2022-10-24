@@ -8,13 +8,13 @@
   ],
   "filters": [
     {
-      "id": "category",
-      "name": "Category",
+      "id": "audience",
+      "name": "Audience",
       "options": [
-        { "value": "planning", "label": "Planning", "checked": false },
+        { "value": "staff", "label": "Staff", "checked": false },
         {
-          "value": "projectmanagement",
-          "label": "Project Management",
+          "value": "student",
+          "label": "Student",
           "checked": false
         }
       ]

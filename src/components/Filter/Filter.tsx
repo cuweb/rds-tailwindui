@@ -15,7 +15,7 @@ const styles = {
 };
 
 export interface FilterProps {
-  sortOptions: {
+  sortOptions?: {
     name: string;
     href: string;
     current: boolean;
@@ -48,7 +48,6 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
 
   const isSelected = (name: string) => selectedItems.includes(name);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
-
   const handleSelect = (name: string) => {
     const selected: string = name;
     if (!selectedItems.includes(selected)) {
@@ -183,15 +182,17 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
         <div className="py-4 border rounded-tl-lg rounded-tr-lg border-cu-black-100 bg-gray-50">
           <div className="flex justify-between px-4 sm:px-6">
             <Menu as="div" className="relative">
-              <div>
-                <Menu.Button className={styles.dropDownTitles}>
-                  Sort
-                  <ChevronDownIcon
-                    className={styles.chevron}
-                    aria-hidden="true"
-                  />
-                </Menu.Button>
-              </div>
+              {sortOptions && sortOptions?.length > 0 && (
+                <div>
+                  <Menu.Button className={styles.dropDownTitles}>
+                    Sort
+                    <ChevronDownIcon
+                      className={styles.chevron}
+                      aria-hidden="true"
+                    />
+                  </Menu.Button>
+                </div>
+              )}
 
               <Transition
                 as={Fragment}
@@ -204,29 +205,30 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
               >
                 {/* Sort drop down menu */}
                 <Menu.Items className="absolute z-10 w-40 mt-2 bg-white rounded-md shadow-lg -left-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  <div className="py-1">
-                    {sortOptions.map(option => (
-                      <Menu.Item key={option.name}>
-                        {({ active }) => (
-                          <a
-                            href={option.href}
-                            className={classNames(
-                              // TODO: update styles
-                              option.name === sortItem
-                                ? 'font-medium text-cu-black-800'
-                                : 'text-cu-black-600',
-                              active ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm'
-                            )}
-                          >
-                            <span onClick={() => setSortItem(option.name)}>
-                              {option.name}
-                            </span>
-                          </a>
-                        )}
-                      </Menu.Item>
-                    ))}
-                  </div>
+                  {sortOptions && sortOptions?.length > 0 && (
+                    <div className="py-1">
+                      {sortOptions.map(option => (
+                        <Menu.Item key={option.name}>
+                          {({ active }) => (
+                            <a
+                              href={option.href}
+                              className={classNames(
+                                option.name === sortItem
+                                  ? 'font-medium text-cu-black-800'
+                                  : 'text-cu-black-600',
+                                active ? 'bg-gray-100' : '',
+                                'block px-4 py-2 text-sm'
+                              )}
+                            >
+                              <span onClick={() => setSortItem(option.name)}>
+                                {option.name}
+                              </span>
+                            </a>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </div>
+                  )}
                 </Menu.Items>
               </Transition>
             </Menu>
