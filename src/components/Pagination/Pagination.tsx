@@ -5,7 +5,9 @@ export interface PaginationProps {
   numItems: number;
 }
 
-export const Pagination = (numItems: number) => {
+export const Pagination: React.FC<PaginationProps> = ({
+  numItems,
+}): JSX.Element => {
   return (
     <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-6 sm:px-6">
       <div className="flex flex-1 justify-between sm:hidden">
@@ -42,7 +44,6 @@ export const Pagination = (numItems: number) => {
               <span className="sr-only">Previous</span>
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
             </a>
-            {/* Current: "z-10 bg-cu-red-50 border-cu-red-500 text-cu-red-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
             <a
               href="#"
               aria-current="page"
