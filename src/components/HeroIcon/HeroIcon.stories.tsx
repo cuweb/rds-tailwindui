@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { HeroIcon, HeroIconProps } from './HeroIcon';
 
 export default {
-  title: 'Components/HeroIcons',
+  title: 'Components/Icons/HeroIcon',
   component: HeroIcon,
   argTypes: {},
   parameters: {
