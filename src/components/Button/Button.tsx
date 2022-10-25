@@ -24,9 +24,9 @@ const styles = {
 };
 
 const buttonSizes = {
-  sm: `px-1 py-1 text-sm`,
+  sm: `px-3 py-2 text-sm`,
   base: `px-4 py-3 text-base`,
-  lg: `px-8 py-8 text-2xl`,
+  lg: `px-6 py-4 text-xl`,
 };
 
 export const Button = ({
