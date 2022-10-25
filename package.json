@@ -12,8 +12,8 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "dev": "tsdx watch --onSuccess 'yarn build-tailwind'",
-    "build": "tsdx lint --fix && tsdx build && yarn build-tailwind && yarn size",
+    "dev": "tsdx watch --onSuccess 'yarn build-assets'",
+    "build": "tsdx lint --fix && tsdx build && yarn build-assets && yarn size",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint --fix",
     "prepare": "tsdx build && husky install",
@@ -24,7 +24,8 @@
     "test:ci": "concurrently 'yarn start-storybook --quiet --ci -p 6006' 'yarn cypress run'",
     "build-storybook": "build-storybook",
     "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify",
-    "packages": "rm -rf node_modules ; yarn install"
+    "packages": "rm -rf node_modules ; yarn install",
+    "build-assets": "cpx 'src/assets/**' 'dist/assets' && yarn build-tailwind"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -78,6 +79,7 @@
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
     "concurrently": "^7.4.0",
+    "cpx": "^1.5.0",
     "cypress": "^10.7.0",
     "husky": "^8.0.0",
     "postcss": "^8.4.16",

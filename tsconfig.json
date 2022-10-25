@@ -1,15 +1,6 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
-  "include": [
-    "types",
-    "test",
-    "assets/*.svg",
-    "assets/*.jpg",
-    "src/**/*.ts",
-    "src/**/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/**/*.tsx"
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
