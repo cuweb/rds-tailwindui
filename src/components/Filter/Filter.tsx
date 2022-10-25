@@ -10,7 +10,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 
 const styles = {
-  dropDownTitles: `inline-flex justify-center text-sm font-medium text-gray-700 group hover:text-gray-900`,
+  dropDownTitles: `inline-flex justify-center text-sm font-medium text-cu-black-800 group hover:text-cu-red`,
   chevron: `flex-shrink-0 w-5 h-5 ml-1 text-cu-black-300 group-hover:text-cu-black-600`,
 };
 
@@ -31,15 +31,9 @@ export interface FilterProps {
   }[];
 }
 
-//const activeFilters: any[] = ['Planning', 'Project Management', 'General'];
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
-
-// export const Filter: React.FC<FilterProps> = ({
-//   sortOptions,
-//   filters,
-// }): JSX.Element => {
 
 export const Filter = ({ sortOptions, filters }: FilterProps) => {
   const [open, setOpen] = useState(false);
@@ -97,12 +91,14 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <Dialog.Panel className="relative flex flex-col w-full h-full max-w-xs py-4 pb-12 ml-auto overflow-y-auto bg-white shadow-xl">
-                <div className="flex items-center justify-between px-4">
-                  <h2 className="text-lg font-medium text-gray-900">Filters</h2>
+              <Dialog.Panel className="relative flex flex-col w-full h-full max-w-xs ml-auto overflow-y-auto bg-white shadow-xl">
+                <div className="flex items-center justify-between px-4 py-3 bg-cu-black-50">
+                  <h2 className="text-base font-medium text-cu-black-800">
+                    Filters
+                  </h2>
                   <button
                     type="button"
-                    className="flex items-center justify-center w-10 h-10 p-2 -mr-2 text-gray-400 bg-white rounded-md"
+                    className="flex items-center justify-center w-8 h-8 p-2 -mr-1 bg-white rounded-md text-cu-black-600"
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
@@ -111,18 +107,18 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
                 </div>
 
                 {/* Filters */}
-                <form className="mt-4">
+                <form>
                   {filters.map(section => (
                     <Disclosure
                       as="div"
                       key={section.name}
-                      className="px-4 py-6 border-t border-gray-200"
+                      className="px-4 py-6 border-t border-cu-black-100"
                     >
                       {({ open }) => (
                         <>
-                          <h3 className="flow-root -mx-2 -my-3">
-                            <Disclosure.Button className="flex items-center justify-between w-full px-2 py-3 text-sm text-gray-400 bg-white">
-                              <span className="font-medium text-gray-900">
+                          <h3 className="flow-root -mx-2 -my-3 group">
+                            <Disclosure.Button className="flex items-center justify-between w-full px-2 py-3 text-sm bg-white text-cu-black-300 group-hover:text-cu-black-600">
+                              <span className="font-medium text-cu-black-600">
                                 {section.name}
                               </span>
                               <span className="flex items-center ml-6">
@@ -150,11 +146,11 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
                                     type="checkbox"
                                     onChange={() => handleSelect(option.label)}
                                     defaultChecked={isSelected(option.label)}
-                                    className="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500"
+                                    className="w-4 h-4 rounded border-cu-black-200 text-cu-red focus:ring-cu-red-100"
                                   />
                                   <label
                                     htmlFor={`filter-mobile-${section.id}-${optionIdx}`}
-                                    className="ml-3 text-sm text-gray-500"
+                                    className="ml-3 text-sm text-cu-black-600"
                                   >
                                     {option.label}
                                   </label>
@@ -235,7 +231,7 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
 
             <button
               type="button"
-              className="inline-block text-sm font-medium text-gray-700 hover:text-gray-900 sm:hidden"
+              className="inline-block text-sm font-medium text-cu-black-800 hover:text-cu-red sm:hidden"
               onClick={() => setOpen(true)}
             >
               Filters

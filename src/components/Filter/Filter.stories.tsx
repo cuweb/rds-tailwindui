@@ -16,3 +16,11 @@ Default.args = {
   sortOptions: data.sortOptions,
   filters: data.filters,
 };
+
+export const NoSorting = Template.bind({});
+NoSorting.args = {
+  filters: data.filters,
+};
+
+Default.storyName = 'With Sorting';
+NoSorting.storyName = 'Without Sorting';
