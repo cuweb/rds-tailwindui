@@ -55,7 +55,7 @@ export const Button = ({
       disabled={disabled}
       {...rest}
     >
-      <span className={`${title ? 'mr-2' : ''} `}>{icon}</span>
+      {icon && <span className={`${title ? 'mr-2' : ''} `}>{icon}</span>}
       {title}
     </button>
   );
