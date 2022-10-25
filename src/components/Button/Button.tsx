@@ -45,39 +45,11 @@ export const Button = ({
   const centerStyles = isCenter ? 'relative left-1/2 -translate-x-1/2 ' : '';
   const disabledStyles = isDisabled ? styles.disabled : '';
 
-  let buttonStyles = '';
-  switch (isType) {
-    case 'ghost':
-      buttonStyles = styles.ghost;
-      break;
-    case 'grey':
-      buttonStyles = styles.grey;
-      break;
-    case 'white':
-      buttonStyles = styles.white;
-      break;
-    default:
-      buttonStyles = styles.default;
-  }
-
-  let buttonSize = '';
-  switch (size) {
-    case 'sm':
-      buttonSize = buttonSizes.sm;
-      break;
-    case 'lg':
-      buttonSize = buttonSizes.lg;
-      break;
-    default:
-      buttonSize = buttonSizes.base;
-  }
-
   return (
     <button
       type="button"
       aria-label={title ? title : 'Icon button'}
-      // className={`${styles.core} ${style.isType} ${buttonSizes.size} ${shadowStyles} ${fullStyles} ${centerStyles} ${disabledStyles}`}
-      className={`${styles.core} ${buttonStyles} ${buttonSize} ${shadowStyles} ${fullStyles} ${centerStyles} ${disabledStyles}`}
+      className={`${styles.core} ${styles[isType]} ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles} ${disabledStyles}`}
       disabled={isDisabled}
       {...rest}
     >
