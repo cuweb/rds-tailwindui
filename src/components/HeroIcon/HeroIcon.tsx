@@ -8,7 +8,7 @@ export type IconName = keyof typeof SolidIcons | keyof typeof OutlineIcons;
 export interface HeroIconProps {
   icon: IconName;
   outline?: boolean;
-  color?: 'black' | 'white' | 'red' | 'gray' | 'dark-gray';
+  color?: 'black' | 'white' | 'red' | 'grey' | 'dark-grey';
   size?: '4' | '6' | '8' | '12' | '16' | '20';
 }
 
