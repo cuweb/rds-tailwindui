@@ -29,7 +29,7 @@ export const rdsBgColor = {
   black: 'bg-cu-black-800',
   white: 'bg-white',
   red: 'bg-cu-red',
-  gray: 'bg-cu-black-50',
+  grey: 'bg-cu-black-50',
   'dark-grey': 'bg-cu-black-600',
 };
 
@@ -42,9 +42,9 @@ export const rdsTextColor = {
 };
 
 export const rdsFontSizes = {
-  base: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
+  base: 'md:text-base',
+  lg: 'md:text-lg',
+  xl: 'md:text-xl',
 };
 
 export const rdsWidth = {

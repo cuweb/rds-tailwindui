@@ -7,6 +7,8 @@ import {
 
 const styles = {
   column: `cu-column mx-auto grid grid-cols-1 [&:last-child]:mb-0`,
+  isNotNested: `px-8`,
+  isNested: `mt-8`,
 };
 
 export interface ColumnProps {
@@ -26,9 +28,12 @@ export const Column = ({
 }: ColumnProps) => {
   return (
     <div
-      className={`${styles.column} ${rdsMaxWidth[maxWidth]} ${
-        rdsGridSpacing[gridGap]
-      } ${rdsGridColumns[cols]} ${isNested ? 'mt-8' : 'px-8'}`}
+      className={`
+        ${styles.column}
+        ${rdsGridColumns[cols]}
+        ${rdsMaxWidth[maxWidth]} ${rdsGridSpacing[gridGap]}
+        ${isNested ? styles.isNested : styles.isNotNested}
+      `}
     >
       {children}
     </div>
