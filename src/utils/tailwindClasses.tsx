@@ -42,9 +42,9 @@ export const rdsTextColor = {
 };
 
 export const rdsFontSizes = {
-  base: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
+  base: 'md:text-base',
+  lg: 'md:text-lg',
+  xl: 'md:text-xl',
 };
 
 export const rdsWidth = {
