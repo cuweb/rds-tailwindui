@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
-import { PlusIcon, MapPinIcon } from '@heroicons/react/20/solid';
 
 export default {
   title: 'Components/Input/Button',
@@ -82,7 +81,7 @@ centeredButton.args = {
 export const IconTextButton = Template.bind({});
 IconTextButton.args = {
   title: 'Button with Icon',
-  icon: <MapPinIcon className="-ml-0.5 h-4 w-4" aria-hidden="true" />,
+  icon: 'MapPinIcon',
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -90,7 +89,7 @@ IconTextButton.args = {
 
 export const IconButton = Template.bind({});
 IconButton.args = {
-  icon: <PlusIcon className="-ml-0.5 h-6 w-6" aria-hidden="true" />,
+  icon: 'PlusIcon',
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -100,6 +99,24 @@ export const DisabledButton = Template.bind({});
 DisabledButton.args = {
   title: 'Disabled Button',
   disabled: true,
+  onClick: () => {
+    alert('button has been clicked ');
+  },
+};
+
+export const hasShadowButton = Template.bind({});
+hasShadowButton.args = {
+  title: 'Button has Shadows',
+  hasShadow: true,
+  onClick: () => {
+    alert('button has been clicked ');
+  },
+};
+
+export const SizeButton = Template.bind({});
+SizeButton.args = {
+  title: 'Button has Shadows',
+  size: 'sm',
   onClick: () => {
     alert('button has been clicked ');
   },

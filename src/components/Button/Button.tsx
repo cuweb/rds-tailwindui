@@ -1,9 +1,12 @@
 import React from 'react';
+import { HeroIcon } from '../HeroIcon';
+import * as SolidIcons from '@heroicons/react/24/solid';
+import * as OutlineIcons from '@heroicons/react/24/outline';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
-  icon?: React.ReactNode;
+  icon?: keyof typeof SolidIcons | keyof typeof OutlineIcons;
   isType?: 'default' | 'ghost' | 'grey' | 'white';
   size?: 'sm' | 'base' | 'lg';
   hasShadow?: boolean;
@@ -13,8 +16,8 @@ export interface ButtonProps
 }
 
 const styles = {
-  core: `inline-flex items-center justify-center font-medium text-white rounded-md focus:outline-none`,
-  default: `bg-cu-red hover:bg-cu-black-600`,
+  core: `inline-flex items-center justify-center font-medium rounded-md focus:outline-none`,
+  default: `bg-cu-red text-white hover:bg-cu-black-600`,
   ghost: `border border-1 border-cu-red text-cu-red bg-white hover:bg-cu-red hover:text-white`,
   grey: `text-cu-black-800 bg-cu-black-50 hover:bg-cu-black-600 hover:text-white`,
   white: `border border-1 border-cu-black-200 text-cu-black bg-white hover:bg-cu-black hover:text-white`,
@@ -44,16 +47,26 @@ export const Button = ({
   const fullStyles = isFull ? 'w-full' : '';
   const centerStyles = isCenter ? 'relative left-1/2 -translate-x-1/2 ' : '';
   const disabledStyles = isDisabled ? styles.disabled : '';
+  const iconSize = size === 'lg' ? '6' : '4';
+  // const forDisabled = isDisabled ? styles['disabled'] : '';
+  const stylesType = isDisabled ? styles['disabled'] : styles[isType];
 
   return (
     <button
       type="button"
       aria-label={title ? title : 'Icon button'}
-      className={`${styles.core} ${styles[isType]} ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles} ${disabledStyles}`}
+      className={`${styles.core} ${stylesType} ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles} ${disabledStyles} `}
       disabled={isDisabled}
       {...rest}
     >
-      <span className={`${title && icon ? 'mr-2' : ''} `}>{icon}</span>
+      {icon && (
+        <HeroIcon
+          icon={icon}
+          size={iconSize}
+          className={`${title ? 'mr-0.5' : ''} `}
+        />
+      )}
+
       {title}
     </button>
   );
