@@ -1,8 +1,9 @@
-// UPDATE IFRAME URL
-describe('Button', () => {
-  it('Does Button exist?', () => {
-    cy.visit('/iframe.html?id=component--default&viewMode=story');
-    cy.get('button').should('exist');
+describe('HeroIcon', () => {
+  //default
+  it('Should render the icon', () => {
+    cy.clearCookies();
+    cy.visit(`/iframe.html?id=components-icons-heroicon`);
+    cy.get('svg').should('exist');
   });
 });
 export {};

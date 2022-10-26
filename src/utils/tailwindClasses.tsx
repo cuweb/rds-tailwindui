@@ -35,3 +35,21 @@ export const rdsFontSizes = {
   lg: 'text-lg',
   xl: 'text-xl',
 };
+
+export const rdsWidth = {
+  4: 'w-4',
+  6: 'w-6',
+  8: 'w-8',
+  12: 'w-12',
+  16: 'w-16',
+  20: 'w-20',
+};
+
+export const rdsHeight = {
+  4: 'h-4',
+  6: 'h-6',
+  8: 'h-8',
+  12: 'h-12',
+  16: 'h-16',
+  20: 'h-20',
+};
