@@ -7,7 +7,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
   icon?: keyof typeof SolidIcons | keyof typeof OutlineIcons;
-  isType?: 'default' | 'ghost' | 'grey' | 'white';
+  isType?: 'default' | 'ghost' | 'grey' | 'white' | 'disabled';
   size?: 'sm' | 'base' | 'lg';
   hasShadow?: boolean;
   isFull?: boolean;
@@ -49,22 +49,19 @@ export const Button = ({
   const fullStyles = isFull ? 'w-full' : '';
   const centerStyles = isCenter ? 'relative left-1/2 -translate-x-1/2 ' : '';
   const iconSize = size === 'lg' ? '6' : '4';
-  const buttonStyle = isDisabled ? styles.disabled : styles[isType];
 
   return (
     <button
       type="button"
       aria-label={title ? title : 'Icon button'}
-      className={`${styles.core} ${buttonStyle} ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
-      disabled={isDisabled}
+      className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
+      disabled={isType === 'disabled' ? true : false}
       {...rest}
     >
       {icon && (
-        <HeroIcon
-          icon={icon}
-          size={iconSize}
-          className={`${title ? 'mr-0.5' : ''} `}
-        />
+        <span className={icon && title ? 'mr-0.5' : ''}>
+          <HeroIcon icon={icon} size={iconSize} />
+        </span>
       )}
 
       {title}

@@ -10,7 +10,6 @@ export interface HeroIconProps {
   outline?: boolean;
   color?: 'black' | 'white' | 'red' | 'grey' | 'dark-grey';
   size?: '4' | '6' | '8' | '12' | '16' | '20';
-  className?: string;
 }
 
 export const HeroIcon = ({
@@ -18,14 +17,13 @@ export const HeroIcon = ({
   outline = false,
   color,
   size = '8',
-  className,
 }: HeroIconProps) => {
   const Icon = outline ? OutlineIcons[icon] : SolidIcons[icon];
   const hasColor = color ? rdsTextColor[color] : '';
 
   return (
     <Icon
-      className={`${hasColor} ${rdsWidth[size]} ${rdsHeight[size]} ${className}`}
+      className={`${hasColor} ${rdsWidth[size]} ${rdsHeight[size]} `}
       aria-hidden={true}
     />
   );
