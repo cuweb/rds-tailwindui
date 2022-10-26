@@ -12,7 +12,7 @@ export default {
   },
 } as Meta<typeof Calendar>;
 
-const Template: Story<CalendarProps> = (args) => <Calendar {...args} />;
+const Template: Story<CalendarProps> = args => <Calendar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

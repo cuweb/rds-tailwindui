@@ -48,14 +48,14 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
       return setSelectedItems([...selectedItems, selected]);
     }
     return setSelectedItems(
-      [...selectedItems].filter((item) => item !== selected)
+      [...selectedItems].filter(item => item !== selected)
     );
   };
 
   const handleRemove = (name: string) => {
     const selected: string = name;
     return setSelectedItems(
-      [...selectedItems].filter((item) => item !== selected)
+      [...selectedItems].filter(item => item !== selected)
     );
   };
 
@@ -108,7 +108,7 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
 
                 {/* Filters */}
                 <form>
-                  {filters.map((section) => (
+                  {filters.map(section => (
                     <Disclosure
                       as="div"
                       key={section.name}
@@ -203,7 +203,7 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
                 <Menu.Items className="absolute z-10 w-40 mt-2 bg-white rounded-md shadow-lg -left-4 ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {sortOptions && sortOptions?.length > 0 && (
                     <div className="py-1">
-                      {sortOptions.map((option) => (
+                      {sortOptions.map(option => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
                             <a

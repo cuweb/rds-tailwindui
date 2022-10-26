@@ -47,9 +47,11 @@ export const Button = ({
     <button
       type="button"
       aria-label={title ? title : 'Icon button'}
-      className={`${styles.core} ${
-        !ghost && !grey && !white && !disabled && styles.default
-      } ${hasShadow} ${isGhost} ${isGrey} ${isWhite} ${isFull} ${isCenter} ${isDisabled}`}
+      className={`${styles.core} ${!ghost &&
+        !grey &&
+        !white &&
+        !disabled &&
+        styles.default} ${hasShadow} ${isGhost} ${isGrey} ${isWhite} ${isFull} ${isCenter} ${isDisabled}`}
       disabled={disabled}
       {...rest}
     >

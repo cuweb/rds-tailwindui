@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof EventItem>;
 
-const DefaultTemplate: Story<EventItemProps> = (args) => (
+const DefaultTemplate: Story<EventItemProps> = args => (
   <EventItem as="div" link={args.link}>
     <EventItem.DateBox month={args.month} day={args.day} />
     <EventItem.Content>
@@ -36,7 +36,7 @@ const DefaultTemplate: Story<EventItemProps> = (args) => (
   </EventItem>
 );
 
-const SingleItemPanelTemplate: Story<EventItemProps> = (args) => (
+const SingleItemPanelTemplate: Story<EventItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <EventItem as="div" link={args.link}>

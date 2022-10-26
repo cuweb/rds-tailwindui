@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof MarketplaceItem>;
 
-const DefaultTemplate: Story<MarketplaceItemProps> = (args) => (
+const DefaultTemplate: Story<MarketplaceItemProps> = args => (
   <MarketplaceItem as="div" link={args.link}>
     <MarketplaceItem.Image image={args.image} alt={args.alt} />
     <MarketplaceItem.Content>
@@ -38,7 +38,7 @@ const DefaultTemplate: Story<MarketplaceItemProps> = (args) => (
   </MarketplaceItem>
 );
 
-const SingleItemPanelTemplate: Story<MarketplaceItemProps> = (args) => (
+const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <MarketplaceItem as="div" link={args.link}>
