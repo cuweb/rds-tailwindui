@@ -25,7 +25,7 @@ export const rdsGridSpacing = {
   '10': 'gap-10 [&+.cu-column]:mt-10', // 40px
 };
 
-export const rdsColorScheme = {
+export const rdsBgColor = {
   black: 'bg-cu-black-800',
   white: 'bg-white',
   red: 'bg-cu-red',
