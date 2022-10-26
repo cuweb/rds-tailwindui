@@ -7,13 +7,10 @@ import {
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 import { Badge } from '../../Badge';
 
-// Set header types, changes the default <EventItem.Title as="h3">
+// Set types for as props
 type BaseItemTypeProps = 'li' | 'div';
-
-// Set header types, changes the default <EventItem.Title as="h3">
 type TitleTypeProps = 'h2' | 'h3';
 
-// Set props for EventItem
 export interface EventItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
@@ -27,6 +24,10 @@ export interface EventItemProps {
   category?: string;
 }
 
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
+
 export interface BaseItemProps {
   as?: BaseItemTypeProps;
 }
@@ -35,17 +36,11 @@ export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-export interface EventItemBaseProps {
-  as?: keyof JSX.IntrinsicElements
-  children?: React.ReactNode;
-  link?: string | undefined;
-}
-
 const EventItemBase = ({
-  as: Component = "div",
+  as: Component = 'div',
   children,
   link,
-}: EventItemBaseProps): JSX.Element => {
+}: ItemBaseProps & EventItemProps) => {
   return (
     <Component>
       <a

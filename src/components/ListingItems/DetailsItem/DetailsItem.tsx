@@ -2,23 +2,33 @@ import React from 'react';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
-// Set header types, changes the default <DetailsItem.Title as="h3">
+// Set types for as props
+type BaseItemTypeProps = 'li' | 'div';
 type TitleTypeProps = 'h2' | 'h3';
 
-// Set props for DetailsItem
 export interface DetailsItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
   title?: string;
   description?: string;
-  //   icon?: string;
+}
+
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export interface BaseItemProps {
+  as?: BaseItemTypeProps;
 }
 
 export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const DetailsItemBase = ({ as: Component, children }: any) => {
+const DetailsItemBase = ({
+  as: Component = 'div',
+  children,
+}: ItemBaseProps & DetailsItemProps) => {
   return (
     <Component>
       <div className="relative flex items-center gap-2 p-6 focus:outline-none">
