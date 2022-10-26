@@ -98,7 +98,7 @@ IconButton.args = {
 export const DisabledButton = Template.bind({});
 DisabledButton.args = {
   title: 'Disabled Button',
-  disabled: true,
+  isDisabled: true,
   onClick: () => {
     alert('button has been clicked ');
   },

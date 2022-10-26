@@ -43,19 +43,19 @@ export const Button = ({
   isDisabled = false,
   ...rest
 }: ButtonProps) => {
+  console.log('the type is', isType);
+
   const shadowStyles = hasShadow ? styles.shadow : '';
   const fullStyles = isFull ? 'w-full' : '';
   const centerStyles = isCenter ? 'relative left-1/2 -translate-x-1/2 ' : '';
-  const disabledStyles = isDisabled ? styles.disabled : '';
   const iconSize = size === 'lg' ? '6' : '4';
-  // const forDisabled = isDisabled ? styles['disabled'] : '';
-  const stylesType = isDisabled ? styles['disabled'] : styles[isType];
+  const buttonStyle = isDisabled ? styles.disabled : styles[isType];
 
   return (
     <button
       type="button"
       aria-label={title ? title : 'Icon button'}
-      className={`${styles.core} ${stylesType} ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles} ${disabledStyles} `}
+      className={`${styles.core} ${buttonStyle} ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
       disabled={isDisabled}
       {...rest}
     >
