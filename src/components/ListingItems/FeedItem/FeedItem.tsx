@@ -3,10 +3,10 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 import { Badge } from '../../Badge';
 
-// Set header types, changes the default <FeedItem.Title as="h3">
+// Set types for as props
+type BaseItemTypeProps = 'li' | 'div';
 type TitleTypeProps = 'h2' | 'h3';
 
-// Set props for FeedItem
 export interface FeedItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
@@ -17,11 +17,23 @@ export interface FeedItemProps {
   category?: string;
 }
 
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export interface BaseItemProps {
+  as?: BaseItemTypeProps;
+}
+
 export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const FeedItemBase = ({ as: Component, children, link }: any) => {
+const FeedItemBase = ({
+  as: Component = 'div',
+  children,
+  link,
+}: ItemBaseProps & FeedItemProps) => {
   return (
     <Component>
       <a
