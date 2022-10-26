@@ -29,7 +29,7 @@ export const rdsBgColor = {
   black: 'bg-cu-black-800',
   white: 'bg-white',
   red: 'bg-cu-red',
-  gray: 'bg-cu-black-50',
+  grey: 'bg-cu-black-50',
   'dark-grey': 'bg-cu-black-600',
 };
 

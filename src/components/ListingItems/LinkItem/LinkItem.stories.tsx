@@ -60,7 +60,7 @@ const StackedListPanelTemplate: Story<LinkItemProps> = () => (
 );
 
 const StackedListPanelTitleTemplate: Story<LinkItemProps> = () => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Link listing</Panel.Title>

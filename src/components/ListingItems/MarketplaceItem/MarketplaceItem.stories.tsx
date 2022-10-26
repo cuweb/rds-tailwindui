@@ -86,7 +86,7 @@ const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
 );
 
 const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Marketplace listing</Panel.Title>

@@ -27,9 +27,9 @@ const DefaultTemplate: Story<ContainerProps> = args => (
   </Container>
 );
 
-const GrayBgTemplateTemplate: Story<ContainerProps> = args => (
+const GreyBgTemplateTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
-    <p className="px-8">Gray Container</p>
+    <p className="px-8">Grey Container</p>
   </Container>
 );
 
@@ -62,22 +62,22 @@ Default.args = {
   bgColor: 'white',
 };
 
-export const GrayBackground = GrayBgTemplateTemplate.bind({});
-GrayBackground.args = {
-  bgColor: 'gray',
+export const GreyBackground = GreyBgTemplateTemplate.bind({});
+GreyBackground.args = {
+  bgColor: 'grey',
 };
 
 export const WithTwoColumns = WithTwoColumnsTemplate.bind({});
 WithTwoColumns.args = {
-  ...GrayBackground.args,
+  ...GreyBackground.args,
 };
 
 export const WithPanels = WithPanelsTemplate.bind({});
 WithPanels.args = {
-  ...GrayBackground.args,
+  ...GreyBackground.args,
 };
 
 Default.storyName = 'Default white bg';
-GrayBackground.storyName = 'Gray background';
+GreyBackground.storyName = 'Grey background';
 WithTwoColumns.storyName = 'With two columns';
 WithPanels.storyName = 'Two column panels';

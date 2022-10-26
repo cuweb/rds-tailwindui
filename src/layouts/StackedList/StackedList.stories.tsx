@@ -43,7 +43,7 @@ const WithDividersTemplate: Story<StackedListProps> = args => (
 );
 
 const PanelAndDividersTemplate: Story<StackedListProps> = args => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <StackedList hasDividers={args.hasDividers}>
@@ -57,7 +57,7 @@ const PanelAndDividersTemplate: Story<StackedListProps> = args => (
 );
 
 const WithFeedItemTemplate: Story<StackedListProps> = args => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <StackedList hasDividers={args.hasDividers}>

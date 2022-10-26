@@ -69,7 +69,7 @@ const StackedListPanelTemplate: Story<FeedItemProps> = () => (
 );
 
 const StackedListPanelTitleTemplate: Story<FeedItemProps> = () => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>News feed listing</Panel.Title>
