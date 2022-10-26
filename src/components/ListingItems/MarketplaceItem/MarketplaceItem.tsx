@@ -3,10 +3,10 @@ import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 import { Badge } from '../../Badge';
 
-// Set header types, changes the default <MarketplaceItem.Title as="h3">
+// Set types for as props
+type BaseItemTypeProps = 'li' | 'div';
 type TitleTypeProps = 'h2' | 'h3';
 
-// Set props for MarketplaceItem
 export interface MarketplaceItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
@@ -19,11 +19,23 @@ export interface MarketplaceItemProps {
   category?: string;
 }
 
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export interface BaseItemProps {
+  as?: BaseItemTypeProps;
+}
+
 export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const MarketplaceItemBase = ({ as: Component, children, link }: any) => {
+const MarketplaceItemBase = ({
+  as: Component = 'div',
+  children,
+  link,
+}: ItemBaseProps & MarketplaceItemProps) => {
   return (
     <Component>
       <a

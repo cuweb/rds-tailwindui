@@ -2,10 +2,10 @@ import React from 'react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
-// Set header types, changes the default <NewsItem.Title as="h3">
+// Set types for as props
+type BaseItemTypeProps = 'li' | 'div';
 type TitleTypeProps = 'h2' | 'h3';
 
-// Set props for NewsItem
 export interface NewsItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
@@ -18,11 +18,23 @@ export interface NewsItemProps {
   excerpt?: string;
 }
 
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export interface BaseItemProps {
+  as?: BaseItemTypeProps;
+}
+
 export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const NewsItemBase = ({ as: Component, children, link }: any) => {
+const NewsItemBase = ({
+  as: Component = 'div',
+  children,
+  link,
+}: ItemBaseProps & NewsItemProps) => {
   return (
     <Component>
       <a
