@@ -2,7 +2,7 @@ import React from 'react';
 
 // USE THE FOLLOWING IMPORT AND STYLE CONST IF USING GLOBAL TAILWIND CSS
 // SEE THE CLASS BEING USED IN THE COMPONENT OUTPUT BELOW FOR AN EXAMPLE
-import { rdsColorScheme } from '../../utils/tailwindClasses';
+import { rdsBgColor } from '../../utils/tailwindClasses';
 const styles = {
   component: `p-8`,
 };
@@ -22,7 +22,7 @@ export interface ComponentProps {
 // NOTE: STYLE AND TAILWIND CONST BEING PASSED TO CLASSNAME
 export const Container = ({ children, bgColor = 'white' }: ComponentProps) => {
   return (
-    <div className={`${styles.component} ${rdsColorScheme[bgColor]}`}>
+    <div className={`${styles.component} ${rdsBgColor[bgColor]}`}>
       {children}
     </div>
   );
