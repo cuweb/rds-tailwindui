@@ -21,7 +21,7 @@ export interface TitleProps {
 const DetailsItemBase = ({ as: Component, children }: any) => {
   return (
     <Component>
-      <div className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none">
+      <div className="relative flex items-center gap-2 p-6 focus:outline-none">
         <div className="flex items-start gap-4">{children}</div>
       </div>
     </Component>
@@ -40,7 +40,7 @@ const Title = ({
   return React.createElement(
     as,
     {
-      className: `text-base font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`,
+      className: `text-base font-semibold text-cu-black ${rdsFontSizes[fontSize]}`,
     },
     title
   );
