@@ -35,7 +35,17 @@ export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const EventItemBase = ({ as: Component, children, link }: any) => {
+export interface EventItemBaseProps {
+  as?: keyof JSX.IntrinsicElements
+  children?: React.ReactNode;
+  link?: string | undefined;
+}
+
+const EventItemBase = ({
+  as: Component = "div",
+  children,
+  link,
+}: EventItemBaseProps): JSX.Element => {
   return (
     <Component>
       <a
