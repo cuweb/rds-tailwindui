@@ -19,7 +19,7 @@ import {
 } from 'date-fns';
 
 export interface CalendarProps {
-  meetings: {
+  events: {
     id: number;
     name: string;
     imageUrl: string;
@@ -32,7 +32,7 @@ const classNames = (...classes: (string | boolean)[]) => {
   return classes.filter(Boolean).join(' ');
 };
 
-export const Calendar = ({ meetings }: CalendarProps) => {
+export const Calendar = ({ events }: CalendarProps) => {
   const today = startOfToday();
   const [selectedDay, setSelectedDay] = useState(today);
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
@@ -142,8 +142,8 @@ export const Calendar = ({ meetings }: CalendarProps) => {
             </button>
 
             <div className="w-1 h-1 mx-auto mt-1">
-              {meetings.some(meeting =>
-                isSameDay(parseISO(meeting.startDatetime), day)
+              {events.some(event =>
+                isSameDay(parseISO(event.startDatetime), day)
               ) && <div className="w-1 h-1 rounded-full bg-sky-500"></div>}
             </div>
           </div>
