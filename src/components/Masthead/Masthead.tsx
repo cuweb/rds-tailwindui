@@ -26,13 +26,14 @@ export const Masthead = () => {
               <div className="flex px-2 lg:px-0">
                 <a className="flex items-center flex-shrink-0 hover:text-cu-red">
                   {/* logo */}
-                  <img
+                  {/* <img
                     className="w-auto h-10"
                     src="/cu-shield.svg"
                     alt="Carleton"
-                  />
+                  /> */}
+                  <p> Logo |</p>
                   <h1 className="items-center pl-3 pr-2 text-2xl font-semibold">
-                    Intranet
+                    Events Calendar
                   </h1>
                 </a>
 

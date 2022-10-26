@@ -3,14 +3,8 @@ import { Meta, Story } from '@storybook/react';
 import { Avatar, AvatarProps } from './Avatar';
 import { UserInfoType } from '../../types/UserInfo';
 
-// COMPONENT AND PROP NAME UPDATE REQUIRED
-// UPDATE FILE NAME FOR IMPORT
-
-// COMPONENT TITLE UPDATE REQUIRED
-// COMPONENT NAME UPDATE REQUIRED
-// COMPONENT NAME IN {typeof} REQUIRED
 export default {
-  title: 'Components/Input/Avatar',
+  title: 'Components/Avatar',
   component: Avatar,
   argTypes: {},
   parameters: {
@@ -18,9 +12,6 @@ export default {
   },
 } as Meta<typeof Avatar>;
 
-// PROP NAME UPDATE REQUIRED
-// ADD ARGS TO COMPONENTS IF APPLICABLE
-// ADD COMPONENT MARKUP TO BUILD DEFAULT EXAMPLE
 const DefaultTemplate: Story<AvatarProps> = args => <Avatar {...args} />;
 
 const user: UserInfoType = {
