@@ -2,19 +2,19 @@ import React from 'react';
 
 const styles = {
   stackedlist: `overflow-hidden`,
-  dividers: `[&>li]:border-cu-cu-black-50 [&>li]:border-b last:[&>li]:border-b-0`,
+  hasDividers: `[&>li]:border-cu-cu-black-50 [&>li]:border-b last:[&>li]:border-b-0`,
 };
 
 export interface StackedListProps {
   children: React.ReactNode;
-  dividers?: boolean;
+  hasDividers?: boolean;
 }
 
-export const StackedList = ({ children, dividers }: StackedListProps) => {
+export const StackedList = ({ children, hasDividers }: StackedListProps) => {
   return (
     <ul
       className={`${styles.stackedlist} ${
-        dividers ? styles.dividers : 'bg-white'
+        hasDividers ? styles.hasDividers : ''
       }`}
     >
       {children}

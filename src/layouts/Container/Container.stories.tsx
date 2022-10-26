@@ -11,15 +11,49 @@ const content = {
 export default {
   title: 'Layouts/Container',
   component: Container,
-  argTypes: {},
+  argTypes: {
+    bgColor: {
+      control: 'inline-radio',
+    },
+  },
   parameters: {
     controls: { expanded: true },
   },
 } as Meta<typeof Container>;
 
-const DefaultTemplate: Story<ContainerProps> = args => (
+const DefaultTemplate: Story<ContainerProps> = (args) => (
   <Container bgColor={args.bgColor}>
     <p className="px-8">Empty Container</p>
+  </Container>
+);
+
+const GreyBgTemplateTemplate: Story<ContainerProps> = (args) => (
+  <Container bgColor={args.bgColor}>
+    <p className="px-8">Grey Container</p>
+  </Container>
+);
+
+const WithTwoColumnsTemplate: Story<ContainerProps> = (args) => (
+  <Container bgColor={args.bgColor}>
+    <Column cols="2">
+      <p>{content.paragraph}</p>
+      <p>{content.paragraph}</p>
+    </Column>
+  </Container>
+);
+
+const WithPanelsTemplate: Story<ContainerProps> = (args) => (
+  <Container bgColor={args.bgColor}>
+    <Column cols="2">
+      <Panel hasBorder hasShadow>
+        <Panel.Title>Panel Header</Panel.Title>
+        <p className="p-6">{content.paragraph}</p>
+      </Panel>
+      <Panel hasBorder hasShadow>
+        <Panel.Title>Panel Header</Panel.Title>
+        <p className="p-6">{content.paragraph}</p>
+      </Panel>
+    </Column>
   </Container>
 );
 
@@ -28,47 +62,22 @@ Default.args = {
   bgColor: 'white',
 };
 
-const GrayBgTemplateTemplate: Story<ContainerProps> = args => (
-  <Container bgColor={args.bgColor}>
-    <p className="px-8">Gray Container</p>
-  </Container>
-);
-
-export const GrayBackground = GrayBgTemplateTemplate.bind({});
-GrayBackground.args = {
-  bgColor: 'gray',
+export const GreyBackground = GreyBgTemplateTemplate.bind({});
+GreyBackground.args = {
+  bgColor: 'grey',
 };
-
-const WithTwoColumnsTemplate: Story<ContainerProps> = args => (
-  <Container bgColor={args.bgColor}>
-    <Column cols="2">
-      <p>{content.paragraph}</p>
-      <p>{content.paragraph}</p>
-    </Column>
-  </Container>
-);
 
 export const WithTwoColumns = WithTwoColumnsTemplate.bind({});
 WithTwoColumns.args = {
-  bgColor: 'gray',
+  ...GreyBackground.args,
 };
-
-const WithPanelsTemplate: Story<ContainerProps> = args => (
-  <Container bgColor={args.bgColor}>
-    <Column cols="2">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-8">{content.paragraph}</p>
-      </Panel>
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-8">{content.paragraph}</p>
-      </Panel>
-    </Column>
-  </Container>
-);
 
 export const WithPanels = WithPanelsTemplate.bind({});
 WithPanels.args = {
-  bgColor: 'gray',
+  ...GreyBackground.args,
 };
+
+Default.storyName = 'Default white bg';
+GreyBackground.storyName = 'Grey background';
+WithTwoColumns.storyName = 'With two columns';
+WithPanels.storyName = 'Two column panels';
