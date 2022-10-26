@@ -15,13 +15,15 @@ export interface HeroIconProps {
 export const HeroIcon = ({
   icon,
   outline = false,
-  color = 'black',
+  color,
   size = '8',
 }: HeroIconProps) => {
   const Icon = outline ? OutlineIcons[icon] : SolidIcons[icon];
+  const hasColor = color ? rdsTextColor[color] : '';
+
   return (
     <Icon
-      className={`${rdsTextColor[color]} ${rdsWidth[size]} ${rdsHeight[size]}`}
+      className={`${hasColor} ${rdsWidth[size]} ${rdsHeight[size]} `}
       aria-hidden={true}
     />
   );
