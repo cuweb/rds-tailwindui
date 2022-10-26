@@ -149,12 +149,6 @@ export const Calendar = ({ events }: CalendarProps) => {
           </div>
         ))}
       </div>
-      <h2 className="mt-5 font-semibold text-center text-cu-black-800">
-        Date Selected{' '}
-        <time dateTime={format(selectedDay, 'yyyy-MM-dd')}>
-          {format(selectedDay, 'MMM dd, yyy')}
-        </time>
-      </h2>
     </div>
   );
 };
