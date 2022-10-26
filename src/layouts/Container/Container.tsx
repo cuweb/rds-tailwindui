@@ -7,7 +7,7 @@ const styles = {
 
 export interface ContainerProps {
   children: React.ReactNode;
-  bgColor?: 'white' | 'gray';
+  bgColor?: 'white' | 'grey';
 }
 
 export const Container = ({ children, bgColor = 'white' }: ContainerProps) => {

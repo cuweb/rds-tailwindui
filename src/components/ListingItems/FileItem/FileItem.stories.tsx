@@ -63,7 +63,7 @@ const StackedListPanelTemplate: Story<FileItemProps> = () => (
 );
 
 const StackedListPanelTitleTemplate: Story<FileItemProps> = () => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>File listing</Panel.Title>

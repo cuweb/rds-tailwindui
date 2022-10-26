@@ -61,7 +61,7 @@ const StackedListPanelTemplate: Story<DetailsItemProps> = () => (
 );
 
 const StackedListPanelTitleTemplate: Story<DetailsItemProps> = () => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Details listing</Panel.Title>

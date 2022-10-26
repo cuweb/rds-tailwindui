@@ -10,11 +10,11 @@ describe('Container', () => {
 
   //Container with grey Background
   it(' Container Grey background', () => {
-    cy.visit('/iframe.html?id=layouts-container--gray-background');
+    cy.visit('/iframe.html?id=layouts-container--grey-background');
     cy.get('div')
       .should('have.class', 'cu-container')
       .and('have.class', 'bg-cu-black-50');
-    cy.get('p').contains('Gray Container');
+    cy.get('p').contains('Grey Container');
   });
 
   //Container with two column

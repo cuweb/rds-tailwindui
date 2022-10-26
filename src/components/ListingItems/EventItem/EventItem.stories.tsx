@@ -97,7 +97,7 @@ const StackedListPanelTemplate: Story<EventItemProps> = () => (
 );
 
 const StackedListPanelTitleTemplate: Story<EventItemProps> = () => (
-  <Container bgColor="gray">
+  <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Event listing</Panel.Title>
