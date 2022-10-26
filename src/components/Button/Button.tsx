@@ -7,7 +7,7 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
   icon?: keyof typeof SolidIcons | keyof typeof OutlineIcons;
-  isType?: 'default' | 'ghost' | 'grey' | 'white' | 'disabled';
+  isType?: 'default' | 'ghost' | 'grey' | 'dark-grey' | 'white' | 'disabled';
   size?: 'sm' | 'base' | 'lg';
   hasShadow?: boolean;
   isFull?: boolean;
@@ -20,6 +20,7 @@ const styles = {
   default: `bg-cu-red text-white hover:bg-cu-black-600`,
   ghost: `border border-1 border-cu-red text-cu-red bg-white hover:bg-cu-red hover:text-white`,
   grey: `text-cu-black-800 bg-cu-black-50 hover:bg-cu-black-600 hover:text-white`,
+  'dark-grey': `text-white bg-cu-black-600 hover:bg-cu-red hover:text-white`,
   white: `border border-1 border-cu-black-200 text-cu-black bg-white hover:bg-cu-black hover:text-white`,
   shadow: `shadow-sm`,
   disabled:
@@ -43,8 +44,6 @@ export const Button = ({
   isDisabled = false,
   ...rest
 }: ButtonProps) => {
-  console.log('the type is', isType);
-
   const shadowStyles = hasShadow ? styles.shadow : '';
   const fullStyles = isFull ? 'w-full' : '';
   const centerStyles = isCenter ? 'relative left-1/2 -translate-x-1/2 ' : '';

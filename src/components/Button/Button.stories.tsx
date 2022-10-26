@@ -51,6 +51,15 @@ GreyButton.args = {
   },
 };
 
+export const DarkGreyButton = Template.bind({});
+DarkGreyButton.args = {
+  title: 'Dark Grey Button',
+  isType: 'dark-grey',
+  onClick: () => {
+    alert('button has been clicked ');
+  },
+};
+
 export const WhiteButton = Template.bind({});
 WhiteButton.args = {
   title: 'White Button',
