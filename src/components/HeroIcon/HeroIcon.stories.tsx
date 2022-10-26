@@ -25,3 +25,13 @@ Outline.args = {
   icon: 'BugAntIcon',
   outline: true,
 };
+
+export const Red = Template.bind({});
+Red.args = {
+  icon: 'BugAntIcon',
+  color: 'red',
+};
+
+Default.storyName = 'Default';
+Outline.storyName = 'Outlined Icon';
+Red.storyName = 'Red Icon';

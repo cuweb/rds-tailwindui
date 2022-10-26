@@ -26,8 +26,19 @@ export const rdsGridSpacing = {
 };
 
 export const rdsColorScheme = {
+  black: 'bg-cu-black-800',
   white: 'bg-white',
+  red: 'bg-cu-red',
   gray: 'bg-cu-black-50',
+  'dark-gray': 'bg-cu-black-600',
+};
+
+export const rdsTextColor = {
+  black: 'text-cu-black-800',
+  white: 'text-white',
+  red: 'text-cu-red',
+  gray: 'text-cu-black-50',
+  'dark-gray': 'text-cu-black-600',
 };
 
 export const rdsFontSizes = {
