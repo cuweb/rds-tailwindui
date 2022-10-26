@@ -12,11 +12,11 @@ export interface ButtonProps
   hasShadow?: boolean;
   isFull?: boolean;
   isCenter?: boolean;
-  disabled: boolean;
+  isDisabled?: boolean;
 }
 
 const styles = {
-  core: `inline-flex gap-2 items-center justify-center font-medium rounded-md focus:outline-none`,
+  core: `inline-flex items-center justify-center font-medium rounded-md focus:outline-none`,
   default: `bg-cu-red text-white hover:bg-cu-black-600`,
   ghost: `border border-1 border-cu-red text-cu-red bg-white hover:bg-cu-red hover:text-white`,
   grey: `text-cu-black-800 bg-cu-black-50 hover:bg-cu-black-600 hover:text-white`,
@@ -40,7 +40,7 @@ export const Button = ({
   hasShadow,
   isFull,
   isCenter,
-  disabled = false,
+  isDisabled = false,
   ...rest
 }: ButtonProps) => {
   console.log('the type is', isType);
@@ -55,7 +55,7 @@ export const Button = ({
       type="button"
       aria-label={title ? title : 'Icon button'}
       className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
-      disabled={disabled}
+      disabled={isType === 'disabled' ? true : false}
       {...rest}
     >
       {icon && (
