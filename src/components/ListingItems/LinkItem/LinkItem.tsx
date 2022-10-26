@@ -2,10 +2,10 @@ import React from 'react';
 import { LinkIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
-// Set header types, changes the default <LinkItem.Title as="h3">
+// Set types for as props
+type BaseItemTypeProps = 'li' | 'div';
 type TitleTypeProps = 'h2' | 'h3';
 
-// Set props for LinkItem
 export interface LinkItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
@@ -13,11 +13,23 @@ export interface LinkItemProps {
   link?: string;
 }
 
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export interface BaseItemProps {
+  as?: BaseItemTypeProps;
+}
+
 export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const LinkItemBase = ({ as: Component, children, link }: any) => {
+const LinkItemBase = ({
+  as: Component = 'div',
+  children,
+  link,
+}: BaseItemProps & LinkItemProps) => {
   return (
     <Component>
       <a

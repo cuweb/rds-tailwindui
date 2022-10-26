@@ -2,10 +2,10 @@ import React from 'react';
 import { CalendarIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 
-// Set header types, changes the default <JobItem.Title as="h3">
+// Set types for as props
+type BaseItemTypeProps = 'li' | 'div';
 type TitleTypeProps = 'h2' | 'h3';
 
-// Set props for JobItem
 export interface JobItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
@@ -16,11 +16,23 @@ export interface JobItemProps {
   date?: string;
 }
 
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
+
+export interface BaseItemProps {
+  as?: BaseItemTypeProps;
+}
+
 export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const JobItemBase = ({ as: Component, children, link }: any) => {
+const JobItemBase = ({
+  as: Component = 'div',
+  children,
+  link,
+}: ItemBaseProps & JobItemProps) => {
   return (
     <Component>
       <a
