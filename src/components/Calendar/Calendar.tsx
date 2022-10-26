@@ -1,4 +1,7 @@
+import React from 'react';
+import { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+
 import {
   add,
   eachDayOfInterval,
@@ -14,8 +17,6 @@ import {
   parseISO,
   startOfToday,
 } from 'date-fns';
-import React from 'react';
-import { useState } from 'react';
 
 export interface CalendarProps {
   meetings: {
@@ -31,9 +32,7 @@ const classNames = (...classes: (string | boolean)[]) => {
   return classes.filter(Boolean).join(' ');
 };
 
-export const Calendar: React.FC<CalendarProps> = ({
-  meetings,
-}): JSX.Element => {
+export const Calendar = ({ meetings }: CalendarProps) => {
   const today = startOfToday();
   const [selectedDay, setSelectedDay] = useState(today);
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
