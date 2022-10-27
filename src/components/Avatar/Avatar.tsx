@@ -2,7 +2,6 @@ import React from 'react';
 import { UserInfoType } from '../../types/UserInfo';
 
 export interface AvatarProps {
-  className?: string;
   rounded?: boolean;
   noBorder?: boolean;
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '4xl';
@@ -23,7 +22,7 @@ const sided = {
 
 export const Avatar = ({
   size = 'xl',
-  className = '',
+
   user,
   noBorder = false,
   rounded,
@@ -40,7 +39,7 @@ export const Avatar = ({
 
   return (
     <div
-      className={`inline-block bg-white ${roundedClassName}  ${sided[size]} ${hasonClick} ${className} focus:ring-2 focus:ring-cu-black-100 focus:ring-offset-2 `}
+      className={`inline-block bg-white ${roundedClassName}  ${sided[size]} ${hasonClick} focus:ring-2 focus:ring-cu-black-100 focus:ring-offset-2 `}
       onClick={onClick}
     >
       {image && (
