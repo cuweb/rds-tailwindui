@@ -1,12 +1,10 @@
 import React from 'react';
-import { HeroIcon } from '../HeroIcon';
-import * as SolidIcons from '@heroicons/react/24/solid';
-import * as OutlineIcons from '@heroicons/react/24/outline';
+import { HeroIcon, IconName } from '../HeroIcon';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
-  icon?: keyof typeof SolidIcons | keyof typeof OutlineIcons;
+  icon?: IconName;
   isType?: 'default' | 'ghost' | 'grey' | 'dark-grey' | 'white' | 'disabled';
   size?: 'sm' | 'base' | 'lg';
   hasShadow?: boolean;
