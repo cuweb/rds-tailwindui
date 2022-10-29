@@ -1,10 +1,12 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Dropdown, DropdownItemProps, DropdownProps } from './Dropdown';
+import { Dropdown, DropdownProps } from './DropDown';
+import { DropDownItemData as listItems } from './DropDownData';
+import { HeroIcon } from '../HeroIcon';
 import { Button } from '../Button';
 
 export default {
-  title: 'Components/Input/Dropdown',
+  title: 'Components/Navigation/Dropdown',
   component: Dropdown,
   argTypes: {},
   parameters: {
@@ -12,64 +14,20 @@ export default {
   },
 } as Meta<typeof Dropdown>;
 
-const items: DropdownItemProps[] = [
-  {
-    href: '/profile',
-    title: 'Profile',
-    icon: 'UserCircleIcon',
-  },
-  {
-    href: '/settings',
-    title: 'Settings',
-    onClick: () => alert('Dropdown for settings has been clicked '),
-    icon: 'Cog8ToothIcon',
-  },
-  {
-    href: '/signout',
-    title: 'Sign out ',
-    icon: 'ArrowLeftOnRectangleIcon',
-  },
-];
-
-const itemNoIcon: DropdownItemProps[] = [
-  {
-    href: '/profile',
-    title: 'Profile',
-  },
-  {
-    href: '/settings',
-    title: 'Settings',
-    onClick: () => alert('Dropdown for settings has been clicked '),
-  },
-  {
-    href: '/support',
-    title: 'Support',
-  },
-];
-
-export const DefaultTemplate: Story<DropdownProps> = () => (
-  <div className="ml-72 ">
-    <Dropdown button="Dropdown" items={itemNoIcon} />
-  </div>
+export const Template: Story<DropdownProps> = () => (
+  <Dropdown listItems={listItems}>
+    <p>Basic Drop Down</p>
+  </Dropdown>
 );
 
-export const NoArrowDropdown: Story<DropdownProps> = () => (
-  <div className="ml-72 ">
-    <Dropdown button="Dropdown" items={items} noArrow />
-  </div>
+export const WithButton: Story<DropdownProps> = () => (
+  <Dropdown listItems={listItems}>
+    <Button size="sm" title="Default Button" />
+  </Dropdown>
 );
 
-export const DropdownWithBorder: Story<DropdownProps> = () => (
-  <div className="ml-72 ">
-    <Dropdown button="Dropdown" items={items} border shadow />
-  </div>
-);
-
-export const ComponentDropdown: Story<DropdownProps> = () => (
-  <div className="ml-72 ">
-    <Dropdown
-      component={<Button title="Avatar" size="sm" isType="ghost" />}
-      items={items}
-    />
-  </div>
+export const WithIcon: Story<DropdownProps> = () => (
+  <Dropdown listItems={listItems}>
+    <HeroIcon aria-hidden color="dark-grey" icon="BugAntIcon" outline />
+  </Dropdown>
 );
