@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
 
 export default {
-  title: 'Components/Input/Button',
+  title: 'Components/Inputs/Button',
   component: Button,
   argTypes: {
     onClick: { action: 'clicked' },

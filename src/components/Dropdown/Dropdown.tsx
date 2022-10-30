@@ -1,34 +1,37 @@
 import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 
-export interface DropdownItemProps {
+export interface DropDownItemProps {
   title: string;
 }
-export interface DropdownProps {
+
+export interface DropDownProps {
   children?: React.ReactNode;
   isType?: 'button' | 'icon' | 'avatar';
   menuAlign?: 'left' | 'right';
-  listItems: DropdownItemProps[];
+  listItems: DropDownItemProps[];
 }
 
 const styles = {
   core: `absolute z-10 w-48 py-1 mt-2 origin-top-left bg-white border rounded-md shadow-lg border-cu-black-100 focus:outline-none`,
 };
 
-export const Dropdown = ({
+export const DropDown = ({
   children,
   isType = 'button',
   listItems,
   menuAlign = 'left',
-}: DropdownProps) => {
-  console.log(listItems);
+}: DropDownProps) => {
   return (
     <Menu
       as={isType === 'button' ? 'div' : 'button'}
       className="relative flex-shrink-0 inline-block"
     >
       <div>
-        <Menu.Button as={isType === 'button' ? 'div' : 'button'}>
+        <Menu.Button
+          as={isType === 'button' ? 'div' : 'button'}
+          className="cursor-pointer"
+        >
           <span className="sr-only">Open menu</span>
           {children}
         </Menu.Button>

@@ -4,7 +4,7 @@ import { Calendar, CalendarProps } from './Calendar';
 import { CalendarData as data } from './CalendarData';
 
 export default {
-  title: 'Components/Input/Calendar',
+  title: 'Components/Inputs/Calendar',
   component: Calendar,
   argTypes: {},
   parameters: {

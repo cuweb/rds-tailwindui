@@ -1,33 +1,45 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Dropdown, DropdownProps } from './DropDown';
+import { DropDown, DropDownProps } from './DropDown';
 import { DropDownItemData as listItems } from './DropDownData';
 import { HeroIcon } from '../HeroIcon';
 import { Button } from '../Button';
 
 export default {
-  title: 'Components/Navigation/Dropdown',
-  component: Dropdown,
+  title: 'Components/Inputs/Drop Down',
+  component: DropDown,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
   },
-} as Meta<typeof Dropdown>;
+} as Meta<typeof DropDown>;
 
-export const Template: Story<DropdownProps> = () => (
-  <Dropdown listItems={listItems}>
-    <p>Basic Drop Down</p>
-  </Dropdown>
+const DefaultTemplate: Story<DropDownProps> = args => (
+  <DropDown menuAlign={args.menuAlign} listItems={listItems}>
+    {args.children}
+  </DropDown>
 );
 
-export const WithButton: Story<DropdownProps> = () => (
-  <Dropdown listItems={listItems}>
-    <Button size="sm" title="Default Button" />
-  </Dropdown>
-);
+export const Default = DefaultTemplate.bind({});
+Default.args = {
+  menuAlign: 'left',
+  children: `Basic Drop Down`,
+};
 
-export const WithIcon: Story<DropdownProps> = () => (
-  <Dropdown listItems={listItems}>
+export const WithButton = DefaultTemplate.bind({});
+WithButton.args = {
+  menuAlign: 'left',
+  children: <Button size="sm" title="Button Dropdown" />,
+};
+
+export const WithHeroIcon = DefaultTemplate.bind({});
+WithHeroIcon.args = {
+  menuAlign: 'left',
+  children: (
     <HeroIcon aria-hidden color="dark-grey" icon="BugAntIcon" outline />
-  </Dropdown>
-);
+  ),
+};
+
+Default.storyName = 'Default';
+WithButton.storyName = 'With Button';
+WithHeroIcon.storyName = 'With Icon';
