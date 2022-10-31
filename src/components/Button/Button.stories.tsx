@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
-import { PlusIcon, MapPinIcon } from '@heroicons/react/20/solid';
 
 export default {
   title: 'Components/Input/Button',
@@ -28,8 +27,7 @@ const Template: Story<ButtonProps> = args => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Storybook Button',
-  disabled: false,
+  title: 'Default Button',
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -37,18 +35,26 @@ Default.args = {
 
 export const GhostButton = Template.bind({});
 GhostButton.args = {
-  title: 'Storybook Button',
-  disabled: false,
+  title: 'Ghost Button',
+  isType: 'ghost',
   onClick: () => {
     alert('button has been clicked ');
   },
-  ghost: true,
 };
 
 export const GreyButton = Template.bind({});
 GreyButton.args = {
-  title: 'Storybook Button',
-  grey: true,
+  title: 'Grey Button',
+  isType: 'grey',
+  onClick: () => {
+    alert('button has been clicked ');
+  },
+};
+
+export const DarkGreyButton = Template.bind({});
+DarkGreyButton.args = {
+  title: 'Dark Grey Button',
+  isType: 'dark-grey',
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -56,8 +62,8 @@ GreyButton.args = {
 
 export const WhiteButton = Template.bind({});
 WhiteButton.args = {
-  title: 'Storybook Button',
-  white: true,
+  title: 'White Button',
+  isType: 'white',
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -65,8 +71,8 @@ WhiteButton.args = {
 
 export const FullWidth = Template.bind({});
 FullWidth.args = {
-  title: 'Storybook Button',
-  full: true,
+  title: 'Full Width Button',
+  isFull: true,
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -74,8 +80,8 @@ FullWidth.args = {
 
 export const centeredButton = Template.bind({});
 centeredButton.args = {
-  title: 'Storybook Button',
-  center: true,
+  title: 'Centered Button',
+  isCenter: true,
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -83,8 +89,8 @@ centeredButton.args = {
 
 export const IconTextButton = Template.bind({});
 IconTextButton.args = {
-  title: 'Storybook Button',
-  icon: <MapPinIcon className="-ml-0.5 h-4 w-4" aria-hidden="true" />,
+  title: 'Button with Icon',
+  icon: 'MapPinIcon',
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -92,7 +98,7 @@ IconTextButton.args = {
 
 export const IconButton = Template.bind({});
 IconButton.args = {
-  icon: <PlusIcon className="-ml-0.5 h-6 w-6" aria-hidden="true" />,
+  icon: 'PlusIcon',
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -100,8 +106,27 @@ IconButton.args = {
 
 export const DisabledButton = Template.bind({});
 DisabledButton.args = {
-  title: 'Storybook Button',
+  title: 'Disabled Button',
+  isType: 'disabled',
   disabled: true,
+  onClick: () => {
+    alert('button has been clicked ');
+  },
+};
+
+export const hasShadowButton = Template.bind({});
+hasShadowButton.args = {
+  title: 'Button has Shadows',
+  hasShadow: true,
+  onClick: () => {
+    alert('button has been clicked ');
+  },
+};
+
+export const SizeButton = Template.bind({});
+SizeButton.args = {
+  title: 'Button has Shadows',
+  size: 'sm',
   onClick: () => {
     alert('button has been clicked ');
   },
