@@ -3,17 +3,17 @@ import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 import React, { Fragment } from 'react';
 import { HeroIcon, IconName } from '../HeroIcon';
 
-export interface DropdownItemProps {
+export interface DropdownPrevItemProps {
   title: string;
   icon?: IconName;
   href?: string;
   onClick?: (event: React.MouseEvent<MouseEvent | HTMLAnchorElement>) => void;
 }
 
-export interface DropdownProps {
+export interface DropdownPrevProps {
   button?: string;
   component?: React.ReactNode;
-  items: DropdownItemProps[];
+  items: DropdownPrevItemProps[];
   noArrow?: boolean;
   shadow?: boolean;
   border?: boolean;
@@ -22,14 +22,14 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const Dropdown = ({
+export const DropdownPrev = ({
   button,
   items,
   noArrow = false,
   shadow = false,
   border = false,
   component,
-}: DropdownProps) => {
+}: DropdownPrevProps) => {
   const shawdowStyle = shadow ? 'shadow-sm' : '';
   const borderStyle = border ? ' border border-gray-300' : '';
 
@@ -43,7 +43,7 @@ export const Dropdown = ({
             {button}
             {!noArrow && (
               <ChevronDownIcon
-                className="-mr-1 ml-2 h-5 w-5"
+                className="w-5 h-5 ml-2 -mr-1"
                 aria-hidden="true"
               />
             )}
@@ -61,7 +61,7 @@ export const Dropdown = ({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
             {items.map((item, index) => (
               <Menu.Item key={index}>
