@@ -12,5 +12,7 @@ const Template: Story<PaginationProps> = args => <Pagination {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  numItems: 88,
+  totalCount: 48,
+  siblingCount: 1,
+  pageSize: 5,
 };
