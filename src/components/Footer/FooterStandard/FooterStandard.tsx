@@ -1,6 +1,6 @@
 import React from 'react';
 import { FooterWave } from '../FooterWave';
-// import RavensLogo from '../../../assets/ravens-logo.svg';
+import RavensLogo from '../../../assets/ravens-logo.svg';
 
 const navigation = {
   Admissions: [
@@ -191,7 +191,7 @@ export const FooterStandard = () => {
           <a href="https://goravens.carleton.ca" className="w-12 h-auto">
             <img
               className="w-12 h-auto mt-8"
-              // src={RavensLogo}
+              src={RavensLogo}
               alt="Carleton"
             />
           </a>
