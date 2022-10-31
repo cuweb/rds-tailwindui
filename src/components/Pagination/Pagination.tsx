@@ -23,13 +23,13 @@ export const Pagination: React.FC<PaginationProps> = ({
   );
 
   let lastPage = 0;
-  if (paginationRange != undefined) {
+  if (paginationRange !== undefined) {
     lastPage = Number(paginationRange[paginationRange.length - 1]);
   }
 
   if (
     currentPage === 0 ||
-    (paginationRange != undefined && paginationRange.length < 2)
+    (paginationRange !== undefined && paginationRange.length < 2)
   ) {
     return null;
   }
@@ -80,7 +80,7 @@ export const Pagination: React.FC<PaginationProps> = ({
                   <span className="sr-only">Previous</span>
                   <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
                 </a>
-                {paginationRange != undefined &&
+                {paginationRange !== undefined &&
                   paginationRange.map((pageNumber, index) => {
                     if (pageNumber === DOTS) {
                       return (
