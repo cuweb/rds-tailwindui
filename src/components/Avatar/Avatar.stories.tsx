@@ -12,12 +12,11 @@ export default {
   },
 } as Meta<typeof Avatar>;
 
-const DefaultTemplate: Story<AvatarProps> = args => <Avatar {...args} />;
+const DefaultTemplate: Story<AvatarProps> = (args) => <Avatar {...args} />;
 
 const user: UserInfoType = {
   image: {
-    src:
-      'https://i.carleton.ca/wp-content/uploads/2016/10/danny-brown-1-1-300x300.jpg',
+    src: 'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
     alt: '',
   },
   firstName: 'Danny',
@@ -29,7 +28,6 @@ const userNoImage: UserInfoType = {
   lastName: 'Brown',
 };
 
-// ADD COMPONENT ARGS WITH DEFAULT SETTINGS
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   user: { ...user },
@@ -38,19 +36,8 @@ Default.args = {
   },
 };
 
-// with Caption
-export const WithCaption = DefaultTemplate.bind({});
-WithCaption.args = {
-  user: { ...user },
-  caption: 'Director, Enterprise Application',
-  onClick: () => {
-    alert('I am an alert ');
-  },
-};
-
-// with rounded
-export const rounded = DefaultTemplate.bind({});
-rounded.args = {
+export const RoundedCorners = DefaultTemplate.bind({});
+RoundedCorners.args = {
   user: { ...user },
   rounded: 'md',
   onClick: () => {
@@ -58,20 +45,18 @@ rounded.args = {
   },
 };
 
-// with roundedWithCaption
-export const roundedWithCaption = DefaultTemplate.bind({});
-roundedWithCaption.args = {
+export const Circular = DefaultTemplate.bind({});
+Circular.args = {
   user: { ...user },
-  caption: 'Director, Enterprise Application',
-  rounded: 'md',
+  rounded: 'full',
   onClick: () => {
     alert('I am an alert ');
   },
 };
 
 //No Border
-export const roundedNoBorder = DefaultTemplate.bind({});
-roundedNoBorder.args = {
+export const WithBorder = DefaultTemplate.bind({});
+WithBorder.args = {
   user: { ...user },
   caption: 'Director, Enterprise Application',
   rounded: 'md',

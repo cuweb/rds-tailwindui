@@ -3,9 +3,7 @@ describe('Marketplace', () => {
   it('NewsItem Default exist?', () => {
     cy.visit('/iframe.html?id=components-list-items-news--default');
     cy.get('img').should('exist');
-    cy.get('h3')
-      .should('exist')
-      .contains('News item title');
+    cy.get('h3').should('exist').contains('News item title');
     cy.get('a').should('have.attr', 'href');
     cy.get('p').should('exist');
   });

@@ -7,10 +7,7 @@ export interface AvatarProps {
   hasBorder?: boolean;
   hasShadow?: boolean;
   rounded?: 'base' | 'md' | 'lg' | 'xl' | 'full' | 'none';
-
-  noBorder?: boolean;
   user: UserInfoType;
-  caption?: string;
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
 }
 
@@ -33,37 +30,35 @@ export const Avatar = ({
   size = 'xl',
   hasShadow,
   user,
-  noBorder = false,
+  //   noBorder = false,
   rounded = 'none',
   onClick,
 }: AvatarProps) => {
   const { firstName, lastName, image } = user;
-  const initials =
-    !image && `${firstName.split('')[0]}${lastName.split('')[0]}`;
-
   const shadow = hasShadow ? styles.shadow : '';
-  const hasonClick = onClick ? 'cursor-pointer' : '';
-  const hasBorder = noBorder ? '' : 'ring-2 ring-cu-black-100';
+  const hasOnClick = onClick ? 'cursor-pointer' : '';
+  //   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
+  //   const hasBorder = noBorder ? '' : 'ring-2 ring-cu-black-100';
 
   return (
     <>
       {image && (
         <img
           //   className={`inline-block ${sided[size]}  ${rounded} ${hasBorder} `}
-          className={`${styles.core} ${rdsRounded[rounded]} ${shadow} ${sided[size]} ${hasonClick}`}
+          className={`${styles.core} ${rdsRounded[rounded]} ${shadow} ${sided[size]} ${hasOnClick}`}
           src={image.src}
           alt={image.alt || `Avatar of ${firstName} ${lastName}`}
           aria-hidden="true"
         />
       )}
 
-      {!image && (
+      {/* {!image && (
         <div
           className={`font-medium aspect-square flex items-center place-content-center overflow-hidden text-cu-black-800 bg-cu-black-50 ${rounded} ${hasBorder}`}
         >
           {initials}
         </div>
-      )}
+      )} */}
     </>
   );
 };

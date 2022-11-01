@@ -6,9 +6,7 @@ describe('Column', () => {
       .should('have.class', 'cu-column')
       .and('have.class', 'grid-cols-1');
 
-    cy.get('p')
-      .should('exist')
-      .contains('Single Column');
+    cy.get('p').should('exist').contains('Single Column');
   });
 
   // Two Column

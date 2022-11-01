@@ -6,9 +6,7 @@ describe('AvatarPrev', () => {
 
   it(`Should render captions`, () => {
     cy.visit(`/iframe.html?id=components-input-avatar--with-caption`);
-    cy.get(`figcaption`)
-      .should('exist')
-      .and('not.be.empty');
+    cy.get(`figcaption`).should('exist').and('not.be.empty');
   });
 
   it(`Should render rounded Avatar`, () => {
@@ -39,7 +37,7 @@ describe('AvatarPrev', () => {
   it(`Should render alert when Clicked -- Handle Click `, () => {
     cy.visit(`/iframe.html?id=components-input-avatar--default`);
     cy.get('[alt="Avatar of Danny Brown"]').click();
-    cy.on('window:alert', str => {
+    cy.on('window:alert', (str) => {
       expect(str).to.contains(`I am an alert`);
       return false;
     });
