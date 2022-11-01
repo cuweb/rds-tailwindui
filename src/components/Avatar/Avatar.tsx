@@ -10,7 +10,7 @@ import {
 export interface AvatarProps {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '4xl';
   rounded?: 'lg' | 'full';
-  borderWidth?: 'base' | '2' | '4' | '8';
+  borderWidth?: '1' | '2' | '4' | '8';
   borderColor?: 'black' | 'white' | 'red' | 'grey' | 'dark-grey';
   hasShadow?: boolean;
   user: UserInfoType;
@@ -19,7 +19,7 @@ export interface AvatarProps {
 
 const styles = {
   core: `inline-block bg-white overflow-hidden focus:ring-2 focus:ring-cu-black-100 focus:ring-offset-2`,
-  'no-image': `bg-cu-black-100 flex items-center justify-center font-semibold text-2xl`,
+  'no-image': `bg-cu-black-100 flex items-center justify-center font-semibold`,
   shadow: `shadow-lg`,
 };
 
@@ -33,12 +33,14 @@ export const Avatar = ({
   onClick,
 }: AvatarProps) => {
   const { firstName, lastName, image } = user;
+  const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
   const shadowStyle = hasShadow ? styles.shadow : '';
   const roundedStyle = rounded ? rdsRounded[rounded] : '';
   const borderWidthStyle = borderWidth ? rdsBorderWidth[borderWidth] : '';
   const borderColorStyle = borderColor ? rdsBorderColor[borderColor] : '';
+  const noImageTextSize =
+    size === 'xs' || size === 'sm' ? 'text-base' : 'text-2xl';
   const hasOnClick = onClick ? 'cursor-pointer' : '';
-  const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
 
   return (
     <>
@@ -53,7 +55,7 @@ export const Avatar = ({
 
       {!image && (
         <div
-          className={`${styles.core} ${styles['no-image']} ${rdsSquareSize[size]} ${roundedStyle} ${borderWidthStyle} ${borderColorStyle} ${borderColorStyle} ${shadowStyle} ${hasOnClick}`}
+          className={`${styles.core} ${styles['no-image']} ${noImageTextSize} ${rdsSquareSize[size]} ${roundedStyle} ${borderWidthStyle} ${borderColorStyle} ${borderColorStyle} ${shadowStyle} ${hasOnClick}`}
         >
           {initials}
         </div>

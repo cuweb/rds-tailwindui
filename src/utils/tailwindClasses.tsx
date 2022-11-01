@@ -84,7 +84,7 @@ export const rdsRounded = {
 };
 
 export const rdsBorderWidth = {
-  base: 'border',
+  1: 'border',
   2: 'border-2',
   4: 'border-4',
   8: 'border-8',

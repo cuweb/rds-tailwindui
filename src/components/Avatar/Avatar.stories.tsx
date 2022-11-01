@@ -75,19 +75,22 @@ WithBorder.args = {
   },
 };
 
-export const NoImage = () => <Avatar user={userNoImage} size="lg" />;
+export const NoImage = DefaultTemplate.bind({});
+NoImage.args = {
+  user: { ...userNoImage },
+  onClick: () => {
+    alert('I am an alert ');
+  },
+};
 
-// all sizes for image
 export const Sizes = () => (
-  <>
-    <div className="grid grid-cols-1 gap-16">
-      <Avatar user={user} rounded="lg" size="xs" />
-      <Avatar user={user} rounded="lg" size="sm" />
-      <Avatar user={user} rounded="lg" size="md" />
-      <Avatar user={user} rounded="lg" size="lg" />
-      <Avatar user={user} rounded="lg" size="xl" />
-      <Avatar user={user} rounded="lg" size="2xl" />
-      <Avatar user={user} rounded="lg" size="4xl" />
-    </div>
-  </>
+  <div className="grid gap-8">
+    <Avatar user={userNoImage} size="xs" />
+    <Avatar user={userNoImage} size="sm" />
+    <Avatar user={userNoImage} size="md" />
+    <Avatar user={userNoImage} size="lg" />
+    <Avatar user={userNoImage} size="xl" />
+    <Avatar user={userNoImage} size="2xl" />
+    <Avatar user={userNoImage} size="4xl" />
+  </div>
 );
