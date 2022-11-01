@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof NewsItem>;
 
-const DefaultTemplate: Story<NewsItemProps> = (args) => (
+const DefaultTemplate: Story<NewsItemProps> = args => (
   <NewsItem as="div" link={args.link}>
     <NewsItem.Image image={args.image} />
     <NewsItem.Content>
@@ -32,7 +32,7 @@ const DefaultTemplate: Story<NewsItemProps> = (args) => (
   </NewsItem>
 );
 
-const SingleItemPanelTemplate: Story<NewsItemProps> = (args) => (
+const SingleItemPanelTemplate: Story<NewsItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <NewsItem as="div" link={args.link}>

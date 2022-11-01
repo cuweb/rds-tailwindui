@@ -12,11 +12,12 @@ export default {
   },
 } as Meta<typeof Avatar>;
 
-const DefaultTemplate: Story<AvatarProps> = (args) => <Avatar {...args} />;
+const DefaultTemplate: Story<AvatarProps> = args => <Avatar {...args} />;
 
 const user: UserInfoType = {
   image: {
-    src: 'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
+    src:
+      'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
     alt: '',
   },
   firstName: 'Danny',
@@ -58,9 +59,7 @@ Circular.args = {
 export const WithBorder = DefaultTemplate.bind({});
 WithBorder.args = {
   user: { ...user },
-  caption: 'Director, Enterprise Application',
   rounded: 'md',
-  noBorder: true,
   onClick: () => {
     alert('I am an alert ');
   },
@@ -70,13 +69,13 @@ WithBorder.args = {
 export const NoImage = () => (
   <>
     <div className="grid grid-cols-1 gap-16">
-      <Avatar user={userNoImage} size="xs" caption="xs" />
-      <Avatar user={userNoImage} size="sm" caption="sm" />
-      <Avatar user={userNoImage} size="md" caption="md" />
-      <Avatar user={userNoImage} size="lg" caption="lg" />
-      <Avatar user={userNoImage} size="xl" caption="xl" />
-      <Avatar user={userNoImage} size="2xl" caption="2xl" />
-      <Avatar user={userNoImage} size="4xl" caption="4xl" />
+      <Avatar user={userNoImage} size="xs" />
+      <Avatar user={userNoImage} size="sm" />
+      <Avatar user={userNoImage} size="md" />
+      <Avatar user={userNoImage} size="lg" />
+      <Avatar user={userNoImage} size="xl" />
+      <Avatar user={userNoImage} size="2xl" />
+      <Avatar user={userNoImage} size="4xl" />
     </div>
   </>
 );
@@ -85,13 +84,13 @@ export const NoImage = () => (
 export const Sizes = () => (
   <>
     <div className="grid grid-cols-1 gap-16">
-      <Avatar user={user} rounded="lg" size="xs" caption="xs" />
-      <Avatar user={user} rounded="lg" size="sm" caption="sm" />
-      <Avatar user={user} rounded="lg" size="md" caption="md" />
-      <Avatar user={user} rounded="lg" size="lg" caption="lg" />
-      <Avatar user={user} rounded="lg" size="xl" caption="xl" />
-      <Avatar user={user} rounded="lg" size="2xl" caption="2xl" />
-      <Avatar user={user} rounded="lg" size="4xl" caption="4xl" />
+      <Avatar user={user} rounded="lg" size="xs" />
+      <Avatar user={user} rounded="lg" size="sm" />
+      <Avatar user={user} rounded="lg" size="md" />
+      <Avatar user={user} rounded="lg" size="lg" />
+      <Avatar user={user} rounded="lg" size="xl" />
+      <Avatar user={user} rounded="lg" size="2xl" />
+      <Avatar user={user} rounded="lg" size="4xl" />
     </div>
   </>
 );

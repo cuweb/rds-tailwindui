@@ -3,7 +3,9 @@ describe('Details', () => {
   it('DetailssItem Default exist?', () => {
     cy.visit('/iframe.html?id=components-list-items-details--default');
     cy.get('svg').should('exist');
-    cy.get('h3').should('exist').contains('Details item title');
+    cy.get('h3')
+      .should('exist')
+      .contains('Details item title');
     cy.get('a').should('have.attr', 'href');
     cy.get('p').should('exist');
   });

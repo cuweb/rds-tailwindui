@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof FileItem>;
 
-const DefaultTemplate: Story<FileItemProps> = (args) => (
+const DefaultTemplate: Story<FileItemProps> = args => (
   <FileItem as="div" link={args.link}>
     <FileItem.Content>
       <FileItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
@@ -30,7 +30,7 @@ const DefaultTemplate: Story<FileItemProps> = (args) => (
   </FileItem>
 );
 
-const SingleItemPanelTemplate: Story<FileItemProps> = (args) => (
+const SingleItemPanelTemplate: Story<FileItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <FileItem as="div" link={args.link}>

@@ -2,7 +2,9 @@ describe('FeedItems', () => {
   //default
   it('FeedItems Default exist?', () => {
     cy.visit('/iframe.html?id=components-list-items-feeds--default');
-    cy.get('h2').should('exist').contains('Feed item title');
+    cy.get('h2')
+      .should('exist')
+      .contains('Feed item title');
     cy.get('p').should('exist');
     cy.get('a').should('have.attr', 'href');
   });
