@@ -11,7 +11,11 @@ const content = {
 export default {
   title: 'Layouts/Container',
   component: Container,
-  argTypes: {},
+  argTypes: {
+    bgColor: {
+      control: 'inline-radio',
+    },
+  },
   parameters: {
     controls: { expanded: true },
   },
@@ -23,21 +27,11 @@ const DefaultTemplate: Story<ContainerProps> = args => (
   </Container>
 );
 
-export const Default = DefaultTemplate.bind({});
-Default.args = {
-  bgColor: 'white',
-};
-
-const GrayBgTemplateTemplate: Story<ContainerProps> = args => (
+const GreyBgTemplateTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
-    <p className="px-8">Gray Container</p>
+    <p className="px-8">Grey Container</p>
   </Container>
 );
-
-export const GrayBackground = GrayBgTemplateTemplate.bind({});
-GrayBackground.args = {
-  bgColor: 'gray',
-};
 
 const WithTwoColumnsTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
@@ -48,27 +42,42 @@ const WithTwoColumnsTemplate: Story<ContainerProps> = args => (
   </Container>
 );
 
-export const WithTwoColumns = WithTwoColumnsTemplate.bind({});
-WithTwoColumns.args = {
-  bgColor: 'gray',
-};
-
 const WithPanelsTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
     <Column cols="2">
       <Panel hasBorder hasShadow>
         <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-8">{content.paragraph}</p>
+        <p className="p-6">{content.paragraph}</p>
       </Panel>
       <Panel hasBorder hasShadow>
         <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-8">{content.paragraph}</p>
+        <p className="p-6">{content.paragraph}</p>
       </Panel>
     </Column>
   </Container>
 );
 
+export const Default = DefaultTemplate.bind({});
+Default.args = {
+  bgColor: 'white',
+};
+
+export const GreyBackground = GreyBgTemplateTemplate.bind({});
+GreyBackground.args = {
+  bgColor: 'grey',
+};
+
+export const WithTwoColumns = WithTwoColumnsTemplate.bind({});
+WithTwoColumns.args = {
+  ...GreyBackground.args,
+};
+
 export const WithPanels = WithPanelsTemplate.bind({});
 WithPanels.args = {
-  bgColor: 'gray',
+  ...GreyBackground.args,
 };
+
+Default.storyName = 'Default white bg';
+GreyBackground.storyName = 'Grey background';
+WithTwoColumns.storyName = 'With two columns';
+WithPanels.storyName = 'Two column panels';

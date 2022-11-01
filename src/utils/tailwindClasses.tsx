@@ -25,9 +25,20 @@ export const rdsGridSpacing = {
   '10': 'gap-10 [&+.cu-column]:mt-10', // 40px
 };
 
-export const rdsColorScheme = {
+export const rdsBgColor = {
+  black: 'bg-cu-black-800',
   white: 'bg-white',
-  gray: 'bg-cu-black-50',
+  red: 'bg-cu-red',
+  grey: 'bg-cu-black-50',
+  'dark-grey': 'bg-cu-black-600',
+};
+
+export const rdsTextColor = {
+  black: 'text-cu-black-800',
+  white: 'text-white',
+  red: 'text-cu-red',
+  grey: 'text-cu-black-50',
+  'dark-grey': 'text-cu-black-600',
 };
 
 export const rdsTextColor = {
@@ -39,9 +50,27 @@ export const rdsTextColor = {
 };
 
 export const rdsFontSizes = {
-  base: 'text-base',
-  lg: 'text-lg',
-  xl: 'text-xl',
+  base: 'md:text-base',
+  lg: 'md:text-lg',
+  xl: 'md:text-xl',
+};
+
+export const rdsWidth = {
+  4: 'w-4',
+  6: 'w-6',
+  8: 'w-8',
+  12: 'w-12',
+  16: 'w-16',
+  20: 'w-20',
+};
+
+export const rdsHeight = {
+  4: 'h-4',
+  6: 'h-6',
+  8: 'h-8',
+  12: 'h-12',
+  16: 'h-16',
+  20: 'h-20',
 };
 
 export const rdsWidth = {

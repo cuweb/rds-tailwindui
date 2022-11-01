@@ -1,5 +1,5 @@
 import React from 'react';
-import { rdsColorScheme } from '../../utils/tailwindClasses';
+import { rdsBgColor } from '../../utils/tailwindClasses';
 
 const styles = {
   container: `cu-container py-8`,
@@ -7,12 +7,12 @@ const styles = {
 
 export interface ContainerProps {
   children: React.ReactNode;
-  bgColor?: 'white' | 'gray';
+  bgColor?: 'white' | 'grey';
 }
 
 export const Container = ({ children, bgColor = 'white' }: ContainerProps) => {
   return (
-    <div className={`${styles.container} ${rdsColorScheme[bgColor]}`}>
+    <div className={`${styles.container} ${rdsBgColor[bgColor]}`}>
       {children}
     </div>
   );
