@@ -40,14 +40,14 @@ Default.args = {
 export const RoundedCorners = DefaultTemplate.bind({});
 RoundedCorners.args = {
   user: { ...user },
-  rounded: 'md',
+  rounded: 'lg',
   onClick: () => {
     alert('I am an alert ');
   },
 };
 
-export const Circular = DefaultTemplate.bind({});
-Circular.args = {
+export const FullCircle = DefaultTemplate.bind({});
+FullCircle.args = {
   user: { ...user },
   rounded: 'full',
   onClick: () => {
@@ -55,30 +55,27 @@ Circular.args = {
   },
 };
 
-//No Border
-export const WithBorder = DefaultTemplate.bind({});
-WithBorder.args = {
+export const WithShadow = DefaultTemplate.bind({});
+WithShadow.args = {
   user: { ...user },
-  rounded: 'md',
+  rounded: 'lg',
+  hasShadow: true,
   onClick: () => {
     alert('I am an alert ');
   },
 };
 
-// no image
-export const NoImage = () => (
-  <>
-    <div className="grid grid-cols-1 gap-16">
-      <Avatar user={userNoImage} size="xs" />
-      <Avatar user={userNoImage} size="sm" />
-      <Avatar user={userNoImage} size="md" />
-      <Avatar user={userNoImage} size="lg" />
-      <Avatar user={userNoImage} size="xl" />
-      <Avatar user={userNoImage} size="2xl" />
-      <Avatar user={userNoImage} size="4xl" />
-    </div>
-  </>
-);
+export const WithBorder = DefaultTemplate.bind({});
+WithBorder.args = {
+  user: { ...user },
+  rounded: 'lg',
+  borderWidth: '4',
+  onClick: () => {
+    alert('I am an alert ');
+  },
+};
+
+export const NoImage = () => <Avatar user={userNoImage} size="lg" />;
 
 // all sizes for image
 export const Sizes = () => (
