@@ -30,8 +30,34 @@ export const rdsColorScheme = {
   gray: 'bg-cu-black-50',
 };
 
+export const rdsTextColor = {
+  black: 'text-cu-black-800',
+  white: 'text-white',
+  red: 'text-cu-red',
+  grey: 'text-cu-black-50',
+  'dark-grey': 'text-cu-black-600',
+};
+
 export const rdsFontSizes = {
   base: 'text-base',
   lg: 'text-lg',
   xl: 'text-xl',
+};
+
+export const rdsWidth = {
+  4: 'w-4',
+  6: 'w-6',
+  8: 'w-8',
+  12: 'w-12',
+  16: 'w-16',
+  20: 'w-20',
+};
+
+export const rdsHeight = {
+  4: 'h-4',
+  6: 'h-6',
+  8: 'h-8',
+  12: 'h-12',
+  16: 'h-16',
+  20: 'h-20',
 };
