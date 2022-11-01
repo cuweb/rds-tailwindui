@@ -1,13 +1,16 @@
+const images = require('@rollup/plugin-image');
 const postcss = require('rollup-plugin-postcss');
 
 module.exports = {
   rollup(config, options) {
-    config.plugins.push(
+    config.plugins = [
+      images({ include: ['**/**/*.svg'] }),
       postcss({
         inject: false,
         extract: !!options.writeMeta,
       }),
-    );
-    return config;
+      ...config.plugins,
+    ]
+    return config
   },
-};
+}
