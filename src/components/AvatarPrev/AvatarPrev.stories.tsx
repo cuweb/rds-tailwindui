@@ -1,18 +1,20 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Avatar, AvatarProps } from './Avatar';
+import { AvatarPrev, AvatarPrevProps } from './AvatarPrev';
 import { UserInfoType } from '../../types/UserInfo';
 
 export default {
-  title: 'Components/Elements/Avatar',
-  component: Avatar,
+  title: 'Components/Elements/Avatar (Previous)',
+  component: AvatarPrev,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
   },
-} as Meta<typeof Avatar>;
+} as Meta<typeof AvatarPrev>;
 
-const DefaultTemplate: Story<AvatarProps> = args => <Avatar {...args} />;
+const DefaultTemplate: Story<AvatarPrevProps> = args => (
+  <AvatarPrev {...args} />
+);
 
 const user: UserInfoType = {
   image: {
@@ -52,7 +54,7 @@ WithCaption.args = {
 export const rounded = DefaultTemplate.bind({});
 rounded.args = {
   user: { ...user },
-  rounded: 'md',
+  rounded: true,
   onClick: () => {
     alert('I am an alert ');
   },
@@ -63,7 +65,7 @@ export const roundedWithCaption = DefaultTemplate.bind({});
 roundedWithCaption.args = {
   user: { ...user },
   caption: 'Director, Enterprise Application',
-  rounded: 'md',
+  rounded: true,
   onClick: () => {
     alert('I am an alert ');
   },
@@ -74,7 +76,7 @@ export const roundedNoBorder = DefaultTemplate.bind({});
 roundedNoBorder.args = {
   user: { ...user },
   caption: 'Director, Enterprise Application',
-  rounded: 'md',
+  rounded: true,
   noBorder: true,
   onClick: () => {
     alert('I am an alert ');
@@ -85,13 +87,13 @@ roundedNoBorder.args = {
 export const NoImage = () => (
   <>
     <div className="grid grid-cols-1 gap-16">
-      <Avatar user={userNoImage} size="xs" caption="xs" />
-      <Avatar user={userNoImage} size="sm" caption="sm" />
-      <Avatar user={userNoImage} size="md" caption="md" />
-      <Avatar user={userNoImage} size="lg" caption="lg" />
-      <Avatar user={userNoImage} size="xl" caption="xl" />
-      <Avatar user={userNoImage} size="2xl" caption="2xl" />
-      <Avatar user={userNoImage} size="4xl" caption="4xl" />
+      <AvatarPrev user={userNoImage} size="xs" caption="xs" />
+      <AvatarPrev user={userNoImage} size="sm" caption="sm" />
+      <AvatarPrev user={userNoImage} size="md" caption="md" />
+      <AvatarPrev user={userNoImage} size="lg" caption="lg" />
+      <AvatarPrev user={userNoImage} size="xl" caption="xl" />
+      <AvatarPrev user={userNoImage} size="2xl" caption="2xl" />
+      <AvatarPrev user={userNoImage} size="4xl" caption="4xl" />
     </div>
   </>
 );
@@ -100,13 +102,13 @@ export const NoImage = () => (
 export const Sizes = () => (
   <>
     <div className="grid grid-cols-1 gap-16">
-      <Avatar user={user} rounded="lg" size="xs" caption="xs" />
-      <Avatar user={user} rounded="lg" size="sm" caption="sm" />
-      <Avatar user={user} rounded="lg" size="md" caption="md" />
-      <Avatar user={user} rounded="lg" size="lg" caption="lg" />
-      <Avatar user={user} rounded="lg" size="xl" caption="xl" />
-      <Avatar user={user} rounded="lg" size="2xl" caption="2xl" />
-      <Avatar user={user} rounded="lg" size="4xl" caption="4xl" />
+      <AvatarPrev user={user} rounded size="xs" caption="xs" />
+      <AvatarPrev user={user} rounded size="sm" caption="sm" />
+      <AvatarPrev user={user} rounded size="md" caption="md" />
+      <AvatarPrev user={user} rounded size="lg" caption="lg" />
+      <AvatarPrev user={user} rounded size="xl" caption="xl" />
+      <AvatarPrev user={user} rounded size="2xl" caption="2xl" />
+      <AvatarPrev user={user} rounded size="4xl" caption="4xl" />
     </div>
   </>
 );

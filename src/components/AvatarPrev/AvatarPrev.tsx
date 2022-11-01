@@ -1,14 +1,10 @@
 import React from 'react';
 import { UserInfoType } from '../../types/UserInfo';
-import { rdsRounded } from '../../utils/tailwindClasses';
 
-export interface AvatarProps {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '4xl';
-  hasBorder?: boolean;
-  hasShadow?: boolean;
-  rounded?: 'base' | 'md' | 'lg' | 'xl' | 'full' | 'none';
-
+export interface AvatarPrevProps {
+  rounded?: boolean;
   noBorder?: boolean;
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '4xl';
   user: UserInfoType;
   caption?: string;
   onClick?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
@@ -24,33 +20,31 @@ const sided = {
   '4xl': 'h-56 w-56 text-4xl',
 };
 
-const styles = {
-  core: `inline-block bg-white overflow-hidden focus:ring-2 focus:ring-cu-black-100 focus:ring-offset-2`,
-  shadow: `shadow-lg`,
-};
-
-export const Avatar = ({
+export const AvatarPrev = ({
   size = 'xl',
-  hasShadow,
+
   user,
   noBorder = false,
-  rounded = 'none',
+  rounded,
+  caption,
   onClick,
-}: AvatarProps) => {
+}: AvatarPrevProps) => {
   const { firstName, lastName, image } = user;
   const initials =
     !image && `${firstName.split('')[0]}${lastName.split('')[0]}`;
 
-  const shadow = hasShadow ? styles.shadow : '';
+  const roundedClassName = rounded ? 'rounded-full' : '';
   const hasonClick = onClick ? 'cursor-pointer' : '';
   const hasBorder = noBorder ? '' : 'ring-2 ring-cu-black-100';
 
   return (
-    <>
+    <div
+      className={`inline-block bg-white ${roundedClassName}  ${sided[size]} ${hasonClick} focus:ring-2 focus:ring-cu-black-100 focus:ring-offset-2 `}
+      onClick={onClick}
+    >
       {image && (
         <img
-          //   className={`inline-block ${sided[size]}  ${rounded} ${hasBorder} `}
-          className={`${styles.core} ${rdsRounded[rounded]} ${shadow} ${sided[size]} ${hasonClick}`}
+          className={`inline-block ${sided[size]}  ${roundedClassName} ${hasBorder} `}
           src={image.src}
           alt={image.alt || `Avatar of ${firstName} ${lastName}`}
           aria-hidden="true"
@@ -59,11 +53,16 @@ export const Avatar = ({
 
       {!image && (
         <div
-          className={`font-medium aspect-square flex items-center place-content-center overflow-hidden text-cu-black-800 bg-cu-black-50 ${rounded} ${hasBorder}`}
+          className={`font-medium aspect-square flex items-center place-content-center overflow-hidden text-cu-black-800 bg-cu-black-50 ${roundedClassName} ${hasBorder}`}
         >
           {initials}
         </div>
       )}
-    </>
+      {caption && (
+        <figcaption className="py-2 text-sm text-center">
+          {`${caption}`}
+        </figcaption>
+      )}
+    </div>
   );
 };

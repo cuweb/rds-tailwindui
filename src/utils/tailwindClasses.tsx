@@ -64,3 +64,12 @@ export const rdsHeight = {
   16: 'h-16',
   20: 'h-20',
 };
+
+export const rdsRounded = {
+  base: 'rounded',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  xl: 'rounded-xl',
+  full: 'rounded-full',
+  none: 'rounded-none',
+};

@@ -12,4 +12,4 @@ export {
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
 export { Calendar, CalendarProps } from './Calendar';
 export { Filter, FilterProps } from './Filter';
-export * from './Masthead';
+// export * from './Masthead';
