@@ -31,7 +31,7 @@ export const FooterWave = () => {
             href="https://library.carleton.ca/copyright-carleton"
             className="hover:text-white"
           >
-            &copy; Copyright 2022
+            &copy; Copyright {new Date().getFullYear()}
           </a>
         </li>
       </ul>
