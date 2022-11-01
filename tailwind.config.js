@@ -3,8 +3,8 @@ module.exports = {
   theme: {
     extend: {
         backgroundImage: {
-            'cu-waves-red': "url('/assets/cu-waves-red.svg')",
-            'cu-waves-white-20': "url('/assets/cu-waves-white-20.svg')",
+            'cu-waves-red': "url('../src/assets/cu-waves-red.svg')",
+            'cu-waves-white-20': "url('../src/assets/cu-waves-white-20.svg')",
         },
         colors: {
           'cu-red': {
