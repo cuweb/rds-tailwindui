@@ -1,6 +1,7 @@
 {
   // see https://www.typescriptlang.org/tsconfig to better understand tsconfigs
   "include": ["types", "test", "src/**/*.ts", "src/**/*.tsx", "src/hooks/usePagination.js"],
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
   "compilerOptions": {
     "module": "esnext",
     "lib": ["dom", "esnext"],
@@ -20,5 +21,5 @@
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "types": ["cypress", "node"]
-  },
+  }
 }
