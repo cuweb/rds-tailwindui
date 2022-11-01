@@ -1,8 +1,15 @@
 // UPDATE IFRAME URL
-describe('Button', () => {
-  it('Does Button exist?', () => {
-    cy.visit('/iframe.html?id=footer-footerbasic--default&viewMode=story');
-    cy.get('button').should('exist');
+describe('Footer', () => {
+  it('Does Footer exist?', () => {
+    cy.visit('/iframe.html?id=footer-basic--default&viewMode=story');
+    cy.get('footer').should('exist');
+    cy.get('ul')
+      .should('exist')
+      .contains('lli');
+    cy.get('a')
+      .should('exist')
+      .should('have.attr', 'href');
+    cy.get('svg').should('exist');
   });
 });
 export {};
