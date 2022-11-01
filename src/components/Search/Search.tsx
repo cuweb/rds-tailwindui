@@ -4,27 +4,25 @@ import React, { useState } from 'react';
 
 export interface SearchProps {
   searchDatabase: any;
-  searchOn: string;
+  searchOn?: string;
   hasborder?: boolean;
+  isFull?: boolean;
 }
-
-// export interface dataProp {
-//   id: string;
-//   name: string;
-//   url: URL;
-// }
 
 function classNames(...classes: (string | boolean)[]) {
   return classes.filter(Boolean).join(' ');
 }
 
 export const Search = ({
-  searchOn,
+  searchOn = 'title',
   searchDatabase,
   hasborder = false,
+  isFull = false,
 }: SearchProps) => {
   const [query, setQuery] = useState('');
+  // const [selected, setSelected] = useState('');
   const hasBorderStyle = hasborder ? 'border border-cu-black-400' : '';
+  const isFullStyle = isFull ? '' : 'max-w-xl';
 
   const filteredDatabase =
     query === ''
@@ -54,11 +52,12 @@ export const Search = ({
 
   return (
     <div
-      className={`mx-auto max-w-xl transform divide-y ${hasBorderStyle}  divide-gray-100 overflow-hidden rounded-xl  first-line:shadow-2xl ring-1 ring-black ring-opacity-5 transition-all`}
+      className={`mx-auto ${isFullStyle} transform divide-y ${hasBorderStyle}  divide-gray-100 overflow-hidden rounded-xl  first-line:shadow-2xl ring-1 ring-black ring-opacity-5 transition-all`}
     >
       <Combobox
         onChange={searchDatabase => (window.location = searchDatabase?.url)}
         value={searchDatabase.searchOn}
+        // onChange={searchDatabase.searchOn}
       >
         <div className="relative bg-white ">
           <MagnifyingGlassIcon
@@ -99,6 +98,10 @@ export const Search = ({
               {searchDatabase[searchOn]}
             </Combobox.Option>
           ))}
+          {/* // no result display  */}
+          {query !== '' && filteredDatabase.length === 0 && (
+            <p className="p-4 text-sm text-gray-500">Search not found</p>
+          )}
         </Combobox.Options>
       </Combobox>
     </div>
