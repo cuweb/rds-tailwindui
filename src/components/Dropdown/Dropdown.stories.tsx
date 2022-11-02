@@ -29,7 +29,7 @@ Default.args = {
 export const WithButton = DefaultTemplate.bind({});
 WithButton.args = {
   menuAlign: 'left',
-  children: <Button size="sm" title="Button Dropdown" />,
+  children: <Button title="Button Dropdown" />,
 };
 
 export const WithButtonArrow = DefaultTemplate.bind({});
