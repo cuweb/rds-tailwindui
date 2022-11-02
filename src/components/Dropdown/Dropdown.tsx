@@ -7,7 +7,8 @@ export interface DropDownItemProps {
 
 export interface DropDownProps {
   children?: React.ReactNode;
-  isType?: 'button' | 'icon' | 'avatar';
+  buttonText?: string;
+  renderAs?: 'button' | 'div';
   menuAlign?: 'left' | 'right';
   listItems: DropDownItemProps[];
 }
@@ -18,22 +19,17 @@ const styles = {
 
 export const DropDown = ({
   children,
-  isType = 'button',
+  buttonText,
+  renderAs = 'button',
   listItems,
   menuAlign = 'left',
 }: DropDownProps) => {
   return (
-    <Menu
-      as={isType === 'button' ? 'div' : 'button'}
-      className="relative flex-shrink-0 inline-block"
-    >
+    <Menu as="div" className="relative flex-shrink-0 inline-block">
       <div>
-        <Menu.Button
-          as={isType === 'button' ? 'div' : 'button'}
-          className="cursor-pointer"
-        >
+        <Menu.Button as={renderAs} className="cursor-pointer">
           <span className="sr-only">Open menu</span>
-          {children}
+          {children && !buttonText ? children : <p>{buttonText}</p>}
         </Menu.Button>
       </div>
 

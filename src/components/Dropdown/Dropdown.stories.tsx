@@ -15,7 +15,7 @@ export default {
 } as Meta<typeof DropDown>;
 
 const DefaultTemplate: Story<DropDownProps> = args => (
-  <DropDown menuAlign={args.menuAlign} listItems={listItems}>
+  <DropDown {...args} listItems={listItems}>
     {args.children}
   </DropDown>
 );
@@ -23,7 +23,7 @@ const DefaultTemplate: Story<DropDownProps> = args => (
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   menuAlign: 'left',
-  children: `Basic Drop Down`,
+  buttonText: 'Basic Drop Down',
 };
 
 export const WithButton = DefaultTemplate.bind({});
