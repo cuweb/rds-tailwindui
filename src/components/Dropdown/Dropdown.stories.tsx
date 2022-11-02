@@ -34,6 +34,7 @@ WithButton.args = {
 
 export const WithHeroIcon = DefaultTemplate.bind({});
 WithHeroIcon.args = {
+  renderAs: 'button',
   menuAlign: 'left',
   children: (
     <HeroIcon aria-hidden color="dark-grey" icon="BugAntIcon" outline />

@@ -20,7 +20,7 @@ const styles = {
 export const DropDown = ({
   children,
   buttonText,
-  renderAs = 'button',
+  renderAs = 'div',
   listItems,
   menuAlign = 'left',
 }: DropDownProps) => {
