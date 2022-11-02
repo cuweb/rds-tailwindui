@@ -32,6 +32,12 @@ WithButton.args = {
   children: <Button size="sm" title="Button Dropdown" />,
 };
 
+export const WithButtonArrow = DefaultTemplate.bind({});
+WithButtonArrow.args = {
+  menuAlign: 'left',
+  children: <Button size="sm" title="Button Dropdown" hasDropDown />,
+};
+
 export const WithHeroIcon = DefaultTemplate.bind({});
 WithHeroIcon.args = {
   renderAs: 'button',
@@ -43,4 +49,5 @@ WithHeroIcon.args = {
 
 Default.storyName = 'Default';
 WithButton.storyName = 'With Button';
+WithButtonArrow.storyName = 'Button and Arrow';
 WithHeroIcon.storyName = 'With Icon';

@@ -28,18 +28,18 @@ export const DropDown = ({
   return (
     <Menu as="div" className="relative flex-shrink-0 inline-block">
       <div>
-        <Menu.Button as={renderAs} className="flex cursor-pointer">
+        <Menu.Button as={renderAs} className="cursor-pointer">
           <span className="sr-only">Open menu</span>
           {children && !buttonText ? (
             children
           ) : (
-            <>
-              <p>{buttonText}</p>
+            <p className="flex">
+              {buttonText}
               <ChevronDownIcon
                 className="w-4 h-4 mt-1 ml-1"
                 aria-hidden="true"
               />
-            </>
+            </p>
           )}
         </Menu.Button>
       </div>
