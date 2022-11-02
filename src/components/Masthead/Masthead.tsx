@@ -2,6 +2,8 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { MagnifyingGlassIcon } from '@heroicons/react/20/solid';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import React, { Fragment } from 'react';
+import { Button } from '../Button';
+import shield from '../../assets/cu-shield.svg';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -20,11 +22,8 @@ export const Masthead = () => {
               <div className="flex px-2 lg:px-0">
                 <a className="flex items-center flex-shrink-0 hover:text-cu-red">
                   {/* logo */}
-                  <img
-                    className="w-auto h-10"
-                    src="/cu-shield.svg"
-                    alt="Carleton"
-                  />
+                  <img className="w-auto h-10" src={shield} alt="Carleton" />
+                  {/* subsite logo if available */}
                   <h1 className="items-center pl-3 pr-2 text-2xl font-semibold">
                     Intranet
                   </h1>
@@ -64,7 +63,7 @@ export const Masthead = () => {
                     Search
                   </label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                       <MagnifyingGlassIcon
                         className="w-5 h-5 text-gray-400"
                         aria-hidden="true"
@@ -76,7 +75,8 @@ export const Masthead = () => {
                       className="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
                       placeholder="Search"
                       type="search"
-                    />
+                    /> */}
+                    <Button title="Nav Menu" size="sm" />
                   </div>
                 </div>
               </div>
@@ -167,7 +167,7 @@ export const Masthead = () => {
               </div>
             </div>
           </div>
-
+          {/* Mobile Menu  */}
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
