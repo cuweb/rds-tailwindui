@@ -1,34 +1,15 @@
-import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import React, { Fragment } from 'react';
-import { Button } from '../Button';
-import shield from '../../assets/cu-shield.svg';
-import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
-import Link from '../Link/Link';
-import { UserInfoType } from '../../types/UserInfo';
-import { AvatarPrev } from '../AvatarPrev';
-import { Search } from '../Search';
-import CommandPallet from '../CommandPallet/CommandPallet';
-import Comboboxelement from '../Combobox/Comboboxelement';
+import React from 'react';
+import { Meta, Story } from '@storybook/react';
+import { Search, SearchProps } from './Search';
 
-const items: DropdownPrevItemProps[] = [
-  {
-    href: '/profile',
-    title: 'Profile',
-    icon: 'UserCircleIcon',
+export default {
+  title: 'Components/Input/Search',
+  component: Search,
+  argTypes: {},
+  parameters: {
+    controls: { expanded: true },
   },
-  {
-    href: '/settings',
-    title: 'Settings',
-    onClick: () => alert('Dropdown for settings has been clicked '),
-    icon: 'Cog8ToothIcon',
-  },
-  {
-    href: '/signout',
-    title: 'Sign out ',
-    icon: 'ArrowLeftOnRectangleIcon',
-  },
-];
+} as Meta<typeof Search>;
 
 const database = [
   {
@@ -430,173 +411,32 @@ const database = [
   },
 ];
 
-const user: UserInfoType = {
-  image: {
-    src:
-      'https://i.carleton.ca/wp-content/uploads/2016/10/danny-brown-1-1-300x300.jpg',
-    alt: '',
+const noUrl = [
+  {
+    id: 56,
+    name: 'Zelig',
   },
-  firstName: 'Danny',
-  lastName: 'Brown',
-};
+  {
+    id: 92,
+    name: 'Ermina',
+  },
+];
 
-export const Masthead = () => {
-  return (
-    <Disclosure
-      as="nav"
-      className="sticky top-0 z-50 bg-white border-t-2 shadow border-cu-red"
-    >
-      {({ open }) => (
-        <>
-          <div className="px-4 mx-auto max-w-7xl sm:px-4 lg:px-8">
-            <div className="flex justify-between h-20">
-              <div className="flex px-2 lg:px-0">
-                <a className="flex items-center flex-shrink-0 hover:text-cu-red">
-                  {/* logo */}
-                  <img className="w-auto h-10" src={shield} alt="Carleton" />
-                  {/* subsite logo if available */}
-                  <h1 className="items-center pl-3 pr-2 text-2xl font-semibold">
-                    Events
-                  </h1>
-                </a>
-              </div>
-              <div className="flex items-center justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
-                <div className="w-full max-w-lg lg:max-w-xs">
-                  <label htmlFor="search" className="sr-only">
-                    Search
-                  </label>
-                  <div className="relative">
-                    {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <MagnifyingGlassIcon
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      />
-                    </div>
-                    <input
-                      id="search"
-                      name="search"
-                      className="block w-full py-2 pl-10 pr-3 leading-5 placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
-                      placeholder="Search"
-                      type="search"
-                    /> */}
+export const searchDefault: Story<SearchProps> = () => (
+  <Search searchDatabase={database} />
+);
 
-                    <Search searchDatabase={database} hasborder />
-                    {/* <CommandPallet /> */}
-                    {/* <Comboboxelement /> */}
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center lg:hidden">
-                {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block w-6 h-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block w-6 h-6" aria-hidden="true" />
-                  )}
-                </Disclosure.Button>
-              </div>
-              <div className="hidden lg:ml-4 lg:flex lg:items-center">
-                <Link href="https://www.google.com/">
-                  <Button title="Event" size="sm" icon="PlusIcon" />
-                </Link>
+export const searchHasBorder: Story<SearchProps> = () => (
+  <Search searchDatabase={database} searchOn="description" hasborder />
+);
+export const fullWidthSearch: Story<SearchProps> = () => (
+  <Search searchDatabase={database} isFull hasborder />
+);
 
-                {/* Profile dropdown */}
-                <Menu as="div" className="relative flex-shrink-0 ml-4">
-                  <DropdownPrev
-                    component={<AvatarPrev user={user} size="xs" rounded />}
-                    items={items}
-                  />
-                </Menu>
-              </div>
-            </div>
-          </div>
-          {/* Mobile Menu  */}
-          <Disclosure.Panel className="lg:hidden">
-            <div className="pt-2 pb-3 space-y-1">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" */}
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-indigo-700 border-l-4 border-indigo-500 bg-indigo-50"
-              >
-                Dashboard
-              </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-              >
-                Team
-              </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-              >
-                Projects
-              </Disclosure.Button>
-              <Disclosure.Button
-                as="a"
-                href="#"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-              >
-                Calendar
-              </Disclosure.Button>
-            </div>
-            <div className="pt-4 pb-3 border-t border-gray-200">
-              <div className="flex items-center px-4">
-                <div className="flex-shrink-0">
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">
-                    Tom Cook
-                  </div>
-                  <div className="text-sm font-medium text-gray-500">
-                    tom@example.com
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  className="flex-shrink-0 p-1 ml-auto text-gray-400 bg-white rounded-full hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="w-6 h-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-3 space-y-1">
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                >
-                  Your Profile
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                >
-                  Settings
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800"
-                >
-                  Sign out
-                </Disclosure.Button>
-              </div>
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
-  );
-};
+export const ValidationUrl: Story<SearchProps> = () => (
+  <Search searchDatabase={noUrl} searchOn="url" />
+);
+
+export const ValidationKey: Story<SearchProps> = () => (
+  <Search searchDatabase={database} searchOn="age" />
+);
