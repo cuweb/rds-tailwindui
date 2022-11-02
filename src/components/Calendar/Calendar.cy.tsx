@@ -7,7 +7,6 @@ describe('Filter', () => {
     cy.get('li').should('exist');
     cy.get('span').should('exist');
     cy.get('p').should('exist');
-    cy.get('section').should('exist');
   });
 });
 export {};
