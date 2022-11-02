@@ -1,5 +1,6 @@
 import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
+import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 
 export interface DropDownItemProps {
   title: string;
@@ -27,9 +28,19 @@ export const DropDown = ({
   return (
     <Menu as="div" className="relative flex-shrink-0 inline-block">
       <div>
-        <Menu.Button as={renderAs} className="cursor-pointer">
+        <Menu.Button as={renderAs} className="flex cursor-pointer">
           <span className="sr-only">Open menu</span>
-          {children && !buttonText ? children : <p>{buttonText}</p>}
+          {children && !buttonText ? (
+            children
+          ) : (
+            <>
+              <p>{buttonText}</p>
+              <ChevronDownIcon
+                className="w-4 h-4 mt-1 ml-1"
+                aria-hidden="true"
+              />
+            </>
+          )}
         </Menu.Button>
       </div>
 

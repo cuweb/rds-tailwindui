@@ -1,5 +1,6 @@
 import React from 'react';
 import { HeroIcon, IconName } from '../HeroIcon';
+import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -11,6 +12,7 @@ export interface ButtonProps
   isFull?: boolean;
   isCenter?: boolean;
   isDisabled?: boolean;
+  hasDropDown?: boolean;
 }
 
 const styles = {
@@ -40,6 +42,7 @@ export const Button = ({
   isFull,
   isCenter,
   isDisabled = false,
+  hasDropDown,
   ...rest
 }: ButtonProps) => {
   const shadowStyles = hasShadow ? styles.shadow : '';
@@ -63,6 +66,13 @@ export const Button = ({
       )}
 
       {title}
+
+      {hasDropDown && (
+        <ChevronDownIcon
+          className="w-4 h-4 mt-1 ml-1 -mr-1"
+          aria-hidden="true"
+        />
+      )}
     </button>
   );
 };
