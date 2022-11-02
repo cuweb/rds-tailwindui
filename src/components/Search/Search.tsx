@@ -52,6 +52,7 @@ export const Search = ({
 
   return (
     <div
+      id="search-bar"
       className={`mx-auto ${isFullStyle} transform divide-y ${hasBorderStyle}  divide-gray-100 overflow-hidden rounded-xl  first-line:shadow-2xl ring-1 ring-black ring-opacity-5 transition-all`}
     >
       <Combobox

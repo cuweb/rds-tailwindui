@@ -1,8 +1,8 @@
-// UPDATE IFRAME URL
-describe('Button', () => {
-  it('Does Button exist?', () => {
-    cy.visit('/iframe.html?id=component--default&viewMode=story');
-    cy.get('button').should('exist');
+describe('Search Bar ', () => {
+  it('Does Search Bar  exist?', () => {
+    cy.visit('/iframe.html?id=components-input-search--search-default');
+    cy.get('#search-bar').should('exist');
+    cy.get('svg').should('exist');
   });
 });
 export {};
