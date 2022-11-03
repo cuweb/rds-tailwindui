@@ -1,6 +1,6 @@
-import { Combobox, Transition } from '@headlessui/react';
+import { Combobox } from '@headlessui/react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/solid';
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 
 export interface SearchProps {
   searchDatabase: any;
@@ -86,7 +86,7 @@ export const Search = ({
         {filteredDatabase.length > 0 && (
           <Combobox.Options
             static
-            className={`max-h-72 absolute scroll-py-2 bg-white  overflow-y-auto py-2 text-sm text-gray-800`}
+            className={`max-h-72 relative scroll-py-2 bg-white  overflow-y-auto py-2 text-sm text-gray-800`}
           >
             {filteredDatabase.map((searchDatabase: any) => (
               <Combobox.Option
@@ -107,7 +107,7 @@ export const Search = ({
 
         {/* // no result display  */}
         {query !== '' && filteredDatabase.length === 0 && (
-          <p className="p-4 text-sm text-gray-500">Search not found</p>
+          <div className="p-4 text-sm text-gray-500">Search not found</div>
         )}
       </Combobox>
     </div>
