@@ -1,8 +1,6 @@
 export { Badge, BadgeProps } from './Badge/Badge';
 export { Button, ButtonProps } from './Button/Button';
 export { Pagination, PaginationProps } from './Pagination/Pagination';
-export { Badge, BadgeProps } from './Badge';
-export { Button, ButtonProps } from './Button';
 export { FooterBasic } from './Footer/FooterBasic';
 export { FooterStandard } from './Footer/FooterStandard';
 export { FooterWave } from './Footer/FooterWave';
