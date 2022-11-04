@@ -442,14 +442,20 @@ const user: UserInfoType = {
   lastName: 'Brown',
 };
 
+export interface MastheadProps {
+  sticky?: boolean;
+}
+
 export const Masthead = () => {
   const [search, setSearch] = useState(false);
+
+  // sticky nav as an option
 
   return (
     <>
       <Disclosure
         as="nav"
-        className="sticky top-0 z-50 bg-white border-t-2 shadow border-cu-red"
+        className=" top-0 z-50 bg-white border-t-2 shadow border-cu-red"
       >
         {({ open }) => (
           <>
@@ -484,15 +490,6 @@ export const Masthead = () => {
                       placeholder="Search"
                       type="search"
                     /> */}
-
-                      {/* <Search searchDatabase={database} hasborder /> */}
-
-                      {/* <MagnifyingGlassIcon
-                        className="w-5 h-5 text-gray-400"
-                        aria-hidden="true"
-                      /> */}
-                      <CommandPallet />
-                      {/* <Comboboxelement /> */}
                     </div>
                   </div>
                 </div>
@@ -507,13 +504,9 @@ export const Masthead = () => {
                   </Disclosure.Button>
                 </div>
                 <div className="hidden lg:ml-4 lg:flex lg:items-center">
-                  {/* <div className="mr-4">
-                    <MagnifyingGlassIcon
-                      className="w-5 h-5 text-gray-400"
-                      aria-hidden="true"
-                    />
-                    {search && <CommandPallet />}
-                  </div> */}
+                  <div className="mr-4">
+                    <CommandPallet searchDatabase={database} />
+                  </div>
 
                   <Link href="https://www.google.com/">
                     <Button title="Event" size="sm" icon="PlusIcon" />
