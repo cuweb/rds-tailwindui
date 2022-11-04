@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Search, SearchProps } from './Search';
+import { Button } from '../Button';
 
 export default {
   title: 'Components/Input/Search',
@@ -426,11 +427,10 @@ export const searchDefault: Story<SearchProps> = () => (
   <Search searchDatabase={database} />
 );
 
-export const searchHasBorder: Story<SearchProps> = () => (
-  <Search searchDatabase={database} searchOn="description" hasborder />
-);
-export const fullWidthSearch: Story<SearchProps> = () => (
-  <Search searchDatabase={database} isFull hasborder />
+export const searchCustomAvatar: Story<SearchProps> = () => (
+  <Search searchDatabase={database}>
+    <Button icon="MagnifyingGlassIcon" />
+  </Search>
 );
 
 export const ValidationUrl: Story<SearchProps> = () => (

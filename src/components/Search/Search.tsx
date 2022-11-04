@@ -1,12 +1,12 @@
-import { Combobox } from '@headlessui/react';
-import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/solid';
-import React, { useState } from 'react';
+import { Transition, Dialog, Combobox } from '@headlessui/react';
+import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
+import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon';
+import React, { ReactNode, useState, useEffect, Fragment } from 'react';
 
 export interface SearchProps {
   searchDatabase: any;
   searchOn?: string;
-  hasborder?: boolean;
-  isFull?: boolean;
+  children?: ReactNode;
 }
 
 function classNames(...classes: (string | boolean)[]) {
@@ -16,13 +16,10 @@ function classNames(...classes: (string | boolean)[]) {
 export const Search = ({
   searchOn = 'title',
   searchDatabase,
-  hasborder = false,
-  isFull = false,
+  children,
 }: SearchProps) => {
   const [query, setQuery] = useState('');
-  // const [selected, setSelected] = useState('');
-  const hasBorderStyle = hasborder ? 'border border-cu-black-400' : '';
-  const isFullStyle = isFull ? '' : 'max-w-xl';
+  const [open, setOpen] = useState(false);
 
   const filteredDatabase =
     query === ''
@@ -33,7 +30,31 @@ export const Search = ({
             .includes(query.toLowerCase());
         });
 
+  const searchAvatar = children ? (
+    children
+  ) : (
+    <MagnifyingGlassIcon
+      className=" cursor-pointer left-4 h-5 w-5 text-gray-400"
+      aria-hidden="true"
+    />
+  );
+
+  useEffect(() => {
+    function onKeydown(event: any) {
+      if (event.key === 'k' && (event.metaKey || event.ctrlKey)) {
+        setOpen(!open);
+      } else {
+      }
+    }
+
+    window.addEventListener('keydown', onKeydown);
+    return () => {
+      window.removeEventListener('keydown', onKeydown);
+    };
+  }, [open]);
+
   // Validations just checking on first , not in all
+
   if (!searchDatabase[0].hasOwnProperty('url')) {
     return (
       <p className="text-cu-red">
@@ -51,60 +72,99 @@ export const Search = ({
   }
 
   return (
-    <div
-      id="search-bar"
-      className={`mx-auto ${isFullStyle} transform divide-y ${hasBorderStyle}  divide-gray-100 overflow-hidden rounded-xl  first-line:shadow-2xl ring-1 ring-black ring-opacity-5 transition-all`}
-    >
-      <Combobox
-        onChange={searchDatabase => (window.location = searchDatabase?.url)}
-        value={searchDatabase.searchOn}
-        // onChange={searchDatabase.searchOn}
-      >
-        <div className="relative bg-white ">
-          <MagnifyingGlassIcon
-            className="pointer-events-none absolute  top-3.5 left-4 h-5 w-5 text-gray-400"
-            aria-hidden="true"
-          />
-          <Combobox.Input
-            className="h-12 w-full border-0 bg-transparent pl-11 pr-11  text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
-            placeholder="Search..."
-            onChange={event => setQuery(event.target.value)}
-            // displayValue={searchDatabase => searchDatabase?[searchOn]}
-          />
+    <>
+      <button onClick={() => setOpen(true)}>{searchAvatar}</button>
 
-          {query && (
-            <XMarkIcon
-              className="  absolute top-3.5 right-4 h-4 w-4 text-gray-400"
-              aria-hidden="true"
-              onClick={() => {
-                setQuery('');
-              }}
-            />
-          )}
-        </div>
-        <Combobox.Options
-          className={`max-h-72 scroll-py-2 bg-white  overflow-y-auto py-2 text-sm text-gray-800`}
-        >
-          {filteredDatabase.map((searchDatabase: any) => (
-            <Combobox.Option
-              key={searchDatabase.id}
-              value={searchDatabase}
-              className={({ active }) =>
-                classNames(
-                  'cursor-default select-none px-4 py-2',
-                  active && 'bg-cu-red  text-white'
-                )
-              }
+      <Transition.Root
+        show={open}
+        as={Fragment}
+        afterLeave={() => setQuery('')}
+        appear
+      >
+        <Dialog as="div" className="relative z-100" onClose={setOpen}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 z-100 overflow-y-auto p-4 sm:p-6 md:p-20">
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0 scale-95"
+              enterTo="opacity-100 scale-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100 scale-100"
+              leaveTo="opacity-0 scale-95"
             >
-              {searchDatabase[searchOn]}
-            </Combobox.Option>
-          ))}
-          {/* // no result display  */}
-          {query !== '' && filteredDatabase.length === 0 && (
-            <p className="p-4 text-sm text-gray-500">Search not found</p>
-          )}
-        </Combobox.Options>
-      </Combobox>
-    </div>
+              <Dialog.Panel className="mx-auto mt-[20vh] max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
+                <Combobox
+                  onChange={searchDatabase =>
+                    (window.location = searchDatabase?.url)
+                  }
+                  value={searchDatabase.searchOn}
+                >
+                  <div className="relative">
+                    <MagnifyingGlassIcon
+                      className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <Combobox.Input
+                      className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                      placeholder="Search..."
+                      onChange={event => setQuery(event.target.value)}
+                    />
+                    {query && (
+                      <XMarkIcon
+                        className="absolute top-3.5 right-4 h-4 w-4 text-gray-400"
+                        aria-hidden="true"
+                        onClick={() => {
+                          setQuery('');
+                        }}
+                      />
+                    )}
+                  </div>
+
+                  {filteredDatabase.length > 0 && (
+                    <Combobox.Options
+                      static
+                      className="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+                    >
+                      {filteredDatabase.map((searchDatabase: any) => (
+                        <Combobox.Option
+                          key={searchDatabase.id}
+                          value={searchDatabase}
+                          className={({ active }) =>
+                            classNames(
+                              'cursor-default select-none px-4 py-2',
+                              active && 'bg-cu-red text-white'
+                            )
+                          }
+                        >
+                          {searchDatabase[searchOn]}
+                        </Combobox.Option>
+                      ))}
+                    </Combobox.Options>
+                  )}
+
+                  {query !== '' && filteredDatabase.length === 0 && (
+                    <p className="p-4 text-sm text-gray-500">
+                      Search not found
+                    </p>
+                  )}
+                </Combobox>
+              </Dialog.Panel>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition.Root>
+    </>
   );
 };
