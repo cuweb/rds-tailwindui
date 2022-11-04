@@ -73,7 +73,9 @@ export const Search = ({
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>{searchAvatar}</button>
+      <button id="search-avatar" onClick={() => setOpen(true)}>
+        {searchAvatar}
+      </button>
 
       <Transition.Root
         show={open}
