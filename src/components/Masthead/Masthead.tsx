@@ -1,6 +1,6 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Button } from '../Button';
 import shield from '../../assets/cu-shield.svg';
 import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
@@ -10,6 +10,8 @@ import { AvatarPrev } from '../AvatarPrev';
 import { Search } from '../Search';
 import CommandPallet from '../CommandPallet/CommandPallet';
 import Comboboxelement from '../Combobox/Comboboxelement';
+import { HeroIcon } from '../HeroIcon';
+import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
 
 const items: DropdownPrevItemProps[] = [
   {
@@ -441,6 +443,8 @@ const user: UserInfoType = {
 };
 
 export const Masthead = () => {
+  const [search, setSearch] = useState(false);
+
   return (
     <>
       <Disclosure
@@ -461,12 +465,12 @@ export const Masthead = () => {
                     </h1>
                   </a>
                 </div>
-                <div className="flex items-center justify-center flex-1 px-2 lg:ml-6 lg:justify-end">
-                  <div className="w-full max-w-lg lg:max-w-xs">
+                <div className="flex items-center justify-center flex-1 px-2 lg:ml-6 lg:justify-end ">
+                  <div className="w-full max-w-lg lg:max-w-xs ">
                     <label htmlFor="search" className="sr-only">
                       Search
                     </label>
-                    <div className="relative">
+                    <div className="relative  ">
                       {/* <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                       <MagnifyingGlassIcon
                         className="w-5 h-5 text-gray-400"
@@ -481,14 +485,18 @@ export const Masthead = () => {
                       type="search"
                     /> */}
 
-                      <Search searchDatabase={database} hasborder />
-                      {/* <CommandPallet /> */}
+                      {/* <Search searchDatabase={database} hasborder /> */}
+
+                      {/* <MagnifyingGlassIcon
+                        className="w-5 h-5 text-gray-400"
+                        aria-hidden="true"
+                      /> */}
+                      <CommandPallet />
                       {/* <Comboboxelement /> */}
                     </div>
                   </div>
                 </div>
                 <div className="flex items-center lg:hidden">
-                  {/* Mobile menu button */}
                   <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Open main menu</span>
                     {open ? (
@@ -499,6 +507,14 @@ export const Masthead = () => {
                   </Disclosure.Button>
                 </div>
                 <div className="hidden lg:ml-4 lg:flex lg:items-center">
+                  {/* <div className="mr-4">
+                    <MagnifyingGlassIcon
+                      className="w-5 h-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    {search && <CommandPallet />}
+                  </div> */}
+
                   <Link href="https://www.google.com/">
                     <Button title="Event" size="sm" icon="PlusIcon" />
                   </Link>
@@ -599,16 +615,6 @@ export const Masthead = () => {
           </>
         )}
       </Disclosure>
-
-      <div className="mt-28">
-        <div className="items-center mx-auto">
-          {' '}
-          other content can come here
-          <div>
-            <Search searchDatabase={database} />
-          </div>
-        </div>
-      </div>
     </>
   );
 };
