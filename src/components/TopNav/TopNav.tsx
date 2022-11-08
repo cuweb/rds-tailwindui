@@ -4,9 +4,10 @@ import Link from '../Link/Link';
 import shield from '../../assets/cu-shield.svg';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { UserInfoType } from '../../types/UserInfo';
-import { AvatarPrev } from '../AvatarPrev';
+
 import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
+import { Avatar } from '../Avatar';
 
 export interface NavLinkProps {
   id: string;
@@ -99,7 +100,9 @@ export const TopNav = ({
               {children}
               {userInfo && (
                 <DropdownPrev
-                  component={<AvatarPrev user={userInfo} size="xs" rounded />}
+                  component={
+                    <Avatar user={userInfo} size="xs" rounded="full" />
+                  }
                   items={AvatarDropdownList}
                 />
               )}
@@ -142,7 +145,7 @@ export const TopNav = ({
               <div className="pt-4 pb-3 border-t border-gray-200">
                 <div className="flex items-center px-4">
                   <div className="flex-shrink-0">
-                    <AvatarPrev user={userInfo} size="xs" rounded />
+                    <Avatar user={userInfo} size="xs" rounded="full" />
                   </div>
                   <div className="ml-3">
                     <div className="text-base font-medium text-gray-800">

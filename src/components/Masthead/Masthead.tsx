@@ -1,17 +1,13 @@
-import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Disclosure, Menu } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { Button } from '../Button';
 import shield from '../../assets/cu-shield.svg';
 import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
 import Link from '../Link/Link';
 import { UserInfoType } from '../../types/UserInfo';
-import { AvatarPrev } from '../AvatarPrev';
 import { Search } from '../Search';
-import CommandPallet from '../CommandPallet/CommandPallet';
-import Comboboxelement from '../Combobox/Comboboxelement';
-import { HeroIcon } from '../HeroIcon';
-import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
+import { Avatar } from '../Avatar/Avatar';
 
 const items: DropdownPrevItemProps[] = [
   {
@@ -447,8 +443,6 @@ export interface MastheadProps {
 }
 
 export const Masthead = () => {
-  const [search, setSearch] = useState(false);
-
   // sticky nav as an option
 
   return (
@@ -491,7 +485,7 @@ export const Masthead = () => {
                 </div>
                 <div className="hidden lg:ml-4 lg:flex lg:items-center">
                   <div className="mr-4">
-                    <CommandPallet searchDatabase={database} />
+                    <Search searchDatabase={database} />
                   </div>
 
                   <Link href="https://www.google.com/">
@@ -501,7 +495,9 @@ export const Masthead = () => {
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative flex-shrink-0 ml-4">
                     <DropdownPrev
-                      component={<AvatarPrev user={user} size="xs" rounded />}
+                      component={
+                        <Avatar user={user} size="xs" rounded="full" />
+                      }
                       items={items}
                     />
                   </Menu>

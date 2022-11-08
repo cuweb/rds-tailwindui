@@ -2,10 +2,9 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 import { TopNav, TopNavProps } from './TopNav';
-import { AvatarPrev } from '../AvatarPrev';
 import { Button } from '../Button';
 import CommandPallet from '../CommandPallet/CommandPallet';
-import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
+import { DropdownPrevItemProps } from '../DropDownPrev';
 import { UserInfoType } from '../../types/UserInfo';
 
 export default {
@@ -43,11 +42,6 @@ const NavLinks = [
 ];
 
 const user: UserInfoType = {
-  image: {
-    src:
-      'https://i.carleton.ca/wp-content/uploads/2016/10/danny-brown-1-1-300x300.jpg',
-    alt: '',
-  },
   firstName: 'Danny',
   lastName: 'Brown',
 };
