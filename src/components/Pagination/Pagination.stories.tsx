@@ -8,7 +8,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Pagination>;
 
-const Template: Story<PaginationProps> = args => <Pagination {...args} />;
+const Template: Story<PaginationProps> = (args) => <Pagination {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

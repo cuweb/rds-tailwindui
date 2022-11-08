@@ -21,19 +21,19 @@ export default {
   },
 } as Meta<typeof Container>;
 
-const DefaultTemplate: Story<ContainerProps> = args => (
+const DefaultTemplate: Story<ContainerProps> = (args) => (
   <Container bgColor={args.bgColor}>
     <p className="px-8">Empty Container</p>
   </Container>
 );
 
-const GreyBgTemplateTemplate: Story<ContainerProps> = args => (
+const GreyBgTemplateTemplate: Story<ContainerProps> = (args) => (
   <Container bgColor={args.bgColor}>
     <p className="px-8">Grey Container</p>
   </Container>
 );
 
-const WithTwoColumnsTemplate: Story<ContainerProps> = args => (
+const WithTwoColumnsTemplate: Story<ContainerProps> = (args) => (
   <Container bgColor={args.bgColor}>
     <Column cols="2">
       <p>{content.paragraph}</p>
@@ -42,7 +42,7 @@ const WithTwoColumnsTemplate: Story<ContainerProps> = args => (
   </Container>
 );
 
-const WithPanelsTemplate: Story<ContainerProps> = args => (
+const WithPanelsTemplate: Story<ContainerProps> = (args) => (
   <Container bgColor={args.bgColor}>
     <Column cols="2">
       <Panel hasBorder hasShadow>

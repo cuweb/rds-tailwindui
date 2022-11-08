@@ -1,10 +1,9 @@
 import { Disclosure } from '@headlessui/react';
-import React, { Children } from 'react';
+import React from 'react';
 import Link from '../Link/Link';
 import shield from '../../assets/cu-shield.svg';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { UserInfoType } from '../../types/UserInfo';
-
 import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
 import { HeroIcon } from '../HeroIcon/HeroIcon';
 import { Avatar } from '../Avatar';
@@ -124,22 +123,18 @@ export const TopNav = ({
                     {title}
                   </Disclosure.Button>
                 ))}
-              {/* {children &&
-                Children.map(children, (child, index) => {
-                  <Disclosure.Button
-                    key={index}
-                    as="div"
-                    className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-                  >
-                    {child}
-                  </Disclosure.Button>;
-                })} */}
-              {/* <Disclosure.Button
-                as="div"
-                className="block py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800"
-              >
-                
-              </Disclosure.Button> */}
+              <div className="border-t border-gray-200">
+                {React.Children.map(children, (child) => {
+                  return (
+                    <Disclosure.Button
+                      as="div"
+                      className="block  py-2 pl-3 pr-4 text-base font-medium text-gray-600 border-l-4 border-transparent hover:border-cu-red-300 hover:bg-cu-red-100 hover:text-cu-red-800"
+                    >
+                      {child}
+                    </Disclosure.Button>
+                  );
+                })}
+              </div>
             </div>
             {userInfo && (
               <div className="pt-4 pb-3 border-t border-gray-200">

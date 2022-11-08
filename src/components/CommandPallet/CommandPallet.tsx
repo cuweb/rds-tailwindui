@@ -105,7 +105,7 @@ export default function CommandPallet({
             >
               <Dialog.Panel className="mx-auto mt-[20vh] max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
                 <Combobox
-                  onChange={searchDatabase =>
+                  onChange={(searchDatabase) =>
                     (window.location = searchDatabase?.url)
                   }
                   value={searchDatabase.searchOn}
@@ -118,7 +118,7 @@ export default function CommandPallet({
                     <Combobox.Input
                       className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
                       placeholder="Search..."
-                      onChange={event => setQuery(event.target.value)}
+                      onChange={(event) => setQuery(event.target.value)}
                     />
                     {query && (
                       <XMarkIcon
