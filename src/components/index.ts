@@ -1,8 +1,7 @@
 export { Badge, BadgeProps } from './Badge/Badge';
 export { Button, ButtonProps } from './Button/Button';
-export { Pagination, PaginationProps } from './Pagination/Pagination';
-export { Badge, BadgeProps } from './Badge';
-export { Button, ButtonProps } from './Button';
+export { Calendar, CalendarProps } from './Calendar/Calendar';
+export { Filter, FilterProps } from './Filter/Filter';
 export { FooterBasic } from './Footer/FooterBasic';
 export { FooterStandard } from './Footer/FooterStandard';
 export { FooterWave } from './Footer/FooterWave';
@@ -16,5 +15,4 @@ export {
   MarketplaceItemProps,
 } from './ListingItems/MarketplaceItem';
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
-export { Calendar, CalendarProps } from './Calendar/Calendar';
-export { Filter, FilterProps } from './Filter/Filter';
+export { Pagination, PaginationProps } from './Pagination/Pagination';

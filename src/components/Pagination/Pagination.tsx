@@ -3,12 +3,16 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import usePagination, { DOTS } from '../../hooks/usePagination';
 
 export interface PaginationProps {
+  border?: 'none' | 'top' | 'full';
   totalCount: number;
   siblingCount: number;
   pageSize: number;
 }
 
+// will be used as options for border?: 'none' | 'top' | 'full'
+
 export const Pagination = ({
+  border = 'none',
   totalCount,
   siblingCount,
   pageSize,
@@ -52,71 +56,77 @@ export const Pagination = ({
     endResult = currentPage * pageSize;
   }
 
-  const classNames = (...classes: (string | boolean)[]) => {
-    return classes.filter(Boolean).join(' ');
+  console.log(border);
+
+  const styles = {
+    'border-none': ``,
+    'border-full': `pl-5 pr-3 py-3 border border-cu-black-100 rounded-lg`,
+    'border-top': `py-5 border-t border-cu-black-100`,
+    mobileButtons: `relative inline-flex items-center px-4 py-2 text-sm font-medium text-cu-black-600 bg-white border border-cu-black-200 rounded-md hover:bg-cu-black-50`,
+    pageListNumbers: `flex items-center bg-white py-2 px-4 text-sm text-cu-black-600 border-r border-cu-black-100 last:border-0 cursor-pointer hover:bg-cu-black-50`,
+    pageListArrows: `text-cu-black-400 px-2.5`,
   };
 
   return (
-    <div>
-      <div className="flex items-center justify-between px-4 py-6 bg-white border-t border-gray-200 sm:px-6">
-        <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm text-gray-700">
-              Showing <span className="font-medium">{startResult}</span> to{' '}
-              <span className="font-medium">{endResult}</span> of{' '}
-              <span className="font-medium">{totalCount}</span> results
-            </p>
-          </div>
-          <div>
-            <nav
-              className="inline-flex -space-x-px rounded-md shadow-sm isolate"
-              aria-label="Pagination"
+    <div className={`flex items-center justify-between`}>
+      <div className="flex justify-between flex-1 sm:hidden">
+        <a onClick={onPrevious} className={`${styles.mobileButtons}`}>
+          Previous
+        </a>
+        <a onClick={onNext} className={`${styles.mobileButtons}`}>
+          Next
+        </a>
+      </div>
+
+      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+        <p className="text-sm text-cu-black-800">
+          Showing <span className="font-semibold">{startResult}</span> to{' '}
+          <span className="font-semibold">{endResult}</span> of{' '}
+          <span className="font-semibold">{totalCount}</span> results
+        </p>
+
+        <nav aria-label="Pagination">
+          <ul className="inline-flex overflow-hidden border rounded-md border-cu-black-100">
+            <li
+              className={`${styles.pageListNumbers} ${styles.pageListArrows}`}
             >
-              <ul>
-                <a
-                  className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 top-1 rounded-l-md hover:bg-gray-50 focus:z-20"
-                  onClick={onPrevious}
-                >
-                  <span className="sr-only">Previous</span>
-                  <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
-                </a>
-                {paginationRange !== undefined &&
-                  paginationRange.map((pageNumber, index) => {
-                    if (pageNumber === DOTS) {
-                      return (
-                        <li
-                          key={index}
-                          className="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 hover:bg-gray-50 focus:z-20"
-                        >
-                          &#8230;
-                        </li>
-                      );
-                    }
-                    return (
-                      <li
-                        key={index}
-                        className={classNames(
-                          Number(pageNumber) === currentPage &&
-                            'relative z-10 inline-flex items-center border border-cu-red-500 bg-cu-red-50 px-4 py-2 text-sm font-medium text-cu-red-600 focus:z-20',
-                          'relative inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-20'
-                        )}
-                        onClick={() => setCurrentPage(Number(pageNumber))}
-                      >
-                        {pageNumber}
-                      </li>
-                    );
-                  })}
-                <li
-                  className="relative inline-flex items-center px-2 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 top-1 rounded-r-md hover:bg-gray-50 focus:z-20"
-                  onClick={onNext}
-                >
-                  <span className="sr-only">Next</span>
-                  <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </div>
+              <a className="" onClick={onPrevious}>
+                <span className="sr-only">Previous</span>
+                <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
+              </a>
+            </li>
+            {paginationRange !== undefined &&
+              paginationRange.map((pageNumber, index) => {
+                if (pageNumber === DOTS) {
+                  return (
+                    <li key={index} className={`${styles.pageListNumbers}`}>
+                      &#8230;
+                    </li>
+                  );
+                }
+                return (
+                  <li
+                    key={index}
+                    className={`${styles.pageListNumbers} ${
+                      Number(pageNumber) === currentPage
+                        ? 'bg-cu-black-50 font-semibold'
+                        : ''
+                    }`}
+                    onClick={() => setCurrentPage(Number(pageNumber))}
+                  >
+                    {pageNumber}
+                  </li>
+                );
+              })}
+            <li
+              className={`${styles.pageListNumbers} ${styles.pageListArrows}`}
+              onClick={onNext}
+            >
+              <span className="sr-only">Next</span>
+              <ChevronRightIcon className="w-5 h-5" aria-hidden="true" />
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   );
