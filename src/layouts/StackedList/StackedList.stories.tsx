@@ -4,7 +4,8 @@ import { StackedList, StackedListProps } from './StackedList';
 import { Container } from '../Container';
 import { Column } from '../Column';
 import { Panel } from '../Panel';
-import { FeedItem, Pagination } from '../../components';
+import { FeedItem } from '../../components/ListingItems/FeedItem';
+import { Pagination } from '../../components/Pagination/Pagination';
 import { FeedItemData as data } from '../../components/ListingItems/FeedItem/FeedItemData';
 
 const styles = {
