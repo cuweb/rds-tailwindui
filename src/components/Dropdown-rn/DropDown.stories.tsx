@@ -2,8 +2,8 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { DropDown, DropDownProps } from './DropDown';
 import { DropDownItemData as listItems } from './DropDownData';
-import { HeroIcon } from '../HeroIcon';
-import { Button } from '../Button';
+import { HeroIcon } from '../components/HeroIcon';
+import { Button } from '../components/Button';
 
 export default {
   title: 'Components/Inputs/Drop Down',
