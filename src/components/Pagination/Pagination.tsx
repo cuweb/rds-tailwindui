@@ -72,12 +72,12 @@ export const Pagination = ({
       className={`flex items-center justify-between ${borderStyles} ${spacingStyles}`}
     >
       <div className="flex justify-between flex-1 sm:hidden">
-        <a onClick={onPrevious} className={`${styles.mobileButtons}`}>
+        <button onClick={onPrevious} className={`${styles.mobileButtons}`}>
           Previous
-        </a>
-        <a onClick={onNext} className={`${styles.mobileButtons}`}>
+        </button>
+        <button onClick={onNext} className={`${styles.mobileButtons}`}>
           Next
-        </a>
+        </button>
       </div>
 
       <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
@@ -91,12 +91,12 @@ export const Pagination = ({
           <ul className="inline-flex overflow-hidden border rounded-md border-cu-black-100">
             <li
               className={`${styles.pageListNumbers} ${styles.pageListArrows}`}
+              onClick={onPrevious}
             >
-              <a className="" onClick={onPrevious}>
-                <span className="sr-only">Previous</span>
-                <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
-              </a>
+              <span className="sr-only">Previous</span>
+              <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
             </li>
+
             {paginationRange !== undefined &&
               paginationRange.map((pageNumber, index) => {
                 if (pageNumber === DOTS) {
