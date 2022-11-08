@@ -475,10 +475,6 @@ const DefaultTemplate: Story<TopNavProps> = args => (
   <TopNav {...args}>
     <CommandPallet searchDatabase={database} />
     <Button title="Event" icon="PlusIcon" size="sm" />
-    <DropdownPrev
-      component={<AvatarPrev user={user} size="xs" rounded />}
-      items={items}
-    />
   </TopNav>
 );
 
@@ -487,6 +483,8 @@ Default.args = {
   title: 'Event',
   url: 'https://carleton.ca/',
   navLinks: NavLinks,
+  AvatarDropdownList: items,
+  userInfo: user,
 };
 
 export const CustomLogo = DefaultTemplate.bind({});
@@ -496,4 +494,6 @@ CustomLogo.args = {
   brand:
     'https://sprott.carleton.ca/wp-content/uploads/CU_Sprott_Logo_Primary_RBG_Red_Black_on_lightBG_300-1024x343.jpg',
   navLinks: NavLinks,
+  AvatarDropdownList: items,
+  userInfo: user,
 };

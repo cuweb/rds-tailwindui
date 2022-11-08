@@ -11,7 +11,7 @@ export default {
   },
 } as Meta<typeof Masthead>;
 
-const Template: Story = args => <Masthead {...args} />;
+const Template: Story = args => <Masthead {...args}></Masthead>;
 
 export const Default = Template.bind({});
 Default.args = {};
