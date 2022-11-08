@@ -23,7 +23,7 @@ Default.args = {
 export const Outline = Template.bind({});
 Outline.args = {
   icon: 'BugAntIcon',
-  outline: true,
+  isOutline: true,
 };
 
 export const Red = Template.bind({});

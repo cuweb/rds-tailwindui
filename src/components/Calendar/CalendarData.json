@@ -1,6 +1,6 @@
 {
-  "title": "Filter",
-  "classname": ".filter",
+  "title": "Events",
+  "classname": ".events",
   "events": [
     {
       "id": 1,

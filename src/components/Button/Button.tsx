@@ -8,12 +8,18 @@ export interface ButtonProps
   title?: string;
   icon?: keyof typeof SolidIcons | keyof typeof OutlineIcons;
   isType?: 'default' | 'ghost' | 'grey' | 'dark-grey' | 'white' | 'disabled';
-  size?: 'sm' | 'base' | 'lg';
+  size?: 'sm' | 'base';
   hasShadow?: boolean;
   isFull?: boolean;
   isCenter?: boolean;
   isDisabled?: boolean;
 }
+
+const buttonSizes = {
+  sm: `px-3 py-2 text-sm`,
+  base: `px-4 py-3 text-base`,
+  lg: `px-6 py-4 text-xl`,
+};
 
 const styles = {
   core: `inline-flex gap-1 items-center justify-center font-medium rounded-md focus:outline-none`,
@@ -25,12 +31,6 @@ const styles = {
   shadow: `shadow-sm`,
   disabled:
     'disabled:border-slate-300 disabled:border-1 disabled:bg-slate-300 disabled:cursor-default disabled:text-cu-black-600',
-};
-
-const buttonSizes = {
-  sm: `px-3 py-2 text-sm`,
-  base: `px-4 py-3 text-base`,
-  lg: `px-6 py-4 text-xl`,
 };
 
 export const Button = ({
@@ -47,7 +47,7 @@ export const Button = ({
   const shadowStyles = hasShadow ? styles.shadow : '';
   const fullStyles = isFull ? 'w-full' : '';
   const centerStyles = isCenter ? 'relative left-1/2 -translate-x-1/2 ' : '';
-  const iconSize = size === 'lg' ? '6' : '4';
+  const iconSize = size === 'base' ? '6' : '4';
 
   return (
     <button
