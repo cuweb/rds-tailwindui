@@ -2,6 +2,7 @@ import React from 'react';
 import { HeroIcon } from '../HeroIcon';
 import * as SolidIcons from '@heroicons/react/24/solid';
 import * as OutlineIcons from '@heroicons/react/24/outline';
+import Link from '../Link/Link';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,6 +14,8 @@ export interface ButtonProps
   isFull?: boolean;
   isCenter?: boolean;
   isDisabled?: boolean;
+  url?: string | URL;
+  wrapper?: any;
 }
 
 const styles = {
@@ -42,6 +45,8 @@ export const Button = ({
   hasShadow,
   isFull,
   isCenter,
+  url,
+  wrapper,
   isDisabled = false,
   ...rest
 }: ButtonProps) => {
@@ -51,20 +56,39 @@ export const Button = ({
   const iconSize = size === 'lg' ? '6' : '4';
 
   return (
-    <button
-      type="button"
-      aria-label={title ? title : 'Icon button'}
-      className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
-      disabled={isType === 'disabled' ? true : false}
-      {...rest}
-    >
-      {icon && (
-        <span className={icon && title ? 'mr-0.5' : ''}>
-          <HeroIcon icon={icon} size={iconSize} />
-        </span>
-      )}
+    <>
+      {!url && (
+        <button
+          type="button"
+          aria-label={title ? title : 'Icon button'}
+          className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
+          disabled={isType === 'disabled' ? true : false}
+          {...rest}
+        >
+          {icon && (
+            <span className={icon && title ? 'mr-0.5' : ''}>
+              <HeroIcon icon={icon} size={iconSize} />
+            </span>
+          )}
 
-      {title}
-    </button>
+          {title}
+        </button>
+      )}
+      {url && (
+        <Link
+          href={url}
+          className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
+          wrapper={wrapper}
+        >
+          {icon && (
+            <span className={icon && title ? 'mr-0.5' : ''}>
+              <HeroIcon icon={icon} size={iconSize} />
+            </span>
+          )}
+
+          {title}
+        </Link>
+      )}
+    </>
   );
 };
