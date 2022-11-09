@@ -1,18 +1,18 @@
 import React from 'react';
-import { HeroIcon } from '../HeroIcon';
-import * as SolidIcons from '@heroicons/react/24/solid';
-import * as OutlineIcons from '@heroicons/react/24/outline';
+import { HeroIcon, IconName } from '../HeroIcon';
+import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
-  icon?: keyof typeof SolidIcons | keyof typeof OutlineIcons;
+  icon?: IconName;
   isType?: 'default' | 'ghost' | 'grey' | 'dark-grey' | 'white' | 'disabled';
   size?: 'sm' | 'base';
   hasShadow?: boolean;
   isFull?: boolean;
   isCenter?: boolean;
   isDisabled?: boolean;
+  hasDropDown?: boolean;
 }
 
 const buttonSizes = {
@@ -42,6 +42,7 @@ export const Button = ({
   isFull,
   isCenter,
   isDisabled = false,
+  hasDropDown,
   ...rest
 }: ButtonProps) => {
   const shadowStyles = hasShadow ? styles.shadow : '';
@@ -64,6 +65,13 @@ export const Button = ({
       )}
 
       {title}
+
+      {hasDropDown && (
+        <ChevronDownIcon
+          className="w-4 h-4 mt-1 ml-1 -mr-1"
+          aria-hidden="true"
+        />
+      )}
     </button>
   );
 };
