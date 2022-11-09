@@ -7,18 +7,18 @@ export type IconName = keyof typeof SolidIcons | keyof typeof OutlineIcons;
 
 export interface HeroIconProps {
   icon: IconName;
-  outline?: boolean;
+  isOutline?: boolean;
   color?: 'black' | 'white' | 'red' | 'grey' | 'dark-grey';
   size?: '4' | '6' | '8' | '12' | '16' | '20';
 }
 
 export const HeroIcon = ({
   icon,
-  outline = false,
+  isOutline = false,
   color,
   size = '8',
 }: HeroIconProps) => {
-  const Icon = outline ? OutlineIcons[icon] : SolidIcons[icon];
+  const Icon = isOutline ? OutlineIcons[icon] : SolidIcons[icon];
   const hasColor = color ? rdsTextColor[color] : '';
 
   return (

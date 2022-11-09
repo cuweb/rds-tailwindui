@@ -64,3 +64,26 @@ export const rdsHeight = {
   16: 'h-16',
   20: 'h-20',
 };
+
+export const rdsRounded = {
+  base: 'rounded',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  xl: 'rounded-xl',
+  full: 'rounded-full',
+};
+
+export const rdsBorderWidth = {
+  1: 'border',
+  2: 'border-2',
+  4: 'border-4',
+  8: 'border-8',
+};
+
+export const rdsBorderColor = {
+  black: 'border-cu-black-800',
+  white: 'border-white',
+  red: 'border-cu-red',
+  grey: 'border-cu-black-50',
+  'dark-grey': 'border-cu-black-600',
+};
