@@ -1,9 +1,17 @@
 import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
+import { HeroIcon, IconName } from '../HeroIcon/HeroIcon';
 
 export interface DropDownItemProps {
   title: string;
+  icon?: IconName;
+  href?: string;
+  onClick?: (event: React.MouseEvent<MouseEvent | HTMLAnchorElement>) => void;
+}
+
+function classNames(...classes: any) {
+  return classes.filter(Boolean).join(' ');
 }
 
 export interface DropDownProps {
@@ -58,14 +66,28 @@ export const DropDown = ({
             menuAlign === 'left' ? 'left-0' : 'right-0'
           }`}
         >
-          {listItems.map(({ title }) => (
-            <Menu.Item>
-              <a
-                href="#"
-                className="block px-4 py-2 text-sm text-cu-black-800 hover:bg-cu-black-50"
-              >
-                {title}
-              </a>
+          {listItems.map((item, index) => (
+            <Menu.Item key={index}>
+              {({ active }) => (
+                <a
+                  href={item.href ? item.href : '#'}
+                  className={classNames(
+                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                    'group flex items-center px-4 py-2 text-sm'
+                  )}
+                  onClick={e => {
+                    {
+                      item.onClick && e.preventDefault();
+                    }
+                    item.onClick && item.onClick(e);
+                  }}
+                >
+                  {item.icon && (
+                    <HeroIcon icon={item.icon} aria-hidden="true" size="4" />
+                  )}
+                  <span className={item.icon ? 'ml-3' : ''}>{item.title}</span>
+                </a>
+              )}
             </Menu.Item>
           ))}
         </Menu.Items>

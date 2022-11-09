@@ -1,4 +1,6 @@
-export const DropDownItemData = [
+import { DropDownItemProps } from '.';
+
+export const DropDownItemData: DropDownItemProps[] = [
   {
     href: '/profile',
     title: 'Profile',

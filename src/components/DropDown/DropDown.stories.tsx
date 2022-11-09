@@ -2,11 +2,11 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { DropDown, DropDownProps } from './DropDown';
 import { DropDownItemData as listItems } from './DropDownData';
-import { HeroIcon } from '../components/HeroIcon';
-import { Button } from '../components/Button';
+import { Button } from '../Button';
+import { HeroIcon } from '../HeroIcon';
 
 export default {
-  title: 'Components/Inputs/Drop Down',
+  title: 'Components/Input/Drop Down',
   component: DropDown,
   argTypes: {},
   parameters: {
@@ -22,7 +22,7 @@ const DefaultTemplate: Story<DropDownProps> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  menuAlign: 'left',
+  menuAlign: 'right',
   buttonText: 'Basic Drop Down',
 };
 
