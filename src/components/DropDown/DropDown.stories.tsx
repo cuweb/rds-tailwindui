@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { HeroIcon } from '../HeroIcon';
 
 export default {
-  title: 'Components/Input/Drop Down',
+  title: 'Components/Inputs/Drop Down',
   component: DropDown,
   argTypes: {},
   parameters: {
@@ -22,28 +22,24 @@ const DefaultTemplate: Story<DropDownProps> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  menuAlign: 'right',
   buttonText: 'Basic Drop Down',
 };
 
 export const WithButton = DefaultTemplate.bind({});
 WithButton.args = {
-  menuAlign: 'left',
   children: <Button title="Button Dropdown" />,
 };
 
 export const WithButtonArrow = DefaultTemplate.bind({});
 WithButtonArrow.args = {
-  menuAlign: 'left',
   children: <Button size="sm" title="Button Dropdown" hasDropDown />,
 };
 
 export const WithHeroIcon = DefaultTemplate.bind({});
 WithHeroIcon.args = {
   renderAs: 'button',
-  menuAlign: 'left',
   children: (
-    <HeroIcon aria-hidden color="dark-grey" icon="BugAntIcon" outline />
+    <HeroIcon aria-hidden color="dark-grey" icon="BugAntIcon" isOutline />
   ),
 };
 
