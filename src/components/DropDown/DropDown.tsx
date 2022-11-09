@@ -76,9 +76,7 @@ export const DropDown = ({
                     'group flex items-center px-4 py-2 text-sm'
                   )}
                   onClick={e => {
-                    {
-                      item.onClick && e.preventDefault();
-                    }
+                    item.onClick && e.preventDefault();
                     item.onClick && item.onClick(e);
                   }}
                 >
