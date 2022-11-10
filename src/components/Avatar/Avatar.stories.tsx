@@ -82,7 +82,7 @@ NoImage.args = {
   },
 };
 
-export const Sizes = () => (
+export const SizesSquare = () => (
   <div className="grid gap-8">
     <Avatar user={userNoImage} size="xs" />
     <Avatar user={userNoImage} size="sm" />
@@ -92,6 +92,18 @@ export const Sizes = () => (
     <Avatar user={userNoImage} size="2xl" />
     <Avatar user={userNoImage} size="4xl" />
     <h2> rounded Avatar </h2>
+    <Avatar user={userNoImage} size="xs" rounded="full" />
+    <Avatar user={userNoImage} size="sm" rounded="full" />
+    <Avatar user={userNoImage} size="md" rounded="full" />
+    <Avatar user={userNoImage} size="lg" rounded="full" />
+    <Avatar user={userNoImage} size="xl" rounded="full" />
+    <Avatar user={userNoImage} size="2xl" rounded="full" />
+    <Avatar user={userNoImage} size="4xl" rounded="full" />
+  </div>
+);
+
+export const SizesRounded = () => (
+  <div className="grid gap-8">
     <Avatar user={userNoImage} size="xs" rounded="full" />
     <Avatar user={userNoImage} size="sm" rounded="full" />
     <Avatar user={userNoImage} size="md" rounded="full" />

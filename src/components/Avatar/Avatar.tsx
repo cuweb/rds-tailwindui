@@ -1,7 +1,6 @@
 import React from 'react';
 import { UserInfoType } from '../../types/UserInfo';
 import {
-  rdsSquareSize,
   rdsRounded,
   rdsBorderWidth,
   rdsBorderColor,
@@ -18,9 +17,19 @@ export interface AvatarProps {
 }
 
 const styles = {
-  core: `inline-block bg-white overflow-hidden focus:ring-2 focus:ring-cu-black-100 focus:ring-offset-2`,
+  core: `inline-block bg-white text-cu-black-800 overflow-hidden focus:ring-2 focus:ring-cu-black-100 focus:ring-offset-2`,
   'no-image': `bg-cu-black-100 flex items-center justify-center font-semibold`,
   shadow: `shadow-lg`,
+};
+
+const avatarSizes = {
+  xs: `text-xs h-8 w-8`,
+  sm: `text-base h-16 w-16`,
+  md: `text-lg h-24 w-24`,
+  lg: `text-2xl h-32 w-32`,
+  xl: `text-4xl h-40 w-40`,
+  '2xl': `text-6xl h-48 w-48`,
+  '4xl': 'text-7xl h-56 w-56',
 };
 
 export const Avatar = ({
@@ -38,15 +47,13 @@ export const Avatar = ({
   const roundedStyle = rounded ? rdsRounded[rounded] : '';
   const borderWidthStyle = borderWidth ? rdsBorderWidth[borderWidth] : '';
   const borderColorStyle = borderColor ? rdsBorderColor[borderColor] : '';
-  const noImageTextSize =
-    size === 'xs' || size === 'sm' ? 'text-base' : 'text-2xl';
   const hasOnClick = onClick ? 'cursor-pointer' : '';
 
   return (
     <>
       {image && (
         <img
-          className={`${styles.core} ${rdsSquareSize[size]} ${roundedStyle} ${borderWidthStyle} ${borderColorStyle} ${borderColorStyle} ${shadowStyle} ${hasOnClick}`}
+          className={`${styles.core} ${avatarSizes[size]} ${roundedStyle} ${borderWidthStyle} ${borderColorStyle} ${borderColorStyle} ${shadowStyle} ${hasOnClick}`}
           src={image.src}
           alt={image.alt || `Avatar of ${firstName} ${lastName}`}
           aria-hidden="true"
@@ -55,7 +62,7 @@ export const Avatar = ({
 
       {!image && (
         <div
-          className={`${styles.core} ${styles['no-image']} ${noImageTextSize} ${rdsSquareSize[size]} ${roundedStyle} ${borderWidthStyle} ${borderColorStyle} ${borderColorStyle} ${shadowStyle} ${hasOnClick}`}
+          className={`${styles.core} ${styles['no-image']} ${avatarSizes[size]} ${roundedStyle} ${borderWidthStyle} ${borderColorStyle} ${borderColorStyle} ${shadowStyle} ${hasOnClick}`}
         >
           {initials}
         </div>

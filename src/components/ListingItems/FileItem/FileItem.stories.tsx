@@ -108,5 +108,5 @@ StackedListPanelTitle.args = {
 
 Default.storyName = 'Default item';
 SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'Stacked list w/shadow';
-StackedListPanelTitle.storyName = 'Stacked list w/title';
+StackedListPanel.storyName = 'List w/shadow';
+StackedListPanelTitle.storyName = 'List w/title';

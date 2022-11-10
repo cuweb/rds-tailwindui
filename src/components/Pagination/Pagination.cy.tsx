@@ -7,7 +7,6 @@ describe('Pagination', () => {
     cy.get('span').should('exist');
     cy.get('nav').should('exist');
     cy.get('ul').should('exist');
-    cy.get('a').should('exist');
     cy.get('li').should('exist');
   });
 });

@@ -41,11 +41,6 @@ describe('Button', () => {
       component: 'icon-button',
       tag: 'svg',
     },
-    {
-      name: 'Disabled',
-      component: 'disabled-button',
-      tag: '.false',
-    },
   ];
 
   types.forEach((type) => {

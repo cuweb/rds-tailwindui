@@ -1,1 +1,1 @@
-export { Filter, FilterProps } from './Filter';
+export * from './Filter';

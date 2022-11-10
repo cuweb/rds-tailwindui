@@ -65,16 +65,6 @@ export const rdsHeight = {
   20: 'h-20',
 };
 
-export const rdsSquareSize = {
-  xs: `h-8 w-8`,
-  sm: `h-16 w-16`,
-  md: `h-24 w-24`,
-  lg: `h-32 w-32`,
-  xl: `h-40 w-40`,
-  '2xl': `h-48 w-48`,
-  '4xl': 'h-56 w-56',
-};
-
 export const rdsRounded = {
   base: 'rounded',
   md: 'rounded-md',

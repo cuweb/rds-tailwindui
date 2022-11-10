@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
 
 export default {
-  title: 'Components/Input/Button',
+  title: 'Components/Inputs/Button',
   component: Button,
   argTypes: {
     onClick: { action: 'clicked' },
@@ -123,9 +123,9 @@ hasShadowButton.args = {
   },
 };
 
-export const SizeButton = Template.bind({});
-SizeButton.args = {
-  title: 'Button has Shadows',
+export const SmallButton = Template.bind({});
+SmallButton.args = {
+  title: 'Small Button',
   size: 'sm',
   onClick: () => {
     alert('button has been clicked ');
