@@ -4,18 +4,19 @@ import Link from '../Link/Link';
 import shield from '../../assets/cu-shield.svg';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { UserInfoType } from '../../types/UserInfo';
-import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
 import { Avatar } from '../Avatar';
-import CommandPallet from '../CommandPallet/CommandPallet';
+import { DropDown, DropDownItemProps } from '../DropDown';
+
+import { Search } from '../Search';
 
 export interface LinkProps {
   title: string;
-  link: string | URL;
+  link: string;
 }
 
 export interface TopNavProps {
   title: string;
-  logoUrl?: string | URL;
+  logoUrl?: string;
   brand?: string;
   login?: React.ReactNode;
   hasSearch?: boolean;
@@ -59,8 +60,6 @@ export const TopNav = ({
     </>
   );
 
-  console.log(mobileLink);
-
   return (
     <Disclosure
       as="nav"
@@ -87,7 +86,7 @@ export const TopNav = ({
               <div className="absolute mx-8 right-4">
                 {hasSearch && searchDatabase && (
                   <div className=" inline-flex items-center  p-2">
-                    <CommandPallet searchDatabase={searchDatabase} />
+                    <Search searchDatabase={searchDatabase} />
                   </div>
                 )}
 
@@ -105,13 +104,13 @@ export const TopNav = ({
             {/* navigation Links  */}
             <ul className="hidden lg:flex lg:flex-1 lg:gap-6">
               {navLinks &&
-                navLinks.map(({ index, title, link }: any) => (
+                navLinks.map((item, index) => (
                   <li
                     key={index}
                     className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-cu-black-800 hover:border-cu-red hover:text-cu-red"
                   >
-                    <Link href={link} wrapper={wrapLink}>
-                      {title}
+                    <Link href={item.link} wrapper={wrapLink}>
+                      {item.title}
                     </Link>
                   </li>
                 ))}
@@ -123,7 +122,7 @@ export const TopNav = ({
               {/* search */}
               {hasSearch && searchDatabase && (
                 <div className=" inline-flex items-center ">
-                  <CommandPallet searchDatabase={searchDatabase} />
+                  <Search searchDatabase={searchDatabase} />
                 </div>
               )}
               {children}
@@ -134,12 +133,9 @@ export const TopNav = ({
                 <Avatar user={userInfo} size="xs" rounded="full" />
               )}
               {userInfo && userMenu && (
-                <DropdownPrev
-                  component={
-                    <Avatar user={userInfo} size="xs" rounded="full" />
-                  }
-                  items={userMenu}
-                />
+                <DropDown listItems={userMenu}>
+                  <Avatar user={userInfo} size="xs" rounded="full" />
+                </DropDown>
               )}
             </div>
           </div>
@@ -151,14 +147,14 @@ export const TopNav = ({
             block border-l-4 border-cu-red bg-gradient-to-r from-cu-red-50 to-white py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:bg-cu-red hover:text-cu-red */}
               {mobileLink &&
                 // Disclosure button as link when in next to passa wrapper
-                mobileLink.map(({ index, title, link }: any) => (
+                mobileLink.map((item, index) => (
                   <Disclosure.Button
                     key={index}
                     as="a"
-                    href={link}
+                    href={item.link}
                     className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red"
                   >
-                    {title}
+                    {item.title}
                   </Disclosure.Button>
                 ))}
             </div>
@@ -186,7 +182,7 @@ export const TopNav = ({
                 </div>
                 <div className="mt-3 space-y-1">
                   {userMenu &&
-                    userMenu.map((item: DropdownPrevItemProps, index: any) => (
+                    userMenu.map((item: DropDownItemProps, index: any) => (
                       <Disclosure.Button
                         key={index}
                         as="a"

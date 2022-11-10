@@ -1,73 +1,16 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { LinkProps, TopNav, TopNavProps } from './TopNav';
+import { Search, SearchProps } from './Search';
 import { Button } from '../Button';
-import { UserInfoType } from '../../types/UserInfo';
-import { DropDownItemProps } from '../DropDown/DropDown';
 
 export default {
-  title: 'Components/Navigation/TopNav',
-  component: TopNav,
+  title: 'Components/Inputs/Search',
+  component: Search,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
   },
-} as Meta<typeof TopNav>;
-
-const NavLinks: LinkProps[] = [
-  {
-    title: 'Weekly',
-    link: '#',
-  },
-  {
-    title: 'Monthly',
-    link: '#',
-  },
-  {
-    title: 'Single',
-    link: '#',
-  },
-];
-
-const MobileLink: LinkProps[] = [
-  {
-    title: 'Home',
-    link: '#',
-  },
-  {
-    title: 'Event',
-    link: '#',
-  },
-];
-
-const user: UserInfoType = {
-  image: {
-    src:
-      'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
-    alt: '',
-  },
-  firstName: 'Danny',
-  lastName: 'Brown',
-};
-
-const items: DropDownItemProps[] = [
-  {
-    href: '/profile',
-    title: 'Profile',
-    icon: 'UserCircleIcon',
-  },
-  {
-    href: '/settings',
-    title: 'Settings',
-    onClick: () => alert('Dropdown for settings has been clicked '),
-    icon: 'Cog8ToothIcon',
-  },
-  {
-    href: '/signout',
-    title: 'Sign out ',
-    icon: 'ArrowLeftOnRectangleIcon',
-  },
-];
+} as Meta<typeof Search>;
 
 const database = [
   {
@@ -469,64 +412,31 @@ const database = [
   },
 ];
 
-const DefaultTemplate: Story<TopNavProps> = args => <TopNav {...args} />;
+const noUrl = [
+  {
+    id: 56,
+    name: 'Zelig',
+  },
+  {
+    id: 92,
+    name: 'Ermina',
+  },
+];
 
-export const Default = DefaultTemplate.bind({});
-Default.args = {
-  title: 'Event',
-  logoUrl: 'https://carleton.ca/',
-  userMenu: items,
-  userInfo: user,
-  mobileLink: MobileLink,
-};
+export const searchDefault: Story<SearchProps> = () => (
+  <Search searchDatabase={database} />
+);
 
-export const CustomLogo = DefaultTemplate.bind({});
-CustomLogo.args = {
-  title: 'Event',
-  logoUrl: 'https://carleton.ca/',
-  brand:
-    'https://sprott.carleton.ca/wp-content/uploads/CU_Sprott_Logo_Primary_RBG_Red_Black_on_lightBG_300-1024x343.jpg',
-  navLinks: NavLinks,
-  userMenu: items,
-  userInfo: user,
-};
+export const searchCustomAvatar: Story<SearchProps> = () => (
+  <Search searchDatabase={database}>
+    <Button icon="MagnifyingGlassIcon" />
+  </Search>
+);
 
-export const HasSearch = DefaultTemplate.bind({});
-HasSearch.args = {
-  title: 'Event',
-  navLinks: NavLinks,
-  searchDatabase: database,
-  hasSearch: true,
-  userInfo: user,
-};
+export const ValidationUrl: Story<SearchProps> = () => (
+  <Search searchDatabase={noUrl} searchOn="url" />
+);
 
-export const LoginButton = DefaultTemplate.bind({});
-LoginButton.args = {
-  title: 'Event',
-  navLinks: NavLinks,
-  mobileLink: MobileLink,
-  login: <Button title="Login" size="sm" url="#" />,
-};
-
-export const MobileMenu = DefaultTemplate.bind({});
-MobileMenu.args = {
-  title: 'Event',
-  navLinks: NavLinks,
-  userInfo: user,
-  userMenu: items,
-  mobileLink: MobileLink,
-};
-
-export const KitchenSink = DefaultTemplate.bind({});
-KitchenSink.args = {
-  title: 'Event',
-  logoUrl: 'https://carleton.ca/',
-  navLinks: NavLinks,
-  searchDatabase: database,
-  hasSearch: true,
-  userMenu: items,
-  userInfo: user,
-  mobileLink: MobileLink,
-  children: <Button title="Event" icon="PlusIcon" size="sm" />,
-  login: <Button title="Login" size="sm" url="#" />,
-};
+export const ValidationKey: Story<SearchProps> = () => (
+  <Search searchDatabase={database} searchOn="age" />
+);

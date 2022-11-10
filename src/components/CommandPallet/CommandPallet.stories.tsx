@@ -4,7 +4,7 @@ import CommandPallet, { CommandPalletProps } from './CommandPallet';
 import { Button } from '../Button';
 
 export default {
-  title: 'Components/Input/CommandPallet',
+  title: 'Components/Inputs/CommandPallet',
   component: CommandPallet,
   argTypes: {},
   parameters: {
