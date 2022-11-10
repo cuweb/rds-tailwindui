@@ -37,6 +37,15 @@ const WithButtonsTemplate: Story<BannerProps> = args => (
         title="Secondary Button"
         hasShadow
       />
+      <Button
+        hasShadow
+        icon="StarIcon"
+        isType="dark-grey"
+        onClick={() => {
+          alert('Add to favs clicked');
+        }}
+        title="Add to Favs"
+      />
     </Banner.ButtonGroup>
   </Banner>
 );

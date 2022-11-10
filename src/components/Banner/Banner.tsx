@@ -19,7 +19,7 @@ const BannerBase = ({ children, title }: BannerProps) => {
 };
 
 const ButtonGroup = ({ children }: BannerProps) => {
-  return <div className="flex gap-6">{children}</div>;
+  return <div className="flex flex-wrap justify-center gap-6">{children}</div>;
 };
 
 export const Banner = Object.assign(BannerBase, {
