@@ -27,7 +27,7 @@ export default {
   },
 } as Meta<typeof StackedList>;
 
-const DefaultTemplate: Story<StackedListProps> = (args) => (
+const DefaultTemplate: Story<StackedListProps> = args => (
   <StackedList hasDividers={args.hasDividers}>
     <li className={`${styles.spacing}`}>List Item</li>
     <li className={`${styles.spacing}`}>List Item</li>
@@ -35,7 +35,7 @@ const DefaultTemplate: Story<StackedListProps> = (args) => (
   </StackedList>
 );
 
-const WithDividersTemplate: Story<StackedListProps> = (args) => (
+const WithDividersTemplate: Story<StackedListProps> = args => (
   <StackedList hasDividers={args.hasDividers}>
     <li className={`${styles.spacing}`}>List Item</li>
     <li className={`${styles.spacing}`}>List Item</li>
@@ -43,7 +43,7 @@ const WithDividersTemplate: Story<StackedListProps> = (args) => (
   </StackedList>
 );
 
-const PanelAndDividersTemplate: Story<StackedListProps> = (args) => (
+const PanelAndDividersTemplate: Story<StackedListProps> = args => (
   <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
@@ -57,7 +57,7 @@ const PanelAndDividersTemplate: Story<StackedListProps> = (args) => (
   </Container>
 );
 
-const WithFeedItemTemplate: Story<StackedListProps> = (args) => (
+const WithFeedItemTemplate: Story<StackedListProps> = args => (
   <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
@@ -78,7 +78,7 @@ const WithFeedItemTemplate: Story<StackedListProps> = (args) => (
   </Container>
 );
 
-const WithPaginationTemplate: Story<StackedListProps> = (args) => (
+const WithPaginationTemplate: Story<StackedListProps> = args => (
   <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>

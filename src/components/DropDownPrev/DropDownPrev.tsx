@@ -72,7 +72,7 @@ export const DropdownPrev = ({
                       active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                       'group flex items-center px-4 py-2 text-sm'
                     )}
-                    onClick={(e) => {
+                    onClick={e => {
                       {
                         item.onClick && e.preventDefault();
                       }

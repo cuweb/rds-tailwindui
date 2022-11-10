@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof LinkItem>;
 
-const DefaultTemplate: Story<LinkItemProps> = (args) => (
+const DefaultTemplate: Story<LinkItemProps> = args => (
   <LinkItem as="div" link={args.link}>
     <LinkItem.Content>
       <LinkItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
@@ -29,7 +29,7 @@ const DefaultTemplate: Story<LinkItemProps> = (args) => (
   </LinkItem>
 );
 
-const SingleItemPanelTemplate: Story<LinkItemProps> = (args) => (
+const SingleItemPanelTemplate: Story<LinkItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <LinkItem as="div" link={args.link}>

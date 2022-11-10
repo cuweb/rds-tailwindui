@@ -24,20 +24,20 @@ export default {
   },
 } as Meta<typeof Column>;
 
-const DefaultTemplate: Story<ColumnProps> = (args) => (
+const DefaultTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Single Column</p>
   </Column>
 );
 
-const TwoColumTemplate: Story<ColumnProps> = (args) => (
+const TwoColumTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Two Column</p>
     <p className={`${styles.column}`}>Two Column</p>
   </Column>
 );
 
-const ThreeColumnTemplate: Story<ColumnProps> = (args) => (
+const ThreeColumnTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Three Column</p>
     <p className={`${styles.column}`}>Three Column</p>
@@ -45,7 +45,7 @@ const ThreeColumnTemplate: Story<ColumnProps> = (args) => (
   </Column>
 );
 
-const FourColumnTemplate: Story<ColumnProps> = (args) => (
+const FourColumnTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Four Column</p>
     <p className={`${styles.column}`}>Four Column</p>
@@ -54,14 +54,14 @@ const FourColumnTemplate: Story<ColumnProps> = (args) => (
   </Column>
 );
 
-const OneThirdTemplate: Story<ColumnProps> = (args) => (
+const OneThirdTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Single Column</p>
     <p className={`${styles.column}`}>Two Column Span</p>
   </Column>
 );
 
-const TwoThirdTemplate: Story<ColumnProps> = (args) => (
+const TwoThirdTemplate: Story<ColumnProps> = args => (
   <Column maxWidth={args.maxWidth} cols={args.cols} gridGap={args.gridGap}>
     <p className={`${styles.column}`}>Two Column Span</p>
     <p className={`${styles.column}`}>Single Column</p>

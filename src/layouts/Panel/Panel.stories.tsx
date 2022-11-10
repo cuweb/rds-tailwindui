@@ -27,31 +27,31 @@ export default {
   },
 } as Meta<typeof Panel>;
 
-const DefaultTemplate: Story<PanelProps> = (args) => (
+const DefaultTemplate: Story<PanelProps> = args => (
   <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
     <p className={content.spacing}>{content.paragraph}</p>
   </Panel>
 );
 
-const WithBorderTemplate: Story<PanelProps> = (args) => (
+const WithBorderTemplate: Story<PanelProps> = args => (
   <Panel hasBorder={args.hasBorder}>
     <p className={content.spacing}>{content.paragraph}</p>
   </Panel>
 );
 
-const WithShadowTemplate: Story<PanelProps> = (args) => (
+const WithShadowTemplate: Story<PanelProps> = args => (
   <Panel hasShadow={args.hasShadow}>
     <p className={content.spacing}>{content.paragraph}</p>
   </Panel>
 );
 
-const ShadowAndBorderTemplate: Story<PanelProps> = (args) => (
+const ShadowAndBorderTemplate: Story<PanelProps> = args => (
   <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
     <p className={content.spacing}>{content.paragraph}</p>
   </Panel>
 );
 
-const WithTitleTemplate: Story<PanelProps> = (args) => (
+const WithTitleTemplate: Story<PanelProps> = args => (
   <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
     <Panel.Title>Panel Title</Panel.Title>
     <p className={content.spacing}>{content.paragraph}</p>
