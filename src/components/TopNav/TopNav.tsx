@@ -6,7 +6,6 @@ import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { UserInfoType } from '../../types/UserInfo';
 import { Avatar } from '../Avatar';
 import { DropDown, DropDownItemProps } from '../DropDown';
-
 import { Search } from '../Search';
 
 export interface LinkProps {
@@ -28,6 +27,7 @@ export interface TopNavProps {
   wrapLink?: any;
   userMenu?: any;
   userInfo?: UserInfoType;
+  searchOn?: string;
 }
 
 export const TopNav = ({
@@ -37,6 +37,7 @@ export const TopNav = ({
   brand,
   hasSearch,
   searchDatabase,
+  searchOn,
   navLinks,
   mobileLink,
   userMenu,
@@ -47,16 +48,20 @@ export const TopNav = ({
 }: TopNavProps) => {
   const brandLogo = brand ? (
     <>
-      <h1 className="sr-only"> {title} </h1>
-      <img className="h-16 w-auto" src={brand} alt={title} />
+      <div className="flex flex-shrink-0 items-center">
+        <h1 className="sr-only"> {title} </h1>
+        <img className="h-16 w-auto" src={brand} alt={title} />
+      </div>
     </>
   ) : (
     <>
       {/* add the svg  */}
-      <img className="h-10 w-auto" src={shield} alt="Carleton Shield" />
-      <h1 className="items-center flex flex-shrink-0 pl-3 pr-2 text-2xl font-semibold">
-        {title}
-      </h1>
+      <div className="flex flex-shrink-0 items-center">
+        <img className="h-10 w-auto" src={shield} alt="Carleton Shield" />
+        <h1 className="items-center flex flex-shrink-0 pl-3 pr-2 text-2xl font-semibold">
+          {title}
+        </h1>
+      </div>
     </>
   );
 
@@ -72,21 +77,20 @@ export const TopNav = ({
           <div className="mx-auto flex h-20 max-w-7xl gap-6 px-2 sm:px-4 lg:px-8">
             {/* Logo  */}
             <div className="flex flex-shrink-0 items-center hover:text-cu-red">
-              <Link
-                href={logoUrl ? logoUrl : '#'}
-                wrapper={wrapLink}
-                className="flex flex-shrink-0 items-center"
-              >
+              <Link href={logoUrl ? logoUrl : '/'} wrapper={wrapLink}>
                 {brandLogo}
               </Link>
             </div>
 
             {/* mobile Menu open Button  */}
             <div className="flex items-center lg:hidden">
-              <div className="absolute mx-8 right-4">
+              <div className="absolute mx-4 right-4">
                 {hasSearch && searchDatabase && (
                   <div className=" inline-flex items-center  p-2">
-                    <Search searchDatabase={searchDatabase} />
+                    <Search
+                      searchDatabase={searchDatabase}
+                      searchOn={searchOn}
+                    />
                   </div>
                 )}
 
@@ -120,9 +124,10 @@ export const TopNav = ({
 
             <div className="hidden lg:flex lg:items-center lg:gap-6">
               {/* search */}
+              {/* this will just search on title in detabase , we need to extend it to add other props search on to top nav  */}
               {hasSearch && searchDatabase && (
                 <div className=" inline-flex items-center ">
-                  <Search searchDatabase={searchDatabase} />
+                  <Search searchDatabase={searchDatabase} searchOn={searchOn} />
                 </div>
               )}
               {children}
@@ -133,7 +138,7 @@ export const TopNav = ({
                 <Avatar user={userInfo} size="xs" rounded="full" />
               )}
               {userInfo && userMenu && (
-                <DropDown listItems={userMenu}>
+                <DropDown listItems={userMenu} menuAlign="right">
                   <Avatar user={userInfo} size="xs" rounded="full" />
                 </DropDown>
               )}

@@ -15,3 +15,4 @@ export {
   MarketplaceItemProps,
 } from './ListingItems/MarketplaceItem';
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
+export { TopNav, TopNavProps } from './TopNav';
