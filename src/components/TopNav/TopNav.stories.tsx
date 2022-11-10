@@ -475,7 +475,6 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
   title: 'Event',
   logoUrl: 'https://carleton.ca/',
-  hasLogin: true,
   userMenu: items,
   userInfo: user,
   mobileLink: MobileLink,
@@ -496,7 +495,6 @@ export const HasSearch = DefaultTemplate.bind({});
 HasSearch.args = {
   title: 'Event',
   navLinks: NavLinks,
-  hasLogin: true,
   searchDatabase: database,
   hasSearch: true,
   userInfo: user,
@@ -506,15 +504,14 @@ export const LoginButton = DefaultTemplate.bind({});
 LoginButton.args = {
   title: 'Event',
   navLinks: NavLinks,
-  hasLogin: true,
   mobileLink: MobileLink,
+  login: <Button title="Login" size="sm" url="#" />,
 };
 
 export const MobileMenu = DefaultTemplate.bind({});
 MobileMenu.args = {
   title: 'Event',
   navLinks: NavLinks,
-  hasLogin: true,
   userInfo: user,
   userMenu: items,
   mobileLink: MobileLink,
@@ -525,11 +522,11 @@ KitchenSink.args = {
   title: 'Event',
   logoUrl: 'https://carleton.ca/',
   navLinks: NavLinks,
-  hasLogin: true,
   searchDatabase: database,
   hasSearch: true,
   userMenu: items,
   userInfo: user,
   mobileLink: MobileLink,
   children: <Button title="Event" icon="PlusIcon" size="sm" />,
+  login: <Button title="Login" size="sm" url="#" />,
 };

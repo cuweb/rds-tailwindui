@@ -7,7 +7,6 @@ import { UserInfoType } from '../../types/UserInfo';
 import { DropdownPrev, DropdownPrevItemProps } from '../DropDownPrev';
 import { Avatar } from '../Avatar';
 import CommandPallet from '../CommandPallet/CommandPallet';
-import { Button } from '../Button/Button';
 
 export interface LinkProps {
   title: string;
@@ -18,8 +17,7 @@ export interface TopNavProps {
   title: string;
   logoUrl?: string | URL;
   brand?: string;
-  hasLogin?: boolean;
-  loginUrl?: string | URL;
+  login?: React.ReactNode;
   hasSearch?: boolean;
   searchDatabase?: any;
   children?: React.ReactNode;
@@ -43,8 +41,7 @@ export const TopNav = ({
   userMenu,
   userInfo,
   sticky,
-  hasLogin = true,
-  loginUrl = '#',
+  login,
   wrapLink,
 }: TopNavProps) => {
   const brandLogo = brand ? (
@@ -106,7 +103,6 @@ export const TopNav = ({
             </div>
 
             {/* navigation Links  */}
-
             <ul className="hidden lg:flex lg:flex-1 lg:gap-6">
               {navLinks &&
                 navLinks.map(({ index, title, link }: any) => (
@@ -133,18 +129,11 @@ export const TopNav = ({
               {children}
 
               {/* Login */}
-              {hasLogin && !userInfo && (
-                <Button
-                  title="Login"
-                  size="sm"
-                  url={loginUrl}
-                  wrapper={wrapLink}
-                />
-              )}
-              {hasLogin && userInfo && !userMenu && (
+              {!userInfo && login}
+              {userInfo && !userMenu && (
                 <Avatar user={userInfo} size="xs" rounded="full" />
               )}
-              {hasLogin && userInfo && userMenu && (
+              {userInfo && userMenu && (
                 <DropdownPrev
                   component={
                     <Avatar user={userInfo} size="xs" rounded="full" />
@@ -174,15 +163,10 @@ export const TopNav = ({
                 ))}
             </div>
             {/* login button */}
-            {hasLogin && !userInfo && (
+            {!userInfo && (
               <>
                 <div className="py-2 pl-3 pr-4 items-center grid justify-items-center pt-4 pb-3 border-t border-gray-200">
-                  <Button
-                    title="Login"
-                    size="sm"
-                    url={loginUrl}
-                    wrapper={wrapLink}
-                  />
+                  {login}
                 </div>
               </>
             )}
