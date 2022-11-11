@@ -22,18 +22,13 @@ const WithButtonsTemplate: Story<BannerProps> = args => (
     <Banner.ButtonGroup>
       <Button
         isType="default"
-        // onClick={() => {}}
-        onClick={() => {
-          alert('Primary button clicked');
-        }}
+        onClick={() => {}}
         title="Primary Button"
         hasShadow
       />
       <Button
         isType="white"
-        onClick={() => {
-          alert('Secondary button clicked');
-        }}
+        onClick={() => {}}
         title="Secondary Button"
         hasShadow
       />
@@ -50,6 +45,12 @@ const WithButtonsTemplate: Story<BannerProps> = args => (
   </Banner>
 );
 
+const WithBgImageTemplate: Story<BannerProps> = args => (
+  <Banner {...args}>
+    <Banner.Image />
+  </Banner>
+);
+
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   title: 'Basic Banner',
@@ -58,4 +59,10 @@ Default.args = {
 export const WithButtons = WithButtonsTemplate.bind({});
 WithButtons.args = {
   title: 'Banner with Buttons',
+};
+
+export const WithBgImage = WithBgImageTemplate.bind({});
+WithBgImage.args = {
+  title: 'Image Banner',
+  hasBackground: true,
 };

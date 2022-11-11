@@ -73,7 +73,7 @@ export const rdsPaddingY = {
   md: 'lg:py-24',
   lg: 'lg:py-36',
   xl: 'lg:py-48',
-  full: 'lg:py-16 h-screen justify-center',
+  full: 'lg:py-16 h-screen',
 };
 
 export const rdsRounded = {
