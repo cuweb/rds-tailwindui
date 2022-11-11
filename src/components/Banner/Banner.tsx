@@ -6,7 +6,7 @@ export interface BannerProps {
   title?: string;
   fontSize?: '4xl' | '5xl' | '6xl';
   spacing?: 'base' | 'md' | 'lg' | 'xl' | 'full';
-  hasBackground?: boolean;
+  isType?: 'image' | 'wave' | 'gradient';
 }
 
 export interface BannerImageProps {
@@ -17,18 +17,30 @@ const BannerBase = ({
   children,
   title,
   fontSize = '4xl',
-  spacing = 'base',
-  hasBackground,
+  isType,
+  spacing = isType ? 'lg' : 'base',
 }: BannerProps) => {
-  const textWhite = hasBackground ? 'text-white' : 'text-cu-black-800';
+  const textWhite = isType ? 'text-white' : 'text-cu-black-800';
+
+  let bgStyle;
+  switch (isType) {
+    case 'image':
+      bgStyle = 'bg-cu-black-900';
+      break;
+    case 'wave':
+      bgStyle = 'bg-gradient-to-b from-cu-red to-cu-red-900';
+      break;
+    default:
+      bgStyle = 'bg-gradient-to-b from-white to-cu-black-100';
+  }
 
   return (
     <header className="relative bg-cu-black-50">
       <div
-        className={`flex flex-col items-center justify-center max-w-5xl gap-8 px-8 py-8 mx-auto lg:px-8 ${rdsPaddingY[spacing]}`}
+        className={`flex flex-col items-center justify-center gap-8 px-8 py-8 lg:px-8 ${bgStyle} ${rdsPaddingY[spacing]}`}
       >
         <h1
-          className={`relative z-50 text-3xl font-medium ${textWhite} ${rdsFontSizes[fontSize]}`}
+          className={`relative z-50 max-w-5xl mx-auto text-3xl font-medium ${textWhite} ${rdsFontSizes[fontSize]}`}
         >
           {title}
         </h1>
@@ -54,12 +66,23 @@ const Image = ({}: BannerImageProps) => {
   );
 };
 
+const Wave = () => {
+  return (
+    <div className="absolute inset-0 bg-bottom bg-no-repeat bg-contain bg-cu-waves-white-20 md:bg-cover"></div>
+  );
+};
+
 const ButtonGroup = ({ children }: BannerProps) => {
-  return <div className="flex flex-wrap justify-center gap-6">{children}</div>;
+  return (
+    <div className="relative z-50 flex flex-wrap justify-center gap-6 mx-auto max-w-7xl">
+      {children}
+    </div>
+  );
 };
 
 export const Banner = Object.assign(BannerBase, {
   Image,
+  Wave,
   ButtonGroup,
 });
 

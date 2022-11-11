@@ -45,9 +45,61 @@ const WithButtonsTemplate: Story<BannerProps> = args => (
   </Banner>
 );
 
-const WithBgImageTemplate: Story<BannerProps> = args => (
+const WithImageTemplate: Story<BannerProps> = args => (
   <Banner {...args}>
+    <Banner.ButtonGroup>
+      <Button
+        isType="default"
+        onClick={() => {}}
+        title="Primary Button"
+        hasShadow
+      />
+      <Button
+        isType="white"
+        onClick={() => {}}
+        title="Secondary Button"
+        hasShadow
+      />
+      <Button
+        hasShadow
+        icon="StarIcon"
+        isType="dark-grey"
+        onClick={() => {
+          alert('Add to favs clicked');
+        }}
+        title="Add to Favs"
+      />
+    </Banner.ButtonGroup>
     <Banner.Image />
+  </Banner>
+);
+
+const WithWaveTemplate: Story<BannerProps> = args => (
+  <Banner {...args}>
+    <Banner.ButtonGroup>
+      <Button
+        isType="default"
+        onClick={() => {}}
+        title="Primary Button"
+        hasShadow
+      />
+      <Button
+        isType="white"
+        onClick={() => {}}
+        title="Secondary Button"
+        hasShadow
+      />
+      <Button
+        hasShadow
+        icon="StarIcon"
+        isType="dark-grey"
+        onClick={() => {
+          alert('Add to favs clicked');
+        }}
+        title="Add to Favs"
+      />
+    </Banner.ButtonGroup>
+    <Banner.Wave />
   </Banner>
 );
 
@@ -61,8 +113,14 @@ WithButtons.args = {
   title: 'Banner with Buttons',
 };
 
-export const WithBgImage = WithBgImageTemplate.bind({});
-WithBgImage.args = {
+export const WithImage = WithImageTemplate.bind({});
+WithImage.args = {
   title: 'Image Banner',
-  hasBackground: true,
+  isType: 'image',
+};
+
+export const WithWave = WithWaveTemplate.bind({});
+WithWave.args = {
+  title: 'CU Wave Banner',
+  isType: 'wave',
 };
