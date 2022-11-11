@@ -11,6 +11,7 @@ import { Search } from '../Search';
 export interface LinkProps {
   title: string;
   link: string;
+  active: boolean;
 }
 
 export interface TopNavProps {
@@ -47,22 +48,17 @@ export const TopNav = ({
   wrapLink,
 }: TopNavProps) => {
   const brandLogo = brand ? (
-    <>
-      <div className="flex flex-shrink-0 items-center">
-        <h1 className="sr-only"> {title} </h1>
-        <img className="h-16 w-auto" src={brand} alt={title} />
-      </div>
-    </>
+    <div className="flex flex-shrink-0 items-center">
+      <h1 className="sr-only"> {title} </h1>
+      <img className="h-16 w-auto" src={brand} alt={title} />
+    </div>
   ) : (
-    <>
-      {/* add the svg  */}
-      <div className="flex flex-shrink-0 items-center">
-        <img className="h-10 w-auto" src={shield} alt="Carleton Shield" />
-        <h1 className="items-center flex flex-shrink-0 pl-3 pr-2 text-2xl font-semibold">
-          {title}
-        </h1>
-      </div>
-    </>
+    <div className="flex flex-shrink-0 items-center">
+      <img className="h-10 w-auto" src={shield} alt="Carleton Shield" />
+      <h1 className="items-center flex flex-shrink-0 pl-3 pr-2 text-2xl font-semibold">
+        {title}
+      </h1>
+    </div>
   );
 
   return (
@@ -111,7 +107,11 @@ export const TopNav = ({
                 navLinks.map((item, index) => (
                   <li
                     key={index}
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-cu-black-800 hover:border-cu-red hover:text-cu-red"
+                    className={`inline-flex items-center border-b-2  px-1 pt-1 text-sm font-medium text-cu-black-800 hover:border-cu-red hover:text-cu-red ${
+                      item.active
+                        ? 'border-cu-red text-cu-red'
+                        : 'border-transparent'
+                    }`}
                   >
                     <Link href={item.link} wrapper={wrapLink}>
                       {item.title}
@@ -157,7 +157,11 @@ export const TopNav = ({
                     key={index}
                     as="a"
                     href={item.link}
-                    className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red"
+                    className={`block border-l-4  py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red ${
+                      item.active
+                        ? 'border-l-4 border-cu-red bg-gradient-to-r from-cu-red-50 to-white'
+                        : 'border-transparent'
+                    }`}
                   >
                     {item.title}
                   </Disclosure.Button>
@@ -192,7 +196,7 @@ export const TopNav = ({
                         key={index}
                         as="a"
                         href={item.href ? item.href : '#'}
-                        className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red"
+                        className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
                       >
                         {item.title}
                       </Disclosure.Button>

@@ -18,14 +18,17 @@ const NavLinks: LinkProps[] = [
   {
     title: 'Weekly',
     link: '#',
+    active: true,
   },
   {
     title: 'Monthly',
     link: '#',
+    active: false,
   },
   {
     title: 'Single',
     link: '#',
+    active: false,
   },
 ];
 
@@ -33,10 +36,12 @@ const MobileLink: LinkProps[] = [
   {
     title: 'Home',
     link: '#',
+    active: false,
   },
   {
     title: 'Event',
     link: '#',
+    active: false,
   },
 ];
 
