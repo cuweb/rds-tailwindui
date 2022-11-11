@@ -32,7 +32,7 @@ const NavLinks: LinkProps[] = [
   },
 ];
 
-const MobileLink: LinkProps[] = [
+const MobileLinks: LinkProps[] = [
   {
     title: 'Home',
     link: '#',
@@ -482,7 +482,7 @@ Default.args = {
   logoUrl: 'https://carleton.ca/',
   userMenu: items,
   userInfo: user,
-  mobileLink: MobileLink,
+  mobileLinks: MobileLinks,
 };
 
 export const CustomLogo = DefaultTemplate.bind({});
@@ -509,7 +509,7 @@ export const LoginButton = DefaultTemplate.bind({});
 LoginButton.args = {
   title: 'Event',
   navLinks: NavLinks,
-  mobileLink: MobileLink,
+  mobileLinks: MobileLinks,
   login: <Button title="Login" size="sm" url="#" />,
 };
 
@@ -519,7 +519,7 @@ MobileMenu.args = {
   navLinks: NavLinks,
   userInfo: user,
   userMenu: items,
-  mobileLink: MobileLink,
+  mobileLinks: MobileLinks,
 };
 
 export const KitchenSink = DefaultTemplate.bind({});
@@ -531,7 +531,7 @@ KitchenSink.args = {
   hasSearch: true,
   userMenu: items,
   userInfo: user,
-  mobileLink: MobileLink,
+  mobileLinks: MobileLinks,
   children: <Button title="Event" icon="PlusIcon" size="sm" />,
   login: <Button title="Login" size="sm" url="#" />,
 };
