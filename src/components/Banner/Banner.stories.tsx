@@ -70,7 +70,6 @@ const WithImageTemplate: Story<BannerProps> = args => (
         title="Add to Favs"
       />
     </Banner.ButtonGroup>
-    <Banner.Image />
   </Banner>
 );
 
@@ -99,7 +98,6 @@ const WithWaveTemplate: Story<BannerProps> = args => (
         title="Add to Favs"
       />
     </Banner.ButtonGroup>
-    <Banner.Wave />
   </Banner>
 );
 
@@ -117,10 +115,11 @@ export const WithImage = WithImageTemplate.bind({});
 WithImage.args = {
   title: 'Image Banner',
   isType: 'image',
+  imageUrl: `https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg`,
 };
 
 export const WithWave = WithWaveTemplate.bind({});
 WithWave.args = {
   title: 'CU Wave Banner',
-  isType: 'wave',
+  isType: 'red-wave',
 };

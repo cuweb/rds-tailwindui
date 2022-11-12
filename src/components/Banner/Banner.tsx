@@ -1,68 +1,83 @@
 import React from 'react';
-import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
+// import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
 
 export interface BannerProps {
   children: React.ReactNode;
   title?: string;
   fontSize?: '4xl' | '5xl' | '6xl';
   spacing?: 'base' | 'md' | 'lg' | 'xl' | 'full';
+  isType?: 'light-fade' | 'dark-wave' | 'red-wave' | 'image';
   alignment?: 'vertical' | 'horizontal';
-  isType?: 'image' | 'wave' | 'gradient';
+  imageUrl?: string;
 }
 
 export interface BannerImageProps {
   imageUrl?: string;
 }
 
+const styles = {
+  header: `relative`,
+  headerGrey: `bg-gradient-to-b from-white to-cu-black-100 text-cu-black-800`,
+  headerRed: `bg-gradient-to-b from-cu-red to-cu-red-900 text-white`,
+  headerBlack: `bg-cu-black-800 text-white`,
+  headerAnimated: `bg-cu-black-800 text-white`,
+  childWrapper: `mx-auto flex max-w-7xl flex-col gap-4 md:gap-8 justify-between [&>*]:z-10 [&>*:last-child]:z-0 px-6 md:px-8 py-12 md:py-20`,
+  textWrapper: `flex flex-col gap-4 md:flex-[1_1_65%]`,
+  buttonWrapper: `flex gap-6 flex-wrap md:flex-[1_1_35%] justify-end`,
+  title: `text-3xl font-medium lg:text-4xl`,
+  paragraph: `text-base lg:text-xl max-w-5xl`,
+  alignVertical: `md:flex-col items-center text-center`,
+  alignHorizontal: `md:flex-row items-center text-center md:text-left`,
+};
+
 const BannerBase = ({
   children,
   title,
-  fontSize = '4xl',
-  alignment = 'vertical',
   isType,
-  spacing = isType ? 'lg' : 'base',
+  imageUrl,
+  alignment = 'vertical',
 }: BannerProps) => {
-  const textWhite = isType ? 'text-white' : 'text-cu-black-800';
-  const flexDirection =
-    alignment === 'vertical' ? 'sm:flex-col' : 'sm:flex-row';
-
   let bgStyle;
   switch (isType) {
     case 'image':
-      bgStyle = 'bg-cu-black-900';
+      bgStyle = styles.headerBlack;
       break;
-    case 'gradient':
-      bgStyle = 'bg-cu-black-900';
+    case 'dark-wave':
+      bgStyle = styles.headerBlack;
       break;
-    case 'wave':
-      bgStyle = 'bg-gradient-to-b from-cu-red to-cu-red-900';
+    case 'red-wave':
+      bgStyle = styles.headerRed;
       break;
     default:
-      bgStyle = 'bg-gradient-to-b from-white to-cu-black-100';
+      bgStyle = styles.headerGrey;
   }
 
+  const alignmentStyles =
+    alignment === 'vertical' ? styles.alignVertical : styles.alignHorizontal;
+
   return (
-    <header className="relative bg-cu-black-50">
-      <div
-        className={`flex flex-col ${flexDirection} items-center justify-center gap-8 px-8 py-8 lg:px-8 ${bgStyle} ${rdsPaddingY[spacing]}`}
-      >
-        <h1
-          className={`relative z-50 max-w-5xl mx-auto text-3xl font-medium ${textWhite} ${rdsFontSizes[fontSize]}`}
-        >
-          {title}
-        </h1>
+    <header className={`${styles.header} ${bgStyle}`}>
+      <div className={`${styles.childWrapper} ${alignmentStyles}`}>
+        <div className={styles.textWrapper}>
+          <h1 className={styles.title}>{title}</h1>
+          {/* <p className={styles.paragraph}>{para}</p> */}
+        </div>
         {children}
+        {isType === 'image' && <Banner.Image imageUrl={imageUrl} />}
+        {isType === 'red-wave' && <Banner.Wave />}
+        {isType === 'dark-wave' && <Banner.Wave />}
       </div>
     </header>
   );
 };
 
-const Image = () => {
+const Image = ({ imageUrl }: BannerImageProps) => {
   return (
     <div className="absolute inset-0">
       <img
         className="object-cover w-full h-full"
-        src="https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg"
+        // src="https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg"
+        src={imageUrl}
         alt=""
       />
       <div
@@ -79,47 +94,8 @@ const Wave = () => {
   );
 };
 
-// const Gradient = () => {
-//   const gradient = new GradientBg();
-//   const ref = useRef();
-
-//   const divStyle = {
-//     '--gradient-color-1': '#c3e4ff',
-//     '--gradient-color-2': '#6ec3f4',
-//     '--gradient-color-3': '#eae2ff',
-//     '--gradient-color-4': '#b9beff',
-//     width: '100%',
-//     height: '100%',
-//     position: 'absolute',
-//     top: 'auto',
-//     left: '0',
-//     bottom: '0',
-//     overflow: 'hidden',
-//     opacity: 0.5,
-//   };
-
-//   useEffect(() => {
-//     if (ref.current) {
-//       gradient.initGradient(ref.current);
-//     }
-//   }, [ref]);
-
-//   return (
-//     <canvas
-//       style={divStyle}
-//       className="sm:relative"
-//       ref={ref}
-//       data-transition-in
-//     ></canvas>
-//   );
-// };
-
 const ButtonGroup = ({ children }: BannerProps) => {
-  return (
-    <div className="relative z-50 flex flex-wrap justify-center gap-6 mx-auto max-w-7xl">
-      {children}
-    </div>
-  );
+  return <div className={styles.buttonWrapper}>{children}</div>;
 };
 
 export const Banner = Object.assign(BannerBase, {
