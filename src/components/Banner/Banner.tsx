@@ -1,6 +1,5 @@
 import React from 'react';
 import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
-// import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
 
 export interface BannerProps {
   children: React.ReactNode;
@@ -31,7 +30,6 @@ const styles = {
   title: `font-semibold`,
   paragraph: `text-base lg:text-xl max-w-5xl`,
   alignVertical: `md:flex-col items-center text-center`,
-  //   alignVertical: `md:flex-col items-center text-center max-w-xs md:max-w-md`,
   alignHorizontal: `md:flex-row items-center text-center md:text-left`,
 };
 
@@ -106,6 +104,7 @@ const BannerWave = () => {
 
 const ButtonGroup = ({ children }: BannerProps) => {
   // how do i get spacing from parent in order to add width if spacing === full
+  // width classes to add are max-w-xs md:max-w-md
   return <div className={`${styles.buttonWrapper}`}>{children}</div>;
 };
 
