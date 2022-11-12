@@ -69,11 +69,11 @@ export const rdsHeight = {
 };
 
 export const rdsPaddingY = {
-  base: 'lg:py-16',
-  md: 'lg:py-24',
-  lg: 'lg:py-36',
-  xl: 'lg:py-48',
-  full: 'lg:py-16 h-screen',
+  base: 'md:py-20',
+  md: 'md:py-28',
+  lg: 'md:py-36',
+  xl: 'md:py-48',
+  full: 'md:py-16 h-screen',
 };
 
 export const rdsRounded = {

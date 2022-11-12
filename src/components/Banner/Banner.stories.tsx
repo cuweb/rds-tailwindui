@@ -73,7 +73,63 @@ const WithImageTemplate: Story<BannerProps> = args => (
   </Banner>
 );
 
-const WithWaveTemplate: Story<BannerProps> = args => (
+const WithDarkWaveTemplate: Story<BannerProps> = args => (
+  <Banner {...args}>
+    <Banner.ButtonGroup>
+      <Button
+        isType="default"
+        onClick={() => {}}
+        title="Primary Button"
+        hasShadow
+      />
+      <Button
+        isType="white"
+        onClick={() => {}}
+        title="Secondary Button"
+        hasShadow
+      />
+      <Button
+        hasShadow
+        icon="StarIcon"
+        isType="dark-grey"
+        onClick={() => {
+          alert('Add to favs clicked');
+        }}
+        title="Add to Favs"
+      />
+    </Banner.ButtonGroup>
+  </Banner>
+);
+
+const WithRedWaveTemplate: Story<BannerProps> = args => (
+  <Banner {...args}>
+    <Banner.ButtonGroup>
+      <Button
+        isType="default"
+        onClick={() => {}}
+        title="Primary Button"
+        hasShadow
+      />
+      <Button
+        isType="white"
+        onClick={() => {}}
+        title="Secondary Button"
+        hasShadow
+      />
+      <Button
+        hasShadow
+        icon="StarIcon"
+        isType="dark-grey"
+        onClick={() => {
+          alert('Add to favs clicked');
+        }}
+        title="Add to Favs"
+      />
+    </Banner.ButtonGroup>
+  </Banner>
+);
+
+const WithParagraphTemplate: Story<BannerProps> = args => (
   <Banner {...args}>
     <Banner.ButtonGroup>
       <Button
@@ -115,11 +171,24 @@ export const WithImage = WithImageTemplate.bind({});
 WithImage.args = {
   title: 'Image Banner',
   isType: 'image',
-  imageUrl: `https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg`,
+  image: `https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg`,
 };
 
-export const WithWave = WithWaveTemplate.bind({});
-WithWave.args = {
+export const WithDarkWave = WithDarkWaveTemplate.bind({});
+WithDarkWave.args = {
+  title: 'CU Wave Banner',
+  isType: 'dark-wave',
+};
+
+export const WithRedWave = WithRedWaveTemplate.bind({});
+WithRedWave.args = {
   title: 'CU Wave Banner',
   isType: 'red-wave',
+};
+
+export const WithParagraph = WithParagraphTemplate.bind({});
+WithParagraph.args = {
+  title: 'Banner with Paragraph',
+  paragraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique ultrices magna at sollicitudin. Duis venenatis arcu quis nibh blandit vestibulum. Praesent tempus est at venenatis elementum. In vestibulum purus in sapien varius, ac iaculis ligula eleifend. Nulla tempus interdum ipsum quis iaculis.`,
+  isType: 'light-fade',
 };
