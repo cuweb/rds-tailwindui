@@ -1,5 +1,6 @@
 import React from 'react';
 import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
+// import BannerAnimated from './Banner.Animated';
 
 export interface BannerProps {
   children: React.ReactNode;
@@ -7,7 +8,7 @@ export interface BannerProps {
   paragraph?: string;
   fontSize?: '4xl' | '5xl' | '6xl';
   spacing?: 'base' | 'md' | 'lg' | 'xl' | 'full';
-  isType?: 'light-fade' | 'dark-wave' | 'red-wave' | 'image';
+  isType?: 'light-fade' | 'dark-wave' | 'red-wave' | 'image' | 'animated';
   alignment?: 'vertical' | 'horizontal';
   image?: string;
   imageAlt?: string;
@@ -79,6 +80,7 @@ const BannerBase = ({
         )}
         {isType === 'red-wave' && <BannerWave />}
         {isType === 'dark-wave' && <BannerWave />}
+        {/* {isType === 'animated' && <BannerAnimated />} */}
       </div>
     </header>
   );
