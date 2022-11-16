@@ -2,6 +2,7 @@ import { Menu, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 import { HeroIcon, IconName } from '../HeroIcon/HeroIcon';
+import Link from '../Link/Link';
 
 export interface DropDownItemProps {
   title: string;
@@ -20,6 +21,7 @@ export interface DropDownProps {
   renderAs?: 'button' | 'div';
   menuAlign?: 'left' | 'right';
   listItems: DropDownItemProps[];
+  wrapLink?: any;
 }
 
 const styles = {
@@ -32,6 +34,7 @@ export const DropDown = ({
   renderAs = 'div',
   listItems,
   menuAlign = 'left',
+  wrapLink,
 }: DropDownProps) => {
   return (
     <Menu as="div" className="relative flex-shrink-0 inline-block">
@@ -68,8 +71,8 @@ export const DropDown = ({
         >
           {listItems.map((item, index) => (
             <Menu.Item key={index}>
-              {({ active }) => (
-                <a
+              {({ active, close }) => (
+                <Link
                   href={item.href ? item.href : '#'}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
@@ -78,13 +81,15 @@ export const DropDown = ({
                   onClick={e => {
                     item.onClick && e.preventDefault();
                     item.onClick && item.onClick(e);
+                    close();
                   }}
+                  wrapper={wrapLink}
                 >
                   {item.icon && (
                     <HeroIcon icon={item.icon} aria-hidden="true" size="4" />
                   )}
                   <span className={item.icon ? 'ml-3' : ''}>{item.title}</span>
-                </a>
+                </Link>
               )}
             </Menu.Item>
           ))}
