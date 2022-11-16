@@ -148,23 +148,21 @@ export const TopNav = ({
           {/* active state on mobile */}
           <Disclosure.Panel className="lg:hidden">
             <div className="pt-2 pb-3 space-y-1">
-              {/* active state css for
-            block border-l-4 border-cu-red bg-gradient-to-r from-cu-red-50 to-white py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:bg-cu-red hover:text-cu-red */}
               {mobileLinks &&
                 // Disclosure button as link when in next to passa wrapper
                 mobileLinks.map((item, index) => (
-                  <div
+                  <Disclosure.Button
                     key={index}
+                    as="a"
+                    href={item.link}
                     className={`block border-l-4  py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red ${
                       item.active
                         ? 'border-l-4 border-cu-red bg-gradient-to-r from-cu-red-50 to-white'
                         : 'border-transparent'
                     }`}
                   >
-                    <Link wrapper={wrapLink} href={item.link}>
-                      {item.title}
-                    </Link>
-                  </div>
+                    {item.title}
+                  </Disclosure.Button>
                 ))}
             </div>
             {/* login button */}
@@ -192,17 +190,23 @@ export const TopNav = ({
                 <div className="mt-3 space-y-1">
                   {userMenu &&
                     userMenu.map((item: DropDownItemProps, index: any) => (
-                      <div
+                      <Disclosure.Button
                         key={index}
+                        as="a"
+                        href={item.href ? item.href : '/'}
                         className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
+                        onClick={(
+                          e: React.MouseEvent<
+                            HTMLAnchorElement | MouseEvent,
+                            MouseEvent
+                          >
+                        ) => {
+                          item.onClick && e.preventDefault();
+                          item.onClick && item.onClick(e);
+                        }}
                       >
-                        <Link
-                          wrapper={wrapLink}
-                          href={item.href ? item.href : '/'}
-                        >
-                          {item.title}
-                        </Link>
-                      </div>
+                        {item.title}
+                      </Disclosure.Button>
                     ))}
                 </div>
               </div>
