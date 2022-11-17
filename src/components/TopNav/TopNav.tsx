@@ -75,6 +75,7 @@ export const TopNav = ({
       className={` ${
         sticky ? 'sticky' : ''
       } top-0 z-50 border-t-2 border-cu-red bg-white shadow`}
+      id="topNav"
     >
       {({ open }) => (
         <>

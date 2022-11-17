@@ -1,8 +1,7 @@
-// UPDATE IFRAME URL
-describe('Button', () => {
-  it('Does Button exist?', () => {
-    cy.visit('/iframe.html?id=component--default&viewMode=story');
-    cy.get('button').should('exist');
+describe('Top Nav', () => {
+  it('Does Navigation  exist?', () => {
+    cy.visit('/iframe.html?id=components-navigation-topnav--default');
+    cy.get('#topNav').should('exist');
   });
 });
 export {};
