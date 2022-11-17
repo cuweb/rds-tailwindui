@@ -71,17 +71,15 @@ export const DropDown = ({
         >
           {listItems.map((item, index) => (
             <Menu.Item key={index}>
-              {({ active, close }) => (
+              {({ active }) => (
                 <Link
-                  href={item.href ? item.href : '#'}
+                  href={item.href ? item.href : ''}
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'group flex items-center px-4 py-2 text-sm'
                   )}
                   onClick={e => {
-                    item.onClick && e.preventDefault();
                     item.onClick && item.onClick(e);
-                    close();
                   }}
                   wrapper={wrapLink}
                 >

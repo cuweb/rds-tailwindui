@@ -163,16 +163,17 @@ export const TopNav = ({
                     // Disclosure button as link when in next to passa wrapper
                     mobileLinks.map((item, index) => (
                       <Disclosure.Button
+                        as="div"
                         key={index}
-                        as="a"
-                        href={item.link}
                         className={`block border-l-4  py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red ${
                           item.active
                             ? 'border-l-4 border-cu-red bg-gradient-to-r from-cu-red-50 to-white'
                             : 'border-transparent'
                         }`}
                       >
-                        {item.title}
+                        <Link wrapper={wrapLink} href={item.link}>
+                          <span onClick={() => close()}>{item.title}</span>
+                        </Link>
                       </Disclosure.Button>
                     ))}
                 </div>

@@ -4,7 +4,7 @@ import { UrlObject } from 'url';
 type Url = string | UrlObject;
 
 export interface LinkProps {
-  href: Url;
+  href: URL | string;
   as?: Url;
   wrapper?: any;
   component?: string;
