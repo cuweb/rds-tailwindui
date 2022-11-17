@@ -14,6 +14,12 @@ export interface LinkProps {
   active: boolean;
 }
 
+export interface mobileLoginProps {
+  title: string;
+  link?: string;
+  onClick?: (event: React.MouseEvent<MouseEvent | HTMLAnchorElement>) => void;
+}
+
 export interface TopNavProps {
   title: string;
   logoUrl?: string;
@@ -29,6 +35,7 @@ export interface TopNavProps {
   userMenu?: any;
   userInfo?: UserInfoType;
   searchOn?: string;
+  mobileLogin?: mobileLoginProps;
 }
 
 export const TopNav = ({
@@ -46,6 +53,7 @@ export const TopNav = ({
   sticky,
   login,
   wrapLink,
+  mobileLogin,
 }: TopNavProps) => {
   const brandLogo = brand ? (
     <div className="flex flex-shrink-0 items-center">
@@ -147,69 +155,89 @@ export const TopNav = ({
           {/* Mobile Menu  */}
           {/* active state on mobile */}
           <Disclosure.Panel className="lg:hidden">
-            <div className="pt-2 pb-3 space-y-1">
-              {mobileLinks &&
-                // Disclosure button as link when in next to passa wrapper
-                mobileLinks.map((item, index) => (
-                  <Disclosure.Button
-                    key={index}
-                    as="a"
-                    href={item.link}
-                    className={`block border-l-4  py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red ${
-                      item.active
-                        ? 'border-l-4 border-cu-red bg-gradient-to-r from-cu-red-50 to-white'
-                        : 'border-transparent'
-                    }`}
-                  >
-                    {item.title}
-                  </Disclosure.Button>
-                ))}
-            </div>
-            {/* login button */}
-            {!userInfo && (
+            {({ close }) => (
               <>
-                <div className="py-2 pl-3 pr-4 items-center grid justify-items-center pt-4 pb-3 border-t border-gray-200">
-                  {login}
-                </div>
-              </>
-            )}
-
-            {/* userInfo */}
-            {userInfo && (
-              <div className="pt-4 pb-3 border-t border-gray-200">
-                <div className="flex items-center px-4">
-                  <div className="flex-shrink-0">
-                    <Avatar user={userInfo} size="xs" rounded="full" />
-                  </div>
-                  <div className="ml-3">
-                    <div className="text-base font-medium text-gray-800">
-                      {userInfo.firstName + ' ' + userInfo.lastName}
-                    </div>
-                  </div>
-                </div>
-                <div className="mt-3 space-y-1">
-                  {userMenu &&
-                    userMenu.map((item: DropDownItemProps, index: any) => (
+                <div className="pt-2 pb-3 space-y-1">
+                  {mobileLinks &&
+                    // Disclosure button as link when in next to passa wrapper
+                    mobileLinks.map((item, index) => (
                       <Disclosure.Button
                         key={index}
                         as="a"
-                        href={item.href ? item.href : '/'}
-                        className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
-                        onClick={(
-                          e: React.MouseEvent<
-                            HTMLAnchorElement | MouseEvent,
-                            MouseEvent
-                          >
-                        ) => {
-                          item.onClick && e.preventDefault();
-                          item.onClick && item.onClick(e);
-                        }}
+                        href={item.link}
+                        className={`block border-l-4  py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red ${
+                          item.active
+                            ? 'border-l-4 border-cu-red bg-gradient-to-r from-cu-red-50 to-white'
+                            : 'border-transparent'
+                        }`}
                       >
                         {item.title}
                       </Disclosure.Button>
                     ))}
                 </div>
-              </div>
+                {/* login button */}
+                {!userInfo && mobileLogin && (
+                  <>
+                    {/* mobileLogin */}
+
+                    <Disclosure.Button
+                      as="a"
+                      href={mobileLogin.link}
+                      className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
+                      onClick={(
+                        e: React.MouseEvent<
+                          HTMLAnchorElement | MouseEvent,
+                          MouseEvent
+                        >
+                      ) => {
+                        mobileLogin.onClick && e.preventDefault();
+                        mobileLogin.onClick && mobileLogin.onClick(e);
+                        close();
+                      }}
+                    >
+                      {mobileLogin.title}
+                    </Disclosure.Button>
+                  </>
+                )}
+
+                {/* userInfo */}
+                {userInfo && (
+                  <div className="pt-4 pb-3 border-t border-gray-200">
+                    <div className="flex items-center px-4">
+                      <div className="flex-shrink-0">
+                        <Avatar user={userInfo} size="xs" rounded="full" />
+                      </div>
+                      <div className="ml-3">
+                        <div className="text-base font-medium text-gray-800">
+                          {userInfo.firstName + ' ' + userInfo.lastName}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="mt-3 space-y-1">
+                      {userMenu &&
+                        userMenu.map((item: DropDownItemProps, index: any) => (
+                          <Disclosure.Button
+                            key={index}
+                            as="a"
+                            href={item.href ? item.href : '/'}
+                            className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
+                            onClick={(
+                              e: React.MouseEvent<
+                                HTMLAnchorElement | MouseEvent,
+                                MouseEvent
+                              >
+                            ) => {
+                              item.onClick && e.preventDefault();
+                              item.onClick && item.onClick(e);
+                            }}
+                          >
+                            {item.title}
+                          </Disclosure.Button>
+                        ))}
+                    </div>
+                  </div>
+                )}
+              </>
             )}
           </Disclosure.Panel>
         </>

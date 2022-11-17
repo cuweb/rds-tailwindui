@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { LinkProps, TopNav, TopNavProps } from './TopNav';
+import { LinkProps, mobileLoginProps, TopNav, TopNavProps } from './TopNav';
 import { Button } from '../Button';
 import { UserInfoType } from '../../types/UserInfo';
 import { DropDownItemProps } from '../DropDown/DropDown';
@@ -473,6 +473,11 @@ const database = [
       'https://cdbaby.com/duis/mattis/egestas.aspx?ante=purus&nulla=phasellus&justo=in&aliquam=felis&quis=donec&turpis=semper&eget=sapien&elit=a&sodales=libero&scelerisque=nam&mauris=dui&sit=proin&amet=leo&eros=odio&suspendisse=porttitor&accumsan=id&tortor=consequat&quis=in&turpis=consequat&sed=ut&ante=nulla&vivamus=sed&tortor=accumsan&duis=felis&mattis=ut&egestas=at&metus=dolor&aenean=quis&fermentum=odio&donec=consequat&ut=varius&mauris=integer&eget=ac&massa=leo&tempor=pellentesque&convallis=ultrices&nulla=mattis&neque=odio&libero=donec&convallis=vitae&eget=nisi&eleifend=nam&luctus=ultrices&ultricies=libero&eu=non&nibh=mattis&quisque=pulvinar&id=nulla',
   },
 ];
+const mobileLogin: mobileLoginProps = {
+  link: '/',
+  title: 'Login',
+  onClick: () => alert('Login button for mobile  has been clicked '),
+};
 
 const DefaultTemplate: Story<TopNavProps> = args => <TopNav {...args} />;
 
@@ -517,9 +522,9 @@ export const MobileMenu = DefaultTemplate.bind({});
 MobileMenu.args = {
   title: 'Event',
   navLinks: NavLinks,
-  userInfo: user,
   userMenu: items,
   mobileLinks: MobileLinks,
+  mobileLogin: mobileLogin,
 };
 
 export const KitchenSink = DefaultTemplate.bind({});
@@ -534,4 +539,5 @@ KitchenSink.args = {
   mobileLinks: MobileLinks,
   children: <Button title="Event" icon="PlusIcon" size="sm" />,
   login: <Button title="Login" size="sm" url="#" />,
+  mobileLogin: mobileLogin,
 };
