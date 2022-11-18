@@ -194,8 +194,8 @@ export const TopNav = ({
                         href={mobileLogin.link ? mobileLogin.link : ''}
                       >
                         <span
-                          onClick={() => {
-                            mobileLogin.onClick;
+                          onClick={(e: any) => {
+                            mobileLogin.onClick && mobileLogin.onClick(e);
                             close();
                           }}
                         >
