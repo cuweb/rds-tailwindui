@@ -1,4 +1,4 @@
-import { Menu, Transition } from '@headlessui/react';
+import { Popover, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 import { HeroIcon, IconName } from '../HeroIcon/HeroIcon';
@@ -9,10 +9,6 @@ export interface DropDownItemProps {
   icon?: IconName;
   href?: string;
   onClick?: (event: React.MouseEvent<MouseEvent | HTMLAnchorElement>) => void;
-}
-
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ');
 }
 
 export interface DropDownProps {
@@ -36,10 +32,12 @@ export const DropDown = ({
   menuAlign = 'left',
   wrapLink,
 }: DropDownProps) => {
+  console.log(listItems);
+
   return (
-    <Menu as="div" className="relative flex-shrink-0 inline-block">
+    <Popover as="div" className="relative flex-shrink-0 inline-block">
       <div>
-        <Menu.Button as={renderAs} className="cursor-pointer">
+        <Popover.Button as={renderAs} className="cursor-pointer">
           <span className="sr-only">Open menu</span>
           {children && !buttonText ? (
             children
@@ -52,7 +50,7 @@ export const DropDown = ({
               />
             </p>
           )}
-        </Menu.Button>
+        </Popover.Button>
       </div>
 
       <Transition
@@ -64,35 +62,64 @@ export const DropDown = ({
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items
+        <Popover.Panel
+          static
           className={`${styles.core} ${
             menuAlign === 'left' ? 'left-0' : 'right-0'
           }`}
         >
-          {listItems.map((item, index) => (
-            <Menu.Item key={index}>
-              {({ active }) => (
-                <Link
-                  href={item.href ? item.href : ''}
-                  className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'group flex items-center px-4 py-2 text-sm'
+          {/* having different on click because of Link component in next othewise can be written together  */}
+          {({ close }) => (
+            <>
+              {listItems.map((item, index) => (
+                <div key={index}>
+                  {!item.onClick && (
+                    <Link href={item.href ? item.href : ''} wrapper={wrapLink}>
+                      <span
+                        className="hover:bg-gray-100 hover:text-gray-900 group text-gray-700 flex items-center px-4 py-2 text-sm"
+                        onClick={() => close()}
+                      >
+                        {item.icon && (
+                          <HeroIcon
+                            icon={item.icon}
+                            aria-hidden="true"
+                            size="4"
+                          />
+                        )}
+                        <span className={item.icon ? 'ml-3' : ''}>
+                          {item.title}
+                        </span>
+                      </span>
+                    </Link>
                   )}
-                  onClick={e => {
-                    item.onClick && item.onClick(e);
-                  }}
-                  wrapper={wrapLink}
-                >
-                  {item.icon && (
-                    <HeroIcon icon={item.icon} aria-hidden="true" size="4" />
+                  {item.onClick && (
+                    <>
+                      <button
+                        className="hover:bg-gray-100 w-full text-left hover:text-gray-900 group text-gray-700 flex items-center px-4 py-2 text-sm"
+                        onClick={(e: any) => {
+                          item.onClick && item.onClick(e);
+                          close();
+                        }}
+                      >
+                        {item.icon && (
+                          <HeroIcon
+                            icon={item.icon}
+                            aria-hidden="true"
+                            size="4"
+                          />
+                        )}
+                        <span className={item.icon ? 'ml-3' : ''}>
+                          {item.title}
+                        </span>
+                      </button>
+                    </>
                   )}
-                  <span className={item.icon ? 'ml-3' : ''}>{item.title}</span>
-                </Link>
-              )}
-            </Menu.Item>
-          ))}
-        </Menu.Items>
+                </div>
+              ))}
+            </>
+          )}
+        </Popover.Panel>
       </Transition>
-    </Menu>
+    </Popover>
   );
 };

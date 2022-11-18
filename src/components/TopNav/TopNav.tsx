@@ -133,7 +133,7 @@ export const TopNav = ({
 
             <div className="hidden lg:flex lg:items-center lg:gap-6">
               {/* search */}
-              {/* this will just search on title in detabase , we need to extend it to add other props search on to top nav  */}
+              {/* this will just search on title in database , we need to extend it to add other props search on to top nav  */}
               {hasSearch && searchDatabase && (
                 <div className=" inline-flex items-center ">
                   <Search searchDatabase={searchDatabase} searchOn={searchOn} />
@@ -147,7 +147,11 @@ export const TopNav = ({
                 <Avatar user={userInfo} size="xs" rounded="full" />
               )}
               {userInfo && userMenu && (
-                <DropDown listItems={userMenu} menuAlign="right">
+                <DropDown
+                  listItems={userMenu}
+                  menuAlign="right"
+                  wrapLink={wrapLink}
+                >
                   <Avatar user={userInfo} size="xs" rounded="full" />
                 </DropDown>
               )}
@@ -181,23 +185,23 @@ export const TopNav = ({
                 {!userInfo && mobileLogin && (
                   <>
                     {/* mobileLogin */}
-
                     <Disclosure.Button
-                      as="a"
-                      href={mobileLogin.link}
+                      as="div"
                       className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
-                      onClick={(
-                        e: React.MouseEvent<
-                          HTMLAnchorElement | MouseEvent,
-                          MouseEvent
-                        >
-                      ) => {
-                        mobileLogin.onClick && e.preventDefault();
-                        mobileLogin.onClick && mobileLogin.onClick(e);
-                        close();
-                      }}
                     >
-                      {mobileLogin.title}
+                      <Link
+                        wrapper={wrapLink}
+                        href={mobileLogin.link ? mobileLogin.link : ''}
+                      >
+                        <span
+                          onClick={() => {
+                            mobileLogin.onClick;
+                            close();
+                          }}
+                        >
+                          {mobileLogin.title}
+                        </span>
+                      </Link>
                     </Disclosure.Button>
                   </>
                 )}
@@ -216,25 +220,44 @@ export const TopNav = ({
                       </div>
                     </div>
                     <div className="mt-3 space-y-1">
+                      {/* // having condition for on click to accomodate next Link component in Next  */}
                       {userMenu &&
                         userMenu.map((item: DropDownItemProps, index: any) => (
-                          <Disclosure.Button
-                            key={index}
-                            as="a"
-                            href={item.href ? item.href : '/'}
-                            className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
-                            onClick={(
-                              e: React.MouseEvent<
-                                HTMLAnchorElement | MouseEvent,
-                                MouseEvent
+                          <>
+                            {item.href && !item?.onClick && (
+                              <Disclosure.Button
+                                key={index}
+                                as="div"
+                                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
                               >
-                            ) => {
-                              item.onClick && e.preventDefault();
-                              item.onClick && item.onClick(e);
-                            }}
-                          >
-                            {item.title}
-                          </Disclosure.Button>
+                                <Link
+                                  wrapper={wrapLink}
+                                  href={item.href ? item.href : ''}
+                                >
+                                  <span
+                                    onClick={() => {
+                                      close();
+                                    }}
+                                  >
+                                    {item.title}
+                                  </span>
+                                </Link>
+                              </Disclosure.Button>
+                            )}
+                            {item.onClick && (
+                              <Disclosure.Button
+                                key={index}
+                                as="button"
+                                className={`block border-l-4 w-full text-left border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
+                                onClick={(e: any) => {
+                                  item.onClick && item.onClick(e);
+                                  close();
+                                }}
+                              >
+                                {item.title}
+                              </Disclosure.Button>
+                            )}
+                          </>
                         ))}
                     </div>
                   </div>
