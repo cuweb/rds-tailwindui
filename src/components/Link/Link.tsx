@@ -4,7 +4,7 @@ import { UrlObject } from 'url';
 type Url = string | UrlObject;
 
 export interface LinkProps {
-  href: Url;
+  href: URL | string;
   as?: Url;
   wrapper?: any;
   component?: string;
@@ -64,7 +64,7 @@ const Link = forwardRef(function Link(
     ? React.createElement(
         wrapper,
         nodeProps,
-        React.createElement(component, {}, children)
+        React.createElement(component, nodeProps, children)
       )
     : React.createElement(component, nodeProps, children);
 });

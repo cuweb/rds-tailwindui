@@ -6,7 +6,6 @@ export const DropDownItemData: DropDownItemProps[] = [
     title: 'Profile',
   },
   {
-    href: '/settings',
     title: 'Settings',
     onClick: () => alert('Dropdown for settings has been clicked '),
   },

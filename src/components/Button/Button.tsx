@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeroIcon, IconName } from '../HeroIcon';
 import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
+import Link from '../Link/Link';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,6 +14,8 @@ export interface ButtonProps
   isCenter?: boolean;
   isDisabled?: boolean;
   hasDropDown?: boolean;
+  url?: string | URL;
+  wrapper?: any;
 }
 
 const buttonSizes = {
@@ -41,6 +44,8 @@ export const Button = ({
   hasShadow,
   isFull,
   isCenter,
+  url,
+  wrapper,
   isDisabled = false,
   hasDropDown,
   ...rest
@@ -51,27 +56,52 @@ export const Button = ({
   const iconSize = size === 'base' ? '6' : '4';
 
   return (
-    <button
-      type="button"
-      aria-label={title ? title : 'Icon button'}
-      className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
-      disabled={isType === 'disabled' ? true : false}
-      {...rest}
-    >
-      {icon && (
-        <span className={icon && title ? 'mr-0.5' : ''}>
-          <HeroIcon icon={icon} size={iconSize} />
-        </span>
-      )}
+    <>
+      {!url && (
+        <button
+          type="button"
+          aria-label={title ? title : 'Icon button'}
+          className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
+          disabled={isType === 'disabled' ? true : false}
+          {...rest}
+        >
+          {icon && (
+            <span className={icon && title ? 'mr-0.5' : ''}>
+              <HeroIcon icon={icon} size={iconSize} />
+            </span>
+          )}
 
-      {title}
+          {title}
 
-      {hasDropDown && (
-        <ChevronDownIcon
-          className="w-4 h-4 mt-1 ml-1 -mr-1"
-          aria-hidden="true"
-        />
+          {hasDropDown && (
+            <ChevronDownIcon
+              className="w-4 h-4 mt-1 ml-1 -mr-1"
+              aria-hidden="true"
+            />
+          )}
+        </button>
       )}
-    </button>
+      {url && (
+        <Link
+          href={url}
+          className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
+          wrapper={wrapper}
+        >
+          {icon && (
+            <span className={icon && title ? 'mr-0.5' : ''}>
+              <HeroIcon icon={icon} size={iconSize} />
+            </span>
+          )}
+
+          {title}
+          {hasDropDown && (
+            <ChevronDownIcon
+              className="w-4 h-4 mt-1 ml-1 -mr-1"
+              aria-hidden="true"
+            />
+          )}
+        </Link>
+      )}
+    </>
   );
 };

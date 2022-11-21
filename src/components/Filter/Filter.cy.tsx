@@ -2,7 +2,7 @@ describe('Filter', () => {
   //default
   it('Should render the Filter', () => {
     cy.clearCookies();
-    cy.visit('/iframe.html?id=components-input-filter--default');
+    cy.visit('/iframe.html?id=components-inputs-filter--default');
     cy.get('h2').should('exist');
     cy.get('h3').should('exist');
     cy.get('button').should('exist');
