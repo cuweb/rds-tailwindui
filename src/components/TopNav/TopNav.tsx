@@ -26,7 +26,7 @@ export interface TopNavProps {
   brand?: string;
   login?: React.ReactNode;
   hasSearch?: boolean;
-  sourcedata?: any;
+  sourceData?: any;
   children?: React.ReactNode;
   sticky?: boolean;
   navLinks?: LinkProps[];
@@ -44,7 +44,7 @@ export const TopNav = ({
   title,
   brand,
   hasSearch,
-  sourcedata,
+  sourceData,
   searchOn,
   navLinks,
   mobileLinks,
@@ -90,9 +90,9 @@ export const TopNav = ({
             {/* mobile Menu open Button  */}
             <div className="flex items-center lg:hidden">
               <div className="absolute mx-4 right-4">
-                {hasSearch && sourcedata && (
+                {hasSearch && sourceData && (
                   <div className=" inline-flex items-center  p-2">
-                    <Search sourcedata={sourcedata} searchOn={searchOn} />
+                    <Search sourceData={sourceData} searchOn={searchOn} />
                   </div>
                 )}
 
@@ -131,9 +131,9 @@ export const TopNav = ({
             <div className="hidden lg:flex lg:items-center lg:gap-6">
               {/* search */}
               {/* this will just search on title in database , we need to extend it to add other props search on to top nav  */}
-              {hasSearch && sourcedata && (
+              {hasSearch && sourceData && (
                 <div className=" inline-flex items-center ">
-                  <Search sourcedata={sourcedata} searchOn={searchOn} />
+                  <Search sourceData={sourceData} searchOn={searchOn} />
                 </div>
               )}
               {children}

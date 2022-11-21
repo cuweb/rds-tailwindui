@@ -505,7 +505,7 @@ export const HasSearch = DefaultTemplate.bind({});
 HasSearch.args = {
   title: 'Event',
   navLinks: NavLinks,
-  sourcedata: database,
+  sourceData: database,
   hasSearch: true,
   userInfo: user,
 };
@@ -532,7 +532,7 @@ KitchenSink.args = {
   title: 'Event',
   logoUrl: 'https://carleton.ca/',
   navLinks: NavLinks,
-  sourcedata: database,
+  sourceData: database,
   hasSearch: true,
   userMenuItems: userMenuItems,
   userInfo: user,
