@@ -26,13 +26,13 @@ export interface TopNavProps {
   brand?: string;
   login?: React.ReactNode;
   hasSearch?: boolean;
-  searchDatabase?: any;
+  sourcedata?: any;
   children?: React.ReactNode;
   sticky?: boolean;
   navLinks?: LinkProps[];
   mobileLinks?: LinkProps[];
   wrapLink?: any;
-  userMenu?: any;
+  userMenuItems?: any;
   userInfo?: UserInfoType;
   searchOn?: string;
   mobileLogin?: mobileLoginProps;
@@ -44,11 +44,11 @@ export const TopNav = ({
   title,
   brand,
   hasSearch,
-  searchDatabase,
+  sourcedata,
   searchOn,
   navLinks,
   mobileLinks,
-  userMenu,
+  userMenuItems,
   userInfo,
   sticky,
   login,
@@ -90,12 +90,9 @@ export const TopNav = ({
             {/* mobile Menu open Button  */}
             <div className="flex items-center lg:hidden">
               <div className="absolute mx-4 right-4">
-                {hasSearch && searchDatabase && (
+                {hasSearch && sourcedata && (
                   <div className=" inline-flex items-center  p-2">
-                    <Search
-                      searchDatabase={searchDatabase}
-                      searchOn={searchOn}
-                    />
+                    <Search sourcedata={sourcedata} searchOn={searchOn} />
                   </div>
                 )}
 
@@ -134,21 +131,21 @@ export const TopNav = ({
             <div className="hidden lg:flex lg:items-center lg:gap-6">
               {/* search */}
               {/* this will just search on title in database , we need to extend it to add other props search on to top nav  */}
-              {hasSearch && searchDatabase && (
+              {hasSearch && sourcedata && (
                 <div className=" inline-flex items-center ">
-                  <Search searchDatabase={searchDatabase} searchOn={searchOn} />
+                  <Search sourcedata={sourcedata} searchOn={searchOn} />
                 </div>
               )}
               {children}
 
               {/* Login */}
               {!userInfo && login}
-              {userInfo && !userMenu && (
+              {userInfo && !userMenuItems && (
                 <Avatar user={userInfo} size="xs" rounded="full" />
               )}
-              {userInfo && userMenu && (
+              {userInfo && userMenuItems && (
                 <DropDown
-                  listItems={userMenu}
+                  listItems={userMenuItems}
                   menuAlign="right"
                   wrapLink={wrapLink}
                 >
@@ -180,31 +177,30 @@ export const TopNav = ({
                         </Link>
                       </Disclosure.Button>
                     ))}
-                </div>
-                {/* login button */}
-                {!userInfo && mobileLogin && (
-                  <>
-                    {/* mobileLogin */}
-                    <Disclosure.Button
-                      as="div"
-                      className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
-                    >
-                      <Link
-                        wrapper={wrapLink}
-                        href={mobileLogin.link ? mobileLogin.link : ''}
+
+                  {/* login button */}
+                  {!userInfo && mobileLogin && (
+                    <>
+                      {/* mobileLogin */}
+                      <Disclosure.Button
+                        as="div"
+                        className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
                       >
-                        <span
+                        <Link
+                          wrapper={wrapLink}
+                          href={mobileLogin.link ? mobileLogin.link : ''}
                           onClick={(e: any) => {
+                            mobileLogin.onClick && e.preventDefault();
                             mobileLogin.onClick && mobileLogin.onClick(e);
                             close();
                           }}
                         >
                           {mobileLogin.title}
-                        </span>
-                      </Link>
-                    </Disclosure.Button>
-                  </>
-                )}
+                        </Link>
+                      </Disclosure.Button>
+                    </>
+                  )}
+                </div>
 
                 {/* userInfo */}
                 {userInfo && (
@@ -220,45 +216,28 @@ export const TopNav = ({
                       </div>
                     </div>
                     <div className="mt-3 space-y-1">
-                      {/* // having condition for on click to accomodate next Link component in Next  */}
-                      {userMenu &&
-                        userMenu.map((item: DropDownItemProps, index: any) => (
-                          <>
-                            {item.href && !item?.onClick && (
-                              <Disclosure.Button
-                                key={index}
-                                as="div"
-                                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
-                              >
-                                <Link
-                                  wrapper={wrapLink}
-                                  href={item.href ? item.href : ''}
-                                >
-                                  <span
-                                    onClick={() => {
-                                      close();
-                                    }}
-                                  >
-                                    {item.title}
-                                  </span>
-                                </Link>
-                              </Disclosure.Button>
-                            )}
-                            {item.onClick && (
-                              <Disclosure.Button
-                                key={index}
-                                as="button"
-                                className={`block border-l-4 w-full text-left border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
-                                onClick={(e: any) => {
+                      {userMenuItems &&
+                        userMenuItems.map(
+                          (item: DropDownItemProps, index: any) => (
+                            <Disclosure.Button
+                              key={index}
+                              as="div"
+                              className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
+                            >
+                              <Link
+                                wrapper={wrapLink}
+                                href={item.href ? item.href : ''}
+                                onClick={e => {
+                                  item.onClick && e.preventDefault();
                                   item.onClick && item.onClick(e);
                                   close();
                                 }}
                               >
                                 {item.title}
-                              </Disclosure.Button>
-                            )}
-                          </>
-                        ))}
+                              </Link>
+                            </Disclosure.Button>
+                          )
+                        )}
                     </div>
                   </div>
                 )}

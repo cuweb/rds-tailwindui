@@ -55,7 +55,7 @@ const user: UserInfoType = {
   lastName: 'Brown',
 };
 
-const items: DropDownItemProps[] = [
+const userMenuItems: DropDownItemProps[] = [
   {
     href: '/profile',
     title: 'Profile',
@@ -485,7 +485,7 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
   title: 'Event',
   logoUrl: 'https://carleton.ca/',
-  userMenu: items,
+  userMenuItems: userMenuItems,
   userInfo: user,
   mobileLinks: MobileLinks,
 };
@@ -497,7 +497,7 @@ CustomLogo.args = {
   brand:
     'https://sprott.carleton.ca/wp-content/uploads/CU_Sprott_Logo_Primary_RBG_Red_Black_on_lightBG_300-1024x343.jpg',
   navLinks: NavLinks,
-  userMenu: items,
+  userMenuItems: userMenuItems,
   userInfo: user,
 };
 
@@ -505,7 +505,7 @@ export const HasSearch = DefaultTemplate.bind({});
 HasSearch.args = {
   title: 'Event',
   navLinks: NavLinks,
-  searchDatabase: database,
+  sourcedata: database,
   hasSearch: true,
   userInfo: user,
 };
@@ -522,7 +522,7 @@ export const MobileMenu = DefaultTemplate.bind({});
 MobileMenu.args = {
   title: 'Event',
   navLinks: NavLinks,
-  userMenu: items,
+  userMenuItems: userMenuItems,
   mobileLinks: MobileLinks,
   mobileLogin: mobileLogin,
 };
@@ -532,9 +532,9 @@ KitchenSink.args = {
   title: 'Event',
   logoUrl: 'https://carleton.ca/',
   navLinks: NavLinks,
-  searchDatabase: database,
+  sourcedata: database,
   hasSearch: true,
-  userMenu: items,
+  userMenuItems: userMenuItems,
   userInfo: user,
   mobileLinks: MobileLinks,
   children: <Button title="Event" icon="PlusIcon" size="sm" />,

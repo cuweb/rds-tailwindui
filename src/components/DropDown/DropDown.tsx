@@ -32,8 +32,6 @@ export const DropDown = ({
   menuAlign = 'left',
   wrapLink,
 }: DropDownProps) => {
-  console.log(listItems);
-
   return (
     <Popover as="div" className="relative flex-shrink-0 inline-block">
       <div>
@@ -68,52 +66,27 @@ export const DropDown = ({
             menuAlign === 'left' ? 'left-0' : 'right-0'
           }`}
         >
-          {/* having different on click because of Link component in next othewise can be written together  */}
           {({ close }) => (
             <>
               {listItems.map((item, index) => (
                 <div key={index}>
-                  {!item.onClick && (
-                    <Link href={item.href ? item.href : ''} wrapper={wrapLink}>
-                      <span
-                        className="hover:bg-gray-100 hover:text-gray-900 group text-gray-700 flex items-center px-4 py-2 text-sm"
-                        onClick={() => close()}
-                      >
-                        {item.icon && (
-                          <HeroIcon
-                            icon={item.icon}
-                            aria-hidden="true"
-                            size="4"
-                          />
-                        )}
-                        <span className={item.icon ? 'ml-3' : ''}>
-                          {item.title}
-                        </span>
-                      </span>
-                    </Link>
-                  )}
-                  {item.onClick && (
-                    <>
-                      <button
-                        className="hover:bg-gray-100 w-full text-left hover:text-gray-900 group text-gray-700 flex items-center px-4 py-2 text-sm"
-                        onClick={(e: any) => {
-                          item.onClick && item.onClick(e);
-                          close();
-                        }}
-                      >
-                        {item.icon && (
-                          <HeroIcon
-                            icon={item.icon}
-                            aria-hidden="true"
-                            size="4"
-                          />
-                        )}
-                        <span className={item.icon ? 'ml-3' : ''}>
-                          {item.title}
-                        </span>
-                      </button>
-                    </>
-                  )}
+                  <Link
+                    href={item.href ? item.href : ''}
+                    className="hover:bg-gray-100 hover:text-gray-900 group text-gray-700 flex items-center px-4 py-2 text-sm"
+                    wrapper={wrapLink}
+                    onClick={e => {
+                      item.onClick && e.preventDefault();
+                      item.onClick && item.onClick(e);
+                      close();
+                    }}
+                  >
+                    {item.icon && (
+                      <HeroIcon icon={item.icon} aria-hidden="true" size="4" />
+                    )}
+                    <span className={item.icon ? 'ml-3' : ''}>
+                      {item.title}
+                    </span>
+                  </Link>
                 </div>
               ))}
             </>

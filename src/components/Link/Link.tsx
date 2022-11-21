@@ -64,7 +64,7 @@ const Link = forwardRef(function Link(
     ? React.createElement(
         wrapper,
         nodeProps,
-        React.createElement(component, {}, children)
+        React.createElement(component, nodeProps, children)
       )
     : React.createElement(component, nodeProps, children);
 });

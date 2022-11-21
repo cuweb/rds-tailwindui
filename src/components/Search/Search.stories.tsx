@@ -424,19 +424,19 @@ const noUrl = [
 ];
 
 export const searchDefault: Story<SearchProps> = () => (
-  <Search searchDatabase={database} />
+  <Search sourcedata={database} />
 );
 
 export const searchCustomAvatar: Story<SearchProps> = () => (
-  <Search searchDatabase={database}>
+  <Search sourcedata={database}>
     <Button icon="MagnifyingGlassIcon" />
   </Search>
 );
 
 export const ValidationUrl: Story<SearchProps> = () => (
-  <Search searchDatabase={noUrl} searchOn="url" />
+  <Search sourcedata={noUrl} searchOn="url" />
 );
 
 export const ValidationKey: Story<SearchProps> = () => (
-  <Search searchDatabase={database} searchOn="age" />
+  <Search sourcedata={database} searchOn="age" />
 );

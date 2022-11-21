@@ -4,7 +4,7 @@ import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon';
 import React, { ReactNode, useState, useEffect, Fragment } from 'react';
 
 export interface SearchProps {
-  searchDatabase: any;
+  sourcedata: any;
   searchOn?: string;
   children?: ReactNode;
 }
@@ -15,7 +15,7 @@ function classNames(...classes: (string | boolean)[]) {
 
 export const Search = ({
   searchOn = 'title',
-  searchDatabase,
+  sourcedata,
   children,
 }: SearchProps) => {
   const [query, setQuery] = useState('');
@@ -24,8 +24,8 @@ export const Search = ({
   const filteredDatabase =
     query === ''
       ? []
-      : searchDatabase.filter((searchDatabase: { [x: string]: string }) => {
-          return searchDatabase[searchOn]
+      : sourcedata.filter((sourcedata: { [x: string]: string }) => {
+          return sourcedata[searchOn]
             .toLowerCase()
             .includes(query.toLowerCase());
         });
@@ -55,7 +55,7 @@ export const Search = ({
 
   // Validations just checking on first , not in all
 
-  if (!searchDatabase[0].hasOwnProperty('url')) {
+  if (!sourcedata[0].hasOwnProperty('url')) {
     return (
       <p className="text-cu-red">
         Url Does not exisit on Passed Database Please pass appropriate data
@@ -63,7 +63,7 @@ export const Search = ({
     );
   }
 
-  if (!searchDatabase[0].hasOwnProperty(searchOn)) {
+  if (!sourcedata[0].hasOwnProperty(searchOn)) {
     return (
       <p className="text-cu-red">
         Passed search key does not exisit on passed Database
@@ -108,10 +108,8 @@ export const Search = ({
             >
               <Dialog.Panel className="mx-auto mt-[20vh] max-w-xl transform divide-y divide-gray-100 overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black ring-opacity-5 transition-all">
                 <Combobox
-                  onChange={searchDatabase =>
-                    (window.location = searchDatabase?.url)
-                  }
-                  value={searchDatabase.searchOn}
+                  onChange={sourcedata => (window.location = sourcedata?.url)}
+                  value={sourcedata.searchOn}
                 >
                   <div className="relative">
                     <MagnifyingGlassIcon
@@ -139,10 +137,10 @@ export const Search = ({
                       static
                       className="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
                     >
-                      {filteredDatabase.map((searchDatabase: any) => (
+                      {filteredDatabase.map((sourcedata: any) => (
                         <Combobox.Option
-                          key={searchDatabase.id}
-                          value={searchDatabase}
+                          key={sourcedata.id}
+                          value={sourcedata}
                           className={({ active }) =>
                             classNames(
                               'cursor-default select-none px-4 py-2',
@@ -150,7 +148,7 @@ export const Search = ({
                             )
                           }
                         >
-                          {searchDatabase[searchOn]}
+                          {sourcedata[searchOn]}
                         </Combobox.Option>
                       ))}
                     </Combobox.Options>
