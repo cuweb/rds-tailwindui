@@ -6,6 +6,7 @@ import {
 } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 import { Badge } from '../../Badge';
+import { parseISO, getMonth, getDate } from 'date-fns';
 
 // Set types for as props
 type BaseItemTypeProps = 'li' | 'div';
@@ -14,14 +15,17 @@ type TitleTypeProps = 'h2' | 'h3';
 export interface EventItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
-  title?: string;
+  name?: string;
   link?: string;
-  location?: string;
-  time?: string;
-  month?: string;
-  day?: string;
-  date?: string;
-  category?: string;
+  startDateTime?: string;
+  endDateTime?: string;
+  featuredImage?: string;
+  description?: string;
+  on_campus?: boolean;
+  on_campus_building?: string | null;
+  on_campus_room_number?: string | null;
+  event_address?: string;
+  tags?: { id: number; type: string; name: string; slug: string }[];
 }
 
 export interface ItemBaseProps {
@@ -64,29 +68,65 @@ const Content = ({ children }: EventItemProps) => {
 const Title = ({
   as = 'h3',
   fontSize = 'base',
-  title,
+  name,
 }: TitleProps & EventItemProps) => {
   return React.createElement(
     as,
     {
       className: `text-sm font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`,
     },
-    title
+    name
   );
 };
 
-const DateBox = ({ month, day }: EventItemProps) => {
+const DateBox = ({ startDateTime }: EventItemProps) => {
+  const getMonthName = (month: any, short: boolean = false) => {
+    const d = new Date();
+    d.setMonth(month - 1);
+    const monthName = d.toLocaleString('default', {
+      month: short ? 'short' : 'long',
+    });
+    return monthName;
+  };
+
+  const startDate = startDateTime && parseISO(startDateTime);
+  const eventStartDate = startDate && getDate(startDate);
+  const eventStartMonth = startDate && getMonth(startDate);
+
   return (
     <div className="flex-none w-16 md:w-20">
       <div className="flex flex-col justify-center flex-none w-auto h-16 text-center rounded-lg shadow bg-gray-50 md:h-20">
-        <p className="text-xs font-bold uppercase text-cu-red">{month}</p>
-        <p className="text-2xl font-bold uppercase text-cu-black">{day}</p>
+        <p className="text-xs font-bold uppercase text-cu-red">
+          {getMonthName(eventStartMonth, true)}
+        </p>
+        <p className="text-2xl font-bold uppercase text-cu-black">
+          {eventStartDate}
+        </p>
       </div>
     </div>
   );
 };
 
-const Details = ({ date, time, location }: EventItemProps) => {
+const Details = ({
+  startDateTime,
+  event_address,
+  on_campus,
+  on_campus_building,
+  on_campus_room_number,
+}: EventItemProps) => {
+  const startDate = startDateTime && parseISO(startDateTime);
+
+  const formatTime = (date: any) => {
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'pm' : 'am';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    var strTime = hours + ':' + minutes + ' ' + ampm;
+    return strTime;
+  };
+
   return (
     <ul className="flex flex-wrap sm:gap-8">
       <li className="flex items-center text-sm text-cu-black-700">
@@ -95,23 +135,27 @@ const Details = ({ date, time, location }: EventItemProps) => {
           aria-hidden="true"
         />
 
-        <time dateTime={date}>{time}</time>
+        <time dateTime={startDateTime}>{formatTime(startDate)}</time>
       </li>
       <li className="flex items-center mt-2 text-sm text-cu-black-700 sm:mt-0">
         <MapPinIcon
           className="flex-shrink-0 w-5 h-5 mr-1 text-cu-red-300"
           aria-hidden="true"
         />
-        {location}
+        {on_campus
+          ?  on_campus_room_number + ', ' + on_campus_building 
+          : event_address}
       </li>
     </ul>
   );
 };
 
-const Category = ({ category }: EventItemProps) => {
+const Category = ({ tags }: EventItemProps) => {
   return (
     <div>
-      <Badge>{category}</Badge>
+      {tags?.map(tag => (
+        <Badge>{tag.name}</Badge>
+      ))}
     </div>
   );
 };
