@@ -101,6 +101,34 @@ const WithDarkWaveTemplate: Story<BannerProps> = args => (
   </Banner>
 );
 
+const WithAnimationTemplate: Story<BannerProps> = args => (
+  <Banner {...args}>
+    <Banner.ButtonGroup>
+      <Button
+        isType="default"
+        onClick={() => {}}
+        title="Primary Button"
+        hasShadow
+      />
+      <Button
+        isType="white"
+        onClick={() => {}}
+        title="Secondary Button"
+        hasShadow
+      />
+      <Button
+        hasShadow
+        icon="StarIcon"
+        isType="dark-grey"
+        onClick={() => {
+          alert('Add to favs clicked');
+        }}
+        title="Add to Favs"
+      />
+    </Banner.ButtonGroup>
+  </Banner>
+);
+
 const WithRedWaveTemplate: Story<BannerProps> = args => (
   <Banner {...args}>
     <Banner.ButtonGroup>
@@ -184,6 +212,12 @@ export const WithRedWave = WithRedWaveTemplate.bind({});
 WithRedWave.args = {
   title: 'CU Wave Banner',
   isType: 'red-wave',
+};
+
+export const WithAnimation = WithAnimationTemplate.bind({});
+WithAnimation.args = {
+  title: 'CU Animated Banner',
+  isType: 'animated',
 };
 
 export const WithParagraph = WithParagraphTemplate.bind({});

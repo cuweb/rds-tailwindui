@@ -1,6 +1,6 @@
 import React from 'react';
 import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
-// import BannerAnimated from './Banner.Animated';
+import { BannerAnimated } from './Banner.Animated';
 
 export interface BannerProps {
   children: React.ReactNode;
@@ -56,6 +56,9 @@ const BannerBase = ({
     case 'red-wave':
       bgStyle = styles.headerRed;
       break;
+    case 'animated':
+      bgStyle = styles.headerAnimated;
+      break;
     default:
       bgStyle = styles.headerGrey;
   }
@@ -80,7 +83,7 @@ const BannerBase = ({
         )}
         {isType === 'red-wave' && <BannerWave />}
         {isType === 'dark-wave' && <BannerWave />}
-        {/* {isType === 'animated' && <BannerAnimated />} */}
+        {isType === 'animated' && <BannerAnimated />}
       </div>
     </header>
   );
