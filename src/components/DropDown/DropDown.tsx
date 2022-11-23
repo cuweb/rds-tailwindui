@@ -5,7 +5,7 @@ import { HeroIcon, IconName } from '../HeroIcon/HeroIcon';
 import Link from '../Link/Link';
 
 export interface DropDownItemProps {
-  title: string;
+  title: string | React.ReactNode;
   icon?: IconName;
   href?: string;
   onClick?: (event: React.MouseEvent<MouseEvent | HTMLAnchorElement>) => void;
