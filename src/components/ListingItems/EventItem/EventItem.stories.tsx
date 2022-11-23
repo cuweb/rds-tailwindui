@@ -23,15 +23,14 @@ export default {
 
 const DefaultTemplate: Story<EventItemProps> = args => (
   <EventItem as="div" link={args.link}>
-    <EventItem.DateBox month={args.month} day={args.day} />
+    <EventItem.DateBox startDateTime={args.startDateTime} />
     <EventItem.Content>
-      <EventItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
+      <EventItem.Title as="h2" fontSize={args.fontSize} name={args.name} />
       <EventItem.Details
-        date={args.date}
-        time={args.time}
-        location={args.location}
+        startDateTime={args.startDateTime}
+        event_address={args.event_address}
       />
-      <EventItem.Category category={args.category} />
+      <EventItem.Category tags={args.tags} />
     </EventItem.Content>
   </EventItem>
 );
@@ -40,26 +39,21 @@ const SingleItemPanelTemplate: Story<EventItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <EventItem as="div" link={args.link}>
-        <EventItem.DateBox month={args.month} day={args.day} />
+        <EventItem.DateBox startDateTime={args.startDateTime} />
         <EventItem.Content>
-          <EventItem.Title
-            as="h3"
-            fontSize={args.fontSize}
-            title={args.title}
-          />
+          <EventItem.Title as="h3" fontSize={args.fontSize} name={args.name} />
           <EventItem.Details
-            date={args.date}
-            time={args.time}
-            location={args.location}
+            startDateTime={args.startDateTime}
+            event_address={args.event_address}
           />
-          <EventItem.Category category={args.category} />
+          <EventItem.Category tags={args.tags} />
         </EventItem.Content>
       </EventItem>
     </Panel>
   </Column>
 );
 
-const StackedListPanelTemplate: Story<EventItemProps> = () => (
+const StackedListPanelTemplate: Story<EventItemProps> = args => (
   <Container>
     <Column maxWidth="3xl">
       <Panel hasShadow>
@@ -67,25 +61,26 @@ const StackedListPanelTemplate: Story<EventItemProps> = () => (
           {data.map(
             ({
               id,
-              title,
-              link,
-              month,
-              day,
-              date,
-              time,
-              location,
-              category,
+              title, // link,
+              start_date,
+              event_address,
+              on_campus,
+              on_campus_building,
+              on_campus_room_number,
+              tags,
             }) => (
-              <EventItem key={id}>
-                <EventItem.DateBox month={month} day={day} />
+              <EventItem key={id} link={args.link}>
+                <EventItem.DateBox startDateTime={start_date} />
                 <EventItem.Content>
-                  <EventItem.Title title={title} link={link} />
+                  <EventItem.Title name={title} />
                   <EventItem.Details
-                    date={date}
-                    time={time}
-                    location={location}
+                    startDateTime={start_date}
+                    event_address={event_address}
+                    on_campus={on_campus}
+                    on_campus_building={on_campus_building}
+                    on_campus_room_number={on_campus_room_number}
                   />
-                  <EventItem.Category category={category} />
+                  <EventItem.Category tags={tags} />
                 </EventItem.Content>
               </EventItem>
             )
@@ -96,7 +91,7 @@ const StackedListPanelTemplate: Story<EventItemProps> = () => (
   </Container>
 );
 
-const StackedListPanelTitleTemplate: Story<EventItemProps> = () => (
+const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
   <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>
@@ -106,24 +101,25 @@ const StackedListPanelTitleTemplate: Story<EventItemProps> = () => (
             ({
               id,
               title,
-              link,
-              month,
-              day,
-              date,
-              time,
-              location,
-              category,
+              start_date,
+              event_address,
+              tags,
+              on_campus,
+              on_campus_building,
+              on_campus_room_number,
             }) => (
-              <EventItem key={id}>
-                <EventItem.DateBox month={month} day={day} />
+              <EventItem key={id} link={args.link}>
+                <EventItem.DateBox startDateTime={start_date} />
                 <EventItem.Content>
-                  <EventItem.Title title={title} link={link} />
+                  <EventItem.Title name={title} />
                   <EventItem.Details
-                    date={date}
-                    time={time}
-                    location={location}
+                    startDateTime={start_date}
+                    event_address={event_address}
+                    on_campus={on_campus}
+                    on_campus_building={on_campus_building}
+                    on_campus_room_number={on_campus_room_number}
                   />
-                  <EventItem.Category category={category} />
+                  <EventItem.Category tags={tags} />
                 </EventItem.Content>
               </EventItem>
             )
@@ -137,14 +133,13 @@ const StackedListPanelTitleTemplate: Story<EventItemProps> = () => (
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   fontSize: 'base',
-  title: 'Event item title',
+  name: 'Event item title',
   link: 'https://carleton.ca',
-  location: 'Robertson Hall',
-  time: '9:00 PM - 5:00 AM',
-  month: 'Sept',
-  day: '15',
-  date: 'September 15th, 2020',
-  category: 'Future Students',
+  event_address: 'Robertson Hall',
+  startDateTime: '2022-12-16 01:48:41',
+  on_campus: true,
+  on_campus_building: 'Robertson Hall',
+  on_campus_room_number: '407',
 };
 
 export const SingleItemPanel = SingleItemPanelTemplate.bind({});
