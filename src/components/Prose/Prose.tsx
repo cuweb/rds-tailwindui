@@ -12,7 +12,7 @@ export interface ProseProps {
 }
 
 const styles =
-  'prose prose-lg prose-article prose-img:w-full prose-img:rounded-xl lg:prose-xl';
+  'prose prose-lg prose-article prose-img:w-full prose-img:rounded-lg lg:prose-xl';
 
 export const Prose = ({ as: Component = 'article', content }: ProseProps) => {
   return (
