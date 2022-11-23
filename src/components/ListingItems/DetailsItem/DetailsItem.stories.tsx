@@ -18,7 +18,7 @@ export default {
 
 const DefaultTemplate: Story<DetailsItemProps> = args => (
   <DetailsItem as="div">
-    <DetailsItem.Icon />
+    <DetailsItem.Icon icon="PlusIcon" />
     <DetailsItem.Content>
       <DetailsItem.Title title={args.title} />
       <DetailsItem.Description description={args.description} />
