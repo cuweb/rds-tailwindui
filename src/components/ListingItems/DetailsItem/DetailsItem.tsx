@@ -32,7 +32,7 @@ const DetailsItemBase = ({
 }: ItemBaseProps & DetailsItemProps) => {
   return (
     <Component>
-      <div className="relative flex items-center gap-2 p-6 focus:outline-none group hover:bg-gray-50">
+      <div className="relative flex items-center gap-2 p-6 focus:outline-none ">
         <div className="flex items-start gap-4">{children}</div>
       </div>
     </Component>
@@ -51,7 +51,7 @@ const Title = ({
   return React.createElement(
     as,
     {
-      className: `text-base font-semibold text-cu-black ${rdsFontSizes[fontSize]} group-hover:text-cu-red`,
+      className: `text-base font-semibold text-cu-black ${rdsFontSizes[fontSize]} `,
     },
     title
   );
