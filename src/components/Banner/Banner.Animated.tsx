@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Animation } from './Animation/Animation.js';
 
-export const BannerAnimated = ({ children }: any) => {
+export const BannerAnimated = () => {
   const gradient = new Animation();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -33,8 +33,6 @@ export const BannerAnimated = ({ children }: any) => {
         ...divStyle,
       }}
       data-transition-in
-    >
-      {children}
-    </canvas>
+    />
   );
 };
