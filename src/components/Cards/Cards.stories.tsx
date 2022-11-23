@@ -21,6 +21,26 @@ export const Default = () => (
       endDateTime="2022-12-16 02:45:41"
       event_address="405 Robertson Hall"
       on_campus={false}
+      tags={[
+        {
+          id: 2,
+          type: 'audience',
+          name: 'Carleton Community',
+          slug: 'carleton-community',
+        },
+        {
+          id: 7,
+          type: 'category',
+          name: 'Visual Arts',
+          slug: 'visual-arts',
+        },
+        {
+          id: 8,
+          type: 'audience',
+          name: 'Faculty',
+          slug: 'faculty',
+        },
+      ]}
     />
   </Column>
 );

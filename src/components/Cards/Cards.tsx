@@ -18,7 +18,7 @@ export interface CardsProps {
   on_campus_building?: string | null;
   on_campus_room_number?: string | null;
   event_address?: string;
-  tags?: { id: number; type: string; name: string; slug: string }[];
+  tags?: { id: number, type: string, name: string, slug: string }[];
 }
 
 export const Cards = ({

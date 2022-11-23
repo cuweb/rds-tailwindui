@@ -10,7 +10,6 @@ describe('Cards', () => {
     cy.get('a').should('have.attr', 'href');
   });
 
-  //with shawdows and panel
   it('Grid of cards ', () => {
     cy.visit('/iframe.html?id=components-elements-cards--grid-cards');
     cy.get(`li`).should('exist');
