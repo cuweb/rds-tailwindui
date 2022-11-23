@@ -1,10 +1,9 @@
-import React from 'react';
-import { useEffect, useRef } from 'react';
-import './Animation.js';
+import React, { useEffect, useRef } from 'react';
+import { Animation } from './Animation/Animation.js';
 
-export default function BannerAnimated() {
+export const BannerAnimated = ({ children }: any) => {
   const gradient = new Animation();
-  const ref = useRef();
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const divStyle = {
     '--gradient-color-1': '#c3e4ff',
@@ -14,17 +13,28 @@ export default function BannerAnimated() {
   };
 
   useEffect(() => {
-    if (ref.current) {
-      gradient.initGradient(ref.current);
+    if (canvasRef.current) {
+      gradient.initGradient(canvasRef.current);
     }
-  }, [ref]);
+  }, [canvasRef, gradient]);
 
   return (
     <canvas
-      style={divStyle}
-      className="absolute w-full h-full opacity-50 bg-slate-600"
-      ref={ref}
+      ref={canvasRef}
+      style={{
+        width: '100%',
+        height: '100%',
+        position: 'absolute',
+        top: 'auto',
+        left: '0',
+        bottom: '0',
+        overflow: 'hidden',
+        opacity: 0.5,
+        ...divStyle,
+      }}
       data-transition-in
-    ></canvas>
+    >
+      {children}
+    </canvas>
   );
-}
+};
