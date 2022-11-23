@@ -5,7 +5,7 @@ import data from './EventData.json';
 import { Column } from '../../layouts';
 
 export default {
-  title: 'Components/Elements/Cards',
+  title: 'Components/Cards/Events',
   component: Cards,
   argTypes: {},
   parameters: {

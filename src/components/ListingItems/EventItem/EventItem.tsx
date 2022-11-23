@@ -51,7 +51,7 @@ const EventItemBase = ({
         href={link}
         className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
       >
-        <div className="flex items-center gap-4">{children}</div>
+        <div className="flex flex-col gap-4 md:flex-row">{children}</div>
         <ChevronRightIcon
           className="flex-none w-5 h-5 ml-auto text-cu-black-300"
           aria-hidden="true"
@@ -62,7 +62,7 @@ const EventItemBase = ({
 };
 
 const Content = ({ children }: EventItemProps) => {
-  return <div className="flex flex-col flex-auto gap-2">{children}</div>;
+  return <div className="flex flex-col gap-4 md:gap-2">{children}</div>;
 };
 
 const Title = ({
@@ -128,7 +128,7 @@ const Details = ({
   };
 
   return (
-    <ul className="flex flex-wrap sm:gap-8">
+    <ul className="flex flex-col flex-wrap gap-2 md:flex-row">
       <li className="flex items-center text-sm text-cu-black-700">
         <ClockIcon
           className="flex-shrink-0 w-5 h-5 mr-1 text-cu-red-300"
@@ -137,13 +137,13 @@ const Details = ({
 
         <time dateTime={startDateTime}>{formatTime(startDate)}</time>
       </li>
-      <li className="flex items-center mt-2 text-sm text-cu-black-700 sm:mt-0">
+      <li className="flex items-start text-sm text-cu-black-700">
         <MapPinIcon
           className="flex-shrink-0 w-5 h-5 mr-1 text-cu-red-300"
           aria-hidden="true"
         />
         {on_campus
-          ?  on_campus_room_number + ', ' + on_campus_building 
+          ? on_campus_room_number + ', ' + on_campus_building
           : event_address}
       </li>
     </ul>
