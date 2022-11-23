@@ -129,7 +129,7 @@ export const Cards = ({
                   aria-hidden="true"
                 />
                 {onCampus
-                  ? onCampusBuilding + ',' + onCampusRoomNumber
+                  ? onCampusBuilding + ', ' + onCampusRoomNumber
                   : eventAddress}
               </li>
             </ul>
