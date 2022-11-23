@@ -14,11 +14,11 @@ export interface CardsProps {
   endDateTime: string;
   featuredImage?: string;
   description?: string;
-  on_campus: boolean;
-  on_campus_building?: string | null;
-  on_campus_room_number?: string | null;
-  event_address?: string;
-  tags?: { id: number, type: string, name: string, slug: string }[];
+  onCampus: boolean;
+  onCampusBuilding?: string | null;
+  onCampusRoomNumber?: string | null;
+  eventAddress?: string;
+  tags?: { id: number; type: string; name: string; slug: string }[];
 }
 
 export const Cards = ({
@@ -27,10 +27,10 @@ export const Cards = ({
   startDateTime,
   endDateTime,
   featuredImage,
-  on_campus,
-  on_campus_building,
-  on_campus_room_number,
-  event_address,
+  onCampus,
+  onCampusBuilding,
+  onCampusRoomNumber,
+  eventAddress,
   tags,
 }: CardsProps) => {
   const defaultImage =
@@ -128,9 +128,9 @@ export const Cards = ({
                   className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
                   aria-hidden="true"
                 />
-                {on_campus
-                  ? on_campus_building + ',' + on_campus_room_number
-                  : event_address}
+                {onCampus
+                  ? onCampusBuilding + ',' + onCampusRoomNumber
+                  : eventAddress}
               </li>
             </ul>
             <div className="mt-4">

@@ -19,8 +19,8 @@ export const Default = () => (
       name={'Lived Experience Luncheon Series with Dr. Alex Auerbach'}
       startDateTime="2022-12-16 01:48:41"
       endDateTime="2022-12-16 02:45:41"
-      event_address="405 Robertson Hall"
-      on_campus={false}
+      eventAddress="405 Robertson Hall"
+      onCampus={false}
       tags={[
         {
           id: 2,
@@ -52,10 +52,10 @@ export const gridCards = () => (
         startDateTime={item?.start_date}
         endDateTime={item?.end_date}
         featuredImage={item?.featured_image}
-        event_address={item?.event_address}
-        on_campus={item?.on_campus}
-        on_campus_building={item?.on_campus_building}
-        on_campus_room_number={item?.on_campus_room_number}
+        eventAddress={item?.event_address}
+        onCampus={item?.on_campus}
+        onCampusBuilding={item?.on_campus_building}
+        onCampusRoomNumber={item?.on_campus_room_number}
         tags={item?.tags}
       />
     ))}
