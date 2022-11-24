@@ -140,6 +140,32 @@ Default.args = {
   on_campus: true,
   on_campus_building: 'Robertson Hall',
   on_campus_room_number: '407',
+  tags: {
+    category: [
+      {
+        id: 3,
+        name: 'Category One',
+        slug: 'category-one',
+      },
+      {
+        id: 4,
+        name: 'Category Two',
+        slug: 'category-two',
+      },
+    ],
+    audience: [
+      {
+        id: 1,
+        name: 'Student',
+        slug: 'student',
+      },
+      {
+        id: 2,
+        name: 'Faculty',
+        slug: 'faculty',
+      },
+    ],
+  },
 };
 
 export const SingleItemPanel = SingleItemPanelTemplate.bind({});

@@ -12,6 +12,10 @@ import { parseISO, getMonth, getDate } from 'date-fns';
 type BaseItemTypeProps = 'li' | 'div';
 type TitleTypeProps = 'h2' | 'h3';
 
+interface Tags {
+  category: { id: number; name: string; slug: string }[];
+  audience: { id: number; name: string; slug: string }[];
+}
 export interface EventItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
@@ -25,7 +29,7 @@ export interface EventItemProps {
   on_campus_building?: string | null;
   on_campus_room_number?: string | null;
   event_address?: string;
-  tags?: { id: number; type: string; name: string; slug: string }[];
+  tags?: Tags;
 }
 
 export interface ItemBaseProps {
@@ -153,7 +157,7 @@ const Details = ({
 const Category = ({ tags }: EventItemProps) => {
   return (
     <div>
-      {tags?.map(tag => (
+      {tags?.category?.map(tag => (
         <Badge>{tag.name}</Badge>
       ))}
     </div>

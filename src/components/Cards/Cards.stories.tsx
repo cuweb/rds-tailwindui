@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { Cards } from './Cards';
-import data from './EventData.json';
+import { EventItemData as data } from './EventData';
 import { Column } from '../../layouts';
 
 export default {
@@ -21,26 +21,32 @@ export const Default = () => (
       endDateTime="2022-12-16 02:45:41"
       eventAddress="405 Robertson Hall"
       onCampus={false}
-      tags={[
-        {
-          id: 2,
-          type: 'audience',
-          name: 'Carleton Community',
-          slug: 'carleton-community',
-        },
-        {
-          id: 7,
-          type: 'category',
-          name: 'Visual Arts',
-          slug: 'visual-arts',
-        },
-        {
-          id: 8,
-          type: 'audience',
-          name: 'Faculty',
-          slug: 'faculty',
-        },
-      ]}
+      tags={{
+        category: [
+          {
+            id: 3,
+            name: 'Category One',
+            slug: 'category-one',
+          },
+          {
+            id: 4,
+            name: 'Category Two',
+            slug: 'category-two',
+          },
+        ],
+        audience: [
+          {
+            id: 1,
+            name: 'Student',
+            slug: 'student',
+          },
+          {
+            id: 2,
+            name: 'Faculty',
+            slug: 'faculty',
+          },
+        ],
+      }}
     />
   </Column>
 );
