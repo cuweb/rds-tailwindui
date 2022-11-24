@@ -7,6 +7,10 @@ import {
 import { Badge } from '../Badge/index';
 import { isSameDay, parseISO, getMonth, getDate } from 'date-fns';
 
+interface Tags {
+  category: { id: number; name: string; slug: string }[];
+  audience: { id: number; name: string; slug: string }[];
+}
 export interface CardsProps {
   name?: string;
   link?: string;
@@ -18,7 +22,7 @@ export interface CardsProps {
   onCampusBuilding?: string | null;
   onCampusRoomNumber?: string | null;
   eventAddress?: string;
-  tags?: { id: number; type: string; name: string; slug: string }[];
+  tags?: Tags;
 }
 
 export const Cards = ({
@@ -134,7 +138,7 @@ export const Cards = ({
               </li>
             </ul>
             <div className="mt-4">
-              {tags?.map(tag => (
+              {tags?.category?.map(tag => (
                 <Badge>{tag.name}</Badge>
               ))}
             </div>

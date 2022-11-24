@@ -6,6 +6,7 @@ export { FooterBasic } from './Footer/FooterBasic';
 export { FooterStandard } from './Footer/FooterStandard';
 export { FooterWave } from './Footer/FooterWave';
 export { Cards, CardsProps } from './Cards/Cards';
+export { EventItem, EventItemProps } from './ListingItems/EventItem/EventItem';
 export { DetailsItem, DetailsItemProps } from './ListingItems/DetailsItem';
 export { FeedItem, FeedItemProps } from './ListingItems/FeedItem';
 export { FileItem, FileItemProps } from './ListingItems/FileItem';
