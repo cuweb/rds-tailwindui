@@ -27,11 +27,11 @@ const styles = {
   headerAnimated: `bg-cu-black-800 text-white`,
   childWrapper: `mx-auto flex max-w-7xl flex-col gap-4 md:gap-8 justify-center [&>*]:z-10 [&>*:last-child]:z-0 px-6 md:px-8 py-12`,
   textWrapper: `flex flex-col gap-4 md:gap-6 md:flex-1`,
-  buttonWrapper: `flex gap-6 flex-wrap justify-end md:flex-1`,
+  buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
   title: `font-semibold`,
   paragraph: `text-base lg:text-xl max-w-5xl`,
-  alignVertical: `md:flex-col items-center text-center`,
-  alignHorizontal: `md:flex-row items-center text-center md:text-left`,
+  alignVertical: `md:flex-col items-center text-centern [&>*]:justify-center`,
+  alignHorizontal: `md:flex-row items-center text-center md:text-left [&>*]:justify-end`,
 };
 
 const BannerBase = ({
@@ -108,8 +108,6 @@ const BannerWave = () => {
 };
 
 const ButtonGroup = ({ children }: BannerProps) => {
-  // how do i get spacing from parent in order to add width if spacing === full
-  // width classes to add are max-w-xs md:max-w-md
   return <div className={`${styles.buttonWrapper}`}>{children}</div>;
 };
 

@@ -125,11 +125,11 @@ class MiniGl {
                 ? Object.entries(uniforms).forEach(([name, uniform]) => {
                     material.attachUniforms(name, uniform);
                   })
-                : 'array' == uniforms.type
+                : 'array' === uniforms.type
                 ? uniforms.value.forEach((uniform, i) =>
                     material.attachUniforms(`${name}[${i}]`, uniform)
                   )
-                : 'struct' == uniforms.type
+                : 'struct' === uniforms.type
                 ? Object.entries(uniforms.value).forEach(([uniform, i]) =>
                     material.attachUniforms(`${name}.${uniform}`, i)
                   )
@@ -356,7 +356,7 @@ class MiniGl {
                 );
             }
             remove() {
-              _miniGl.meshes = _miniGl.meshes.filter(e => e != this);
+              _miniGl.meshes = _miniGl.meshes.filter(e => e !== this);
             }
           },
         },
@@ -778,7 +778,7 @@ export class Animation {
     return (
       !!window.document.hidden ||
       !this.conf.playing ||
-      parseInt(e, 10) % 2 == 0 ||
+      parseInt(e, 10) % 2 === 0 ||
       void 0
     );
   }
