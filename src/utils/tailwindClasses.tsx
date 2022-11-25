@@ -87,3 +87,11 @@ export const rdsBorderColor = {
   grey: 'border-cu-black-50',
   'dark-grey': 'border-cu-black-600',
 };
+
+export const rdsTopSpacing = {
+  '8': 'top-8',
+  '12': 'top-12',
+  '16': 'top-16',
+  '20': 'top-20',
+  '24': 'top-24',
+};
