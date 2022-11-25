@@ -24,10 +24,10 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {};
 
 const IsStickyTemplate: Story<AsideProps> = args => (
-  <Column cols="2/3" maxWidth="5xl">
+  <Column cols="2/3" maxWidth="7xl">
     <Prose as="article" content={sampleContent} />
     <Aside {...args}>
-      <p>Test</p>
+      <p>This is an aside as a sticky item</p>
     </Aside>
   </Column>
 );

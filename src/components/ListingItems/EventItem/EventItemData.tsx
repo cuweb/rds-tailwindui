@@ -25,31 +25,31 @@ export const EventItemData = [
     contact_name: 'Yesenia Larkin',
     contact_number: '+1-283-574-7016',
     contact_email: 'queenie.greenfelder@price.com',
-    "tags": {
-      "category": [
+    tags: {
+      category: [
         {
-          "id": 3,
-          "name": "Category One",
-          "slug": "category-one"
+          id: 3,
+          name: 'Category One',
+          slug: 'category-one',
         },
         {
-          "id": 4,
-          "name": "Category Two",
-          "slug": "category-two"
-        }
+          id: 4,
+          name: 'Category Two',
+          slug: 'category-two',
+        },
       ],
-      "audience": [
+      audience: [
         {
-          "id": 1,
-          "name": "Student",
-          "slug": "student"
+          id: 1,
+          name: 'Student',
+          slug: 'student',
         },
         {
-          "id": 2,
-          "name": "Faculty",
-          "slug": "faculty"
-        }
-      ]
+          id: 2,
+          name: 'Faculty',
+          slug: 'faculty',
+        },
+      ],
     },
     multiday: true,
   },
@@ -80,85 +80,85 @@ export const EventItemData = [
     contact_name: 'Sherwood Maggio',
     contact_number: '601.753.2847',
     contact_email: 'valentina68@langworth.net',
-    "tags": {
-      "category": [
+    tags: {
+      category: [
         {
-          "id": 3,
-          "name": "Category One",
-          "slug": "category-one"
+          id: 3,
+          name: 'Category One',
+          slug: 'category-one',
         },
         {
-          "id": 4,
-          "name": "Category Two",
-          "slug": "category-two"
-        }
+          id: 4,
+          name: 'Category Two',
+          slug: 'category-two',
+        },
       ],
-      "audience": [
+      audience: [
         {
-          "id": 1,
-          "name": "Student",
-          "slug": "student"
+          id: 1,
+          name: 'Student',
+          slug: 'student',
         },
         {
-          "id": 2,
-          "name": "Faculty",
-          "slug": "faculty"
-        }
-      ]
+          id: 2,
+          name: 'Faculty',
+          slug: 'faculty',
+        },
+      ],
     },
     multiday: true,
   },
   {
-    "id": 3,
-    "created_at": "2022-11-24T02:59:34.000000Z",
-    "updated_at": "2022-11-24T02:59:54.000000Z",
-    "user_id": 100292661,
-    "title": "Title Of Champions 2",
-    "slug": "title-of-champions-2",
-    "featured_image": "http://website/img.jpg",
-    "host_org": "My Organization",
-    "content": "<p>This is a description</p>",
-    "start_date": "2022-11-28 10:45:00",
-    "end_date": "2022-11-29 11:45:00",
-    "on_campus": true,
-    "on_campus_building": "Robertson Hall",
-    "on_campus_room_number": "405A",
-    "event_address": "1125 Colonel By Drive, Ottawa, ON, K1S 5B6",
-    "event_latitude": "45.3858581",
-    "event_longitude": "-75.6950041168868",
-    "registration": true,
-    "featured": false,
-    "registration_url": "http://register.com",
-    "cost": "199.99",
-    "contact_name": "Mike Contact",
-    "contact_number": "613-266-2628",
-    "contact_email": "mike@contact.com",
-    "multiday": true,
-    "tags": {
-      "category": [
+    id: 3,
+    created_at: '2022-11-24T02:59:34.000000Z',
+    updated_at: '2022-11-24T02:59:54.000000Z',
+    user_id: 100292661,
+    title: 'Title Of Champions 2',
+    slug: 'title-of-champions-2',
+    featured_image: 'http://website/img.jpg',
+    host_org: 'My Organization',
+    content: '<p>This is a description</p>',
+    start_date: '2022-11-28 10:45:00',
+    end_date: '2022-11-29 11:45:00',
+    on_campus: true,
+    on_campus_building: 'Robertson Hall',
+    on_campus_room_number: '405A',
+    event_address: '1125 Colonel By Drive, Ottawa, ON, K1S 5B6',
+    event_latitude: '45.3858581',
+    event_longitude: '-75.6950041168868',
+    registration: true,
+    featured: false,
+    registration_url: 'http://register.com',
+    cost: '199.99',
+    contact_name: 'Mike Contact',
+    contact_number: '613-266-2628',
+    contact_email: 'mike@contact.com',
+    multiday: true,
+    tags: {
+      category: [
         {
-          "id": 3,
-          "name": "Category One",
-          "slug": "category-one"
+          id: 3,
+          name: 'Category One',
+          slug: 'category-one',
         },
         {
-          "id": 4,
-          "name": "Category Two",
-          "slug": "category-two"
-        }
+          id: 4,
+          name: 'Category Two',
+          slug: 'category-two',
+        },
       ],
-      "audience": [
+      audience: [
         {
-          "id": 1,
-          "name": "Student",
-          "slug": "student"
+          id: 1,
+          name: 'Student',
+          slug: 'student',
         },
         {
-          "id": 2,
-          "name": "Faculty",
-          "slug": "faculty"
-        }
-      ]
-    }
-  }
+          id: 2,
+          name: 'Faculty',
+          slug: 'faculty',
+        },
+      ],
+    },
+  },
 ];
