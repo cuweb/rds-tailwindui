@@ -4,14 +4,15 @@ import {
   MapPinIcon,
   CalendarDaysIcon,
 } from '@heroicons/react/24/outline';
-import { Badge } from '../Badge/index';
+import { Badge } from '../../Badge/index';
 import { isSameDay, parseISO, getMonth, getDate } from 'date-fns';
 
 interface Tags {
   category: { id: number; name: string; slug: string }[];
   audience: { id: number; name: string; slug: string }[];
 }
-export interface CardsProps {
+
+export interface EventCardProps {
   name?: string;
   link?: string;
   startDateTime: string;
@@ -25,7 +26,7 @@ export interface CardsProps {
   tags?: Tags;
 }
 
-export const Cards = ({
+export const EventCard = ({
   name,
   link = 'https://carleton.ca',
   startDateTime,
@@ -36,7 +37,7 @@ export const Cards = ({
   onCampusRoomNumber,
   eventAddress,
   tags,
-}: CardsProps) => {
+}: EventCardProps) => {
   const defaultImage =
     'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80';
 
@@ -139,7 +140,7 @@ export const Cards = ({
             </ul>
             <div className="mt-4">
               {tags?.category?.map(tag => (
-                <Badge>{tag.name}</Badge>
+                <Badge key={tag.id}>{tag.name}</Badge>
               ))}
             </div>
           </div>
