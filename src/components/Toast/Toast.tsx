@@ -1,12 +1,13 @@
 import { Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { HeroIcon, IconName } from '../HeroIcon';
 
 export interface ToastProps {
   title: string;
   content?: string;
   alertType?: 'info' | 'error' | 'success' | 'warning';
+  autoCloseTimeInterval?: number;
 }
 
 export interface iconColorProps {
@@ -37,8 +38,15 @@ export interface iconProp {
   warning: IconName;
 }
 
-export const Toast = ({ alertType, title, content }: ToastProps) => {
+export const Toast = ({
+  alertType,
+  title,
+  content,
+  autoCloseTimeInterval = 0,
+}: ToastProps) => {
   const [showInfo, setShowInfo] = useState(true);
+  const [fadeProp, setFadeProp] = useState('');
+
   const icon: iconProp = {
     error: 'ExclamationCircleIcon',
     info: 'InformationCircleIcon',
@@ -52,12 +60,32 @@ export const Toast = ({ alertType, title, content }: ToastProps) => {
     warning: 'yellow',
   };
 
+  useEffect(() => {
+    const timeout = setInterval(() => {
+      if (autoCloseTimeInterval > 0) {
+        setFadeProp('fade-out');
+      }
+    }, autoCloseTimeInterval);
+    return () => clearInterval(timeout);
+  }, [autoCloseTimeInterval, fadeProp]);
+
+  useEffect(() => {
+    const timeout = setInterval(() => {
+      if (fadeProp === 'fade-out') {
+        setShowInfo(false);
+      }
+    }, 1000);
+    return () => clearInterval(timeout);
+  }, [autoCloseTimeInterval, showInfo, fadeProp]);
+
   return (
     <div
       aria-live="assertive"
       className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6"
     >
-      <div className="flex w-full flex-col items-center space-y-4 sm:items-end">
+      <div
+        className={`flex w-full flex-col items-center space-y-4 sm:items-end ${fadeProp}`}
+      >
         {/* Notification panel, dynamically insert this into the live region when it needs to be displayed */}
         <Transition
           show={showInfo}

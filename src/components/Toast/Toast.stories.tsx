@@ -22,6 +22,7 @@ export const Success = DefaultTemplate.bind({});
 Success.args = {
   title: 'Success',
   alertType: 'success',
+  autoCloseTimeInterval: 3000,
 };
 
 export const Error = DefaultTemplate.bind({});
