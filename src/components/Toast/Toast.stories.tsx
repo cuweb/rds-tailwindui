@@ -15,5 +15,29 @@ const DefaultTemplate: Story<ToastProps> = args => <Toast {...args} />;
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  children: <p className="px-8">Empty Toast</p>,
+  title: 'Toast',
+};
+
+export const Success = DefaultTemplate.bind({});
+Success.args = {
+  title: 'Success',
+  alertType: 'success',
+};
+
+export const Error = DefaultTemplate.bind({});
+Error.args = {
+  title: 'Error',
+  alertType: 'error',
+};
+
+export const Warn = DefaultTemplate.bind({});
+Warn.args = {
+  title: 'warning',
+  alertType: 'warning',
+};
+
+export const Info = DefaultTemplate.bind({});
+Info.args = {
+  title: 'info',
+  alertType: 'info',
 };
