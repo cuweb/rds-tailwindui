@@ -1,7 +1,7 @@
 describe('Cards', () => {
   //default
   it('Card Default exist?', () => {
-    cy.visit('/iframe.html?id=components-elements-cards--default');
+    cy.visit('/iframe.html?id=components-cards-events--default');
     cy.get('h3').should(
       'have.text',
       'Lived Experience Luncheon Series with Dr. Alex Auerbach'
@@ -11,7 +11,7 @@ describe('Cards', () => {
   });
 
   it('Grid of cards ', () => {
-    cy.visit('/iframe.html?id=components-elements-cards--grid-cards');
+    cy.visit('/iframe.html?id=components-cards-events--grid-cards');
     cy.get(`li`).should('exist');
   });
 });

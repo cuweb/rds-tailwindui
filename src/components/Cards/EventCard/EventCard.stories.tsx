@@ -1,21 +1,21 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Cards } from './Cards';
-import { EventItemData as data } from './EventData';
-import { Column } from '../../layouts';
+import { EventCard } from './EventCard';
+import { EventItemData as data } from './EventCardData';
+import { Column } from '../../../layouts';
 
 export default {
   title: 'Components/Cards/Events',
-  component: Cards,
+  component: EventCard,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
   },
-} as Meta<typeof Cards>;
+} as Meta<typeof EventCard>;
 
 export const Default = () => (
   <Column cols="3" gridGap="8" maxWidth="7xl">
-    <Cards
+    <EventCard
       name={'Lived Experience Luncheon Series with Dr. Alex Auerbach'}
       startDateTime="2022-12-16 01:48:41"
       endDateTime="2022-12-16 02:45:41"
@@ -53,7 +53,7 @@ export const Default = () => (
 export const gridCards = () => (
   <Column cols="3" gridGap="8" maxWidth="7xl">
     {data.map(item => (
-      <Cards
+      <EventCard
         name={item?.title}
         startDateTime={item?.start_date}
         endDateTime={item?.end_date}
