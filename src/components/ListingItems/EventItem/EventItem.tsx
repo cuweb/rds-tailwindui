@@ -121,6 +121,11 @@ const Details = ({
   on_campus_room_number,
 }: EventItemProps) => {
   const startDate = startDateTime && parseISO(startDateTime);
+  const endDate = endDateTime && parseISO(endDateTime);
+  const isEventSameDay = startDate && endDate && isSameDay(startDate, endDate);
+  const eventStartMonth = startDate && getMonth(startDate);
+  const eventStartDate = startDate && getDate(startDate);
+  const eventEndDate = endDate && getDate(endDate);
 
   const formatTime = (date: any) => {
     var hours = date.getHours();
@@ -133,11 +138,6 @@ const Details = ({
     return strTime;
   };
 
-  const endDate = endDateTime && parseISO(endDateTime);
-  const isEventSameDay = startDate && endDate && isSameDay(startDate, endDate);
-  const eventStartMonth = startDate && getMonth(startDate);
-  const eventStartDate = startDate && getDate(startDate);
-  const eventEndDate = endDate && getDate(endDate);
   const multiDayDisplay = () => {
     if (!isEventSameDay) {
       return (
