@@ -54,6 +54,7 @@ export const rdsWidth = {
   12: 'w-12',
   16: 'w-16',
   20: 'w-20',
+  24:'w-22'
 };
 
 export const rdsHeight = {
