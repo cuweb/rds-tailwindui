@@ -28,6 +28,7 @@ const DefaultTemplate: Story<EventItemProps> = args => (
       <EventItem.Title as="h2" fontSize={args.fontSize} name={args.name} />
       <EventItem.Details
         startDateTime={args.startDateTime}
+        endDateTime={args.endDateTime}
         event_address={args.event_address}
       />
       <EventItem.Category tags={args.tags} />
@@ -44,6 +45,7 @@ const SingleItemPanelTemplate: Story<EventItemProps> = args => (
           <EventItem.Title as="h3" fontSize={args.fontSize} name={args.name} />
           <EventItem.Details
             startDateTime={args.startDateTime}
+            endDateTime={args.endDateTime}
             event_address={args.event_address}
           />
           <EventItem.Category tags={args.tags} />
@@ -63,6 +65,7 @@ const StackedListPanelTemplate: Story<EventItemProps> = args => (
               id,
               title, // link,
               start_date,
+              end_date,
               event_address,
               on_campus,
               on_campus_building,
@@ -75,6 +78,7 @@ const StackedListPanelTemplate: Story<EventItemProps> = args => (
                   <EventItem.Title name={title} />
                   <EventItem.Details
                     startDateTime={start_date}
+                    endDateTime={end_date}
                     event_address={event_address}
                     on_campus={on_campus}
                     on_campus_building={on_campus_building}
@@ -102,6 +106,7 @@ const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
               id,
               title,
               start_date,
+              end_date,
               event_address,
               tags,
               on_campus,
@@ -114,6 +119,7 @@ const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
                   <EventItem.Title name={title} />
                   <EventItem.Details
                     startDateTime={start_date}
+                    endDateTime={end_date}
                     event_address={event_address}
                     on_campus={on_campus}
                     on_campus_building={on_campus_building}
@@ -137,6 +143,7 @@ Default.args = {
   link: 'https://carleton.ca',
   event_address: 'Robertson Hall',
   startDateTime: '2022-12-16 01:48:41',
+  endDateTime: '2022-12-18 05:22:15',
   on_campus: true,
   on_campus_building: 'Robertson Hall',
   on_campus_room_number: '407',

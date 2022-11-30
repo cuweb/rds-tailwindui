@@ -3,10 +3,11 @@ import {
   ClockIcon,
   MapPinIcon,
   ChevronRightIcon,
+  CalendarDaysIcon,
 } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
 import { Badge } from '../../Badge';
-import { parseISO, getMonth, getDate } from 'date-fns';
+import { isSameDay, parseISO, getMonth, getDate } from 'date-fns';
 
 // Set types for as props
 type BaseItemTypeProps = 'li' | 'div';
@@ -113,12 +114,18 @@ const DateBox = ({ startDateTime }: EventItemProps) => {
 
 const Details = ({
   startDateTime,
+  endDateTime,
   event_address,
   on_campus,
   on_campus_building,
   on_campus_room_number,
 }: EventItemProps) => {
   const startDate = startDateTime && parseISO(startDateTime);
+  const endDate = endDateTime && parseISO(endDateTime);
+  const isEventSameDay = startDate && endDate && isSameDay(startDate, endDate);
+  const eventStartMonth = startDate && getMonth(startDate);
+  const eventStartDate = startDate && getDate(startDate);
+  const eventEndDate = endDate && getDate(endDate);
 
   const formatTime = (date: any) => {
     var hours = date.getHours();
@@ -131,15 +138,45 @@ const Details = ({
     return strTime;
   };
 
+  const multiDayDisplay = () => {
+    if (!isEventSameDay) {
+      return (
+        <CalendarDaysIcon
+          className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
+          aria-hidden="true"
+        />
+      );
+    } else {
+      return (
+        <ClockIcon
+          className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
+          aria-hidden="true"
+        />
+      );
+    }
+  };
+
+  const getMonthName = (month: any, short: boolean = false) => {
+    const d = new Date();
+    d.setMonth(month - 1);
+    const monthName = d.toLocaleString('default', {
+      month: short ? 'short' : 'long',
+    });
+    return monthName;
+  };
+
   return (
     <ul className="flex flex-col flex-wrap gap-2 md:flex-row">
       <li className="flex items-center text-sm text-cu-black-700">
-        <ClockIcon
-          className="flex-shrink-0 w-5 h-5 mr-1 text-cu-red-300"
-          aria-hidden="true"
-        />
+        {multiDayDisplay()}
 
-        <time dateTime={startDateTime}>{formatTime(startDate)}</time>
+        {isEventSameDay
+          ? formatTime(startDate) + '-' + formatTime(endDate)
+          : getMonthName(eventStartMonth) +
+            ' ' +
+            eventStartDate +
+            ' - ' +
+            eventEndDate}
       </li>
       <li className="flex items-start text-sm text-cu-black-700">
         <MapPinIcon

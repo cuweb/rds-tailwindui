@@ -66,7 +66,7 @@ export const EventItemData = [
     description:
       'Commodi et nisi natus dolorem. Est qui quaerat ut maxime. Dolorum expedita et quia veniam. At porro non dolorem aliquam recusandae odit. Omnis explicabo et qui ut molestias debitis.',
     start_date: '2023-02-08 04:29:56',
-    end_date: '2023-02-10 10:15:45',
+    end_date: '2023-02-08 10:15:45',
     on_campus: true,
     on_campus_building: 'Robertson Hall',
     on_campus_room_number: '407',
