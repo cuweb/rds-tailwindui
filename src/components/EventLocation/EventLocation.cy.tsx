@@ -1,8 +1,9 @@
 // UPDATE IFRAME URL
-describe('Button', () => {
-  it('Does Button exist?', () => {
-    cy.visit('/iframe.html?id=component--default&viewMode=story');
-    cy.get('button').should('exist');
+describe('EventLocation', () => {
+  it('EventLocation Default exist?', () => {
+    cy.visit('/iframe.html?id=components-elements-location--default');
+    cy.get('div').should('exist');
+    cy.get('a').should('have.attr', 'href');
   });
 });
 export {};

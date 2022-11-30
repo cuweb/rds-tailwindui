@@ -9,7 +9,6 @@ import { Column } from '../../layouts/Column/Column';
 
 export const EventLocation = () => {
   const [showInfo, setShowInfo] = React.useState(false);
- 
 
   const mapRef = React.useRef();
   const onMapLoad = React.useCallback((map: any) => {
@@ -24,25 +23,28 @@ export const EventLocation = () => {
   const address = {
     lat: 45.3850225,
     lng: -75.6946679,
+    location: "Carleton University Raven's Nest",
   };
+
   const options = {
     disableDefaultUI: true,
     zoomControl: true,
     fullscreenControl: true,
     panControl: true,
-    // mapTypeId: google.maps.MapTypeId.ROADMAP
+    streetViewControl: true,
   };
+
   const containerStyle = {
     height: '50vh',
     width: '100%',
   };
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: process.env.NEXT_PUBLIC_REACT_APP_GOOGLE_MAPS_API_KEY || '',
+
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey:
+      process.env.NEXT_PUBLIC_REACT_APP_GOOGLE_MAPS_API_KEY || '',
     libraries: ['places'],
   });
-  // if(loadError) return "Error laoding maps";
-  // if(!isLoaded) return "Loading maps"
-
+  
   return isLoaded ? (
     <Column maxWidth="5xl">
       <div style={{ height: '50vh', width: '100%' }}>
@@ -53,36 +55,31 @@ export const EventLocation = () => {
           options={options}
           onLoad={onMapLoad}
         >
-          {/* Child components, such as markers, info windows, etc. */}
           <MarkerF
-            icon={{
-              url: require('../../assets/map-pin.svg'),
-              anchor: new window.google.maps.Point(15, 15),
-              labelOrigin: new google.maps.Point(
-                address.lat + 85,
-                address.lng + 90
-              ),
-              scaledSize: new window.google.maps.Size(30, 30),
-            }}
-            label={{
-              text: 'hello',
-              fontFamily: 'Arial',
-              fontSize: '14px',
-              color: '#FF0000',
-            }}
-            onMouseOver={() => !showInfo && setShowInfo(true)}
-            onMouseOut={() => showInfo && setShowInfo(false)}
+            title={address.location}
+            onClick={() => setShowInfo(true)}
             position={{ lat: address.lat, lng: address.lng }}
           />
 
           {showInfo ? (
             <InfoWindow
               position={{
-                lat: address.lat + 0.0004,
-                lng: address.lng + 0.0004,
+                lat: address.lat + 0.0009,
+                lng: address.lng,
               }}
+              onCloseClick={() => setShowInfo(false)}
             >
-              <p>{"Carleton University Raven's Nest"}</p>
+              <div>
+                <p className="text-center text-base font-regular">
+                  {address.location}
+                </p>
+                <a
+                  href={`https://www.google.com/maps/search/?api=1&query=${address.location}&z=15`}
+                  target="_blank"
+                >
+                  <p className="text-center font-medium text-blue-600">View on Google Maps</p>
+                </a>
+              </div>
             </InfoWindow>
           ) : null}
         </GoogleMap>
