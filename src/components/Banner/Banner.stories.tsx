@@ -13,9 +13,7 @@ export default {
   },
 } as Meta<typeof Banner>;
 
-const DefaultTemplate: Story<BannerProps> = args => (
-  <Banner {...args}>{args.children}</Banner>
-);
+const DefaultTemplate: Story<BannerProps> = args => <Banner {...args}></Banner>;
 
 const WithButtonsTemplate: Story<BannerProps> = args => (
   <Banner {...args}>
@@ -224,5 +222,4 @@ export const WithParagraph = WithParagraphTemplate.bind({});
 WithParagraph.args = {
   title: 'Banner with Paragraph',
   paragraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique ultrices magna at sollicitudin. Duis venenatis arcu quis nibh blandit vestibulum. Praesent tempus est at venenatis elementum. In vestibulum purus in sapien varius, ac iaculis ligula eleifend. Nulla tempus interdum ipsum quis iaculis.`,
-  isType: 'light-fade',
 };

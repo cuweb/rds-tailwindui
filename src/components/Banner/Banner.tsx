@@ -3,7 +3,7 @@ import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
 import { BannerAnimated } from './Banner.Animated';
 
 export interface BannerProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   title?: string;
   paragraph?: string;
   fontSize?: '4xl' | '5xl' | '6xl';
@@ -24,14 +24,14 @@ const styles = {
   headerGrey: `bg-gradient-to-b from-white to-cu-black-100 text-cu-black-800`,
   headerRed: `bg-gradient-to-b from-cu-red to-cu-red-900 text-white`,
   headerBlack: `bg-cu-black-800 text-white`,
-  headerAnimated: `bg-cu-black-800 text-white`,
-  childWrapper: `mx-auto flex max-w-7xl flex-col gap-4 md:gap-8 justify-center [&>*]:z-10 [&>*:last-child]:z-0 px-6 md:px-8 py-12`,
+  headerAnimated: `bg-white text-cu-black-800`,
+  childWrapper: `mx-auto flex max-w-7xl flex-col gap-4 md:gap-8 items-center text-center [&>*]:justify-center [&>*]:z-10 [&>*:last-child]:z-0 px-6 md:px-8 py-12`,
+  verticalAlign: `md:flex-col`,
+  horizontalAlign: `md:flex-row md:text-left md:[&>.buttons]:justify-end`,
   textWrapper: `flex flex-col gap-4 md:gap-6 md:flex-1`,
   buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
   title: `font-semibold`,
   paragraph: `text-base lg:text-xl max-w-5xl`,
-  alignVertical: `md:flex-col items-center text-centern [&>*]:justify-center`,
-  alignHorizontal: `md:flex-row items-center text-center md:text-left [&>*]:justify-end`,
 };
 
 const BannerBase = ({
@@ -64,7 +64,7 @@ const BannerBase = ({
   }
 
   const alignmentStyles =
-    alignment === 'vertical' ? styles.alignVertical : styles.alignHorizontal;
+    alignment === 'vertical' ? styles.verticalAlign : styles.horizontalAlign;
 
   return (
     <header className={`${styles.header} ${bgStyle}`}>
@@ -108,7 +108,7 @@ const BannerWave = () => {
 };
 
 const ButtonGroup = ({ children }: BannerProps) => {
-  return <div className={`${styles.buttonWrapper}`}>{children}</div>;
+  return <div className={`buttons ${styles.buttonWrapper}`}>{children}</div>;
 };
 
 export const Banner = Object.assign(BannerBase, {
