@@ -187,7 +187,7 @@ const WithParagraphTemplate: Story<BannerProps> = args => (
 const WithOverlapTemplate: Story<BannerProps> = args => (
   <>
     <Banner {...args}></Banner>
-    <main className="">
+    <main>
       <Column maxWidth="7xl">
         <div className="p-12 bg-white rounded-lg pb-28">
           This is an example of the main wrapped overlapping the banner

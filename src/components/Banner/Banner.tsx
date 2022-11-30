@@ -25,7 +25,7 @@ const styles = {
   headerGrey: `bg-gradient-to-b from-white to-cu-black-100 text-cu-black-800`,
   headerRed: `bg-gradient-to-b from-cu-red to-cu-red-900 text-white`,
   headerBlack: `bg-cu-black-800 text-white`,
-  overlap: `[&>*]:pb-20 [&+main]:-mt-12 md:[&>*]:pb-44 md:[&+main]:-mt-32 [&+main]:relative [&+main]:z-20`,
+  overlap: `[&>*]:pb-20 [&+main]:-mt-12 md:[&>*]:pb-44 md:[&+main]:-mt-28 [&+main]:relative [&+main]:z-20`,
   headerAnimated: `bg-white text-cu-black-800`,
   childWrapper: `mx-auto flex max-w-7xl flex-col gap-4 md:gap-8 items-center text-center [&>*]:justify-center [&>*]:z-10 [&>*:last-child]:z-0 px-6 md:px-8 py-8 md:py-20`,
   verticalAlign: `md:flex-col`,
