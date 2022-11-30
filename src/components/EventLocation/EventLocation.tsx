@@ -44,7 +44,7 @@ export const EventLocation = () => {
       process.env.NEXT_PUBLIC_REACT_APP_GOOGLE_MAPS_API_KEY || '',
     libraries: ['places'],
   });
-  
+
   return isLoaded ? (
     <Column maxWidth="5xl">
       <div style={{ height: '50vh', width: '100%' }}>
@@ -76,8 +76,11 @@ export const EventLocation = () => {
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${address.location}&z=15`}
                   target="_blank"
+                  rel="noreferrer"
                 >
-                  <p className="text-center font-medium text-blue-600">View on Google Maps</p>
+                  <p className="text-center font-medium text-blue-600">
+                    View on Google Maps
+                  </p>
                 </a>
               </div>
             </InfoWindow>

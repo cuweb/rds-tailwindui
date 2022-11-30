@@ -11,6 +11,4 @@ export default {
   },
 } as Meta<typeof EventLocation>;
 
-export const Default = () => (
-  <EventLocation />
-);
+export const Default = () => <EventLocation />;

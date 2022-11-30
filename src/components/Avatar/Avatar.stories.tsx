@@ -12,11 +12,12 @@ export default {
   },
 } as Meta<typeof Avatar>;
 
-const DefaultTemplate: Story<AvatarProps> = (args) => <Avatar {...args} />;
+const DefaultTemplate: Story<AvatarProps> = args => <Avatar {...args} />;
 
 const user: UserInfoType = {
   image: {
-    src: 'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
+    src:
+      'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
     alt: '',
   },
   firstName: 'Danny',

@@ -31,7 +31,7 @@ describe('Avatar', () => {
   it(`Should render alert when Clicked -- Handle Click `, () => {
     cy.visit(`/iframe.html?id=components-elements-avatar--default`);
     cy.get('[alt="Avatar of Danny Brown"]').click();
-    cy.on('window:alert', (str) => {
+    cy.on('window:alert', str => {
       expect(str).to.contains(`I am an alert`);
       return false;
     });

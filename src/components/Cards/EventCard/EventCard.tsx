@@ -139,7 +139,7 @@ export const EventCard = ({
               </li>
             </ul>
             <div className="mt-4">
-              {tags?.category?.map((tag) => (
+              {tags?.category?.map(tag => (
                 <Badge key={tag.id}>{tag.name}</Badge>
               ))}
             </div>

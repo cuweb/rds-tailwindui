@@ -157,7 +157,7 @@ const Details = ({
 const Category = ({ tags }: EventItemProps) => {
   return (
     <div>
-      {tags?.category?.map((tag) => (
+      {tags?.category?.map(tag => (
         <Badge key={tag.id}>{tag.name}</Badge>
       ))}
     </div>
