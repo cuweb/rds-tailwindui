@@ -52,7 +52,7 @@ export const Default = () => (
 );
 export const gridCards = () => (
   <Column cols="3" gridGap="8" maxWidth="7xl">
-    {data.map(item => (
+    {data.map((item) => (
       <EventCard
         name={item?.title}
         startDateTime={item?.start_date}

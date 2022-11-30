@@ -9,7 +9,7 @@ export default {
   argTypes: {},
 } as Meta<typeof Filter>;
 
-const Template: Story<FilterProps> = args => <Filter {...args} />;
+const Template: Story<FilterProps> = (args) => <Filter {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

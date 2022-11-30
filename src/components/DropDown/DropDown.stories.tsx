@@ -14,7 +14,7 @@ export default {
   },
 } as Meta<typeof DropDown>;
 
-const DefaultTemplate: Story<DropDownProps> = args => (
+const DefaultTemplate: Story<DropDownProps> = (args) => (
   <DropDown {...args} listItems={listItems}>
     {args.children}
   </DropDown>

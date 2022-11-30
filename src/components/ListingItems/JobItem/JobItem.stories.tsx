@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof JobItem>;
 
-const DefaultTemplate: Story<JobItemProps> = args => (
+const DefaultTemplate: Story<JobItemProps> = (args) => (
   <JobItem as="div" link={args.link}>
     <JobItem.Content>
       <JobItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
@@ -30,7 +30,7 @@ const DefaultTemplate: Story<JobItemProps> = args => (
   </JobItem>
 );
 
-const SingleItemPanelTemplate: Story<JobItemProps> = args => (
+const SingleItemPanelTemplate: Story<JobItemProps> = (args) => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <JobItem as="div" link={args.link}>

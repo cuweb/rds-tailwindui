@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof EventItem>;
 
-const DefaultTemplate: Story<EventItemProps> = args => (
+const DefaultTemplate: Story<EventItemProps> = (args) => (
   <EventItem as="div" link={args.link}>
     <EventItem.DateBox startDateTime={args.startDateTime} />
     <EventItem.Content>
@@ -35,7 +35,7 @@ const DefaultTemplate: Story<EventItemProps> = args => (
   </EventItem>
 );
 
-const SingleItemPanelTemplate: Story<EventItemProps> = args => (
+const SingleItemPanelTemplate: Story<EventItemProps> = (args) => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <EventItem as="div" link={args.link}>
@@ -53,7 +53,7 @@ const SingleItemPanelTemplate: Story<EventItemProps> = args => (
   </Column>
 );
 
-const StackedListPanelTemplate: Story<EventItemProps> = args => (
+const StackedListPanelTemplate: Story<EventItemProps> = (args) => (
   <Container>
     <Column maxWidth="3xl">
       <Panel hasShadow>
@@ -91,7 +91,7 @@ const StackedListPanelTemplate: Story<EventItemProps> = args => (
   </Container>
 );
 
-const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
+const StackedListPanelTitleTemplate: Story<EventItemProps> = (args) => (
   <Container bgColor="grey">
     <Column maxWidth="3xl">
       <Panel hasBorder hasShadow>

@@ -21,7 +21,7 @@ export default {
   },
 } as Meta<typeof FeedItem>;
 
-const DefaultTemplate: Story<FeedItemProps> = args => (
+const DefaultTemplate: Story<FeedItemProps> = (args) => (
   <FeedItem as="div" link={args.link}>
     <FeedItem.Content>
       <FeedItem.Title as="h2" fontSize={args.fontSize} title={args.title} />
@@ -32,7 +32,7 @@ const DefaultTemplate: Story<FeedItemProps> = args => (
   </FeedItem>
 );
 
-const SingleItemPanelTemplate: Story<FeedItemProps> = args => (
+const SingleItemPanelTemplate: Story<FeedItemProps> = (args) => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <FeedItem as="div" link={args.link}>

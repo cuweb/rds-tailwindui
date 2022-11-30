@@ -3,9 +3,7 @@ describe('JobItem', () => {
   it('JobItem Default exist?', () => {
     cy.visit('/iframe.html?id=components-list-items-jobs--default');
     cy.get('svg').should('exist');
-    cy.get('h2')
-      .should('exist')
-      .contains('Job item title');
+    cy.get('h2').should('exist').contains('Job item title');
     cy.get('p').should('exist');
     cy.get('a').should('have.attr', 'href');
   });

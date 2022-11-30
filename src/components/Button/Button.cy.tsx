@@ -43,7 +43,7 @@ describe('Button', () => {
     },
   ];
 
-  types.forEach(type => {
+  types.forEach((type) => {
     it(`Should render the ${type.name} button`, () => {
       cy.clearCookies();
       cy.visit(`/iframe.html?id=components-inputs-button--${type.component}`);

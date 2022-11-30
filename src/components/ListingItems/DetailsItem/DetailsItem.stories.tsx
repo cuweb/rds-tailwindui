@@ -16,7 +16,7 @@ export default {
   },
 } as Meta<typeof DetailsItem>;
 
-const DefaultTemplate: Story<DetailsItemProps> = args => (
+const DefaultTemplate: Story<DetailsItemProps> = (args) => (
   <DetailsItem as="div">
     <DetailsItem.Icon />
     <DetailsItem.Content>
@@ -26,7 +26,7 @@ const DefaultTemplate: Story<DetailsItemProps> = args => (
   </DetailsItem>
 );
 
-const SingleItemPanelTemplate: Story<DetailsItemProps> = args => (
+const SingleItemPanelTemplate: Story<DetailsItemProps> = (args) => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <DetailsItem as="div">

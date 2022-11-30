@@ -11,7 +11,7 @@ export default {
   },
 } as Meta<typeof HeroIcon>;
 
-const Template: Story<HeroIconProps> = args => (
+const Template: Story<HeroIconProps> = (args) => (
   <HeroIcon {...args} aria-hidden={true} />
 );
 
