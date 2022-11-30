@@ -1,5 +1,5 @@
 import React from 'react';
-import { rdsFontSizes, rdsPaddingY } from '../../utils/tailwindClasses';
+import { rdsFontSizes } from '../../utils/tailwindClasses';
 import { BannerAnimated } from './Banner.Animated';
 
 export interface BannerProps {
@@ -7,7 +7,6 @@ export interface BannerProps {
   title?: string;
   paragraph?: string;
   fontSize?: '4xl' | '5xl' | '6xl';
-  spacing?: 'base' | 'md' | 'lg' | 'xl' | 'full';
   isType?: 'light-fade' | 'dark-wave' | 'red-wave' | 'image' | 'animated';
   alignment?: 'vertical' | 'horizontal';
   hasOverlap?: boolean;
@@ -43,7 +42,6 @@ const BannerBase = ({
   isType,
   fontSize = '4xl',
   alignment = 'vertical',
-  spacing = isType === 'image' ? 'xl' : 'base',
   hasOverlap,
   image,
   imageAlt = 'Decorative background image',
@@ -66,15 +64,15 @@ const BannerBase = ({
       bgStyle = styles.headerGrey;
   }
 
+  const bannerSpacing = isType === 'image' ? 'md:py-48' : 'md:py-20';
   const overlapStyles = hasOverlap ? styles.overlap : '';
-
   const alignmentStyles =
     alignment === 'vertical' ? styles.verticalAlign : styles.horizontalAlign;
 
   return (
     <header className={`${styles.header} ${overlapStyles} ${bgStyle}`}>
       <div
-        className={`${styles.childWrapper} ${alignmentStyles} ${rdsPaddingY[spacing]}`}
+        className={`${styles.childWrapper} ${alignmentStyles} ${bannerSpacing}`}
       >
         <div className={styles.textWrapper}>
           <h1 className={`${styles.title} ${rdsFontSizes[fontSize]}`}>
