@@ -10,6 +10,7 @@ export interface BannerProps {
   spacing?: 'base' | 'md' | 'lg' | 'xl' | 'full';
   isType?: 'light-fade' | 'dark-wave' | 'red-wave' | 'image' | 'animated';
   alignment?: 'vertical' | 'horizontal';
+  hasOverlap?: boolean;
   image?: string;
   imageAlt?: string;
 }
@@ -24,13 +25,14 @@ const styles = {
   headerGrey: `bg-gradient-to-b from-white to-cu-black-100 text-cu-black-800`,
   headerRed: `bg-gradient-to-b from-cu-red to-cu-red-900 text-white`,
   headerBlack: `bg-cu-black-800 text-white`,
+  overlap: `[&>*]:pb-20 [&+main]:-mt-12 md:[&>*]:pb-44 md:[&+main]:-mt-32 [&+main]:relative [&+main]:z-20`,
   headerAnimated: `bg-white text-cu-black-800`,
-  childWrapper: `mx-auto flex max-w-7xl flex-col gap-4 md:gap-8 items-center text-center [&>*]:justify-center [&>*]:z-10 [&>*:last-child]:z-0 px-6 md:px-8 py-12`,
+  childWrapper: `mx-auto flex max-w-7xl flex-col gap-4 md:gap-8 items-center text-center [&>*]:justify-center [&>*]:z-10 [&>*:last-child]:z-0 px-6 md:px-8 py-8 md:py-20`,
   verticalAlign: `md:flex-col`,
   horizontalAlign: `md:flex-row md:text-left md:[&>.buttons]:justify-end`,
   textWrapper: `flex flex-col gap-4 md:gap-6 md:flex-1`,
   buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
-  title: `font-semibold`,
+  title: `font-semibold text-xl`,
   paragraph: `text-base lg:text-xl max-w-5xl`,
 };
 
@@ -42,6 +44,7 @@ const BannerBase = ({
   fontSize = '4xl',
   alignment = 'vertical',
   spacing = isType === 'image' ? 'xl' : 'base',
+  hasOverlap,
   image,
   imageAlt = 'Decorative background image',
 }: BannerProps & BannerImageProps) => {
@@ -63,11 +66,13 @@ const BannerBase = ({
       bgStyle = styles.headerGrey;
   }
 
+  const overlapStyles = hasOverlap ? styles.overlap : '';
+
   const alignmentStyles =
     alignment === 'vertical' ? styles.verticalAlign : styles.horizontalAlign;
 
   return (
-    <header className={`${styles.header} ${bgStyle}`}>
+    <header className={`${styles.header} ${overlapStyles} ${bgStyle}`}>
       <div
         className={`${styles.childWrapper} ${alignmentStyles} ${rdsPaddingY[spacing]}`}
       >

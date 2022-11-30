@@ -3,6 +3,7 @@ import { Meta, Story } from '@storybook/react';
 
 import { Banner, BannerProps } from './Banner';
 import { Button } from '../Button';
+import { Column } from '../../layouts';
 
 export default {
   title: 'Components/Elements/Banner',
@@ -183,6 +184,19 @@ const WithParagraphTemplate: Story<BannerProps> = args => (
   </Banner>
 );
 
+const WithOverlapTemplate: Story<BannerProps> = args => (
+  <>
+    <Banner {...args}></Banner>
+    <main className="">
+      <Column maxWidth="7xl">
+        <div className="p-12 bg-white rounded-lg pb-28">
+          This is an example of the main wrapped overlapping the banner
+        </div>
+      </Column>
+    </main>
+  </>
+);
+
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   title: 'Basic Banner',
@@ -222,4 +236,11 @@ export const WithParagraph = WithParagraphTemplate.bind({});
 WithParagraph.args = {
   title: 'Banner with Paragraph',
   paragraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique ultrices magna at sollicitudin. Duis venenatis arcu quis nibh blandit vestibulum. Praesent tempus est at venenatis elementum. In vestibulum purus in sapien varius, ac iaculis ligula eleifend. Nulla tempus interdum ipsum quis iaculis.`,
+};
+
+export const WithOverlap = WithOverlapTemplate.bind({});
+WithOverlap.args = {
+  title: 'Banner with Overlapping Main',
+  isType: 'animated',
+  hasOverlap: true,
 };
