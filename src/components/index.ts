@@ -17,4 +17,5 @@ export {
   MarketplaceItemProps,
 } from './ListingItems/MarketplaceItem';
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
+export { Pagination, PaginationProps } from './Pagination';
 export { TopNav, TopNavProps } from './TopNav';
