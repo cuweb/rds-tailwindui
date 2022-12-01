@@ -53,11 +53,14 @@ const BannerBase = ({
     align === 'vertical'
       ? 'flex-col last:[&>*]:justify-center'
       : 'flex-col md:flex-row last:[&>*]:justify-center last:md:[&>*]:justify-end';
-  const hasParagraph = paragraph ? ' md:w-8/12' : '';
+
+  const hasParaAndButtons =
+    paragraph && children ? ' md:max-w-3xl md:w-8/12' : '';
+
   const contentAlign =
     align === 'vertical'
       ? 'text-center'
-      : 'text-center md:text-left md:max-w-3xl' + hasParagraph;
+      : 'text-center md:text-left' + hasParaAndButtons;
 
   const overlapStyles = hasOverlap ? otherStyles.overlap : '';
 
@@ -69,7 +72,7 @@ const BannerBase = ({
         <div
           className={`z-10 flex ${flexAlign} items-center justify-center gap-8 m-auto max-w-7xl [&>*]:z-10`}
         >
-          <div className={`flex flex-col gap-4 ${contentAlign}`}>
+          <div className={`flex flex-auto flex-col gap-4 ${contentAlign}`}>
             <h1 className={`${contentStyles.title} ${rdsFontSizes[fontSize]}`}>
               {title}
             </h1>
