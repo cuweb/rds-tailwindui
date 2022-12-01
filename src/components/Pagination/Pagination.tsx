@@ -36,7 +36,7 @@ export const Pagination = ({
 
   useEffect(() => {
     callback([startResult, endResult]);
-  }, [startResult, endResult]);
+  }, [startResult, endResult, callback]);
 
   let lastPage = 0;
   if (paginationRange !== undefined) {
