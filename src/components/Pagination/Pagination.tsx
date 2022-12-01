@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 import usePagination, { DOTS } from '../../hooks/usePagination';
 
@@ -8,6 +8,7 @@ export interface PaginationProps {
   totalCount: number;
   siblingCount: number;
   pageSize: number;
+  callback: any;
 }
 
 export const Pagination = ({
@@ -16,6 +17,7 @@ export const Pagination = ({
   totalCount,
   siblingCount,
   pageSize,
+  callback,
 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -25,18 +27,6 @@ export const Pagination = ({
     siblingCount,
     currentPage
   );
-
-  let lastPage = 0;
-  if (paginationRange !== undefined) {
-    lastPage = Number(paginationRange[paginationRange.length - 1]);
-  }
-
-  if (
-    currentPage === 0 ||
-    (paginationRange !== undefined && paginationRange.length < 2)
-  ) {
-    return null;
-  }
 
   const onNext = () => {
     if (currentPage < lastPage) {
@@ -50,11 +40,9 @@ export const Pagination = ({
     }
   };
 
-  const startResult = (currentPage - 1) * pageSize + 1;
-  let endResult = totalCount;
-  if (totalCount > currentPage * pageSize) {
-    endResult = currentPage * pageSize;
-  }
+  const onCurrent = (pageNumber: any) => {
+    setCurrentPage(Number(pageNumber));
+  };
 
   const styles = {
     border: `py-5 border-t border-cu-black-100`,
@@ -66,6 +54,29 @@ export const Pagination = ({
 
   const borderStyles = hasBorder ? styles.border : '';
   const spacingStyles = hasSpacing ? styles.spacing : '';
+  const startResult = (currentPage - 1) * pageSize + 1;
+
+  let endResult = totalCount;
+  let lastPage = 0;
+
+  useEffect(() => {
+    callback([startResult, endResult]);
+  }, [startResult, endResult, callback]);
+
+  if (totalCount > currentPage * pageSize) {
+    endResult = currentPage * pageSize;
+  }
+
+  if (paginationRange !== undefined) {
+    lastPage = Number(paginationRange[paginationRange.length - 1]);
+  }
+
+  if (
+    currentPage === 0 ||
+    (paginationRange !== undefined && paginationRange.length < 2)
+  ) {
+    return null;
+  }
 
   return (
     <div
@@ -114,7 +125,7 @@ export const Pagination = ({
                         ? 'bg-cu-black-50 font-semibold'
                         : ''
                     }`}
-                    onClick={() => setCurrentPage(Number(pageNumber))}
+                    onClick={() => onCurrent(Number(pageNumber))}
                   >
                     {pageNumber}
                   </li>
