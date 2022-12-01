@@ -47,6 +47,9 @@ export const rdsFontSizes = {
   base: 'md:text-base',
   lg: 'md:text-lg',
   xl: 'md:text-xl',
+  '4xl': 'md:text-4xl',
+  '5xl': 'md:text-5xl',
+  '6xl': 'md:text-6xl',
 };
 
 export const rdsWidth = {
