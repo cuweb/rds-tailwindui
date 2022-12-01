@@ -1,6 +1,7 @@
 export { Badge, BadgeProps } from './Badge/Badge';
 export { Button, ButtonProps } from './Button/Button';
 export { Calendar, CalendarProps } from './Calendar/Calendar';
+export { DropDown, DropDownItemProps, DropDownProps } from './DropDown';
 export { Filter, FilterProps } from './Filter/Filter';
 export { FooterBasic } from './Footer/FooterBasic';
 export { FooterStandard } from './Footer/FooterStandard';
@@ -19,3 +20,4 @@ export {
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
 export { Pagination, PaginationProps } from './Pagination';
 export { TopNav, TopNavProps } from './TopNav';
+export { HeroIcon, HeroIconProps } from './HeroIcon';

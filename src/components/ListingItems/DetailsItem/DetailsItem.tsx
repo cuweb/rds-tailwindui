@@ -1,6 +1,6 @@
 import React from 'react';
-import { MapPinIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
+import { HeroIcon, IconName } from '../../HeroIcon';
 
 // Set types for as props
 type BaseItemTypeProps = 'li' | 'div';
@@ -11,6 +11,7 @@ export interface DetailsItemProps {
   fontSize?: 'base' | 'lg' | 'xl';
   title?: string;
   description?: string;
+  icon?: IconName;
 }
 
 export interface ItemBaseProps {
@@ -31,7 +32,7 @@ const DetailsItemBase = ({
 }: ItemBaseProps & DetailsItemProps) => {
   return (
     <Component>
-      <div className="relative flex items-center gap-2 p-6 focus:outline-none">
+      <div className="relative flex items-center gap-2 p-6 focus:outline-none ">
         <div className="flex items-start gap-4">{children}</div>
       </div>
     </Component>
@@ -50,17 +51,16 @@ const Title = ({
   return React.createElement(
     as,
     {
-      className: `text-base font-semibold text-cu-black ${rdsFontSizes[fontSize]}`,
+      className: `text-base font-semibold text-cu-black ${rdsFontSizes[fontSize]} `,
     },
     title
   );
 };
 
-const Icon = () => {
+const Icon = ({ icon }: DetailsItemProps) => {
   return (
     <div className="flex-none w-auto">
-      {/* <props.icon className="flex-none w-6 h-6 text-cu-black-400" /> */}
-      <MapPinIcon className="flex-none w-6 h-6 text-cu-black-400" />
+      {icon && <HeroIcon icon={icon} size="6" color="dark-grey" isOutline />}
     </div>
   );
 };
