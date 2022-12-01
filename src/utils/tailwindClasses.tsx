@@ -39,12 +39,17 @@ export const rdsTextColor = {
   red: 'text-cu-red',
   grey: 'text-cu-black-50',
   'dark-grey': 'text-cu-black-600',
+  green: 'text-green-400',
+  yellow: 'text-yellow-400',
 };
 
 export const rdsFontSizes = {
   base: 'md:text-base',
   lg: 'md:text-lg',
   xl: 'md:text-xl',
+  '4xl': 'md:text-4xl',
+  '5xl': 'md:text-5xl',
+  '6xl': 'md:text-6xl',
 };
 
 export const rdsWidth = {
