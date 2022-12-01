@@ -67,10 +67,10 @@ const BannerBase = ({
   return (
     <>
       <header
-        className={`relative ${typeStyles[isType]} px-6 md:px-8 py-8 ${bannerSpacing} ${overlapStyles}`}
+        className={`relative ${typeStyles[isType]} py-8 ${bannerSpacing} ${overlapStyles}`}
       >
         <div
-          className={`z-10 flex ${flexAlign} items-center justify-center gap-8 m-auto max-w-7xl [&>*]:z-10`}
+          className={`z-10 flex ${flexAlign} items-center justify-center gap-8 px-6 md:px-8 m-auto max-w-7xl [&>*]:z-10`}
         >
           <div className={`flex flex-auto flex-col gap-4 ${contentAlign}`}>
             <h1 className={`${contentStyles.title} ${rdsFontSizes[fontSize]}`}>
