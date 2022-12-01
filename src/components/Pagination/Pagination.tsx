@@ -28,28 +28,6 @@ export const Pagination = ({
     currentPage
   );
 
-  const startResult = (currentPage - 1) * pageSize + 1;
-  let endResult = totalCount;
-  if (totalCount > currentPage * pageSize) {
-    endResult = currentPage * pageSize;
-  }
-
-  useEffect(() => {
-    callback([startResult, endResult]);
-  }, [startResult, endResult, callback]);
-
-  let lastPage = 0;
-  if (paginationRange !== undefined) {
-    lastPage = Number(paginationRange[paginationRange.length - 1]);
-  }
-
-  if (
-    currentPage === 0 ||
-    (paginationRange !== undefined && paginationRange.length < 2)
-  ) {
-    return null;
-  }
-
   const onNext = () => {
     if (currentPage < lastPage) {
       setCurrentPage(currentPage + 1);
@@ -76,6 +54,29 @@ export const Pagination = ({
 
   const borderStyles = hasBorder ? styles.border : '';
   const spacingStyles = hasSpacing ? styles.spacing : '';
+  const startResult = (currentPage - 1) * pageSize + 1;
+
+  let endResult = totalCount;
+  let lastPage = 0;
+
+  useEffect(() => {
+    callback([startResult, endResult]);
+  }, [startResult, endResult, callback]);
+
+  if (totalCount > currentPage * pageSize) {
+    endResult = currentPage * pageSize;
+  }
+
+  if (paginationRange !== undefined) {
+    lastPage = Number(paginationRange[paginationRange.length - 1]);
+  }
+
+  if (
+    currentPage === 0 ||
+    (paginationRange !== undefined && paginationRange.length < 2)
+  ) {
+    return null;
+  }
 
   return (
     <div
