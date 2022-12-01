@@ -39,6 +39,8 @@ export const rdsTextColor = {
   red: 'text-cu-red',
   grey: 'text-cu-black-50',
   'dark-grey': 'text-cu-black-600',
+  green: 'text-green-400',
+  yellow: 'text-yellow-400',
 };
 
 export const rdsFontSizes = {

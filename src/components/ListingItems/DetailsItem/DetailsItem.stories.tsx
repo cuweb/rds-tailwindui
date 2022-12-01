@@ -18,7 +18,7 @@ export default {
 
 const DefaultTemplate: Story<DetailsItemProps> = args => (
   <DetailsItem as="div">
-    <DetailsItem.Icon />
+    <DetailsItem.Icon icon="PlusIcon" />
     <DetailsItem.Content>
       <DetailsItem.Title title={args.title} />
       <DetailsItem.Description description={args.description} />
@@ -30,7 +30,7 @@ const SingleItemPanelTemplate: Story<DetailsItemProps> = args => (
   <Column maxWidth="3xl">
     <Panel hasBorder>
       <DetailsItem as="div">
-        <DetailsItem.Icon />
+        <DetailsItem.Icon icon={args.icon} />
         <DetailsItem.Content>
           <DetailsItem.Title title={args.title} />
           <DetailsItem.Description description={args.description} />
@@ -45,9 +45,9 @@ const StackedListPanelTemplate: Story<DetailsItemProps> = () => (
     <Column maxWidth="3xl">
       <Panel hasShadow>
         <StackedList hasDividers>
-          {data.map(({ id, title, description }) => (
-            <DetailsItem key={id}>
-              <DetailsItem.Icon />
+          {data.map(({ title, description, icon }) => (
+            <DetailsItem key={title}>
+              <DetailsItem.Icon icon={icon} />
               <DetailsItem.Content>
                 <DetailsItem.Title title={title} />
                 <DetailsItem.Description description={description} />
@@ -66,9 +66,9 @@ const StackedListPanelTitleTemplate: Story<DetailsItemProps> = () => (
       <Panel hasBorder hasShadow>
         <Panel.Title>Details listing</Panel.Title>
         <StackedList hasDividers>
-          {data.map(({ id, title, description }) => (
-            <DetailsItem key={id}>
-              <DetailsItem.Icon />
+          {data.map(({ title, description, icon }) => (
+            <DetailsItem key={title}>
+              <DetailsItem.Icon icon={icon} />
               <DetailsItem.Content>
                 <DetailsItem.Title title={title} />
                 <DetailsItem.Description description={description} />
