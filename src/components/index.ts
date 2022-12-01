@@ -20,4 +20,4 @@ export {
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
 export { Prose, ProseProps } from './Prose';
 export { TopNav, TopNavProps } from './TopNav';
-export { Toast, ToastProps } from './Toast';
+export { HeroIcon, HeroIconProps } from './HeroIcon';
