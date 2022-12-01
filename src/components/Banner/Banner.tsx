@@ -34,7 +34,7 @@ const contentStyles = {
 
 const otherStyles = {
   buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
-  overlap: `[&>*]:pb-20 [&+main]:-mt-12 md:[&>*]:pb-44 md:[&+main]:-mt-28 [&+main]:relative [&+main]:z-20`,
+  overlap: `pb-20 md:pb-36 [&+main]:relative [&+main]:z-20 [&+main]:-mt-12 md:[&+main]:-mt-28`,
 };
 
 const BannerBase = ({
@@ -53,18 +53,18 @@ const BannerBase = ({
     align === 'vertical'
       ? 'flex-col last:[&>*]:justify-center'
       : 'flex-col md:flex-row last:[&>*]:justify-center last:md:[&>*]:justify-end';
-
   const hasParagraph = paragraph ? ' md:w-8/12' : '';
-
   const contentAlign =
     align === 'vertical'
       ? 'text-center'
       : 'text-center md:text-left md:max-w-3xl' + hasParagraph;
 
+  const overlapStyles = hasOverlap ? otherStyles.overlap : '';
+
   return (
     <>
       <header
-        className={`relative ${typeStyles[isType]} px-6 md:px-8 py-8 ${bannerSpacing}`}
+        className={`relative ${typeStyles[isType]} px-6 md:px-8 py-8 ${bannerSpacing} ${overlapStyles}`}
       >
         <div
           className={`z-10 flex ${flexAlign} items-center justify-center gap-8 m-auto max-w-7xl [&>*]:z-10`}
