@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
+import { Button } from '../Button';
 
 import {
   add,
@@ -26,15 +27,16 @@ export interface CalendarProps {
     startDatetime: string;
     endDatetime: string;
   }[];
+  callback: any;
 }
 
 const classNames = (...classes: (string | boolean)[]) => {
   return classes.filter(Boolean).join(' ');
 };
 
-export const Calendar = ({ events }: CalendarProps) => {
+export const Calendar = ({ events, callback }: CalendarProps) => {
   const today = startOfToday();
-  const [selectedDay, setSelectedDay] = useState(today);
+  const [selectedDay, setSelectedDay] = useState(new Date(0));
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
   const colStartClasses = [
@@ -65,6 +67,12 @@ export const Calendar = ({ events }: CalendarProps) => {
     prevNextArrows: `flex items-center justify-center flex-none p-2 text-cu-black-300 hover:text-cu-red`,
     calendarGrid: `grid grid-cols-7 gap-px mt-4 text-center`,
   };
+
+  useEffect(() => {
+    callback(selectedDay);
+  }, [selectedDay, callback]);
+
+  console.log('selectedDay from ui' + selectedDay);
 
   return (
     <div>
@@ -148,6 +156,16 @@ export const Calendar = ({ events }: CalendarProps) => {
             </div>
           </div>
         ))}
+      </div>
+      <div className="mt-2">
+        <Button
+          title="Clear"
+          isCenter
+          size="sm"
+          onClick={() => {
+            setSelectedDay(new Date(0));
+          }}
+        />
       </div>
     </div>
   );
