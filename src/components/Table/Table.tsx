@@ -5,7 +5,6 @@ import TableRows from './TableRows';
 export interface ColumnDefinitionType<T, K extends keyof T> {
   key: K;
   header: string;
-  width?: number;
 }
 
 export interface TableProps<T, K extends keyof T> {
