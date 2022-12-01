@@ -72,8 +72,6 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
     callback(selectedDay);
   }, [selectedDay, callback]);
 
-  console.log('selectedDay from ui' + selectedDay);
-
   return (
     <div>
       <div className="flex items-center">
