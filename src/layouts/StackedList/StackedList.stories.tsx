@@ -100,6 +100,7 @@ const WithPaginationTemplate: Story<StackedListProps> = args => (
           totalCount={48}
           siblingCount={1}
           pageSize={5}
+          callback
         />
       </Panel>
     </Column>

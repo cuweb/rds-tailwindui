@@ -14,7 +14,7 @@ export interface TableProps<T, K extends keyof T> {
 }
 
 const styles = {
-  core: `min-w-full divide-y divide-gray-300`,
+  core: `bg-cu-red min-w-full divide-y divide-gray-300`,
 };
 
 export const Table = <T, K extends keyof T>({

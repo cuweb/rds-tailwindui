@@ -1,64 +1,54 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { Table, TableProps } from './Table';
+import { Table, TableProps, ColumnDefinitionType } from './Table';
 
-const data = [
+interface Table {
+  name: string;
+  age: number;
+  gender?: string;
+}
+
+const data: Table[] = [
   {
-    name: 'Mittens',
-    color: 'black',
+    name: 'Mike',
     age: 2,
-    gender: 'female',
-    activityLevel: 'hight',
-    favoriteFood: 'milk',
+    gender: 'Male',
   },
   {
-    name: 'Mons',
-    color: 'grey',
+    name: 'Mike',
     age: 2,
-    gender: 'male',
-    favoriteFood: 'old socks',
-    activityLevel: 'medium',
+    gender: 'Male',
   },
   {
-    name: 'Luna',
-    color: 'black',
+    name: 'Mike',
     age: 2,
-    gender: 'female',
-    activityLevel: 'medium',
-    favoriteFood: 'fish',
+    gender: 'Male',
   },
   {
-    name: 'Bella',
-    color: 'grey',
-    age: 1,
-    gender: 'female',
-    activityLevel: 'high',
-    favoriteFood: 'mice',
+    name: 'Mike',
+    age: 2,
+    gender: 'Male',
   },
   {
-    name: 'Oliver',
-    color: 'orange',
-    age: 1,
-    gender: 'male',
-    activityLevel: 'low',
-    favoriteFood: 'fish',
+    name: 'Mike',
+    age: 2,
+    gender: 'Male',
   },
 ];
 
-const columns = [
+const columns: ColumnDefinitionType<Table, keyof Table>[] = [
   {
     key: 'name',
     header: 'Name',
-    width: 150,
   },
   {
     key: 'age',
     header: 'Age in years',
   },
   {
-    key: 'color',
-    header: 'Color',
+    key: 'gender',
+    header: 'Gender',
   },
 ];
 
