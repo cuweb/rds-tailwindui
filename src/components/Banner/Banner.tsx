@@ -68,6 +68,7 @@ const BannerBase = ({
     <>
       <header
         className={`relative ${typeStyles[isType]} py-8 ${bannerSpacing} ${overlapStyles}`}
+        id="banner"
       >
         <div
           className={`z-10 flex ${flexAlign} items-center justify-center gap-8 px-6 md:px-8 m-auto max-w-7xl [&>*]:z-10`}
