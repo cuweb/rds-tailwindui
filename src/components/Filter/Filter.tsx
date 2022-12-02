@@ -29,13 +29,14 @@ export interface FilterProps {
       checked: boolean;
     }[];
   }[];
+  callback: any;
 }
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const Filter = ({ sortOptions, filters }: FilterProps) => {
+export const Filter = ({ sortOptions, filters, callback }: FilterProps) => {
   const [open, setOpen] = useState(false);
   const [sortItem, setSortItem] = useState('');
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
@@ -63,6 +64,10 @@ export const Filter = ({ sortOptions, filters }: FilterProps) => {
     setSortItem(sortItem);
     setActiveFilters(selectedItems);
   }, [sortItem, selectedItems]);
+
+  useEffect(() => {
+    callback(selectedItems);
+  }, [selectedItems, callback]);
 
   return (
     <div>
