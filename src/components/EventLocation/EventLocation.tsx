@@ -10,12 +10,14 @@ export interface EventLocationProps {
   lat?: string;
   lng?: string;
   location?: string;
+  zoom?: number;
 }
 export const EventLocation = ({
   apiKey,
   lat,
   lng,
   location,
+  zoom = 15,
 }: EventLocationProps) => {
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: apiKey,
@@ -35,17 +37,12 @@ export const EventLocation = ({
     streetViewControl: true,
   };
 
-  const containerStyle = {
-    height: '50vh',
-    width: '100%',
-  };
-
   return isLoaded ? (
-    <div style={{ height: '50vh', width: '100%' }}>
+    <div>
       <GoogleMap
-        mapContainerStyle={containerStyle}
+        mapContainerClassName="w-full h-96"
         center={{ lat: Number(lat), lng: Number(lng) }}
-        zoom={15}
+        zoom={zoom}
         options={options}
         onLoad={onMapLoad}
       >
