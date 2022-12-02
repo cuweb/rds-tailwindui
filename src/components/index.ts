@@ -1,5 +1,6 @@
 export { Badge, BadgeProps } from './Badge/Badge';
 export { Button, ButtonProps } from './Button/Button';
+export { Banner, BannerProps, BannerImgProps } from './Banner';
 export { Calendar, CalendarProps } from './Calendar/Calendar';
 export { DropDown, DropDownItemProps, DropDownProps } from './DropDown';
 export { Filter, FilterProps } from './Filter/Filter';
@@ -19,5 +20,6 @@ export {
 } from './ListingItems/MarketplaceItem';
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
 export { Pagination, PaginationProps } from './Pagination';
+export { Prose, ProseProps } from './Prose';
 export { TopNav, TopNavProps } from './TopNav';
 export { HeroIcon, HeroIconProps } from './HeroIcon';
