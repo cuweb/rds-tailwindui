@@ -64,3 +64,7 @@ export const Spacing = () => {
     />
   );
 };
+
+Default.storyName = 'Default item';
+Border.storyName = 'With Top Border';
+Spacing.storyName = 'With Spacing';
