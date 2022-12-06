@@ -16,6 +16,7 @@ export interface ButtonProps
   hasDropDown?: boolean;
   url?: string | URL;
   wrapper?: any;
+  hasBorder?: boolean;
 }
 
 const buttonSizes = {
@@ -48,12 +49,14 @@ export const Button = ({
   wrapper,
   isDisabled = false,
   hasDropDown,
+  hasBorder,
   ...rest
 }: ButtonProps) => {
   const shadowStyles = hasShadow ? styles.shadow : '';
   const fullStyles = isFull ? 'w-full' : '';
   const centerStyles = isCenter ? 'relative left-1/2 -translate-x-1/2 ' : '';
   const iconSize = size === 'base' ? '6' : '4';
+  const borderStyle = hasBorder ? ' border border-cu-black-200' : '';
 
   return (
     <>
@@ -61,7 +64,7 @@ export const Button = ({
         <button
           type="button"
           aria-label={title ? title : 'Icon button'}
-          className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
+          className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  ${borderStyle} `}
           disabled={isType === 'disabled' ? true : false}
           {...rest}
         >
