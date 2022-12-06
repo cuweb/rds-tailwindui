@@ -10,7 +10,7 @@ export interface SocialShareProps {
 export const SocialShare = ({ title, link }: SocialShareProps) => {
   const ShareItem: DropDownItemProps[] = [
     {
-      href: `https://twitter.com/intent/tweet?text=${title}&url='${link}'`,
+      href: `https://twitter.com/intent/tweet?text=${title}&url=${link}`,
       title: (
         <div className="flex items-center text-sm">
           <svg
@@ -25,7 +25,7 @@ export const SocialShare = ({ title, link }: SocialShareProps) => {
       ),
     },
     {
-      href: `https://www.linkedin.com/sharing/share-offsite/?url='${link}'`,
+      href: `https://www.linkedin.com/sharing/share-offsite/?url=${link}`,
       title: (
         <div className="flex items-center text-sm">
           <svg
@@ -40,7 +40,7 @@ export const SocialShare = ({ title, link }: SocialShareProps) => {
       ),
     },
     {
-      href: `http://www.facebook.com/sharer.php?u='${link}'&t=${title}`,
+      href: `http://www.facebook.com/sharer.php?u=${link}&t=${title}`,
       title: (
         <div className="flex items-center text-sm">
           <svg
@@ -55,7 +55,7 @@ export const SocialShare = ({ title, link }: SocialShareProps) => {
       ),
     },
     {
-      href: `mailto:?subject=${title}&body='${link}'`,
+      href: `mailto:?subject=${title}&body=${link}`,
       title: (
         <div className="flex items-center text-sm">
           <svg
