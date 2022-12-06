@@ -1,6 +1,6 @@
-import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import { Calendar, CalendarProps } from './Calendar';
+import React, { useCallback, useState } from 'react';
+import { Meta } from '@storybook/react';
+import { Calendar } from './Calendar';
 import data from './CalendarData.json';
 
 export default {
@@ -12,9 +12,13 @@ export default {
   },
 } as Meta<typeof Calendar>;
 
-const Template: Story<CalendarProps> = args => <Calendar {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  events: data.events,
+export const Default = () => {
+  const [, setSelectedDate] = useState(new Date(0));
+  const callbackcal = useCallback(
+    (itemSelected: any) => {
+      setSelectedDate(itemSelected);
+    },
+    [setSelectedDate]
+  );
+  return <Calendar events={data.events} callback={callbackcal} />;
 };
