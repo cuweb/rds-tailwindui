@@ -4,19 +4,25 @@ import { ColumnDefinitionType } from './Table';
 type TableRowsProps<T, K extends keyof T> = {
   data: Array<T>;
   columns: Array<ColumnDefinitionType<T, K>>;
+  striped: boolean;
 };
 
 const styles = {
-  core: `min-w-full divide-y divide-gray-300`,
+  core: `whitespace-nowrap px-3 py-4 text-sm text-cu-black-500`,
 };
 
 const TableRows = <T, K extends keyof T>({
   data,
   columns,
+  striped,
 }: TableRowsProps<T, K>) => {
+  const stripedStyles = striped
+    ? 'even:bg-amber-100 odd:bg-blue-100 '
+    : 'hover:bg-gray-50';
+
   const rows = data.map((row, index) => {
     return (
-      <tr className="hover:bg-gray-50" key={`row-${index}`}>
+      <tr className={`${stripedStyles}`} key={`row-${index}`}>
         {columns.map((column, index2) => {
           return (
             <td key={`cell-${index2}`} className={`${styles.core}`}>

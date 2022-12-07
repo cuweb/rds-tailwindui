@@ -53,7 +53,7 @@ const columns: ColumnDefinitionType<Table, keyof Table>[] = [
 ];
 
 export default {
-  title: 'Path/Component',
+  title: 'Components/Elements/Table',
   component: Table,
   argTypes: {},
   parameters: {
@@ -62,7 +62,7 @@ export default {
 } as Meta<typeof Table>;
 
 const DefaultTemplate: Story<TableProps<any, any>> = () => (
-  <Table data={data} columns={columns} />
+  <Table data={data} columns={columns} hasStripes />
 );
 
 // ADD COMPONENT ARGS WITH DEFAULT SETTINGS

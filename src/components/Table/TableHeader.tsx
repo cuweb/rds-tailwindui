@@ -6,7 +6,7 @@ type TableHeaderProps<T, K extends keyof T> = {
 };
 
 const styles = {
-  core: `min-w-full divide-y divide-gray-300`,
+  core: `py-3.5 pl-3 pr-3 text-left text-sm font-semibold text-cu-black-900 `,
 };
 
 const TableHeader = <T, K extends keyof T>({
@@ -21,7 +21,7 @@ const TableHeader = <T, K extends keyof T>({
   });
 
   return (
-    <thead>
+    <thead className="bg-gray-50">
       <tr>{headers}</tr>
     </thead>
   );
