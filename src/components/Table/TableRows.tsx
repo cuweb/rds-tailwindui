@@ -23,7 +23,7 @@ const TableRows = <T, K extends keyof T>({
 
   const rows = data.map((row, index) => {
     return (
-      <tr className={`${stripedStyles}`} key={`row-${index}`}>
+      <tr className={stripedStyles} key={`row-${index}`}>
         {columns.map((column, index2) => {
           return (
             <td key={`cell-${index2}`} className={`${styles.core}`}>
