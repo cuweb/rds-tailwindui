@@ -1,6 +1,6 @@
-import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import { Filter, FilterProps } from './Filter';
+import React, { useCallback, useState } from 'react';
+import { Meta } from '@storybook/react';
+import { Filter } from './Filter';
 import data from './FilterData.json';
 
 export default {
@@ -9,17 +9,33 @@ export default {
   argTypes: {},
 } as Meta<typeof Filter>;
 
-const Template: Story<FilterProps> = args => <Filter {...args} />;
+export const Default = () => {
+  const [, setFilterItem] = useState([]);
+  const callbackfilter = useCallback(
+    (filterSelected: any) => {
+      setFilterItem(filterSelected);
+    },
+    [setFilterItem]
+  );
 
-export const Default = Template.bind({});
-Default.args = {
-  sortOptions: data.sortOptions,
-  filters: data.filters,
+  return (
+    <Filter
+      filters={data.filters}
+      callback={callbackfilter}
+      sortOptions={data.sortOptions}
+    />
+  );
 };
 
-export const NoSorting = Template.bind({});
-NoSorting.args = {
-  filters: data.filters,
+export const NoSorting = () => {
+  const [, setFilterItem] = useState([]);
+  const callbackfilter = useCallback(
+    (filterSelected: any) => {
+      setFilterItem(filterSelected);
+    },
+    [setFilterItem]
+  );
+  return <Filter filters={data.filters} callback={callbackfilter} />;
 };
 
 Default.storyName = 'With Sorting';
