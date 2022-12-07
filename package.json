@@ -16,7 +16,7 @@
     "build": "tsdx lint --fix && tsdx build && yarn build-assets && yarn size",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint --fix",
-    "prepare": "tsdx build && husky install",
+    "prepare": "yarn build && husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "format": "prettier -w src",
@@ -28,8 +28,8 @@
     "build-assets": "cpx 'src/assets/**' 'dist/assets' && yarn build-tailwind"
   },
   "peerDependencies": {
-    "react": ">=16",
-    "react-dom": ">=16"
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "husky": {
     "hooks": {
@@ -83,8 +83,6 @@
     "cypress": "^10.7.0",
     "husky": "^8.0.0",
     "postcss": "^8.4.16",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "size-limit": "^8.0.1",
     "tailwindcss": "^3.1.8",
@@ -96,5 +94,9 @@
     "@react-google-maps/api": "^2.17.0",
     "date-fns": "^2.29.3",
     "rollup-plugin-postcss": "^4.0.2"
+  },
+  "resolutions": {
+    "**/react": "18.2.0",
+    "**/react-dom": "18.2.0"
   }
 }

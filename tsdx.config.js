@@ -10,7 +10,7 @@ module.exports = {
         extract: !!options.writeMeta,
       }),
       ...config.plugins,
-    ]
-    return config
+    ];
+    return config;
   },
-}
+};
