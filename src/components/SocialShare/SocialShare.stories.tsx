@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { SocialShare, SocialShareProps } from './SocialShare';
 
 export default {
-  title: 'Components/Elements/SocialShare',
+  title: 'Components/Inputs/SocialShare',
   component: SocialShare,
   argTypes: {},
   parameters: {

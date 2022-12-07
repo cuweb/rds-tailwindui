@@ -75,8 +75,7 @@ export const SocialShare = ({ title, link }: SocialShareProps) => {
       <Button
         title="Share Event"
         hasDropDown
-        hasBorder
-        isType="white"
+        isType="grey"
         size="sm"
         icon="ShareIcon"
       />
