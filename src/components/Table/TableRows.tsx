@@ -9,6 +9,7 @@ type TableRowsProps<T, K extends keyof T> = {
 
 const styles = {
   core: `whitespace-nowrap px-3 py-4 text-sm text-cu-black-500`,
+  tbody: `divide-y divide-gray-200 bg-white`,
 };
 
 const TableRows = <T, K extends keyof T>({
@@ -34,7 +35,7 @@ const TableRows = <T, K extends keyof T>({
     );
   });
 
-  return <tbody className="divide-y divide-gray-200 bg-white">{rows}</tbody>;
+  return <tbody className={styles.tbody}>{rows}</tbody>;
 };
 
 export default TableRows;
