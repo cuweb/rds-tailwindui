@@ -9,6 +9,7 @@ import {
   endOfMonth,
   format,
   getDay,
+  getYear,
   isBefore,
   isEqual,
   isSameDay,
@@ -155,16 +156,18 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
           </div>
         ))}
       </div>
-      <div className="mt-2">
-        <Button
-          title="Clear"
-          isCenter
-          size="sm"
-          onClick={() => {
-            setSelectedDay(new Date(0));
-          }}
-        />
-      </div>
+      {getYear(selectedDay) !== 1969 && (
+        <div className="mt-2">
+          <Button
+            title="Clear Calendar"
+            isCenter
+            size="sm"
+            onClick={() => {
+              setSelectedDay(new Date(0));
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 };
