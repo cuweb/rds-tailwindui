@@ -6,7 +6,7 @@ import TableRows from './TableRows';
 export interface ColumnDefinitionType<T, K extends keyof T> {
   key: K;
   header: string;
-  sort?: { active: boolean; order: string };
+  sort?: { active: boolean };
 }
 
 export interface TableProps<T, K extends keyof T> {

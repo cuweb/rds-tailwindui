@@ -16,7 +16,6 @@ const columns: ColumnDefinitionType<Table, keyof Table>[] = [
     header: 'ID',
     sort: {
       active: true,
-      order: 'desc',
     },
   },
   {
@@ -24,7 +23,6 @@ const columns: ColumnDefinitionType<Table, keyof Table>[] = [
     header: 'Title',
     sort: {
       active: true,
-      order: 'asc',
     },
   },
 ];

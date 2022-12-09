@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { ColumnDefinitionType } from './Table';
 
 type TableHeaderProps<T, K extends keyof T> = {
@@ -12,13 +13,20 @@ const styles = {
   thead: `bg-gray-50`,
 };
 
-const sortTableData = (data: any[], sortBy: string | number) => {
+const sortTableData = (data: any[], orderBy: string | number, asc: boolean) => {
   // copy array since its memeory location does not change when sorted
-  return data.concat().sort((a, b) => {
-    if (a[sortBy] < b[sortBy]) return -1;
-    if (a[sortBy] > b[sortBy]) return 1;
+
+  const sortedData = data.concat().sort((a, b) => {
+    if (a[orderBy] < b[orderBy]) return -1;
+    if (a[orderBy] > b[orderBy]) return 1;
     return 0;
   });
+
+  if (!asc) {
+    return sortedData.reverse();
+  }
+
+  return sortedData;
 };
 
 const TableHeader = <T, K extends keyof T>({
@@ -30,13 +38,13 @@ const TableHeader = <T, K extends keyof T>({
     return (
       <th scope="col" key={`headerCell-${index}`} className={`${styles.core}`}>
         {column.sort?.active ? (
-          <a
+          <button
             onClick={() => {
-              sortData(sortTableData(data, column.key));
+              sortData(sortTableData(data, column.key, !column.sort.asc));
             }}
           >
             column.headers
-          </a>
+          </button>
         ) : (
           column.header
         )}
