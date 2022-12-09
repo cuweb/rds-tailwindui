@@ -12,16 +12,13 @@ const styles = {
   thead: `bg-gray-50`,
 };
 
-const sortTableData = (data: any[], sortBy: string | number, sortData: any) => {
-  const sortedData = data.sort((a, b) => {
+const sortTableData = (data: any[], sortBy: string | number) => {
+  // copy array since its memeory location does not change when sorted
+  return data.concat().sort((a, b) => {
     if (a[sortBy] < b[sortBy]) return -1;
     if (a[sortBy] > b[sortBy]) return 1;
     return 0;
   });
-
-  console.log(sortedData);
-
-  sortData(sortedData);
 };
 
 const TableHeader = <T, K extends keyof T>({
@@ -30,11 +27,14 @@ const TableHeader = <T, K extends keyof T>({
   sortData,
 }: TableHeaderProps<T, K>) => {
   const headers = columns.map((column: any, index) => {
-    console.log(column);
     return (
       <th scope="col" key={`headerCell-${index}`} className={`${styles.core}`}>
         {column.sort?.active ? (
-          <a onClick={() => sortTableData(data, column.key, sortData)}>
+          <a
+            onClick={() => {
+              sortData(sortTableData(data, column.key));
+            }}
+          >
             column.headers
           </a>
         ) : (
