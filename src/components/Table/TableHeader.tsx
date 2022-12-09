@@ -4,7 +4,7 @@ import { ColumnDefinitionType } from './Table';
 type TableHeaderProps<T, K extends keyof T> = {
   columns: Array<ColumnDefinitionType<T, K>>;
   data: Array<T>;
-  sortData: any;
+  sortData: React.Dispatch<React.SetStateAction<any[]>>;
 };
 
 const styles = {
