@@ -1,55 +1,31 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-
+import exampleTableData from './exampleTableData.json';
 import { Table, TableProps, ColumnDefinitionType } from './Table';
-import { Button } from '../Button';
 
 interface Table {
-  name: string;
-  age: number;
-  gender?: string | React.ReactNode;
+  id: number;
+  title: string;
 }
 
-const data: Table[] = [
-  {
-    name: 'Mike',
-    age: 2,
-    gender: <Button title="Default" />,
-  },
-  {
-    name: 'Mike',
-    age: 2,
-    gender: 'Male',
-  },
-  {
-    name: 'Mike',
-    age: 2,
-    gender: 'Male',
-  },
-  {
-    name: 'Mike',
-    age: 2,
-    gender: 'Male',
-  },
-  {
-    name: 'Mike',
-    age: 2,
-    gender: 'Male',
-  },
-];
+const data: Table[] = exampleTableData;
 
 const columns: ColumnDefinitionType<Table, keyof Table>[] = [
   {
-    key: 'name',
-    header: 'Name',
+    key: 'id',
+    header: 'ID',
+    sort: {
+      active: true,
+      order: 'desc',
+    },
   },
   {
-    key: 'age',
-    header: 'Age in years',
-  },
-  {
-    key: 'gender',
-    header: 'Gender',
+    key: 'title',
+    header: 'Title',
+    sort: {
+      active: true,
+      order: 'asc',
+    },
   },
 ];
 

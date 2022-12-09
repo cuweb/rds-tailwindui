@@ -1,10 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
 
 export interface ColumnDefinitionType<T, K extends keyof T> {
   key: K;
   header: string;
+  sort?: { active: boolean; order: string };
 }
 
 export interface TableProps<T, K extends keyof T> {
@@ -22,10 +24,12 @@ export const Table = <T, K extends keyof T>({
   columns,
   hasStripes = false,
 }: TableProps<T, K>) => {
+  const [tableData, setTableData] = useState(data);
+
   return (
     <table className={`${styles.core}`}>
-      <TableHeader columns={columns} />
-      <TableRows data={data} columns={columns} striped={hasStripes} />
+      <TableHeader data={tableData} columns={columns} sortData={setTableData} />
+      <TableRows data={tableData} columns={columns} striped={hasStripes} />
     </table>
   );
 };

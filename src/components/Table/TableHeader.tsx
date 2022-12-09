@@ -3,6 +3,8 @@ import { ColumnDefinitionType } from './Table';
 
 type TableHeaderProps<T, K extends keyof T> = {
   columns: Array<ColumnDefinitionType<T, K>>;
+  data: Array<T>;
+  sortData: any;
 };
 
 const styles = {
@@ -10,12 +12,34 @@ const styles = {
   thead: `bg-gray-50`,
 };
 
+const sortTableData = (data: any[], sortBy: string | number, sortData: any) => {
+  const sortedData = data.sort((a, b) => {
+    if (a[sortBy] < b[sortBy]) return -1;
+    if (a[sortBy] > b[sortBy]) return 1;
+    return 0;
+  });
+
+  console.log(sortedData);
+
+  sortData(sortedData);
+};
+
 const TableHeader = <T, K extends keyof T>({
+  data,
   columns,
+  sortData,
 }: TableHeaderProps<T, K>) => {
-  const headers = columns.map((column, index) => {
+  const headers = columns.map((column: any, index) => {
+    console.log(column);
     return (
       <th scope="col" key={`headerCell-${index}`} className={`${styles.core}`}>
+        {column.sort?.active ? (
+          <a onClick={() => sortTableData(data, column.key, sortData)}>
+            column.headers
+          </a>
+        ) : (
+          column.header
+        )}
         {column.header}
       </th>
     );
