@@ -1,6 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { ColumnDefinitionType } from './Table';
+import {
+  ChevronUpDownIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from '@heroicons/react/20/solid';
 
 type TableHeaderProps<T, K extends keyof T> = {
   columns: Array<ColumnDefinitionType<T, K>>;
@@ -13,18 +18,17 @@ const styles = {
   thead: `bg-gray-50`,
 };
 
-const sortTableData = (data: any[], orderBy: string | number, asc: boolean) => {
-  // copy array since its memeory location does not change when sorted
-
-  const sortedData = data.concat().sort((a, b) => {
-    if (a[orderBy] < b[orderBy]) return -1;
-    if (a[orderBy] > b[orderBy]) return 1;
-    return 0;
+const sortTableData = (data: any[], orderBy: string, asc: boolean) => {
+  const sortedData = [...data].sort((a, b) => {
+    if (a[orderBy] === null) return 1;
+    if (b[orderBy] === null) return -1;
+    if (a[orderBy] === null && b[orderBy] === null) return 0;
+    return (
+      a[orderBy].toString().localeCompare(b[orderBy].toString(), 'en', {
+        numeric: true,
+      }) * (asc ? 1 : -1)
+    );
   });
-
-  if (!asc) {
-    return sortedData.reverse();
-  }
 
   return sortedData;
 };
@@ -34,21 +38,35 @@ const TableHeader = <T, K extends keyof T>({
   columns,
   sortData,
 }: TableHeaderProps<T, K>) => {
+  const [ascending, setAscending] = useState(false);
+  const [active, setActive] = useState('');
+
   const headers = columns.map((column: any, index) => {
     return (
       <th scope="col" key={`headerCell-${index}`} className={`${styles.core}`}>
-        {column.sort?.active ? (
+        {column.sort?.sortable ? (
           <button
             onClick={() => {
-              sortData(sortTableData(data, column.key, !column.sort.asc));
+              setActive(column.key);
+
+              sortData(sortTableData(data, column.key, ascending));
+
+              setAscending(active !== column.key ? false : !ascending);
             }}
           >
-            column.headers
+            {column.header}
+
+            {column.key === active && !ascending ? (
+              <ChevronDownIcon className="w-5 h-5" />
+            ) : column.key === active && ascending ? (
+              <ChevronUpIcon className="w-5 h-5" />
+            ) : (
+              <ChevronUpDownIcon className="w-5 h-5" />
+            )}
           </button>
         ) : (
           column.header
         )}
-        {column.header}
       </th>
     );
   });

@@ -15,14 +15,14 @@ const columns: ColumnDefinitionType<Table, keyof Table>[] = [
     key: 'id',
     header: 'ID',
     sort: {
-      active: true,
+      sortable: true,
     },
   },
   {
     key: 'title',
     header: 'Title',
     sort: {
-      active: true,
+      sortable: true,
     },
   },
 ];
