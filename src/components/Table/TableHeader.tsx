@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { ColumnDefinitionType } from './Table';
 import {
@@ -38,8 +38,14 @@ const TableHeader = <T, K extends keyof T>({
   columns,
   sortData,
 }: TableHeaderProps<T, K>) => {
-  const [ascending, setAscending] = useState(false);
+  const [ascending, setAscending] = useState(true);
   const [active, setActive] = useState('');
+
+  useEffect(() => {
+    if (active) {
+      sortData(sortTableData(data, active, ascending));
+    }
+  }, [active, ascending]);
 
   const headers = columns.map((column: any, index) => {
     return (
@@ -47,18 +53,20 @@ const TableHeader = <T, K extends keyof T>({
         {column.sort?.sortable ? (
           <button
             onClick={() => {
-              setActive(column.key);
-
-              sortData(sortTableData(data, column.key, ascending));
-
-              setAscending(active !== column.key ? false : !ascending);
+              setActive(oldActive => {
+                setAscending(() => {
+                  const reorder = oldActive !== column.key ? true : !ascending;
+                  return reorder;
+                });
+                return column.key;
+              });
             }}
           >
             {column.header}
 
-            {column.key === active && !ascending ? (
+            {column.key === active && ascending ? (
               <ChevronDownIcon className="w-5 h-5" />
-            ) : column.key === active && ascending ? (
+            ) : column.key === active && !ascending ? (
               <ChevronUpIcon className="w-5 h-5" />
             ) : (
               <ChevronUpDownIcon className="w-5 h-5" />
