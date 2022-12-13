@@ -18,9 +18,9 @@ export interface TableProps<T, K extends keyof T> {
 }
 
 const styles = {
-  core: `min-w-full divide-y divide-cu-black-100 overflow-hidden shadow-lg rounded-lg`,
+  core: `min-w-full rounded-lg overflow-hidden border-spacing-0 border-separate border-collapse`,
   shadow: `shadow-lg`,
-  border: `border-4 border-cu-black-100`,
+  border: `border border-cu-black-100`,
 };
 
 export const Table = <T, K extends keyof T>({

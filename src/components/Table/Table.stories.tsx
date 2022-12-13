@@ -71,3 +71,39 @@ Default.args = {
   hasBorder: false,
   hasShadow: false,
 };
+
+export const WithStripes = Template.bind({});
+WithStripes.args = {
+  data: finalTableData,
+  columns: columns,
+  hasStripes: true,
+  hasBorder: false,
+  hasShadow: false,
+};
+
+export const WithShadow = Template.bind({});
+WithShadow.args = {
+  data: finalTableData,
+  columns: columns,
+  hasStripes: false,
+  hasBorder: false,
+  hasShadow: true,
+};
+
+export const WithBorder = Template.bind({});
+WithBorder.args = {
+  data: finalTableData,
+  columns: columns,
+  hasStripes: true,
+  hasBorder: true,
+  hasShadow: false,
+};
+
+export const ShadowAndBorder = Template.bind({});
+ShadowAndBorder.args = {
+  data: finalTableData,
+  columns: columns,
+  hasStripes: true,
+  hasBorder: true,
+  hasShadow: true,
+};

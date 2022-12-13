@@ -18,12 +18,15 @@ const TableRows = <T, K extends keyof T>({
   striped,
 }: TableRowsProps<T, K>) => {
   const stripedStyles = striped
-    ? 'odd:bg-white even:bg-gray-50 '
+    ? 'odd:bg-white even:bg-gray-50'
     : 'hover:bg-gray-100';
 
   const rows = data.map((row, index) => {
     return (
-      <tr className={stripedStyles} key={`row-${index}`}>
+      <tr
+        className={`${stripedStyles} [&>td]:border-b [&>td]:border-cu-gray-100 [&>td]:last:border-0`}
+        key={`row-${index}`}
+      >
         {columns.map((column, index2) => {
           return (
             <td key={`cell-${index2}`} className={`${styles.core}`}>
