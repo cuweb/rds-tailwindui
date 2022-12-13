@@ -61,9 +61,13 @@ export default {
   },
 } as Meta<typeof Table>;
 
-const DefaultTemplate: Story<TableProps<any, any>> = () => (
-  <Table data={finalTableData} columns={columns} />
-);
+const Template: Story<TableProps<any, any>> = args => <Table {...args} />;
 
-// ADD COMPONENT ARGS WITH DEFAULT SETTINGS
-export const Default = DefaultTemplate.bind({});
+export const Default = Template.bind({});
+Default.args = {
+  data: finalTableData,
+  columns: columns,
+  hasStripes: false,
+  hasBorder: false,
+  hasShadow: false,
+};

@@ -18,8 +18,8 @@ const TableRows = <T, K extends keyof T>({
   striped,
 }: TableRowsProps<T, K>) => {
   const stripedStyles = striped
-    ? 'even:bg-amber-100 odd:bg-blue-100 '
-    : 'hover:bg-gray-50';
+    ? 'odd:bg-white even:bg-gray-50 '
+    : 'hover:bg-gray-100';
 
   const rows = data.map((row, index) => {
     return (
