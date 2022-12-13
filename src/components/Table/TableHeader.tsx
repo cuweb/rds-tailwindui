@@ -29,7 +29,7 @@ const TableHeader = <T, K extends keyof T>({
     if (active) {
       sortData(active, ascending);
     }
-  }, [active, ascending]);
+  }, [active, ascending, sortData]);
 
   const headers = columns.map((column: any, index) => {
     return (
