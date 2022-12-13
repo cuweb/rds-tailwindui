@@ -25,6 +25,15 @@ const TableHeader = <T, K extends keyof T>({
   const [ascending, setAscending] = useState(true);
   const [active, setActive] = useState('');
 
+  const handleSortChange = (key: string, ascending: boolean) => {
+    setActive(oldActive => {
+      setAscending(() => {
+        return oldActive !== key ? true : !ascending;
+      });
+      return key;
+    });
+  };
+
   useEffect(() => {
     if (active) {
       sortData(active, ascending);
@@ -48,14 +57,7 @@ const TableHeader = <T, K extends keyof T>({
         {column.sort?.sortable ? (
           <button
             className="w-full h-full text-left"
-            onClick={() => {
-              setActive(oldActive => {
-                setAscending(() => {
-                  return oldActive !== column.key ? true : !ascending;
-                });
-                return column.key;
-              });
-            }}
+            onClick={() => handleSortChange(column.key, ascending)}
             aria-label={'Sort by ' + column.key}
           >
             {column.header}
