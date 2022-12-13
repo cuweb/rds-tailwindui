@@ -8,7 +8,7 @@ type TableRowsProps<T, K extends keyof T> = {
 };
 
 const styles = {
-  core: `whitespace-nowrap px-3 py-4 text-sm text-cu-black-500`,
+  core: `whitespace-nowrap px-3 py-4 text-sm text-cu-black-600`,
   tbody: `divide-y divide-gray-200 bg-white`,
 };
 
@@ -19,7 +19,7 @@ const TableRows = <T, K extends keyof T>({
 }: TableRowsProps<T, K>) => {
   const stripedStyles = striped
     ? 'odd:bg-white even:bg-gray-50'
-    : 'hover:bg-gray-100';
+    : 'hover:bg-blue-50';
 
   const rows = data.map((row, index) => {
     return (
