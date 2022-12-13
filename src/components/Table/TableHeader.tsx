@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import { ColumnDefinitionType } from './Table';
 import {
   ChevronUpDownIcon,
@@ -10,7 +10,7 @@ import {
 type TableHeaderProps<T, K extends keyof T> = {
   columns: Array<ColumnDefinitionType<T, K>>;
   data: Array<T>;
-  sortData: React.Dispatch<React.SetStateAction<any[]>>;
+  sortData: any;
 };
 
 const styles = {
@@ -18,23 +18,7 @@ const styles = {
   thead: `bg-gray-100`,
 };
 
-const sortTableData = (data: any[], orderBy: string | number, asc: boolean) => {
-  const sortedData = [...data].sort((a, b) => {
-    if (a[orderBy] === null) return 1;
-    if (b[orderBy] === null) return -1;
-    if (a[orderBy] === null && b[orderBy] === null) return 0;
-    return (
-      a[orderBy].toString().localeCompare(b[orderBy].toString(), 'en', {
-        numeric: true,
-      }) * (asc ? 1 : -1)
-    );
-  });
-
-  return sortedData;
-};
-
 const TableHeader = <T, K extends keyof T>({
-  data,
   columns,
   sortData,
 }: TableHeaderProps<T, K>) => {
@@ -43,7 +27,7 @@ const TableHeader = <T, K extends keyof T>({
 
   useEffect(() => {
     if (active) {
-      sortData(sortTableData(data, active, ascending));
+      sortData(active, ascending);
     }
   }, [active, ascending]);
 
