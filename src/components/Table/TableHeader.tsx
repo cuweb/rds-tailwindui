@@ -18,7 +18,7 @@ const styles = {
   thead: `bg-gray-50`,
 };
 
-const sortTableData = (data: any[], orderBy: string, asc: boolean) => {
+const sortTableData = (data: any[], orderBy: string | number, asc: boolean) => {
   const sortedData = [...data].sort((a, b) => {
     if (a[orderBy] === null) return 1;
     if (b[orderBy] === null) return -1;
@@ -49,27 +49,38 @@ const TableHeader = <T, K extends keyof T>({
 
   const headers = columns.map((column: any, index) => {
     return (
-      <th scope="col" key={`headerCell-${index}`} className={`${styles.core}`}>
+      <th
+        scope="col"
+        key={`headerCell-${index}`}
+        className={`${styles.core}`}
+        aria-sort={
+          column.key === active && ascending
+            ? 'descending'
+            : column.key === active && !ascending
+            ? 'ascending'
+            : undefined
+        }
+      >
         {column.sort?.sortable ? (
           <button
+            className="w-full h-full text-left"
             onClick={() => {
               setActive(oldActive => {
                 setAscending(() => {
-                  const reorder = oldActive !== column.key ? true : !ascending;
-                  return reorder;
+                  return oldActive !== column.key ? true : !ascending;
                 });
                 return column.key;
               });
             }}
+            aria-label={'Sort by ' + column.key}
           >
             {column.header}
-
             {column.key === active && ascending ? (
-              <ChevronDownIcon className="w-5 h-5" />
+              <ChevronDownIcon className="inline-block ml-2 w-4 h-4" />
             ) : column.key === active && !ascending ? (
-              <ChevronUpIcon className="w-5 h-5" />
+              <ChevronUpIcon className="inline-block ml-2 w-4 h-4" />
             ) : (
-              <ChevronUpDownIcon className="w-5 h-5" />
+              <ChevronUpDownIcon className="inline-block ml-2 w-4 h-4" />
             )}
           </button>
         ) : (
