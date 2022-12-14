@@ -1,7 +1,7 @@
 import React from 'react';
 
 const styles = {
-  panel: `cu-panel rounded-lg bg-white`,
+  panel: `cu-panel rounded-lg bg-white [&+.cu-panel]:mt-8`,
   border: `border border-cu-black-100`,
   shadow: `shadow-lg`,
   title: `px-6 py-4 text-base font-bold border-b rounded-t-lg bg-gray-50 text-cu-black-900`,
