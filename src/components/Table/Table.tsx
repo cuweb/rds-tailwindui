@@ -1,7 +1,7 @@
 import React from 'react';
 import TableHeader from './TableHeader';
 import TableRows from './TableRows';
-import { useSortableTable } from './useSortableTable';
+import { useSortableTable } from '../../hooks/useSortableTable';
 
 export interface ColumnDefinitionType<T, K extends keyof T> {
   key: K;
@@ -18,7 +18,7 @@ export interface TableProps<T, K extends keyof T> {
 }
 
 const styles = {
-  core: `min-w-full rounded-lg overflow-hidden border-spacing-0 border-separate`,
+  core: `min-w-full rounded-lg overflow-hidden border-spacing-0 border-separate border-collapse`,
   shadow: `shadow-lg`,
   border: `border border-cu-black-100`,
 };
@@ -36,7 +36,7 @@ export const Table = <T, K extends keyof T>({
 
   return (
     <table className={`${styles.core} ${borderStyle} ${shadowStyle}`}>
-      <TableHeader data={tableData} columns={columns} sortData={setTableData} />
+      <TableHeader columns={columns} sortData={setTableData} />
       <TableRows data={tableData} columns={columns} striped={hasStripes} />
     </table>
   );

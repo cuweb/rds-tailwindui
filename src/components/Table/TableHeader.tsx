@@ -9,7 +9,6 @@ import {
 
 type TableHeaderProps<T, K extends keyof T> = {
   columns: Array<ColumnDefinitionType<T, K>>;
-  data: Array<T>;
   sortData: any;
 };
 
@@ -25,10 +24,10 @@ const TableHeader = <T, K extends keyof T>({
   const [ascending, setAscending] = useState(true);
   const [active, setActive] = useState('');
 
-  const handleSortChange = (key: string, ascending: boolean) => {
+  const handleSortChange = (key: string, asc: boolean) => {
     setActive(oldActive => {
       setAscending(() => {
-        return oldActive !== key ? true : !ascending;
+        return oldActive !== key ? true : !asc;
       });
       return key;
     });
@@ -38,7 +37,7 @@ const TableHeader = <T, K extends keyof T>({
     if (active) {
       sortData(active, ascending);
     }
-  }, [active, ascending, sortData]);
+  }, [active, ascending]);
 
   const headers = columns.map((column: any, index) => {
     return (
@@ -46,6 +45,11 @@ const TableHeader = <T, K extends keyof T>({
         scope="col"
         key={`headerCell-${index}`}
         className={`${styles.core}`}
+        onClick={() =>
+          column.sort.sortable
+            ? handleSortChange(column.key, ascending)
+            : undefined
+        }
         aria-sort={
           column.key === active && ascending
             ? 'descending'
@@ -53,13 +57,10 @@ const TableHeader = <T, K extends keyof T>({
             ? 'ascending'
             : undefined
         }
+        aria-label={column.sort?.sortable ? 'Sort by ' + column.key : undefined}
       >
         {column.sort?.sortable ? (
-          <button
-            className="w-full h-full text-left"
-            onClick={() => handleSortChange(column.key, ascending)}
-            aria-label={'Sort by ' + column.key}
-          >
+          <button className="w-full h-full text-left">
             {column.header}
             {column.key === active && ascending ? (
               <ChevronDownIcon className="inline-block ml-2 w-4 h-4" />
