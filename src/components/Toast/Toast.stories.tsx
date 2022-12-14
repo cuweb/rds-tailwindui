@@ -36,9 +36,9 @@ const ToastStory = [
 
 const DefaultTemplate: Story = () => (
   <Toast.Toaster>
-    {ToastStory.map((toast: any) => {
+    {ToastStory.map((toast: any, index: number) => {
       return (
-        <Toast type={toast.type}>
+        <Toast key={index} type={toast.type}>
           <Toast.Title>{toast.title}</Toast.Title>
           <Toast.Content>{toast.content}</Toast.Content>
         </Toast>
