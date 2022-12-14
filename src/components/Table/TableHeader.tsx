@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ColumnDefinitionType } from './Table';
 import {
   ChevronUpDownIcon,
@@ -24,20 +24,18 @@ const TableHeader = <T, K extends keyof T>({
   const [ascending, setAscending] = useState(true);
   const [active, setActive] = useState('');
 
-  const handleSortChange = (key: string, asc: boolean) => {
-    setActive(oldActive => {
-      setAscending(() => {
-        return oldActive !== key ? true : !asc;
-      });
-      return key;
-    });
-  };
+  const handleSortChange = (key: string) => {
+    const activeColumn = key;
+    let asc = true;
 
-  useEffect(() => {
-    if (active) {
-      sortData(active, ascending);
+    if (key === active) {
+      asc = !ascending;
     }
-  }, [active, ascending]);
+
+    setActive(activeColumn);
+    setAscending(asc);
+    sortData(activeColumn, asc);
+  };
 
   const headers = columns.map((column: any, index) => {
     return (
@@ -46,9 +44,7 @@ const TableHeader = <T, K extends keyof T>({
         key={`headerCell-${index}`}
         className={`${styles.core}`}
         onClick={() =>
-          column.sort.sortable
-            ? handleSortChange(column.key, ascending)
-            : undefined
+          column.sort.sortable ? handleSortChange(column.key) : undefined
         }
         aria-sort={
           column.key === active && ascending
@@ -60,7 +56,7 @@ const TableHeader = <T, K extends keyof T>({
         aria-label={column.sort?.sortable ? 'Sort by ' + column.key : undefined}
       >
         {column.sort?.sortable ? (
-          <button className="w-full h-full text-left">
+          <>
             {column.header}
             {column.key === active && ascending ? (
               <ChevronDownIcon className="inline-block ml-2 w-4 h-4" />
@@ -69,7 +65,7 @@ const TableHeader = <T, K extends keyof T>({
             ) : (
               <ChevronUpDownIcon className="inline-block ml-2 w-4 h-4" />
             )}
-          </button>
+          </>
         ) : (
           column.header
         )}
