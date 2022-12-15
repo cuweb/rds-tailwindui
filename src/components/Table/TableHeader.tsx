@@ -14,7 +14,8 @@ type TableHeaderProps<T, K extends keyof T> = {
 
 const styles = {
   core: `py-3.5 pl-3 pr-3 text-left text-sm font-semibold text-cu-black-900 `,
-  thead: `bg-gray-100`,
+  thead: `bg-gray-100 `,
+  sortable: `hover:cursor `,
 };
 
 const TableHeader = <T, K extends keyof T>({
@@ -38,11 +39,15 @@ const TableHeader = <T, K extends keyof T>({
   };
 
   const headers = columns.map((column: any, index) => {
+    const sortableStyles = column.sort.sortable
+      ? 'hover:cursor-pointer'
+      : 'hover:cursor-auto';
+
     return (
       <th
         scope="col"
         key={`headerCell-${index}`}
-        className={`${styles.core}`}
+        className={`${styles.core}` + `${sortableStyles}`}
         onClick={() =>
           column.sort.sortable ? handleSortChange(column.key) : undefined
         }
