@@ -56,8 +56,8 @@ const TableHeader = <T, K extends keyof T>({
         aria-label={column.sort?.sortable ? 'Sort by ' + column.key : undefined}
       >
         {column.sort?.sortable ? (
-          <>
-            {column.header}
+          <div className="flex items-center">
+            <div>{column.header}</div>
             {column.key === active && ascending ? (
               <ChevronDownIcon className="inline-block ml-2 w-4 h-4" />
             ) : column.key === active && !ascending ? (
@@ -65,7 +65,7 @@ const TableHeader = <T, K extends keyof T>({
             ) : (
               <ChevronUpDownIcon className="inline-block ml-2 w-4 h-4" />
             )}
-          </>
+          </div>
         ) : (
           column.header
         )}
