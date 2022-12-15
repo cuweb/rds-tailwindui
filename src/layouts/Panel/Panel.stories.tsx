@@ -58,6 +58,19 @@ const WithTitleTemplate: Story<PanelProps> = args => (
   </Panel>
 );
 
+const ConsecutiveTemplate: Story<PanelProps> = args => (
+  <>
+    <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+      <Panel.Title>Panel Title</Panel.Title>
+      <p className={content.spacing}>{content.paragraph}</p>
+    </Panel>
+    <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+      <Panel.Title>Panel Title</Panel.Title>
+      <p className={content.spacing}>{content.paragraph}</p>
+    </Panel>
+  </>
+);
+
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   hasBorder: false,
@@ -87,8 +100,14 @@ WithTitle.args = {
   ...ShadowAndBorder.args,
 };
 
+export const Consecutive = ConsecutiveTemplate.bind({});
+Consecutive.args = {
+  ...ShadowAndBorder.args,
+};
+
 Default.storyName = 'Default item';
 WithBorder.storyName = 'With border';
 WithShadow.storyName = 'With shadow';
 ShadowAndBorder.storyName = 'With border & shadow';
 WithTitle.storyName = 'With a title';
+Consecutive.storyName = 'Consecutive panels';
