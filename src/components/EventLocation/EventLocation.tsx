@@ -1,36 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   GoogleMap,
   MarkerF,
   useLoadScript,
   InfoWindowF,
 } from '@react-google-maps/api';
-
 export interface EventLocationProps {
+  apiKey: string;
   lat?: string;
   lng?: string;
   location?: string;
   zoom?: number;
-  isLoaded1?: boolean;
 }
 export const EventLocation = ({
+  apiKey,
   lat,
   lng,
   location,
   zoom = 15,
-  isLoaded1
 }: EventLocationProps) => {
-// let isLoaded2;
-//   if(isLoaded1=== undefined){
-//   const { isLoaded } = useLoadScript({
-//     googleMapsApiKey: apiKey,
-//   });
-//   isLoaded2 = isLoaded
-  
-// }else{
-// isLoaded2 = false
-// }
-//   console.log("isLoa",isLoaded1)
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: apiKey,
+  });
   const [showInfo, setShowInfo] = React.useState(false);
 
   const mapRef = React.useRef();
@@ -46,7 +37,7 @@ export const EventLocation = ({
     streetViewControl: true,
   };
 
-  return isLoaded1 ? (
+  return isLoaded ? (
     <div>
       <GoogleMap
         mapContainerClassName="w-full h-96"
