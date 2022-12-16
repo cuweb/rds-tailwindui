@@ -2,7 +2,8 @@ import React from 'react';
 import { rdsBgColor } from '../../utils/tailwindClasses';
 
 const styles = {
-  container: `cu-container py-8`,
+  //   container: `cu-container py-8`,
+  container: `cu-container p-8`,
 };
 
 export interface ContainerProps {
