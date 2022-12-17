@@ -74,12 +74,12 @@ export const TopNav = ({
       as="nav"
       className={` ${
         sticky ? 'sticky' : ''
-      } top-0 z-50 border-t-2 border-cu-red bg-white shadow`}
+      } top-0 z-50 border-t-2 border-cu-red bg-white shadow px-6 lg:px-8`}
       id="topNav"
     >
       {({ open }) => (
         <>
-          <div className="mx-auto flex h-20 max-w-7xl gap-6 px-2 sm:px-4 lg:px-8">
+          <div className="mx-auto flex h-20 max-w-7xl gap-6">
             {/* Logo  */}
             <div className="flex flex-shrink-0 items-center hover:text-cu-red">
               <Link href={logoUrl ? logoUrl : '/'} wrapper={wrapLink}>
@@ -89,7 +89,7 @@ export const TopNav = ({
 
             {/* mobile Menu open Button  */}
             <div className="flex items-center lg:hidden">
-              <div className="absolute mx-4 right-4">
+              <div className="absolute ml-4 right-4">
                 {hasSearch && sourceData && (
                   <div className=" inline-flex items-center  p-2">
                     <Search sourceData={sourceData} searchOn={searchOn} />
@@ -156,7 +156,8 @@ export const TopNav = ({
           </div>
           {/* Mobile Menu  */}
           {/* active state on mobile */}
-          <Disclosure.Panel className="lg:hidden">
+
+          <Disclosure.Panel className="lg:hidden -mx-2 sm:-mx-4 lg:-mx-8">
             {({ close }) => (
               <>
                 <div className="pt-2 pb-3 space-y-1">

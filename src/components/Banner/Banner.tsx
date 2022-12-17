@@ -28,13 +28,14 @@ const typeStyles = {
 };
 
 const contentStyles = {
-  title: `font-semibold text-xl`,
+  title: `font-semibold text-3xl`,
   paragraph: `text-base lg:text-xl max-w-5xl`,
 };
 
 const otherStyles = {
   buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
-  overlap: `pb-20 md:pb-36 [&+main]:relative [&+main]:z-20 [&+main]:-mt-12 md:[&+main]:-mt-28`,
+  //   overlap: `pb-20 md:pb-36 [&+main]:relative [&+main]:z-20 [&+main]:-mt-12 md:[&+main]:-mt-28`,
+  overlap: `pb-20 md:pb-36`,
 };
 
 const BannerBase = ({
@@ -67,11 +68,11 @@ const BannerBase = ({
   return (
     <>
       <header
-        className={`relative ${typeStyles[isType]} py-8 ${bannerSpacing} ${overlapStyles} md:flex md:items-center md:min-h-[240px]`}
+        className={`relative ${typeStyles[isType]} py-8 px-6  ${bannerSpacing} ${overlapStyles} md:flex md:items-center md:px-8 md:min-h-[240px]`}
         id="banner"
       >
         <div
-          className={`z-10 flex flex-1 ${flexAlign} items-center justify-center gap-8 px-6 md:px-8 m-auto max-w-7xl [&>*]:z-10`}
+          className={`z-10 flex flex-1 ${flexAlign} items-center justify-center gap-8 m-auto max-w-7xl [&>*]:z-10`}
         >
           <div className={`flex flex-auto flex-col gap-4 ${contentAlign}`}>
             <h1 className={`${contentStyles.title} ${rdsFontSizes[fontSize]}`}>
