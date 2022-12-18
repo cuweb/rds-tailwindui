@@ -42,7 +42,7 @@ const WithTwoColumnsTemplate: Story<ContainerProps> = args => (
   </Container>
 );
 
-const WithPanelsTemplate: Story<ContainerProps> = args => (
+const WithPanelGridTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
     <Column cols="2">
       <Panel hasBorder hasShadow>
@@ -54,6 +54,19 @@ const WithPanelsTemplate: Story<ContainerProps> = args => (
         <p className="p-6">{content.paragraph}</p>
       </Panel>
     </Column>
+  </Container>
+);
+
+const WithPanelStackedTemplate: Story<ContainerProps> = args => (
+  <Container bgColor={args.bgColor}>
+    <Panel hasBorder hasShadow hasGap>
+      <Panel.Title>Panel Header</Panel.Title>
+      <p className="p-6">{content.paragraph}</p>
+    </Panel>
+    <Panel hasBorder hasShadow>
+      <Panel.Title>Panel Header</Panel.Title>
+      <p className="p-6">{content.paragraph}</p>
+    </Panel>
   </Container>
 );
 
@@ -72,12 +85,18 @@ WithTwoColumns.args = {
   ...GreyBackground.args,
 };
 
-export const WithPanels = WithPanelsTemplate.bind({});
-WithPanels.args = {
+export const WithPanelGrid = WithPanelGridTemplate.bind({});
+WithPanelGrid.args = {
+  ...GreyBackground.args,
+};
+
+export const WithPanelStacked = WithPanelStackedTemplate.bind({});
+WithPanelStacked.args = {
   ...GreyBackground.args,
 };
 
 Default.storyName = 'Default transparent bg';
 GreyBackground.storyName = 'Grey background';
 WithTwoColumns.storyName = 'With two columns';
-WithPanels.storyName = 'Two column panels';
+WithPanelGrid.storyName = 'Two column panels';
+WithPanelStacked.storyName = 'Stacked panels';
