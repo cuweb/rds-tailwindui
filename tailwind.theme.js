@@ -24,7 +24,6 @@ module.exports = {
             }),
             backgroundImage: {
                 'cu-waves-red': "url('../src/assets/cu-waves-red.svg')",
-                'cu-waves-white-20': "url('../src/assets/cu-waves-white-20.svg')",
                 'cu-waves-white-10': "url('../src/assets/cu-waves-white-10.svg')",
             },
             colors: {
