@@ -6,9 +6,9 @@ import {
 } from '../../utils/tailwindClasses';
 
 const styles = {
-  column: `cu-column mx-auto grid grid-cols-1 [&:last-child]:mb-0`,
-  isNotNested: ``,
-  isNested: ``,
+  column: `cu-column not-prose mx-auto grid grid-cols-1 [&:last-child]:mb-0`,
+  //   isNotNested: ``,
+  //   isNested: ``,
   //   isNotNested: `px-8`,
   //   isNested: `mt-8`,
 };
@@ -26,16 +26,21 @@ export const Column = ({
   maxWidth = '7xl',
   gridGap = '8',
   cols = '1',
-  isNested,
-}: ColumnProps) => {
+}: //   isNested,
+ColumnProps) => {
   return (
     <div
       className={`
         ${styles.column}
         ${rdsGridColumns[cols]}
         ${rdsMaxWidth[maxWidth]} ${rdsGridSpacing[gridGap]}
-        ${isNested ? styles.isNested : styles.isNotNested}
       `}
+      //   className={`
+      //     ${styles.column}
+      //     ${rdsGridColumns[cols]}
+      //     ${rdsMaxWidth[maxWidth]} ${rdsGridSpacing[gridGap]}
+      //     ${isNested ? styles.isNested : styles.isNotNested}
+      //   `}
     >
       {children}
     </div>
