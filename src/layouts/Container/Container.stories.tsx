@@ -59,7 +59,7 @@ const WithPanelsTemplate: Story<ContainerProps> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  bgColor: 'white',
+  bgColor: 'none',
 };
 
 export const GreyBackground = GreyBgTemplateTemplate.bind({});
@@ -77,7 +77,7 @@ WithPanels.args = {
   ...GreyBackground.args,
 };
 
-Default.storyName = 'Default white bg';
+Default.storyName = 'Default transparent bg';
 GreyBackground.storyName = 'Grey background';
 WithTwoColumns.storyName = 'With two columns';
 WithPanels.storyName = 'Two column panels';
