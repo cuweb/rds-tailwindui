@@ -28,3 +28,4 @@ export { Prose, ProseProps } from './Prose';
 export { SocialShare, SocialShareProps } from './SocialShare';
 export { TopNav, TopNavProps } from './TopNav';
 export { HeroIcon, HeroIconProps } from './HeroIcon';
+export { Form, FormProps } from './Form';
