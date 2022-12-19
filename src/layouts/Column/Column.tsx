@@ -7,8 +7,10 @@ import {
 
 const styles = {
   column: `cu-column mx-auto grid grid-cols-1 [&:last-child]:mb-0`,
-  isNotNested: `px-8`,
-  isNested: `mt-8`,
+  isNotNested: ``,
+  isNested: ``,
+  //   isNotNested: `px-8`,
+  //   isNested: `mt-8`,
 };
 
 export interface ColumnProps {
