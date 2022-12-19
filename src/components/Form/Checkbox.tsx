@@ -42,9 +42,7 @@ export const Checkbox = ({
             {label}
           </label>
           {/* Input Caption  */}
-          <p className="text-gray-500">
-           {caption}
-          </p>
+          <p className="text-gray-500">{caption}</p>
         </div>
       </div>
       {/* Validation Error Message */}

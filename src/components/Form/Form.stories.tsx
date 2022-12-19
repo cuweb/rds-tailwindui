@@ -13,36 +13,62 @@ export default {
   },
 } as Meta<typeof Form>;
 
-const initialValues = {
-  name: '',
-  role: '',
-  tos: false,
+// Form schema, if you want to add more parameters you can dynamically create a form
+const formSchema = {
+  name: {
+    value: '',
+    validation: yup
+      .string()
+      .min(3, 'Name must be at least 3 characters long')
+      .required('Required'),
+  },
+  role: {
+    value: '',
+    validation: yup
+      .string()
+      .oneOf(['designer', 'developer', 'manager', 'other'], 'Invalid Job Type')
+      .required('Required'),
+  },
+  tos: {
+    value: false,
+    validation: yup
+      .boolean()
+      .oneOf([true], 'Please accept the terms of service'),
+  },
 };
 
-export const validationSchema = yup.object().shape({
-  name: yup
-    .string()
-    .min(3, 'Name must be at least 3 characters long')
-    .required('Required'),
-  role: yup
-    .string()
-    .oneOf(['designer', 'developer', 'manager', 'other'], 'Invalid Job Type')
-    .required('Required'),
-  tos: yup.boolean().oneOf([true], 'Please accept the terms of service'),
-});
-
-const onSubmitForm = async (values: any) => {
+// Form Submit method
+const formOnSubmit = async (values: any) => {
   alert('Submitted');
   console.log(values);
 };
 
+// You can also use <option value=''>Select</option> syntax inside Form.Select
+const roleOptions = [
+  {
+    value: '',
+    label: 'Please select a job type',
+  },
+  {
+    value: 'developer',
+    label: 'Developer',
+  },
+  {
+    value: 'designer',
+    label: 'Designer',
+  },
+  {
+    value: 'manager',
+    label: 'Product Manager',
+  },
+  {
+    value: 'other',
+    label: 'Other',
+  },
+];
+
 const DefaultTemplate: Story<FormProps> = args => (
-  <Form
-    {...args}
-    onSubmit={onSubmitForm}
-    initialValues={initialValues}
-    validationSchema={validationSchema}
-  >
+  <Form {...args} onSubmit={formOnSubmit} schema={formSchema}>
     <div className="mt-6">
       <Form.Input
         label="Name"
@@ -54,11 +80,7 @@ const DefaultTemplate: Story<FormProps> = args => (
 
     <div className="mt-6">
       <Form.Select label="Role" name="role" placeholder="Please select a role">
-        <option value="">Please select a job type</option>
-        <option value="developer">Developer</option>
-        <option value="designer">Designer</option>
-        <option value="manager">Product Manager</option>
-        <option value="other">Other</option>
+        <Form.Options options={roleOptions} />
       </Form.Select>
     </div>
 
