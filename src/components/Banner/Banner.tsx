@@ -34,7 +34,6 @@ const contentStyles = {
 
 const otherStyles = {
   buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
-  //   overlap: `pb-20 md:pb-36 [&+main]:relative [&+main]:z-20 [&+main]:-mt-12 md:[&+main]:-mt-28`,
   overlap: `pb-20 md:pb-36`,
 };
 
