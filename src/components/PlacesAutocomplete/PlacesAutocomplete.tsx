@@ -1,50 +1,31 @@
 import { Combobox } from '@headlessui/react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import {  useLoadScript } from '@react-google-maps/api';
 import React, { useState } from 'react';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-
+import { EventLocation } from '../EventLocation/EventLocation';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
-const libraries: (
-  | 'drawing'
-  | 'geometry'
-  | 'localContext'
-  | 'places'
-  | 'visualization'
-)[] = ['places'];
-export const PlacesAutoComplete = (props:any) => {
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey:
-      process.env.NEXT_PUBLIC_REACT_APP_GOOGLE_MAPS_API_KEY || '',
-    libraries: libraries,
-  });
+
+export const PlacesAutoComplete = () => {
   const [address, setAddress] = useState('');
   const [coordinates, setCoordinates] = useState({
     lat: 0,
     lng: 0,
   });
- 
-console.log("parent",props)
+
   const handleSelect = async (value: any) => {
     const results = await geocodeByAddress(value);
     const latLng = await getLatLng(results[0]);
     setAddress(value);
-    setCoordinates(latLng)
+    setCoordinates(latLng);
   };
 
-React.useEffect(()=>{
-  const coords = {...coordinates,address}
-props.parentCallback(coords)
-},[coordinates,address])
-
-
-  return isLoaded ? (
+  return (
     <div>
       <PlacesAutocomplete
         value={address}
@@ -101,9 +82,13 @@ props.parentCallback(coords)
           </div>
         )}
       </PlacesAutocomplete>
-
+      <div className="py-12">
+        <EventLocation
+          lat={coordinates?.lat.toString()}
+          lng={coordinates?.lng.toString()}
+          location={address}
+        />
+      </div>
     </div>
-  ) : (
-    <></>
   );
 };

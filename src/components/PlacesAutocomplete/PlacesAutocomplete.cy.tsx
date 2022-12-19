@@ -1,8 +1,8 @@
-// UPDATE IFRAME URL
-describe('Button', () => {
-  it('Does Button exist?', () => {
-    cy.visit('/iframe.html?id=component--default&viewMode=story');
-    cy.get('button').should('exist');
+describe('PlacesAutocomplete', () => {
+  it('PlacesAutocomplete Default exist?', () => {
+    cy.visit('/iframe.html?id=components-elements-placesautocomplete--default');
+    cy.get('Combobox').should('exist');
+    cy.get('div').should('exist');
   });
 });
 export {};
