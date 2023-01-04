@@ -3,7 +3,7 @@ name: Build and Publish storybook to GitHub Pages
 on:
   push:
     branches:
-      - "develop"
+      - "main"
 jobs:
   deploy:
     environment:
