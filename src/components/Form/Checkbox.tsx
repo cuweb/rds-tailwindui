@@ -54,3 +54,5 @@ export const Checkbox = ({
     </>
   );
 };
+
+Checkbox.displayName = 'Form.Checkbox';

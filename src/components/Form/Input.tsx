@@ -56,3 +56,5 @@ export const Input = ({
     </>
   );
 };
+
+Input.displayName = 'Form.Input';

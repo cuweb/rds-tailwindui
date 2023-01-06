@@ -57,3 +57,4 @@ export const Select = ({
     </>
   );
 };
+Select.displayName = 'Form.Select';

@@ -15,3 +15,5 @@ export const Options = ({ options }: OptionsProps) => {
     </>
   );
 };
+
+Options.displayName = 'Form.Options';
