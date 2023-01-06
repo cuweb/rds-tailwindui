@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-
 import { Form, FormProps } from './Form';
+
 import * as yup from 'yup';
 
 export default {
@@ -67,7 +67,7 @@ const roleOptions = [
   },
 ];
 
-const DefaultTemplate: Story<FormProps> = args => (
+const ExampleTemplate: Story<FormProps> = args => (
   <Form {...args} onSubmit={formOnSubmit} schema={formSchema}>
     <div className="mt-6">
       <Form.Input
@@ -99,4 +99,67 @@ const DefaultTemplate: Story<FormProps> = args => (
   </Form>
 );
 
-export const Default = DefaultTemplate.bind({});
+export const Example = ExampleTemplate.bind({});
+
+const InputTemplate: Story<any> = args => (
+  <Form onSubmit={() => {}} schema={{}}>
+    <div className="mt-6">
+      <Form.Input {...args} />
+    </div>
+  </Form>
+);
+
+export const Input = InputTemplate.bind({});
+Input.args = {
+  label: 'Name',
+  name: 'name',
+  type: 'text',
+  placeholder: 'Enter your name',
+};
+
+const SelectTemplate: Story<any> = args => (
+  <Form onSubmit={() => {}} schema={{}}>
+    <div className="mt-6">
+      <Form.Select {...args}>
+        <Form.Options options={args.options} />
+      </Form.Select>
+    </div>
+  </Form>
+);
+
+export const Select = SelectTemplate.bind({});
+Select.args = {
+  label: 'Role',
+  name: 'role',
+  options: [
+    {
+      value: '',
+      label: 'Please select a job type',
+    },
+    {
+      value: 'developer',
+      label: 'Developer',
+    },
+    {
+      value: 'designer',
+      label: 'Designer',
+    },
+  ],
+};
+
+const CheckboxTemplate: Story<any> = args => (
+  <Form onSubmit={() => {}} schema={{}}>
+    <div className="mt-6">
+      <Form.Checkbox {...args} />
+    </div>
+  </Form>
+);
+
+export const Checkbox = CheckboxTemplate.bind({});
+Checkbox.args = {
+  label: 'Terms of Service',
+  name: 'tos',
+  type: 'checkbox',
+  checked: false,
+  caption: 'Accept the TOS to continue',
+};
