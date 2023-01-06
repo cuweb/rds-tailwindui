@@ -93,7 +93,7 @@ export const Search = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-cu-black/90 transition-opacity" />
+            <div className="fixed inset-0 bg-cu-black/70 transition-opacity" />
           </Transition.Child>
 
           <div className="fixed inset-0 z-100 overflow-y-auto p-4 sm:p-6 md:p-20">

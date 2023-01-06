@@ -9,6 +9,7 @@ export default {
   parameters: {
     controls: { expanded: true },
   },
+  isLoaded: true,
 } as Meta<typeof EventLocation>;
 const address = {
   lat: '45.3850225',
@@ -17,7 +18,6 @@ const address = {
 };
 export const Default = () => (
   <EventLocation
-    apiKey={process.env.NEXT_PUBLIC_REACT_APP_GOOGLE_MAPS_API_KEY || ''}
     lat={address.lat}
     lng={address.lng}
     location={address.location}
