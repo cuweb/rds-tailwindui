@@ -26,6 +26,7 @@ export const rdsGridSpacing = {
 };
 
 export const rdsBgColor = {
+  none: 'bg-transparent',
   black: 'bg-cu-black-800',
   white: 'bg-white',
   red: 'bg-cu-red',
@@ -59,7 +60,7 @@ export const rdsWidth = {
   12: 'w-12',
   16: 'w-16',
   20: 'w-20',
-  24: 'w-22',
+  24: 'w-24',
 };
 
 export const rdsHeight = {
