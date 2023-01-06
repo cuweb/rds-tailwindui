@@ -52,6 +52,7 @@ const FormBase = ({
   );
 };
 
+FormBase.displayName = 'Form';
 Submit.displayName = 'Form.Submit';
 
 export const Form = Object.assign(FormBase, {
