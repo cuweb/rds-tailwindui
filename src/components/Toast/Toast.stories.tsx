@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Toast } from './Toast';
+import { Toast, ToastBaseProps } from './Toast';
 
 export default {
   title: 'Components/Toast/Toast',
@@ -10,6 +10,11 @@ export default {
     controls: { expanded: true },
   },
 } as Meta<typeof Toast>;
+
+interface ToastStoryProps {
+  title: string;
+  content: string;
+}
 
 const ToastStory = [
   {
@@ -34,7 +39,23 @@ const ToastStory = [
   },
 ];
 
-const DefaultTemplate: Story = () => (
+const DefaultTemplate: Story<ToastStoryProps & ToastBaseProps> = args => (
+  <Toast.Toaster>
+    <Toast key={111} type={args.type}>
+      <Toast.Title>{args.title}</Toast.Title>
+      <Toast.Content>{args.content}</Toast.Content>
+    </Toast>
+  </Toast.Toaster>
+);
+
+export const Default = DefaultTemplate.bind({});
+Default.args = {
+  title: 'Success',
+  content: 'Successfully created',
+  type: 'success',
+};
+
+const MultipleTemplate: Story = () => (
   <Toast.Toaster>
     {ToastStory.map((toast: any, index: number) => {
       return (
@@ -47,4 +68,5 @@ const DefaultTemplate: Story = () => (
   </Toast.Toaster>
 );
 
-export const Default = DefaultTemplate.bind({});
+export const Multiple = MultipleTemplate.bind({});
+Multiple.args = {};
