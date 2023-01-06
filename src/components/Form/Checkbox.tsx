@@ -1,5 +1,7 @@
 import React, { InputHTMLAttributes, ClassAttributes } from 'react';
 import { useField, FieldHookConfig } from 'formik';
+import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
+import { formStyles, formErrorStyles } from '../../utils/formClasses';
 
 export interface CheckboxProps {
   label?: string;
@@ -18,39 +20,119 @@ export const Checkbox = ({
 
   return (
     <>
-      <div className="relative flex items-start">
-        {/* Input Field  */}
-        <div className="flex h-5 items-center">
+      <fieldset className={formStyles.elementSpace}>
+        <legend className={formStyles.label}>
+          Who is your favorite Bel-Air personality?
+        </legend>
+        <div className={`${formStyles.checkboxList}`}>
           <input
             {...field}
-            {...props}
-            className={`h-4 w-4 rounded  ${
-              meta.touched && meta.error ? 'border-cu-red' : 'border-gray-300'
-            }  text-indigo-600 focus:ring-indigo-500`}
-            aria-invalid={meta.touched && meta.error ? true : false}
-            aria-describedby={
-              field.name + '-' + (meta.touched && meta.error ? 'error' : '')
-            }
+            id="lastname"
+            type="checkbox"
+            name="developer"
+            value="lastname"
+            className={`${formStyles.checkboxInput} ${
+              meta.touched && meta.error
+                ? formErrorStyles.inputBorder
+                : formStyles.inputBorder
+            }`}
           />
-        </div>
-        <div className="ml-3 text-sm">
-          {/* Input Label  */}
-          <label
-            htmlFor={field.name}
-            className="block text-sm font-medium text-gray-700"
-          >
-            {label}
+          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
+            Name
           </label>
-          {/* Input Caption  */}
-          <p className="text-gray-500">{caption}</p>
         </div>
-      </div>
-      {/* Validation Error Message */}
-      {meta.touched && meta.error && (
-        <p className="mt-2 text-sm text-red-600" id="email-error">
-          {meta.error}
-        </p>
-      )}
+        <div className={`${formStyles.checkboxList}`}>
+          <input
+            {...field}
+            id="lastname"
+            type="checkbox"
+            name="developer"
+            value="lastname"
+            className={`${formStyles.checkboxInput} ${
+              meta.touched && meta.error
+                ? formErrorStyles.inputBorder
+                : formStyles.inputBorder
+            }`}
+          />
+          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
+            Name
+          </label>
+        </div>
+        <div className={`${formStyles.checkboxList}`}>
+          <input
+            {...field}
+            id="lastname"
+            type="checkbox"
+            name="developer"
+            value="lastname"
+            className={`${formStyles.checkboxInput} ${
+              meta.touched && meta.error
+                ? formErrorStyles.inputBorder
+                : formStyles.inputBorder
+            }`}
+          />
+          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
+            Name
+          </label>
+        </div>
+        <div className={`${formStyles.checkboxList}`}>
+          <input
+            {...field}
+            id="lastname"
+            type="checkbox"
+            name="developer"
+            value="lastname"
+            className={`${formStyles.checkboxInput} ${
+              meta.touched && meta.error
+                ? formErrorStyles.inputBorder
+                : formStyles.inputBorder
+            }`}
+          />
+          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
+            Name
+          </label>
+        </div>
+
+        {/* Validation Error Icon*/}
+        {meta.touched && meta.error && (
+          <div className={formErrorStyles.messageDiv}>
+            <ExclamationCircleIcon
+              className={formErrorStyles.errorIcon}
+              aria-hidden="true"
+            />
+            <p className={formErrorStyles.errorText} id="email-error">
+              {meta.error}
+            </p>
+          </div>
+        )}
+      </fieldset>
+
+      <br />
+      <br />
+
+      {/* <div className={formStyles.elementSpace}>
+        <div className="relative flex items-start">
+          <div className="flex items-center h-5">
+            <input
+              {...field}
+              {...props}
+              className={`h-4 w-4 rounded  ${
+                meta.touched && meta.error ? 'border-cu-red' : 'border-gray-300'
+              }  text-indigo-600 focus:ring-indigo-500`}
+              aria-invalid={meta.touched && meta.error ? true : false}
+              aria-describedby={
+                field.name + '-' + (meta.touched && meta.error ? 'error' : '')
+              }
+            />
+          </div>
+          <div className="ml-3 text-sm">
+            <label htmlFor={field.name} className={formStyles.label}>
+              {label}
+            </label>
+            <p className="text-gray-500">{caption}</p>
+          </div>
+        </div>
+      </div> */}
     </>
   );
 };

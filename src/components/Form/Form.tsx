@@ -47,7 +47,7 @@ const FormBase = ({
       validationSchema={yup.object().shape(rules)}
       onSubmit={onSubmit}
     >
-      <FormWrapper>{children}</FormWrapper>
+      <FormWrapper className="space-y-5">{children}</FormWrapper>
     </Formik>
   );
 };

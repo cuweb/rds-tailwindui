@@ -69,33 +69,29 @@ const roleOptions = [
 
 const ExampleTemplate: Story<FormProps> = args => (
   <Form {...args} onSubmit={formOnSubmit} schema={formSchema}>
-    <div className="mt-6">
-      <Form.Input
-        label="Name"
-        name="name"
-        type="text"
-        placeholder="Enter your name"
-      />
-    </div>
+    <Form.Input
+      label="First Name"
+      name="firstname"
+      type="text"
+      placeholder="Enter your first name"
+    />
+    <Form.Input
+      label="Last Name"
+      name="lastname"
+      type="text"
+      placeholder="Enter your last name"
+    />
+    <Form.Select label="Role" name="role" placeholder="Please select a role">
+      <Form.Options options={roleOptions} />
+    </Form.Select>
+    <Form.Checkbox
+      label="TOS"
+      type="checkbox"
+      name="tos"
+      caption="Accept the TOS to continue"
+    />
 
-    <div className="mt-6">
-      <Form.Select label="Role" name="role" placeholder="Please select a role">
-        <Form.Options options={roleOptions} />
-      </Form.Select>
-    </div>
-
-    <div className="mt-6">
-      <Form.Checkbox
-        label="TOS"
-        type="checkbox"
-        name="tos"
-        caption="Accept the TOS to continue"
-      />
-    </div>
-
-    <div className="mt-6">
-      <Form.Submit title="Save" />
-    </div>
+    <Form.Submit title="Submit" />
   </Form>
 );
 
@@ -103,9 +99,7 @@ export const Example = ExampleTemplate.bind({});
 
 const InputTemplate: Story<any> = args => (
   <Form onSubmit={() => {}} schema={{}}>
-    <div className="mt-6">
-      <Form.Input {...args} />
-    </div>
+    <Form.Input {...args} />
   </Form>
 );
 
@@ -119,11 +113,9 @@ Input.args = {
 
 const SelectTemplate: Story<any> = args => (
   <Form onSubmit={() => {}} schema={{}}>
-    <div className="mt-6">
-      <Form.Select {...args}>
-        <Form.Options options={args.options} />
-      </Form.Select>
-    </div>
+    <Form.Select {...args}>
+      <Form.Options options={args.options} />
+    </Form.Select>
   </Form>
 );
 
@@ -149,9 +141,7 @@ Select.args = {
 
 const CheckboxTemplate: Story<any> = args => (
   <Form onSubmit={() => {}} schema={{}}>
-    <div className="mt-6">
-      <Form.Checkbox {...args} />
-    </div>
+    <Form.Checkbox {...args} />
   </Form>
 );
 
