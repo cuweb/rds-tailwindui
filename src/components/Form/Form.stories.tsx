@@ -5,7 +5,7 @@ import { Form, FormProps } from './Form';
 import * as yup from 'yup';
 
 export default {
-  title: 'Components/Elements/Form',
+  title: 'Components/Forms/Form',
   component: Form,
   argTypes: {},
   parameters: {
