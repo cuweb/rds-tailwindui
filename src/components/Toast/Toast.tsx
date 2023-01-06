@@ -29,7 +29,7 @@ const Toaster = ({ children }: ToasterProps) => {
   return (
     <div
       aria-live="assertive"
-      className="fixed inset-0 flex items-end px-4 py-6 pointer-events-none top-20 sm:items-start sm:p-6 z-40"
+      className="fixed inset-0 z-40 flex items-end px-4 py-6 pointer-events-none top-20 sm:items-start sm:p-6"
     >
       <div className="flex flex-col items-center w-full space-y-4 sm:items-end">
         {children}
@@ -107,6 +107,10 @@ const ToastBase = ({ children, type }: ToastBaseProps) => {
     </Transition>
   );
 };
+
+ToastBase.displayName = 'Toast';
+Title.displayName = 'Toast.Title';
+Content.displayName = 'Toast.Content';
 
 export const Toast = Object.assign(ToastBase, {
   Toaster,
