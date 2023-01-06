@@ -47,7 +47,7 @@ const TableHeader = <T, K extends keyof T>({
       <th
         scope="col"
         key={`headerCell-${index}`}
-        className={`${styles.core}` + `${sortableStyles}`}
+        className={`${styles.core} ${sortableStyles}`}
         onClick={() =>
           column.sort.sortable ? handleSortChange(column.key) : undefined
         }
