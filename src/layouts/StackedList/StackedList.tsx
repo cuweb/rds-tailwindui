@@ -1,7 +1,7 @@
 import React from 'react';
 
 const styles = {
-  stackedlist: `not-prose overflow-hidden`,
+  stackedlist: `overflow-hidden`,
   hasDividers: `[&>li]:border-cu-cu-black-50 [&>li]:border-b last:[&>li]:border-b-0`,
 };
 
