@@ -1,4 +1,4 @@
-export const OptionsData = [
+export const SelectData = [
   {
     value: '',
     label: 'Please select a job type',

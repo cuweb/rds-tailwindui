@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Form } from '../BaseForm/Form';
+import { CheckboxData } from './CheckboxData';
 
 export default {
   title: 'Components/Forms/Checkbox',
@@ -19,9 +20,6 @@ const DefaultTemplate: Story<any> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  label: 'Terms of Service',
-  name: 'tos',
-  type: 'checkbox',
-  checked: false,
-  caption: 'Accept the TOS to continue',
+  name: '1',
+  options: [...CheckboxData],
 };

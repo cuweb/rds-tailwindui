@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Form } from '../BaseForm/Form';
-import { OptionsData } from './SelectData';
+import { SelectData } from './SelectData';
 
 export default {
   title: 'Components/Forms/Select List',
@@ -24,5 +24,5 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
   label: 'Role',
   name: 'role',
-  options: [...OptionsData],
+  options: [...SelectData],
 };
