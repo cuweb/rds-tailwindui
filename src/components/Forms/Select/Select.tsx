@@ -1,13 +1,27 @@
 import React, { SelectHTMLAttributes, ClassAttributes } from 'react';
 import { useField, FieldHookConfig } from 'formik';
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
-import { formStyles, formErrorStyles } from '../../utils/formClasses';
+import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 
 export interface SelectProps {
   label?: string;
 }
 
-export const Select = ({
+export interface OptionsProps {
+  options?: any[];
+}
+
+const Options = ({ options }: OptionsProps) => {
+  return (
+    <>
+      {options?.map(option => (
+        <option value={option.value}>{option.label}</option>
+      ))}
+    </>
+  );
+};
+
+const SelectBase = ({
   label,
   ...props
 }: SelectProps &
@@ -50,4 +64,10 @@ export const Select = ({
     </div>
   );
 };
-Select.displayName = 'Form.Select';
+
+SelectBase.displayName = 'Form.Select';
+Options.displayName = 'Form.Options';
+
+export const Select = Object.assign(SelectBase, {
+  Options,
+});

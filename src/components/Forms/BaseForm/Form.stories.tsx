@@ -5,7 +5,7 @@ import { Form, FormProps } from './Form';
 import * as yup from 'yup';
 
 export default {
-  title: 'Components/Forms/Form',
+  title: 'Components/Forms/Base Form',
   component: Form,
   argTypes: {},
   parameters: {
@@ -67,6 +67,12 @@ const roleOptions = [
   },
 ];
 
+const DefaultTemplate: Story<FormProps> = () => (
+  <Form onSubmit={() => {}} schema={{}}>
+    Add input components inside the form as children
+  </Form>
+);
+
 const ExampleTemplate: Story<FormProps> = args => (
   <Form {...args} onSubmit={formOnSubmit} schema={formSchema}>
     <Form.Input
@@ -82,7 +88,7 @@ const ExampleTemplate: Story<FormProps> = args => (
       placeholder="Enter your last name"
     />
     <Form.Select label="Role" name="role" placeholder="Please select a role">
-      <Form.Options options={roleOptions} />
+      <Form.Select.Options options={roleOptions} />
     </Form.Select>
     <Form.Checkbox
       label="TOS"
@@ -95,61 +101,5 @@ const ExampleTemplate: Story<FormProps> = args => (
   </Form>
 );
 
+export const Default = DefaultTemplate.bind({});
 export const Example = ExampleTemplate.bind({});
-
-const InputTemplate: Story<any> = args => (
-  <Form onSubmit={() => {}} schema={{}}>
-    <Form.Input {...args} />
-  </Form>
-);
-
-export const Input = InputTemplate.bind({});
-Input.args = {
-  label: 'Name',
-  name: 'name',
-  type: 'text',
-  placeholder: 'Enter your name',
-};
-
-const SelectTemplate: Story<any> = args => (
-  <Form onSubmit={() => {}} schema={{}}>
-    <Form.Select {...args}>
-      <Form.Options options={args.options} />
-    </Form.Select>
-  </Form>
-);
-
-export const Select = SelectTemplate.bind({});
-Select.args = {
-  label: 'Role',
-  name: 'role',
-  options: [
-    {
-      value: '',
-      label: 'Please select a job type',
-    },
-    {
-      value: 'developer',
-      label: 'Developer',
-    },
-    {
-      value: 'designer',
-      label: 'Designer',
-    },
-  ],
-};
-
-const CheckboxTemplate: Story<any> = args => (
-  <Form onSubmit={() => {}} schema={{}}>
-    <Form.Checkbox {...args} />
-  </Form>
-);
-
-export const Checkbox = CheckboxTemplate.bind({});
-Checkbox.args = {
-  label: 'Terms of Service',
-  name: 'tos',
-  type: 'checkbox',
-  checked: false,
-  caption: 'Accept the TOS to continue',
-};

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Input } from './Input';
-import { Select } from './Select';
-import { Checkbox } from './Checkbox';
-import { Options } from './Options';
-import { Button } from '../Button';
+import { Input } from '../Input/Input';
+import { Select } from '../Select/Select';
+import { Checkbox } from '../Checkbox/Checkbox';
+import { Button } from '../../Button';
 
 import { Form as FormWrapper, Formik } from 'formik';
 import * as yup from 'yup';
@@ -59,6 +58,5 @@ export const Form = Object.assign(FormBase, {
   Input,
   Select,
   Checkbox,
-  Options,
   Submit,
 });
