@@ -1,14 +1,18 @@
 export const SelectData = [
   {
     value: '',
-    label: 'Please select a job type',
+    label: 'Please select one sitcom',
   },
   {
-    value: 'developer',
-    label: 'Developer',
+    value: 'freshprince',
+    label: 'The Fresh Prince of Bel-Air',
   },
   {
-    value: 'designer',
-    label: 'Designer',
+    value: 'savedbythebell',
+    label: 'Saved by the Bell',
+  },
+  {
+    value: 'familymatter',
+    label: 'Family Matters',
   },
 ];

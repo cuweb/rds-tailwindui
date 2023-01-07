@@ -20,6 +20,7 @@ const DefaultTemplate: Story<any> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  name: '1',
+  label: 'Who are your favourite 90s sitcom characters?',
+  name: 'favcharacters',
   options: [...CheckboxData],
 };

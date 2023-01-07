@@ -3,6 +3,8 @@ import { Meta, Story } from '@storybook/react';
 import { Form, FormProps } from './Form';
 import { FormSchema } from './FormData';
 import { SelectData } from '../Select/SelectData';
+import { CheckboxData } from '../Checkbox/CheckboxData';
+import { Column } from '../../../layouts';
 
 export default {
   title: 'Components/Forms/Base Form',
@@ -27,32 +29,39 @@ const DefaultTemplate: Story<FormProps> = () => (
 
 const ExampleTemplate: Story<FormProps> = args => (
   <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
-    <Form.Input
-      label="First Name"
-      name="firstname"
-      type="text"
-      placeholder="Enter your first name"
-    />
+    <Column cols="2">
+      <Form.Input
+        label="First Name"
+        name="firstname"
+        placeholder="Enter your first name"
+      />
+
+      <Form.Input
+        label="Last Name"
+        name="lastname"
+        placeholder="Enter your last name"
+      />
+    </Column>
 
     <Form.Input
-      label="Last Name"
-      name="lastname"
-      type="text"
-      placeholder="Enter your last name"
+      label="Address"
+      name="address"
+      placeholder="Enter your street name and house number, if applicable"
     />
 
-    <Form.Select label="Role" name="role" placeholder="Please select a role">
-      <Form.Select.Options options={SelectData} />
-    </Form.Select>
+    <Form.Select
+      label="What is your favorite 90s sitcom?"
+      name="favsitcom"
+      options={SelectData}
+    />
 
     <Form.Checkbox
-      label="TOS"
-      type="checkbox"
-      name="tos"
-      caption="Accept the TOS to continue"
+      label="Who are your favourite 90s sitcom characters?"
+      name="favcharacters"
+      options={CheckboxData}
     />
 
-    <Form.Submit title="Submit" />
+    <Form.Submit title="Submit Your Answers" />
   </Form>
 );
 

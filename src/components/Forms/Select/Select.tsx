@@ -5,24 +5,12 @@ import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 
 export interface SelectProps {
   label?: string;
-}
-
-export interface OptionsProps {
   options?: any[];
 }
 
-const Options = ({ options }: OptionsProps) => {
-  return (
-    <>
-      {options?.map(option => (
-        <option value={option.value}>{option.label}</option>
-      ))}
-    </>
-  );
-};
-
-const SelectBase = ({
+export const Select = ({
   label,
+  options,
   ...props
 }: SelectProps &
   SelectHTMLAttributes<HTMLSelectElement> &
@@ -47,7 +35,11 @@ const SelectBase = ({
         aria-describedby={
           field.name + (meta.touched && meta.error ? '-error' : '')
         }
-      />
+      >
+        {options?.map(option => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
 
       {/* Validation Error Icon*/}
       {meta.touched && meta.error && (
@@ -64,10 +56,3 @@ const SelectBase = ({
     </div>
   );
 };
-
-SelectBase.displayName = 'Form.Select';
-Options.displayName = 'Form.Options';
-
-export const Select = Object.assign(SelectBase, {
-  Options,
-});

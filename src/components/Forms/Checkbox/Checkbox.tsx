@@ -22,28 +22,27 @@ export const Checkbox = ({
 
   return (
     <fieldset className={formStyles.elementSpace}>
-      <legend className={formStyles.label}>
-        Who is your favorite Bel-Air personality?
-      </legend>
+      <legend className={formStyles.label}>{label}</legend>
 
       {options?.map(option => (
-        <div key={option.index} className={`${formStyles.checkboxList}`}>
-          <input
-            {...field}
-            id={option.name}
-            type="checkbox"
-            name={option.name}
-            value={option.name}
-            className={`${formStyles.checkboxInput} ${
-              meta.touched && meta.error
-                ? formErrorStyles.inputBorder
-                : formStyles.inputBorder
-            }`}
-          />
-          <label htmlFor={option.name} className={formStyles.checkboxLabel}>
-            {option.label}
-          </label>
-        </div>
+        <>
+          <div key={option.index} className={`${formStyles.checkboxList}`}>
+            <input
+              {...field}
+              //   name={option.name}
+              id={option.name}
+              type="checkbox"
+              className={`${formStyles.checkboxInput} ${
+                meta.touched && meta.error
+                  ? formErrorStyles.inputBorder
+                  : formStyles.inputBorder
+              }`}
+            />
+            <label htmlFor={option.name} className={formStyles.checkboxLabel}>
+              {option.label}
+            </label>
+          </div>
+        </>
       ))}
 
       {/* Validation Error Icon*/}

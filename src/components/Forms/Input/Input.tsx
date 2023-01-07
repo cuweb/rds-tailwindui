@@ -27,6 +27,7 @@ export const Input = ({
         {...field}
         {...props}
         id={field.name}
+        type="text"
         className={`${formStyles.input} ${
           meta.touched && meta.error ? formErrorStyles.inputBorder : ''
         }`}

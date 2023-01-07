@@ -14,15 +14,13 @@ export default {
 
 const DefaultTemplate: Story<any> = args => (
   <Form onSubmit={() => {}} schema={{}}>
-    <Form.Select {...args}>
-      <Form.Select.Options options={args.options} />
-    </Form.Select>
+    <Form.Select {...args} options={args.options} />
   </Form>
 );
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  label: 'Role',
-  name: 'role',
+  label: 'What is your favorite 90s sitcom?',
+  name: 'favsitcom',
   options: [...SelectData],
 };
