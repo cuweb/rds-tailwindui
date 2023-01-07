@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Form } from '../BaseForm/Form';
+import { OptionsData } from './SelectData';
 
 export default {
   title: 'Components/Forms/Select List',
@@ -23,18 +24,5 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
   label: 'Role',
   name: 'role',
-  options: [
-    {
-      value: '',
-      label: 'Please select a job type',
-    },
-    {
-      value: 'developer',
-      label: 'Developer',
-    },
-    {
-      value: 'designer',
-      label: 'Designer',
-    },
-  ],
+  options: [...OptionsData],
 };

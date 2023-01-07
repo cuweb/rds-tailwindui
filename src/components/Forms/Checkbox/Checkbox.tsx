@@ -24,72 +24,76 @@ export const Checkbox = ({
         <legend className={formStyles.label}>
           Who is your favorite Bel-Air personality?
         </legend>
+
         <div className={`${formStyles.checkboxList}`}>
           <input
             {...field}
-            id="lastname"
+            id="willsmith"
             type="checkbox"
             name="developer"
-            value="lastname"
+            value="willsmith"
             className={`${formStyles.checkboxInput} ${
               meta.touched && meta.error
                 ? formErrorStyles.inputBorder
                 : formStyles.inputBorder
             }`}
           />
-          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
-            Name
+          <label htmlFor="willsmith" className={formStyles.checkboxLabel}>
+            Will Smith
           </label>
         </div>
+
         <div className={`${formStyles.checkboxList}`}>
           <input
             {...field}
-            id="lastname"
+            id="carltonbanks"
             type="checkbox"
             name="developer"
-            value="lastname"
+            value="carltonbanks"
             className={`${formStyles.checkboxInput} ${
               meta.touched && meta.error
                 ? formErrorStyles.inputBorder
                 : formStyles.inputBorder
             }`}
           />
-          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
-            Name
+          <label htmlFor="carltonbanks" className={formStyles.checkboxLabel}>
+            Carlton Banks
           </label>
         </div>
+
         <div className={`${formStyles.checkboxList}`}>
           <input
             {...field}
-            id="lastname"
+            id="phillipbanks"
             type="checkbox"
             name="developer"
-            value="lastname"
+            value="phillipbanks"
             className={`${formStyles.checkboxInput} ${
               meta.touched && meta.error
                 ? formErrorStyles.inputBorder
                 : formStyles.inputBorder
             }`}
           />
-          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
-            Name
+          <label htmlFor="phillipbanks" className={formStyles.checkboxLabel}>
+            Phillip Banks
           </label>
         </div>
+
         <div className={`${formStyles.checkboxList}`}>
           <input
             {...field}
-            id="lastname"
+            id="vivianbanks"
             type="checkbox"
             name="developer"
-            value="lastname"
+            value="vivianbanks"
             className={`${formStyles.checkboxInput} ${
               meta.touched && meta.error
                 ? formErrorStyles.inputBorder
                 : formStyles.inputBorder
             }`}
           />
-          <label htmlFor="lastname" className={formStyles.checkboxLabel}>
-            Name
+          <label htmlFor="vivianbanks" className={formStyles.checkboxLabel}>
+            Vivian Banks
           </label>
         </div>
 
