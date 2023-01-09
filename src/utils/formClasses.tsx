@@ -1,7 +1,7 @@
 export const formStyles = {
   elementSpace: `space-y-2`,
   label: `block text-sm font-semibold text-cu-black-800`,
-  input: `block w-full rounded-md border border-cu-black-300 sm:text-sm py-2 px-3 focus:border-cu-black-500 focus:ring-0 focus:bg-gray-50`,
+  input: `block w-full rounded-md border border-cu-black-300 text-sm py-2 px-3 focus:border-cu-black-500 focus:ring-0 focus:bg-gray-50`,
   inputBorder: `border border-cu-black-300`,
   checkboxList: `flex items-center gap-2`,
   checkboxInput: `rounded`,

@@ -1,6 +1,9 @@
 import React, { SelectHTMLAttributes, ClassAttributes } from 'react';
 import { useField, FieldHookConfig } from 'formik';
-import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
+import {
+  ExclamationCircleIcon,
+  ChevronDownIcon,
+} from '@heroicons/react/24/solid';
 import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 
 export interface SelectProps {
@@ -24,22 +27,27 @@ export const Select = ({
         {label}
       </label>
 
-      <select
-        {...field}
-        {...props}
-        id={field.name}
-        className={`  ${formStyles.input} ${
-          meta.touched && meta.error ? formErrorStyles.inputBorder : ''
-        }`}
-        aria-invalid={meta.touched && meta.error ? true : false}
-        aria-describedby={
-          field.name + (meta.touched && meta.error ? '-error' : '')
-        }
-      >
-        {options?.map(option => (
-          <option value={option.value}>{option.label}</option>
-        ))}
-      </select>
+      <div className="relative">
+        <select
+          {...field}
+          {...props}
+          id={field.name}
+          className={`${formStyles.input} ${
+            meta.touched && meta.error ? formErrorStyles.inputBorder : ''
+          } bg-none`}
+          aria-invalid={meta.touched && meta.error ? true : false}
+          aria-describedby={
+            field.name + (meta.touched && meta.error ? '-error' : '')
+          }
+        >
+          {options?.map(option => (
+            <option value={option.value}>{option.label}</option>
+          ))}
+        </select>
+        <div className="absolute top-2.5 right-3.5">
+          <ChevronDownIcon width="16" height="16" />
+        </div>
+      </div>
 
       {/* Validation Error Icon*/}
       {meta.touched && meta.error && (
