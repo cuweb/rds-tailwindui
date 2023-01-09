@@ -58,19 +58,6 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "rds-tailwind",
-  "author": "Niranjith Perumal",
-  "module": "dist/rds-tailwind.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/rds-tailwind.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/rds-tailwind.esm.js",
-      "limit": "400 KB"
-    }
-  ],
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@headlessui/react": "^1.7.3",
