@@ -18,3 +18,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: storybook-static # output folder from `npm run build-storybook`
+        env:
+          NEXT_PUBLIC_REACT_APP_GOOGLE_MAPS_API_KEY: ${{secrets.NEXT_PUBLIC_REACT_APP_GOOGLE_MAPS_API_KEY}}
