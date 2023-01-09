@@ -11,5 +11,4 @@ export const RadioData = [
     name: '3',
     label: '3',
   },
-  ,
 ];
