@@ -34,12 +34,14 @@ const ExampleTemplate: Story<FormProps> = args => (
         label="First Name"
         name="firstname"
         placeholder="Enter your first name"
+        required
       />
 
       <Form.Input
         label="Last Name"
         name="lastname"
         placeholder="Enter your last name"
+        required
       />
     </Column>
 

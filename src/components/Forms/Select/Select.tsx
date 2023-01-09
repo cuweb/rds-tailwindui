@@ -28,7 +28,7 @@ export const Select = ({
         {...field}
         {...props}
         id={field.name}
-        className={`${formStyles.input} ${
+        className={`  ${formStyles.input} ${
           meta.touched && meta.error ? formErrorStyles.inputBorder : ''
         }`}
         aria-invalid={meta.touched && meta.error ? true : false}
