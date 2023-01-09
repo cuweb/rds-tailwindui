@@ -1,4 +1,7 @@
 {
+  "name": "rds-tailwind",
+  "author": "Web Services",
+  "module": "dist/rds-tailwind.esm.js",
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
@@ -7,6 +10,28 @@
     "dist",
     "src"
   ],
+  "size-limit": [
+    {
+      "path": "dist/rds-tailwind.cjs.production.min.js",
+      "limit": "400 KB"
+    },
+    {
+      "path": "dist/rds-tailwind.esm.js",
+      "limit": "400 KB"
+    }
+  ],
+  "publishConfig": {
+    "@carletonuniversity:registry": "https://npm.pkg.github.com"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
   "engines": {
     "node": ">=16"
   },
@@ -27,34 +52,12 @@
     "packages": "rm -rf node_modules ; yarn install",
     "build-assets": "cpx 'src/assets/**' 'dist/assets' && yarn build-tailwind"
   },
-  "peerDependencies": {
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "rds-tailwind",
-  "author": "Niranjith Perumal",
-  "module": "dist/rds-tailwind.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/rds-tailwind.cjs.production.min.js",
-      "limit": "400 KB"
-    },
-    {
-      "path": "dist/rds-tailwind.esm.js",
-      "limit": "400 KB"
-    }
-  ],
   "devDependencies": {
     "@babel/core": "^7.18.13",
     "@headlessui/react": "^1.7.3",
