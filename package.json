@@ -10,6 +10,9 @@
     "dist",
     "src"
   ],
+  "publishConfig": {
+    "@carletonuniversity:registry": "https://npm.pkg.github.com"
+  },
   "size-limit": [
     {
       "path": "dist/rds-tailwind.cjs.production.min.js",
@@ -20,9 +23,6 @@
       "limit": "400 KB"
     }
   ],
-  "publishConfig": {
-    "@carletonuniversity:registry": "https://npm.pkg.github.com"
-  },
   "peerDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
