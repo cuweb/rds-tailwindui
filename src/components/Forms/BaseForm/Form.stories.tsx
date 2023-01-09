@@ -4,6 +4,7 @@ import { Form, FormProps } from './Form';
 import { FormSchema } from './FormData';
 import { SelectData } from '../Select/SelectData';
 import { CheckboxData } from '../Checkbox/CheckboxData';
+import { RadioData } from '../Radio/RadioData';
 import { Column } from '../../../layouts';
 
 export default {
@@ -55,6 +56,12 @@ const ExampleTemplate: Story<FormProps> = args => (
       label="What is your favorite 90s sitcom?"
       name="favsitcom"
       options={SelectData}
+    />
+
+    <Form.Radio
+      label="How many of these shows did you watch regularly?"
+      name="regularviewer"
+      options={RadioData}
     />
 
     <Form.Checkbox
