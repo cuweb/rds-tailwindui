@@ -19,7 +19,7 @@ export const Input = ({
   return (
     <div className={formStyles.elementSpace}>
       <label htmlFor={field.name} className={formStyles.label}>
-        {label}
+        {label} {props.required && <span className="text-cu-red">*</span>}
       </label>
 
       {/* Input Field  */}

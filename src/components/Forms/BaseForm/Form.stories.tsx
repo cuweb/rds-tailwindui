@@ -42,7 +42,6 @@ const ExampleTemplate: Story<FormProps> = args => (
         label="Last Name"
         name="lastname"
         placeholder="Enter your last name"
-        required
       />
     </Column>
 

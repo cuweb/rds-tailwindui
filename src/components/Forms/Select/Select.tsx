@@ -24,7 +24,7 @@ export const Select = ({
   return (
     <div className={formStyles.elementSpace}>
       <label htmlFor={field.name} className={formStyles.label}>
-        {label}
+        {label} {props.required && <span className="text-cu-red">*</span>}
       </label>
 
       <div className="relative">

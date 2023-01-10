@@ -22,7 +22,9 @@ export const Radio = ({
 
   return (
     <fieldset className={formStyles.elementSpace}>
-      <legend className={formStyles.label}>{label}</legend>
+      <legend className={formStyles.label}>
+        {label} {props.required && <span className="text-cu-red">*</span>}
+      </legend>
 
       {options?.map(option => (
         <>
