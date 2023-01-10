@@ -43,7 +43,6 @@ const DefaultTemplate: Story<AlertStoryProps & AlertBaseProps> = args => (
   <Alert.Alerter>
     <Alert key={111} type={args.type}>
       <Alert.Title>{args.title}</Alert.Title>
-      <Alert.Content>{args.content}</Alert.Content>
     </Alert>
   </Alert.Alerter>
 );
@@ -51,11 +50,26 @@ const DefaultTemplate: Story<AlertStoryProps & AlertBaseProps> = args => (
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   title: 'Success',
+  type: 'success',
+};
+
+const MultilineTemplate: Story<AlertStoryProps & AlertBaseProps> = args => (
+  <Alert.Alerter>
+    <Alert key={111} type={args.type}>
+      <Alert.Title>{args.title}</Alert.Title>
+      <Alert.Content>{args.content}</Alert.Content>
+    </Alert>
+  </Alert.Alerter>
+);
+
+export const Multiline = MultilineTemplate.bind({});
+Multiline.args = {
+  title: 'Success',
   content: 'Successfully created',
   type: 'success',
 };
 
-const MultipleTemplate: Story = () => (
+const StackedTemplate: Story = () => (
   <Alert.Alerter>
     {AlertStory.map((alert: any, index: number) => {
       return (
@@ -68,5 +82,5 @@ const MultipleTemplate: Story = () => (
   </Alert.Alerter>
 );
 
-export const Multiple = MultipleTemplate.bind({});
-Multiple.args = {};
+export const Stacked = StackedTemplate.bind({});
+Stacked.args = {};
