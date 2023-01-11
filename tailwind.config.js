@@ -1,6 +1,6 @@
 module.exports = {
     presets: [
-        require('./tailwind.theme.js'),
+        require('rds-tailwind-theme'),
     ],
     content: [
         './src/**/*.{js,jsx,ts,tsx}',
