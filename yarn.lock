@@ -12160,10 +12160,15 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-rds-tailwind-theme@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/rds-tailwind-theme/-/rds-tailwind-theme-0.2.0.tgz#389b998927ac9eb6b59f1a7bf3564a4ab7ec61e0"
-  integrity sha512-AxZZwOW4RtRkOoAg7+KSq/zzs4ZQRlhVLVYlNSh1vZO9Ed+68YviR0rW9TZ/B90r5HETYPMvh6MNGOnYtzmhQA==
+rds-tailwind-theme@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/rds-tailwind-theme/-/rds-tailwind-theme-0.2.2.tgz#efc179b4be779b76230eeba23b74418337e8de23"
+  integrity sha512-xlElSSCMQ6j6e2OcPh3vDdgtrziblRD178dclrxRsxH0H4vV4HWxiosmz05KIQYA+Kmc6s2DUX7Exr8ogMqE7Q==
+  dependencies:
+    "@tailwindcss/aspect-ratio" "^0.4.2"
+    "@tailwindcss/forms" "^0.5.3"
+    "@tailwindcss/typography" "^0.5.9"
+    tailwindcss "^3.2.4"
 
 react-addons-create-fragment@^15.6.2:
   version "15.6.2"
