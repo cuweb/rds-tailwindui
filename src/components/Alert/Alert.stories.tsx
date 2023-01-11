@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Alert, AlertBaseProps } from './Alert';
 
 export default {
-  title: 'Components/Alert/Alert',
+  title: 'Components/Notifications/Alert',
   component: Alert,
   argTypes: {},
   parameters: {
