@@ -34,7 +34,7 @@ const NewsItemBase = ({
   as: Component = 'div',
   children,
   link,
-}: ItemBaseProps & NewsItemProps) => {
+}: BaseItemProps & NewsItemProps) => {
   return (
     <Component>
       <a
