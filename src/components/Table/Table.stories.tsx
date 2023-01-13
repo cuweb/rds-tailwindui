@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import exampleTableData from './exampleTableData.json';
 import { Table, TableProps, ColumnDefinitionType } from './Table';
-import Link from '../Link/Link';
+import { Link } from '../Link/Link';
 
 interface Table {
   id: number;

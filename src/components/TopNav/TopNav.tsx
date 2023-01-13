@@ -1,6 +1,6 @@
 import { Disclosure } from '@headlessui/react';
 import React from 'react';
-import Link from '../Link/Link';
+import { Link } from '../Link/Link';
 import shield from '../../assets/cu-shield.svg';
 import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { UserInfoType } from '../../types/UserInfo';

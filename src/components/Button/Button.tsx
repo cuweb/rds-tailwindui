@@ -1,7 +1,7 @@
 import React from 'react';
 import { HeroIcon, IconName } from '../HeroIcon';
 import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
-import Link from '../Link/Link';
+import { Link } from '../Link/Link';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {

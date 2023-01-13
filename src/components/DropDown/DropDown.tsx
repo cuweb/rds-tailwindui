@@ -2,7 +2,7 @@ import { Popover, Transition } from '@headlessui/react';
 import React, { Fragment } from 'react';
 import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 import { HeroIcon, IconName } from '../HeroIcon/HeroIcon';
-import Link from '../Link/Link';
+import { Link } from '../Link/Link';
 
 export interface DropDownItemProps {
   title: string | React.ReactNode;
