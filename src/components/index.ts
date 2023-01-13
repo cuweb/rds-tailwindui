@@ -33,3 +33,4 @@ export { Form, FormProps } from './Forms/BaseForm';
 export { Toast } from './Toast';
 export { Alert } from './Alert';
 export { Table } from './Table';
+export { Link } from './Link/Link';
