@@ -22,7 +22,7 @@ export interface LinkProps {
   onClick?: (e: any) => void;
 }
 
-const Link = forwardRef(function Link(
+export const Link = forwardRef(function Link(
   {
     href,
     as,
@@ -68,5 +68,3 @@ const Link = forwardRef(function Link(
       )
     : React.createElement(component, nodeProps, children);
 });
-
-export default Link;
