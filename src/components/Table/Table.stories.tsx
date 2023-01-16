@@ -107,3 +107,23 @@ ShadowAndBorder.args = {
   hasBorder: true,
   hasShadow: true,
 };
+
+export const WithRangeOne = Template.bind({});
+WithRangeOne.args = {
+  data: finalTableData,
+  columns: columns,
+  hasStripes: false,
+  hasBorder: false,
+  hasShadow: false,
+  range: [1, 3],
+};
+
+export const WithRangeTwo = Template.bind({});
+WithRangeTwo.args = {
+  data: finalTableData,
+  columns: columns,
+  hasStripes: false,
+  hasBorder: false,
+  hasShadow: false,
+  range: [4, 5],
+};

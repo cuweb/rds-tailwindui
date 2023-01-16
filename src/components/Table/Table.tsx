@@ -15,6 +15,7 @@ export interface TableProps<T, K extends keyof T> {
   hasStripes?: boolean;
   hasShadow?: boolean;
   hasBorder?: boolean;
+  range?: number[];
 }
 
 const styles = {
@@ -29,6 +30,7 @@ export const Table = <T, K extends keyof T>({
   hasStripes = false,
   hasShadow,
   hasBorder,
+  range = [1, -1],
 }: TableProps<T, K>) => {
   const [tableData, setTableData] = useSortableTable(data);
   const borderStyle = hasBorder ? styles.border : '';
@@ -37,7 +39,12 @@ export const Table = <T, K extends keyof T>({
   return (
     <table className={`${styles.core} ${borderStyle} ${shadowStyle}`}>
       <TableHeader columns={columns} sortData={setTableData} />
-      <TableRows data={tableData} columns={columns} striped={hasStripes} />
+      <TableRows
+        data={tableData}
+        columns={columns}
+        striped={hasStripes}
+        range={range}
+      />
     </table>
   );
 };
