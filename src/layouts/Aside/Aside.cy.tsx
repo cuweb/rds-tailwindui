@@ -6,7 +6,7 @@ describe('Prose', () => {
   });
 
   it('Is Aside sticky?', () => {
-    cy.visit('/iframe.html?id=layouts-aside--default');
+    cy.visit('/iframe.html?id=layouts-aside--is-sticky');
     cy.get('.sticky').should('exist');
   });
 });

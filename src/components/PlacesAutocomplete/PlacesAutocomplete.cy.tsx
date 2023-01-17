@@ -1,8 +1,8 @@
 describe('PlacesAutocomplete', () => {
   it('PlacesAutocomplete Default exist?', () => {
     cy.visit('/iframe.html?id=components-elements-placesautocomplete--default');
-    cy.get('Combobox').should('exist');
-    cy.get('div').should('exist');
+    cy.get('input').should('exist');
+    cy.get('[role="combobox"]').should('exist');
   });
 });
 export {};
