@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Container } from '../../layouts';
 import { Calendar } from '../Calendar/Calendar';
 
 export const DateTimePicker = (props: any) => {
@@ -43,16 +44,15 @@ export const DateTimePicker = (props: any) => {
   }, [time, props.callback]);
 
   return (
-    <div className="container mx-auto my-12 p-12 bg-gray-100">
-      <div className="md:ml-2 md:block">
-        <Calendar callback={callbackcal} />
-      </div>
-      <div className="inline-flex  bg-white rounded-md shadow-lg p-2 my-3">
+    <Container bgColor="grey">
+      <Calendar callback={callbackcal} />
+
+      <div className="inline-flex p-2 my-3 bg-white rounded-md shadow-lg">
         <select
           value={hours}
           onChange={handleHoursChange}
           name="hours"
-          className=" outline-none border-cu-black-100  text-xs text-cu-black-900 appearance-none bg-transparent rounded-md  focus:border-red-500 focus:ring-0"
+          className="text-xs bg-transparent rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0"
         >
           {Array.from({ length: 12 }, (_, i) => i + 1).map(num => (
             <option key={num} value={num}>
@@ -60,12 +60,14 @@ export const DateTimePicker = (props: any) => {
             </option>
           ))}
         </select>
+
         <span className="px-2">:</span>
+
         <select
           value={minutes}
           onChange={handleMinutesChange}
           name="minutes"
-          className="outline-none border-cu-black-100 text-xs text-cu-black-900 appearance-none bg-transparent rounded-md  focus:border-red-500 focus:ring-0"
+          className="text-xs bg-transparent rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0"
         >
           <option key="00" value="00">
             00
@@ -84,7 +86,7 @@ export const DateTimePicker = (props: any) => {
           value={noon}
           onChange={handleNoonChange}
           name="Noon"
-          className="outline-none border-cu-black-100 text-xs text-cu-black-900 appearance-none bg-transparent rounded-md  focus:border-red-500 focus:ring-0"
+          className="text-xs bg-transparent rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0"
         >
           <option key="AM" value="AM">
             AM
@@ -94,6 +96,6 @@ export const DateTimePicker = (props: any) => {
           </option>
         </select>
       </div>
-    </div>
+    </Container>
   );
 };

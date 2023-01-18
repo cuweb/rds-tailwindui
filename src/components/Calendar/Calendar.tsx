@@ -75,7 +75,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center py-2 bg-white rounded-lg">
         <button
           type="button"
           onClick={previousMonth}
