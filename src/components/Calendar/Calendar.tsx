@@ -21,7 +21,7 @@ import {
 } from 'date-fns';
 
 export interface CalendarProps {
-  events: {
+  events?: {
     id: number;
     name: string;
     imageUrl: string;
@@ -75,7 +75,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
 
   return (
     <div>
-      <div className="flex items-center">
+      <div className="flex items-center py-2 mb-6 bg-white border rounded-lg border-cu-black-100">
         <button
           type="button"
           onClick={previousMonth}
@@ -149,7 +149,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             </button>
 
             <div className="w-1 h-1 mx-auto mt-1">
-              {events.some(event =>
+              {events?.some(event =>
                 isSameDay(parseISO(event.startDatetime), day)
               ) && <div className="w-1 h-1 rounded-full bg-sky-500"></div>}
             </div>

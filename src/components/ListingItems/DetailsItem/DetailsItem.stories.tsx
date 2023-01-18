@@ -85,7 +85,7 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
   title: '405 Robertson Hall',
   description: '1125 Colonel By Drive, Ottawa, ON, K1A 4A4',
-  // icon: MapPinIcon,
+  icon: 'MapPinIcon',
 };
 
 export const SingleItemPanel = SingleItemPanelTemplate.bind({});

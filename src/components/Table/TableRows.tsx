@@ -5,6 +5,7 @@ type TableRowsProps<T, K extends keyof T> = {
   data: Array<T>;
   columns: Array<ColumnDefinitionType<T, K>>;
   striped: boolean;
+  range: number[];
 };
 
 const styles = {
@@ -16,12 +17,12 @@ const TableRows = <T, K extends keyof T>({
   data,
   columns,
   striped,
+  range,
 }: TableRowsProps<T, K>) => {
   const stripedStyles = striped
     ? 'odd:bg-white even:bg-gray-50'
     : 'hover:bg-blue-50';
-
-  const rows = data.map((row, index) => {
+  const rows = data.slice(range[0] - 1, range[1]).map((row, index) => {
     return (
       <tr
         className={`${stripedStyles} [&>td]:border-b [&>td]:border-cu-gray-100 [&>td]:last:border-0`}
