@@ -43,7 +43,7 @@ export const EventCard = ({
 
   const getMonthName = (month: any, short: boolean = false) => {
     const d = new Date();
-    d.setMonth(month - 1);
+    d.setMonth(month);
     const monthName = d.toLocaleString('default', {
       month: short ? 'short' : 'long',
     });
