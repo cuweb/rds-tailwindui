@@ -1,6 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Container } from '../../layouts';
 import { Calendar } from '../Calendar/Calendar';
+
+const styles = {
+  select: `text-xs bg-white rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0`,
+};
 
 export const DateTimePicker = (props: any) => {
   const [, setSelectedDate] = useState(new Date(0));
@@ -44,15 +47,15 @@ export const DateTimePicker = (props: any) => {
   }, [time, props.callback]);
 
   return (
-    <Container bgColor="grey">
+    <div>
       <Calendar callback={callbackcal} />
 
-      <div className="inline-flex p-2 my-3 bg-white rounded-md shadow-lg">
+      <div className="inline-flex gap-3 p-3 mt-6 bg-white border rounded-lg border-cu-black-100">
         <select
           value={hours}
           onChange={handleHoursChange}
           name="hours"
-          className="text-xs bg-transparent rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0"
+          className={styles.select}
         >
           {Array.from({ length: 12 }, (_, i) => i + 1).map(num => (
             <option key={num} value={num}>
@@ -61,13 +64,11 @@ export const DateTimePicker = (props: any) => {
           ))}
         </select>
 
-        <span className="px-2">:</span>
-
         <select
           value={minutes}
           onChange={handleMinutesChange}
           name="minutes"
-          className="text-xs bg-transparent rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0"
+          className={styles.select}
         >
           <option key="00" value="00">
             00
@@ -82,11 +83,12 @@ export const DateTimePicker = (props: any) => {
             45
           </option>
         </select>
+
         <select
           value={noon}
           onChange={handleNoonChange}
           name="Noon"
-          className="text-xs bg-transparent rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0"
+          className={styles.select}
         >
           <option key="AM" value="AM">
             AM
@@ -96,6 +98,6 @@ export const DateTimePicker = (props: any) => {
           </option>
         </select>
       </div>
-    </Container>
+    </div>
   );
 };
