@@ -1,10 +1,10 @@
 describe('Container', () => {
   //default
-  it(' Container Default with White Background ', () => {
+  it(' Container Default with transparent Background ', () => {
     cy.visit('/iframe.html?id=layouts-container--default');
     cy.get('div')
       .should('have.class', 'cu-container')
-      .and('have.class', 'bg-white');
+      .and('have.class', 'bg-transparent');
     cy.get('p').contains('Empty Container');
   });
 
@@ -30,7 +30,7 @@ describe('Container', () => {
 
   //layouts-container--with-panels
   it('Container with two column Panel', () => {
-    cy.visit('/iframe.html?id=layouts-container--with-panels');
+    cy.visit('/iframe.html?id=layouts-container--with-panel-grid');
     cy.get('div')
       .should('have.class', 'cu-column')
       .and('have.class', 'md:grid-cols-2');
