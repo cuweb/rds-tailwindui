@@ -16,13 +16,11 @@ export const SearchForm = ({ callback }: SearchFormProps) => {
     callback(message);
   }, [message, callback]);
   return (
-    <div className="relative">
-      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-        <MagnifyingGlassIcon
-          className="w-5 h-5 text-gray-400"
-          aria-hidden="true"
-        />
-      </div>
+    <div className="relative flex items-center">
+      <MagnifyingGlassIcon
+        className="absolute w-5 h-5 text-gray-400 left-4"
+        aria-hidden="true"
+      />
       <input
         className="w-full h-12 pr-4 text-sm bg-transparent border rounded-lg text-cu-black-800 placeholder-cu-black-300 border-cu-black-100 pl-11 focus:border-cu-black-300 focus:ring-0"
         id="searchform__input"
