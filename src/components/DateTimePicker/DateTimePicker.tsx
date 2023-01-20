@@ -44,7 +44,7 @@ export const DateTimePicker = (props: any) => {
 
   useEffect(() => {
     props.callback(time);
-  }, [time, props.callback]);
+  }, [time, props]);
 
   return (
     <div>

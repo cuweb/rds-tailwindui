@@ -34,4 +34,5 @@ export { Toast } from './Toast';
 export { Alert } from './Alert';
 export { Table, ColumnDefinitionType } from './Table';
 export { Link } from './Link/Link';
+export { WYSIWYG } from './Forms/WYSIWYG';
 export { Avatar } from './Avatar/Avatar';
