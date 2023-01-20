@@ -9,7 +9,7 @@ export interface HeroIconProps {
   icon: IconName;
   isOutline?: boolean;
   color?: 'black' | 'white' | 'red' | 'grey' | 'dark-grey' | 'green' | 'yellow';
-  size?: '4' | '6' | '8' | '12' | '16' | '20';
+  size?: '4' | '5' | '6' | '7' | '8' | '12' | '16' | '20';
 }
 
 export const HeroIcon = ({

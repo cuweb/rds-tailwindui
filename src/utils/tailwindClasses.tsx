@@ -55,7 +55,9 @@ export const rdsFontSizes = {
 
 export const rdsWidth = {
   4: 'w-4',
+  5: 'w-5',
   6: 'w-6',
+  7: 'w-7',
   8: 'w-8',
   12: 'w-12',
   16: 'w-16',
@@ -65,11 +67,14 @@ export const rdsWidth = {
 
 export const rdsHeight = {
   4: 'h-4',
+  5: 'h-5',
   6: 'h-6',
+  7: 'h-7',
   8: 'h-8',
   12: 'h-12',
   16: 'h-16',
   20: 'h-20',
+  24: 'h-24',
 };
 
 export const rdsRounded = {
