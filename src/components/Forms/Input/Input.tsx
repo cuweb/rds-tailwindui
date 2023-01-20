@@ -5,6 +5,7 @@ import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 
 export interface InputProps {
   label?: string;
+  type?: string;
 }
 
 export const Input = ({
@@ -27,7 +28,7 @@ export const Input = ({
         {...field}
         {...props}
         id={field.name}
-        type="text"
+        type={props.type}
         className={`${formStyles.input} ${
           meta.touched && meta.error ? formErrorStyles.inputBorder : ''
         }`}
