@@ -35,3 +35,4 @@ export { Alert } from './Alert';
 export { Table, ColumnDefinitionType } from './Table';
 export { Link } from './Link/Link';
 export { Avatar } from './Avatar/Avatar';
+export { SearchForm } from './SearchForm/SearchForm';
