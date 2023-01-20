@@ -4,7 +4,7 @@ import { Meta } from '@storybook/react';
 
 export default {
   component: SearchForm,
-  title: `Components/SearchForm`,
+  title: `Components/Inputs/Search Form`,
 } as Meta;
 
 export const Default = () => {

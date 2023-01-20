@@ -4,9 +4,7 @@ export interface SearchFormProps {
   callback: any;
 }
 
-export const SearchForm: React.FC<SearchFormProps> = ({
-  callback,
-}): JSX.Element => {
+export const SearchForm = ({ callback }: SearchFormProps) => {
   const [message, setMessage] = useState('');
   const handleChange = (event: {
     target: { value: React.SetStateAction<string> };
@@ -19,14 +17,14 @@ export const SearchForm: React.FC<SearchFormProps> = ({
   }, [message, callback]);
   return (
     <div className="relative">
-      <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+      <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
         <MagnifyingGlassIcon
-          className="h-5 w-5 text-gray-400"
+          className="w-5 h-5 text-gray-400"
           aria-hidden="true"
         />
       </div>
       <input
-        className="block w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 leading-5 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm"
+        className="w-full h-12 pr-4 text-sm bg-transparent border rounded-lg text-cu-black-800 placeholder-cu-black-300 border-cu-black-100 pl-11 focus:border-cu-black-300 focus:ring-0"
         id="searchform__input"
         name="search"
         type="search"
