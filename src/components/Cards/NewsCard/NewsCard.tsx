@@ -16,7 +16,7 @@ export interface NewsCardProps {
 }
 
 export const NewsCard = ({
-  name,
+  //   name,
   link = 'https://carleton.ca',
   featuredImage,
   tags,
@@ -41,7 +41,7 @@ export const NewsCard = ({
             November 3 - 7
           </p>
           <h3 className="text-xl font-semibold duration-300 ease-in text-cu-black group-hover:text-cu-red">
-            {name}
+            End-of-Year Reflections and Resolutions for Our Web Services Team
           </h3>
 
           <p className="flex items-start text-base text-cu-black-600">
