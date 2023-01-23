@@ -39,3 +39,35 @@ export const ModalDefault: Story<ModalProps> = () => {
     </>
   );
 };
+
+export const ModalNoButton: Story<ModalProps> = () => {
+  const [ModalOpen, setModalOpen] = useState(false);
+
+  return (
+    <>
+      <Button
+        id="modalButton"
+        title=" Click to Open Modal"
+        onClick={() => setModalOpen(true)}
+      />
+
+      <Modal
+        title="Modal Title"
+        description={'Description inside the modal'}
+        isOpen={ModalOpen}
+        setIsOpen={setModalOpen}
+        nobutton
+      >
+        <Button
+          onClick={() => {
+            alert(' delete are you sure you want to delete it');
+            setModalOpen(false);
+          }}
+          title="Delete"
+          size="sm"
+          hasShadow
+        />
+      </Modal>
+    </>
+  );
+};
