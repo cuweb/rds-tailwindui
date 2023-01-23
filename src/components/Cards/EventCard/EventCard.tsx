@@ -1,11 +1,11 @@
-import React from 'react';
 import {
+  CalendarDaysIcon,
   ClockIcon,
   MapPinIcon,
-  CalendarDaysIcon,
 } from '@heroicons/react/24/outline';
+import { getDate, getMonth, isSameDay, parseISO } from 'date-fns';
+import React from 'react';
 import { Badge } from '../../Badge/index';
-import { isSameDay, parseISO, getMonth, getDate } from 'date-fns';
 
 interface Tags {
   category: { id: number; name: string; slug: string }[];
@@ -88,8 +88,8 @@ export const EventCard = ({
   };
 
   return (
-    <div className="relative flex flex-col overflow-hidden duration-300 ease-in rounded-lg shadow-lg group hover:scale-105">
-      <a href={link} className="cursor-pointer ">
+    <div className="relative flex flex-col max-w-sm overflow-hidden duration-300 ease-in bg-white rounded-lg shadow-lg group hover:scale-105">
+      <a href={link} className="cursor-pointer">
         <div className="absolute px-6 top-48">
           <div className="flex-none w-16 md:w-20">
             <div className="flex flex-col justify-center flex-none w-auto h-16 text-center duration-300 ease-in transform -translate-y-1/2 rounded-lg shadow bg-gray-50 group-hover:bg-cu-red md:h-20">
@@ -111,7 +111,7 @@ export const EventCard = ({
           />
         </div>
 
-        <div className="bg-white p-7">
+        <div className="p-7">
           <div className="mt-8">
             <h3 className="text-xl font-semibold duration-300 ease-in text-cu-black group-hover:text-cu-red">
               {name}

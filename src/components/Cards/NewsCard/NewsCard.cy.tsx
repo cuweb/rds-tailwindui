@@ -4,15 +4,9 @@ describe('Cards', () => {
     cy.visit('/iframe.html?id=components-cards-news--default');
     cy.get('h3').should(
       'have.text',
-      'Lived Experience Luncheon Series with Dr. Alex Auerbach'
+      'End-of-Year Reflections and Resolutions for Our Web Services Team'
     );
-    cy.get('li').should('exist');
     cy.get('a').should('have.attr', 'href');
-  });
-
-  it('Grid of cards ', () => {
-    cy.visit('/iframe.html?id=components-cards-news--grid-cards');
-    cy.get(`li`).should('exist');
   });
 });
 export {};

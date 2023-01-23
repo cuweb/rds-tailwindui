@@ -1,13 +1,12 @@
 export const NewsItemData = [
   {
     id: 1,
-    title: 'Et ut deserunt ipsum minus.',
+    title: 'End-of-Year Reflections and Resolutions for Our Web Services Team',
     url: '#',
-    featured_image:
-      'https://images.unsplash.com/photo-1664618221700-c741183ff4aa?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80',
-    description:
-      'Aut atque quod est doloribus consequatur accusamus. Soluta incidunt excepturi ea sed debitis quaerat quasi cumque. Quis quia saepe enim vel soluta laudantium. Dolores asperiores quos dolores illo necessitatibus amet. Voluptatem repellendus aut id dolore inventore praesentium. Corporis sed deleniti vero alias eos laborum sit.',
-    start_date: '2022-12-03 10:27:31',
+    image: 'https://source.unsplash.com/random/400x300',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam aliquam nulla eget est viverra, et tristique velit elementum. Aliquam ultrices vitae felis sit amet pharetra. Vivamus vitae dui mi. Quisque vitae nibh at orci lobortis rhoncus eu at mi. Nulla facilisi. In hac habitasse platea dictumst. Curabitur sed lectus risus.',
+    date: '2022-12-23 10:27:31',
     tags: {
       category: [
         {
@@ -21,16 +20,40 @@ export const NewsItemData = [
           slug: 'category-two',
         },
       ],
-      audience: [
+    },
+  },
+  {
+    id: 2,
+    title: ' How to Write for the Web',
+    url: '#',
+    image: 'https://source.unsplash.com/random/400x300',
+    excerpt:
+      'Proin placerat non nisl sed ullamcorper. Maecenas ultrices diam a lorem feugiat feugiat. Curabitur ultrices egestas tortor vel feugiat. Mauris vitae massa vulputate, dignissim ipsum interdum, maximus nunc. Praesent id malesuada sem. Nulla egestas magna eu nisl bibendum suscipit. Morbi turpis velit, interdum a tincidunt pharetra, egestas ut metus.',
+    date: '2022-12-14 10:27:31',
+    tags: {
+      category: [
         {
-          id: 1,
-          name: 'Student',
-          slug: 'student',
+          id: 3,
+          name: 'Category Three',
+          slug: 'category-three',
         },
+      ],
+    },
+  },
+  {
+    id: 3,
+    title: 'Captivating Captions: Why We Use Captions on Videos',
+    url: '#',
+    image: 'https://source.unsplash.com/random/400x300',
+    excerpt:
+      'Donec dolor sapien, aliquet eu nibh vel, laoreet aliquam arcu. Suspendisse potenti. Nulla varius, enim nec maximus dignissim, neque lorem ultricies purus, nec posuere quam purus quis metus. Donec ornare, ipsum et consectetur imperdiet, orci ligula molestie neque, eget varius quam mi nec leo.',
+    date: '2022-11-25 10:27:31',
+    tags: {
+      category: [
         {
-          id: 2,
-          name: 'Faculty',
-          slug: 'faculty',
+          id: 4,
+          name: 'Category Four',
+          slug: 'category-four',
         },
       ],
     },
