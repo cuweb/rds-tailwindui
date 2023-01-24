@@ -28,7 +28,8 @@ export const NewsItemData = [
     url: '#',
     image: 'https://source.unsplash.com/random/400x300',
     excerpt:
-      'Proin placerat non nisl sed ullamcorper. Maecenas ultrices diam a lorem feugiat feugiat. Curabitur ultrices egestas tortor vel feugiat. Mauris vitae massa vulputate, dignissim ipsum interdum, maximus nunc. Praesent id malesuada sem. Nulla egestas magna eu nisl bibendum suscipit. Morbi turpis velit, interdum a tincidunt pharetra, egestas ut metus.',
+      //   'Proin placerat non nisl sed ullamcorper. Maecenas ultrices diam a lorem feugiat feugiat. Curabitur ultrices egestas tortor vel feugiat. Mauris vitae massa vulputate, dignissim ipsum interdum, maximus nunc. Praesent id malesuada sem. Nulla egestas magna eu nisl bibendum suscipit. Morbi turpis velit, interdum a tincidunt pharetra, egestas ut metus.',
+      'Proin placerat non nisl sed ullamcorper.',
     date: '2022-12-14 10:27:31',
     tags: {
       category: [
@@ -46,7 +47,8 @@ export const NewsItemData = [
     url: '#',
     image: 'https://source.unsplash.com/random/400x300',
     excerpt:
-      'Donec dolor sapien, aliquet eu nibh vel, laoreet aliquam arcu. Suspendisse potenti. Nulla varius, enim nec maximus dignissim, neque lorem ultricies purus, nec posuere quam purus quis metus. Donec ornare, ipsum et consectetur imperdiet, orci ligula molestie neque, eget varius quam mi nec leo.',
+      //   'Donec dolor sapien, aliquet eu nibh vel, laoreet aliquam arcu. Suspendisse potenti. Nulla varius, enim nec maximus dignissim, neque lorem ultricies purus, nec posuere quam purus quis metus. Donec ornare, ipsum et consectetur imperdiet, orci ligula molestie neque, eget varius quam mi nec leo.',
+      'Donec dolor sapien, aliquet eu nibh vel, laoreet aliquam arcu. Suspendisse potenti. Nulla varius, enim nec maximus.',
     date: '2022-11-25 10:27:31',
     tags: {
       category: [
