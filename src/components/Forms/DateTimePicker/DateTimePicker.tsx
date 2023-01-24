@@ -1,12 +1,28 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Calendar } from '../Calendar/Calendar';
+import { Calendar } from '../../Calendar/Calendar';
+import {
+  add,
+  eachDayOfInterval,
+  endOfMonth,
+  format,
+  getDay,
+  getYear,
+  isBefore,
+  isEqual,
+  isSameDay,
+  isSameMonth,
+  isToday,
+  parse,
+  parseISO,
+  startOfToday,
+} from 'date-fns';
 
 const styles = {
   select: `text-xs bg-white rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0`,
 };
 
 export const DateTimePicker = (props: any) => {
-  const [, setSelectedDate] = useState(new Date(0));
+  const [selectedDate, setSelectedDate] = useState(new Date(0));
   const [minutes, setMinutes] = useState('00');
   const [hours, setHours] = useState('01');
   const [noon, setNoon] = useState('AM');
@@ -41,10 +57,11 @@ export const DateTimePicker = (props: any) => {
     setNoon(event.target.value);
   };
   const time = convertTime12to24(`${hours}:${minutes} ${noon}`);
+  
 
   useEffect(() => {
     props.callback(time);
-  }, [time, props.callback]);
+  }, [time,props.callback]);
 
   return (
     <div>

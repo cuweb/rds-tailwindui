@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { PlacesAutoComplete } from './PlacesAutocomplete';
-import { Column } from '../../layouts';
+import { Column } from '../../../layouts';
 
 export default {
   title: 'Components/Elements/PlacesAutoComplete',

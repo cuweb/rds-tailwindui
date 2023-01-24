@@ -5,7 +5,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-import { EventLocation } from '../EventLocation/EventLocation';
+import { EventLocation } from '../../EventLocation/EventLocation';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');

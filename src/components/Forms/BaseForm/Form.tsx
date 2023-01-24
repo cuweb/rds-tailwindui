@@ -4,6 +4,8 @@ import { Select } from '../Select/Select';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { Radio } from '../Radio/Radio';
 import { Button } from '../../Button';
+import { DateTimePicker } from '../DateTimePicker';
+import { PlacesAutoComplete } from '../PlacesAutocomplete';
 
 import { Form as FormWrapper, Formik } from 'formik';
 import * as yup from 'yup';
@@ -13,7 +15,7 @@ export interface FormProps {
   onSubmit?: any;
   schema: {
     [k: string]: {
-      value: any;
+      value?: any;
       validation: any;
       label?: string;
     };
@@ -61,4 +63,6 @@ export const Form = Object.assign(FormBase, {
   Checkbox,
   Radio,
   Submit,
+  DateTimePicker,
+  PlacesAutoComplete
 });

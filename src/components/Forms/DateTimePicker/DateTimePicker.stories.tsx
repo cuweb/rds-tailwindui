@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Meta } from '@storybook/react';
-import { Column, Container } from '../../layouts';
+import { Column, Container } from '../../../layouts';
 import { DateTimePicker } from './DateTimePicker';
 
 export default {
