@@ -7,7 +7,7 @@ export interface NewsCardProps {
   children?: React.ReactNode;
   title?: string;
   link?: string;
-  date?: string;
+  date?: string | any;
   image?: string;
   alt?: string;
   excerpt?: string;

@@ -17,7 +17,7 @@ export const Default = () => (
   <NewsCard link="#">
     <NewsCard.Image image="https://source.unsplash.com/random/400x266" />
     <NewsCard.Content>
-      <NewsCard.Date date="2022-12-16" />
+      <NewsCard.PostDate date="2022-12-16" />
       <NewsCard.Title
         title={
           'End-of-Year Reflections and Resolutions for Our Web Services Team'
@@ -50,7 +50,7 @@ export const gridCards = () => (
       <NewsCard link={item?.url}>
         <NewsCard.Image image={item?.image} />
         <NewsCard.Content>
-          <NewsCard.Date date={item?.date} />
+          <NewsCard.PostDate date={item?.date} />
           <NewsCard.Title title={item?.title} />
           <NewsCard.Excerpt excerpt={item?.excerpt} />
         </NewsCard.Content>
@@ -67,7 +67,7 @@ export const titleFirst = () => (
         <NewsCard.Image image={item?.image} />
         <NewsCard.Content>
           <NewsCard.Title title={item?.title} />
-          <NewsCard.Date date={item?.date} />
+          <NewsCard.PostDate date={item?.date} />
           <NewsCard.Excerpt excerpt={item?.excerpt} />
         </NewsCard.Content>
         <NewsCard.Badges tags={item?.tags} />
@@ -82,7 +82,7 @@ export const noExcerpt = () => (
       <NewsCard link={item?.url}>
         <NewsCard.Image image={item?.image} />
         <NewsCard.Content>
-          <NewsCard.Date date={item?.date} />
+          <NewsCard.PostDate date={item?.date} />
           <NewsCard.Title title={item?.title} />
         </NewsCard.Content>
         <NewsCard.Badges tags={item?.tags} />
@@ -97,7 +97,7 @@ export const NoImage = () => (
       <NewsCard link={item?.url}>
         <NewsCard.Content>
           <NewsCard.Title title={item?.title} />
-          <NewsCard.Date date={item?.date} />
+          <NewsCard.PostDate date={item?.date} />
           <NewsCard.Excerpt excerpt={item?.excerpt} />
         </NewsCard.Content>
         <NewsCard.Badges tags={item?.tags} />
