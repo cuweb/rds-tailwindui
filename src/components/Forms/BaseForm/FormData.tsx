@@ -23,6 +23,13 @@ export const FormSchema = {
   },
   fileUpload: {
     value: '',
-    validation: yup.mixed(),
+    validation: yup
+      .mixed()
+      .nullable()
+      .test(
+        'FILE_SIZE',
+        ' Uploaded file is too big ',
+        value => !value || value.size <= 10 * 1024 * 1024
+      ),
   },
 };
