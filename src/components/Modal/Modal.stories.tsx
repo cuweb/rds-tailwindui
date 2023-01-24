@@ -56,7 +56,7 @@ export const ModalNoButton: Story<ModalProps> = () => {
         description={'Description inside the modal'}
         isOpen={ModalOpen}
         setIsOpen={setModalOpen}
-        nobutton
+        noButton
       >
         <Button
           onClick={() => {

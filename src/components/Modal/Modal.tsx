@@ -7,7 +7,7 @@ export interface ModalProps {
   children?: React.ReactNode;
   title?: String;
   description?: String;
-  nobutton?: boolean;
+  noButton?: boolean;
   isOpen: any;
   setIsOpen: any;
 }
@@ -16,7 +16,7 @@ export const Modal = ({
   children,
   title,
   description,
-  nobutton,
+  noButton,
   isOpen,
   setIsOpen,
 }: ModalProps) => {
@@ -69,7 +69,7 @@ export const Modal = ({
                     </div>
                   </div>
                 </div>
-                {!nobutton && (
+                {!noButton && (
                   <div className=" gap-4 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6  grid  sm:w-auto sm:text-sm">
                     {children}
                     <Button
