@@ -60,14 +60,14 @@ const Title = ({ as = 'h3', title }: TitleProps & NewsCardProps) => {
   );
 };
 
-const Date = ({ date }: NewsCardProps) => {
-  //   const formatedDate = new Date(date).toLocaleString('en-US', {
-  //     month: 'long',
-  //     day: '2-digit',
-  //     year: 'numeric',
-  //   });
+const PostDate = ({ date }: NewsCardProps) => {
+  const formatedDate = new Date(date).toLocaleString('en-US', {
+    month: 'long',
+    day: '2-digit',
+    year: 'numeric',
+  });
 
-  return <p className="text-sm italic text-cu-black-600">{date}</p>;
+  return <p className="text-sm italic text-cu-black-600">{formatedDate}</p>;
 };
 
 const Excerpt = ({ excerpt }: NewsCardProps) => {
@@ -88,7 +88,7 @@ export const NewsCard = Object.assign(NewsCardBase, {
   Image,
   Content,
   Title,
-  Date,
+  PostDate,
   Excerpt,
   Badges,
 });
