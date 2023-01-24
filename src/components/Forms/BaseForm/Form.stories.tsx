@@ -37,7 +37,7 @@ const ExampleTemplate: Story<FormProps> = args => {
     [setSelectedTime]
   );
 
-  console.log("selectedTime----",selecetedTime)
+  console.log('selectedTime----', selecetedTime);
   return (
     <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
       <Column cols="2">
@@ -72,8 +72,13 @@ const ExampleTemplate: Story<FormProps> = args => {
         name="regularviewer"
         options={RadioData}
       />
-      <div className='max-w-md'>
-      <Form.DateTimePicker label="Pick Start date and time" value={selecetedTime} name="dateTime" callback={callbackcal} />
+      <div className="max-w-md">
+        <Form.DateTimePicker
+          label="Pick Start date and time"
+          value={selecetedTime}
+          name="dateTime"
+          callback={callbackcal}
+        />
       </div>
       <Form.PlacesAutoComplete />
       <Form.Checkbox

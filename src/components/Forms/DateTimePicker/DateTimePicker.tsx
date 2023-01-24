@@ -57,11 +57,10 @@ export const DateTimePicker = (props: any) => {
     setNoon(event.target.value);
   };
   const time = convertTime12to24(`${hours}:${minutes} ${noon}`);
-  
 
   useEffect(() => {
     props.callback(time);
-  }, [time,props.callback]);
+  }, [time, props.callback]);
 
   return (
     <div>

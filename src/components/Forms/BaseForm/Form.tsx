@@ -64,5 +64,5 @@ export const Form = Object.assign(FormBase, {
   Radio,
   Submit,
   DateTimePicker,
-  PlacesAutoComplete
+  PlacesAutoComplete,
 });
