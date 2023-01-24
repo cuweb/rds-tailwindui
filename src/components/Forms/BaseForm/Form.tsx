@@ -1,12 +1,13 @@
 import React from 'react';
-import { Input } from '../Input/Input';
+
 import { Select } from '../Select/Select';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { Radio } from '../Radio/Radio';
 import { Button } from '../../Button';
-
 import { Form as FormWrapper, Formik } from 'formik';
 import * as yup from 'yup';
+import { Input } from '../Input/Input';
+import { FileUpload } from '../FileUpload/FileUpload';
 
 export interface FormProps {
   children?: React.ReactNode;
@@ -61,4 +62,5 @@ export const Form = Object.assign(FormBase, {
   Checkbox,
   Radio,
   Submit,
+  FileUpload,
 });

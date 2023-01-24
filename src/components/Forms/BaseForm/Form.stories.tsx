@@ -30,7 +30,7 @@ const DefaultTemplate: Story<FormProps> = () => (
 
 const ExampleTemplate: Story<FormProps> = args => (
   <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
-    <Column cols="2">
+    <Column cols="2" maxWidth="full">
       <Form.Input
         label="First Name"
         name="firstname"
@@ -56,6 +56,7 @@ const ExampleTemplate: Story<FormProps> = args => (
       name="favsitcom"
       options={SelectData}
     />
+    <Form.FileUpload label="File Upload" name="fileUpload" />
 
     <Form.Radio
       label="How many of these shows did you watch regularly?"

@@ -9,6 +9,7 @@ export const formStyles = {
   radioList: `flex items-center gap-2`,
   radioInput: `rounded-full focus:ring-cu-red-200 text-cu-red`,
   radioLabel: `text-sm text-cu-black-800`,
+  fileUpload: `block max-w-md ml-5 text-sm text-gray-900    cursor-pointer focus:outline-none`,
 };
 
 export const formErrorStyles = {

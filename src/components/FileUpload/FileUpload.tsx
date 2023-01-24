@@ -8,6 +8,7 @@ export interface FileUploadProps {
   maxUploadSize?: Number;
   handleUpload?: any;
   noButton?: Boolean;
+  bucketName?: string;
 }
 
 export const FileUpload = ({
