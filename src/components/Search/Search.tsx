@@ -34,7 +34,7 @@ export const Search = ({
     children
   ) : (
     <MagnifyingGlassIcon
-      className=" cursor-pointer left-4 h-5 w-5 text-gray-400"
+      className="w-5 h-5 text-gray-400 cursor-pointer left-4"
       aria-hidden="true"
     />
   );
@@ -93,10 +93,10 @@ export const Search = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-cu-black/70 transition-opacity" />
+            <div className="fixed inset-0 transition-opacity bg-cu-black/70" />
           </Transition.Child>
 
-          <div className="fixed inset-0 z-100 overflow-y-auto p-4 sm:p-6 md:p-20">
+          <div className="fixed inset-0 p-4 overflow-y-auto z-100 sm:p-6 md:p-20">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -117,7 +117,7 @@ export const Search = ({
                       aria-hidden="true"
                     />
                     <Combobox.Input
-                      className="h-12 w-full border-0 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                      className="w-full h-12 pr-4 text-sm bg-transparent border rounded-lg text-cu-black-800 placeholder-cu-black-300 border-cu-black-100 pl-11 focus:border-cu-black-300 focus:ring-0"
                       placeholder="Search..."
                       onChange={event => setQuery(event.target.value)}
                     />
@@ -135,7 +135,7 @@ export const Search = ({
                   {filteredDatabase.length > 0 && (
                     <Combobox.Options
                       static
-                      className="max-h-72 scroll-py-2 overflow-y-auto py-2 text-sm text-gray-800"
+                      className="py-2 overflow-y-auto text-sm text-gray-800 max-h-72 scroll-py-2"
                     >
                       {filteredDatabase.map((sourceData: any) => (
                         <Combobox.Option

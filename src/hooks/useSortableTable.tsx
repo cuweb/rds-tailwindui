@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useSortableTable = (data: any) => {
   const [tableData, setTableData] = useState(data);
-
+  useEffect(() => {
+    setTableData(data);
+  }, [data]);
   const sortTableData = (orderBy: string | number, asc: boolean) => {
     if (orderBy) {
       const sortedData = [...tableData].sort((a, b) => {
