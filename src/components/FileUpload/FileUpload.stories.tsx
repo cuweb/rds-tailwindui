@@ -12,17 +12,21 @@ export default {
   },
 } as Meta<typeof FileUpload>;
 
-export const DefaultTemplate = () => {
+export const Default = () => {
   const handleUpload = () => {
     alert('file has been uploaded successfully ');
   };
+
+  // add resolution validation
   return (
     <>
       <FileUpload
-        label="Upload File "
+        label="Upload File"
+        name="coverPic"
         caption="PNG, JPG, GIF up to 10MB"
         maxUploadSize={10}
         handleUpload={handleUpload}
+        accept="image/gif, image/jpeg , image/png , image/jpg"
       />
     </>
   );

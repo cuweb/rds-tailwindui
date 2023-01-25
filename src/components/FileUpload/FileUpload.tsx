@@ -1,5 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, {
+  ClassAttributes,
+  InputHTMLAttributes,
+  useRef,
+  useState,
+} from 'react';
+import { formStyles } from '../../utils/formClasses';
 import { Button } from '../Button';
+import { PreviewImage } from './PreviewImage';
 
 export interface FileUploadProps {
   label?: string;
@@ -9,6 +16,8 @@ export interface FileUploadProps {
   handleUpload?: any;
   noButton?: Boolean;
   bucketName?: string;
+  name?: string;
+  uploadedUrl?: any;
 }
 
 export const FileUpload = ({
@@ -17,13 +26,21 @@ export const FileUpload = ({
   maxUploadSize = 10,
   handleUpload,
   noButton = false,
-}: FileUploadProps) => {
+  name,
+  ...props
+}: FileUploadProps &
+  InputHTMLAttributes<HTMLInputElement> &
+  ClassAttributes<HTMLInputElement>) => {
   const fileInput = useRef<any>(null);
   const [ErrorMessage, setErrorMessage] = useState<string | undefined | null>(
     null
   );
+  const [previewImage, setPreviewImage] = useState(null);
   const onFileUpload = async () => {
     let file = fileInput!.current!.files![0];
+
+    console.log(file);
+
     if (file.size > Number(maxUploadSize) * 1024 * 1024) {
       fileInput.current.value = null;
       setErrorMessage(
@@ -32,26 +49,29 @@ export const FileUpload = ({
       return false;
     }
     setErrorMessage(null);
+    setPreviewImage(file);
+  };
+
+  const onRemove = () => {
+    setPreviewImage(null);
+    fileInput.current.value = null; // helper can set value or reset it
   };
 
   return (
     <>
-      <label
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        htmlFor="file_input"
-      >
+      <label htmlFor={name} className={formStyles.label}>
         {label}
       </label>
 
-      <div className="flex flex-block">
+      <div className="flex flex-block mt-5">
         <input
+          {...props}
           className="block max-w-md ml-5 text-sm text-gray-900    cursor-pointer focus:outline-none"
           aria-describedby="file_input_help"
-          id="file_input"
+          id={name}
           type="file"
           ref={fileInput}
           onChange={onFileUpload}
-          accept="image/gif, image/jpeg , image/png , image/jpg"
         />
         {!noButton && (
           <div className="mr-3">
@@ -66,7 +86,21 @@ export const FileUpload = ({
         {caption}
       </p>
 
-      <p className="text-cu-red mt-1 text-sm"> {ErrorMessage}</p>
+      {ErrorMessage && (
+        <p className="text-cu-red mt-1 text-sm"> {ErrorMessage}</p>
+      )}
+
+      {/* Image Preview */}
+      {previewImage && (
+        <div className="mt-4">
+          <PreviewImage file={previewImage} />
+        </div>
+      )}
+      {previewImage && (
+        <div className="mt-4">
+          <Button title="Delete" size="sm" isType="ghost" onClick={onRemove} />
+        </div>
+      )}
     </>
   );
 };
