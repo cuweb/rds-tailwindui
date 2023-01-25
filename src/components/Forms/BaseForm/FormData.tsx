@@ -21,15 +21,8 @@ export const FormSchema = {
       .min(3, 'Name must be at least 3 characters long')
       .required('Required'),
   },
-  fileUpload: {
+  cover: {
     value: '',
-    validation: yup
-      .mixed()
-      .nullable()
-      .test(
-        'FILE_SIZE',
-        ' Uploaded file is too big ',
-        value => !value || value.size <= 10 * 1024 * 1024
-      ),
+    validation: yup.mixed().nullable(),
   },
 };

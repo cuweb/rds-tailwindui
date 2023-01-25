@@ -7,7 +7,7 @@ export interface FileUploadProps {
 
 export const PreviewImage = ({ file }: FileUploadProps) => {
   const [preview, setPreview]: any = useState(null);
-
+  // console.log(file)
   const reader = new FileReader();
   reader.readAsDataURL(file);
 
@@ -20,7 +20,7 @@ export const PreviewImage = ({ file }: FileUploadProps) => {
       <div>
         <p className={formStyles.label}> Preview </p>
         {preview ? (
-          <img src={preview} className="h-56 w-56" />
+          <img src={preview} className="h-56 w-56" alt="preview" />
         ) : (
           <p className={formStyles.label}> Loading...</p>
         )}

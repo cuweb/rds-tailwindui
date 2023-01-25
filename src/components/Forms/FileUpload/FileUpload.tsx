@@ -1,10 +1,5 @@
-import React, {
-  InputHTMLAttributes,
-  ClassAttributes,
-  useRef,
-  useState,
-} from 'react';
-import { useField, FieldHookConfig, useFormikContext } from 'formik';
+import React, { InputHTMLAttributes, ClassAttributes, useState } from 'react';
+import { useField, FieldHookConfig } from 'formik';
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 import { PreviewImage } from '../../FileUpload/PreviewImage';
@@ -12,86 +7,74 @@ import { Button } from '../../Button';
 
 export interface FileUploadProps {
   label?: string;
-  maxUploadSize?: Number;
-  type?: string;
+  accept?: string;
 }
 
 export const FileUpload = ({
   label,
-  maxUploadSize = 10,
+  accept,
   ...props
 }: FileUploadProps &
   InputHTMLAttributes<HTMLInputElement> &
   ClassAttributes<HTMLInputElement> &
   FieldHookConfig<string>) => {
-  const [field, meta] = useField(props);
+  const [field, meta, helper] = useField(props);
+  const [previewImage, setPreviewImage] = useState(null);
 
-  const fileInput = useRef<any>(null);
-  const { setFieldValue } = useFormikContext();
-
-  const [viewImage, setViewImage] = useState(null);
-
-  const onFileUpload = () => {
-    let file = fileInput!.current!.files![0];
-    setViewImage(file);
-    // setFieldValue(field.name, file);
+  const onSelect = (files: any) => {
+    setPreviewImage(files![0]);
   };
 
-  const onRemoveFile = () => {
-    setViewImage(null);
-    setFieldValue(field.name, null);
+  const onRemove = () => {
+    setPreviewImage(null);
+    helper.setValue(''); // helper can set value or reset it
   };
 
   return (
-    <>
-      <div className={formStyles.elementSpace}>
-        <label htmlFor={field.name} className={formStyles.label}>
-          {label} {props.required && <span className="text-cu-red">*</span>}
-        </label>
+    <div className={formStyles.elementSpace}>
+      <label htmlFor={field.name} className={formStyles.label}>
+        {label} {props.required && <span className="text-cu-red">*</span>}
+      </label>
+      {/* Input Field  */}
+      <input
+        {...field}
+        {...props}
+        id={field.name}
+        type="file"
+        accept={accept}
+        onChange={e => {
+          onSelect(e.target.files); // passes file object
+          field.onChange(e); // triggers the field onChange event so values are synced
+        }}
+        className={`${formStyles.input} ${
+          meta.touched && meta.error ? formErrorStyles.inputBorder : ''
+        }`}
+        aria-invalid={meta.touched && meta.error ? true : false}
+        aria-describedby={
+          field.name + (meta.touched && meta.error ? '-error' : '')
+        }
+      />
 
-        <div className=" flex gap-4  ">
-          <input
-            {...field}
-            {...props}
-            className={`${formStyles.fileUpload} ${
-              meta.touched && meta.error ? formErrorStyles.inputBorder : ''
-            }`}
-            aria-describedby="file_input_help"
-            id={field.name}
-            type="file"
-            ref={fileInput}
-            onChange={onFileUpload}
-            // accept="image/gif, image/jpeg , image/png , image/jpg"
-            aria-invalid={meta.touched && meta.error ? true : false}
+      {/* Image Preview */}
+      {previewImage && <PreviewImage file={previewImage} />}
+      {previewImage && (
+        <Button title="Delete" size="sm" isType="ghost" onClick={onRemove} />
+      )}
+
+      {/* Validation Error Icon*/}
+      {meta.touched && meta.error && (
+        <div className={formErrorStyles.messageDiv}>
+          <ExclamationCircleIcon
+            className={formErrorStyles.errorIcon}
+            aria-hidden="true"
           />
-
-          {viewImage && (
-            <Button
-              title="Delete"
-              size="sm"
-              isType="ghost"
-              onClick={onRemoveFile}
-            />
-          )}
+          <p className={formErrorStyles.errorText} id="email-error">
+            {meta.error}
+          </p>
         </div>
-
-        {/* Validation Error Icon*/}
-        {meta.touched && meta.error && (
-          <div className={formErrorStyles.messageDiv}>
-            <ExclamationCircleIcon
-              className={formErrorStyles.errorIcon}
-              aria-hidden="true"
-            />
-            <p className={formErrorStyles.errorText} id="email-error">
-              {meta.error}
-            </p>
-          </div>
-        )}
-
-        {viewImage && !meta.error && <PreviewImage file={viewImage} />}
-      </div>
-    </>
+      )}
+    </div>
   );
 };
 
-FileUpload.displayName = 'Form.FileUpload';
+FileUpload.displayName = 'Form.Input';

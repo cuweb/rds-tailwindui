@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { SearchForm } from './SearchForm';
 import { Meta } from '@storybook/react';
 
@@ -8,12 +8,5 @@ export default {
 } as Meta;
 
 export const Default = () => {
-  const [_, setMessage] = useState('');
-  const callbackcal = useCallback(
-    (message: any) => {
-      setMessage(message);
-    },
-    [setMessage]
-  );
-  return <SearchForm callback={callbackcal} />;
+  return <SearchForm callback={() => {}} />;
 };

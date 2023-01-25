@@ -48,7 +48,15 @@ const ExampleTemplate: Story<FormProps> = args => (
     <Form.Input
       label="Address"
       name="address"
+      multiple
       placeholder="Enter your street name and house number, if applicable"
+    />
+
+    <Form.FileUpload
+      label="Cover Photo"
+      name="cover"
+      accept="image/gif, image/jpeg , image/png , image/jpg"
+      placeholder="Select a cover photo"
     />
 
     <Form.Select
@@ -56,7 +64,6 @@ const ExampleTemplate: Story<FormProps> = args => (
       name="favsitcom"
       options={SelectData}
     />
-    <Form.FileUpload label="File Upload" name="fileUpload" />
 
     <Form.Radio
       label="How many of these shows did you watch regularly?"
