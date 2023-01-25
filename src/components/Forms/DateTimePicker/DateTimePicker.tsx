@@ -1,27 +1,14 @@
+import { useField } from 'formik';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Calendar } from '../../Calendar/Calendar';
-import {
-  add,
-  eachDayOfInterval,
-  endOfMonth,
-  format,
-  getDay,
-  getYear,
-  isBefore,
-  isEqual,
-  isSameDay,
-  isSameMonth,
-  isToday,
-  parse,
-  parseISO,
-  startOfToday,
-} from 'date-fns';
+
 
 const styles = {
   select: `text-xs bg-white rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0`,
 };
 
-export const DateTimePicker = (props: any) => {
+export const DateTimePicker = (props:any) => {
+  const [field, meta] = useField(props.name);
   const [selectedDate, setSelectedDate] = useState(new Date(0));
   const [minutes, setMinutes] = useState('00');
   const [hours, setHours] = useState('01');
@@ -33,7 +20,7 @@ export const DateTimePicker = (props: any) => {
     },
     [setSelectedDate]
   );
-
+ 
   const convertTime12to24 = (time12h: any) => {
     const [time, modifier] = time12h.split(' ');
     let [hours, minutes] = time.split(':');
@@ -63,7 +50,7 @@ export const DateTimePicker = (props: any) => {
   }, [time, props.callback]);
 
   return (
-    <div>
+    <div {...field}>
       <Calendar callback={callbackcal} />
 
       <div className="inline-flex gap-3 p-3 mt-6 bg-white border rounded-lg border-cu-black-100">
