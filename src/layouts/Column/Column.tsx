@@ -19,11 +19,10 @@ export interface ColumnProps {
 
 export const Column = ({
   children,
-  maxWidth = '7xl',
+  maxWidth = '5xl',
   gridGap = '8',
   cols = '1',
-}: //   isNested,
-ColumnProps) => {
+}: ColumnProps) => {
   return (
     <div
       className={`
@@ -31,12 +30,6 @@ ColumnProps) => {
         ${rdsGridColumns[cols]}
         ${rdsMaxWidth[maxWidth]} ${rdsGridSpacing[gridGap]}
       `}
-      //   className={`
-      //     ${styles.column}
-      //     ${rdsGridColumns[cols]}
-      //     ${rdsMaxWidth[maxWidth]} ${rdsGridSpacing[gridGap]}
-      //     ${isNested ? styles.isNested : styles.isNotNested}
-      //   `}
     >
       {children}
     </div>
