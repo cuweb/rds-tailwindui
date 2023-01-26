@@ -4,6 +4,7 @@ import { Select } from '../Select/Select';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { Radio } from '../Radio/Radio';
 import { Button } from '../../Button';
+import { WYSIWYG } from '../WYSIWYG/WYSIWYG';
 
 import { Form as FormWrapper, Formik } from 'formik';
 import * as yup from 'yup';
@@ -61,4 +62,5 @@ export const Form = Object.assign(FormBase, {
   Checkbox,
   Radio,
   Submit,
+  WYSIWYG,
 });

@@ -21,4 +21,8 @@ export const FormSchema = {
       .min(3, 'Name must be at least 3 characters long')
       .required('Required'),
   },
+  description: {
+    value: '',
+    validation: yup.string(),
+  },
 };

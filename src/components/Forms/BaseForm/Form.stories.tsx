@@ -45,6 +45,12 @@ const ExampleTemplate: Story<FormProps> = args => (
       />
     </Column>
 
+    <Form.WYSIWYG
+      label="Event Description"
+      name="description"
+      placeholder="write some Descriptoin..."
+    />
+
     <Form.Input
       label="Address"
       name="address"
