@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Form, FormProps } from './Form';
 import { FormSchema } from './FormData';
@@ -29,15 +29,6 @@ const DefaultTemplate: Story<FormProps> = () => (
 );
 
 const ExampleTemplate: Story<FormProps> = args => {
-  const [selecetedTime, setSelectedTime] = useState('');
-  const callbackcal = useCallback(
-    (itemSelected: any) => {
-      setSelectedTime(itemSelected);
-    },
-    [setSelectedTime]
-  );
-
-  console.log('selectedTime----', selecetedTime);
   return (
     <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
       <Column cols="2">
@@ -75,12 +66,11 @@ const ExampleTemplate: Story<FormProps> = args => {
       <div className="max-w-md">
         <Form.DateTimePicker
           label="Pick Start date and time"
-          value={selecetedTime}
           name="dateTime"
-          callback={callbackcal}
         />
       </div>
-      <Form.PlacesAutoComplete />
+      <div className="max-w-md"><Form.PlacesAutoComplete name="location" /></div>
+      
       <Form.Checkbox
         label="Who are your favourite 90s sitcom characters?"
         name="favcharacters"

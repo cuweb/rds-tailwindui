@@ -1,11 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { Meta } from '@storybook/react';
 import { Column, Container } from '../../../layouts';
 import { DateTimePicker } from './DateTimePicker';
+import { Form } from '../BaseForm/Form';
 
 export default {
-  title: 'Components/Inputs/Date & Time Picker',
-  component: DateTimePicker,
+  title: 'Components/Forms/Date & Time Picker',
+  component: Form,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
@@ -13,42 +14,29 @@ export default {
 } as Meta<typeof DateTimePicker>;
 
 export const Default = () => {
-  const [, setSelectedTime] = useState('');
-  const callbackcal = useCallback(
-    (itemSelected: any) => {
-      setSelectedTime(itemSelected);
-    },
-    [setSelectedTime]
+  return (
+    <Form onSubmit={() => {}} schema={{}}>
+      <Form.DateTimePicker name="dateTime" />;
+    </Form>
   );
-  return <DateTimePicker callback={callbackcal} />;
 };
 
 export const GreyBackground = () => {
-  const [, setSelectedTime] = useState('');
-  const callbackcal = useCallback(
-    (itemSelected: any) => {
-      setSelectedTime(itemSelected);
-    },
-    [setSelectedTime]
-  );
   return (
     <Container bgColor="grey">
-      <DateTimePicker callback={callbackcal} />
+      <Form onSubmit={() => {}} schema={{}}>
+        <Form.DateTimePicker name="dateTime" />;
+      </Form>
     </Container>
   );
 };
 
 export const MaxWidth = () => {
-  const [, setSelectedTime] = useState('');
-  const callbackcal = useCallback(
-    (itemSelected: any) => {
-      setSelectedTime(itemSelected);
-    },
-    [setSelectedTime]
-  );
   return (
     <Column maxWidth="3xl">
-      <DateTimePicker callback={callbackcal} />
+      <Form onSubmit={() => {}} schema={{}}>
+        <Form.DateTimePicker name="dateTime" />;
+      </Form>
     </Column>
   );
 };

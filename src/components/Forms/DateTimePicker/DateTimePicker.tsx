@@ -1,26 +1,27 @@
 import { useField } from 'formik';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Calendar } from '../../Calendar/Calendar';
-
+import { format } from 'date-fns';
 
 const styles = {
   select: `text-xs bg-white rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0`,
 };
 
-export const DateTimePicker = (props:any) => {
-  const [field, meta] = useField(props.name);
-  const [selectedDate, setSelectedDate] = useState(new Date(0));
+export const DateTimePicker = (props: any) => {
+  const [field, meta, helper] = useField(props);
+  const [selectedDate, setSelectedDate] = useState(
+    format(new Date(0), 'yyyy-MM-dd')
+  );
   const [minutes, setMinutes] = useState('00');
   const [hours, setHours] = useState('01');
   const [noon, setNoon] = useState('AM');
 
   const callbackcal = useCallback(
-    (itemSelected: any) => {
-      setSelectedDate(itemSelected);
-    },
+    (itemSelected: any) =>
+      setSelectedDate(format(new Date(itemSelected), 'yyyy-MM-dd')),
     [setSelectedDate]
   );
- 
+
   const convertTime12to24 = (time12h: any) => {
     const [time, modifier] = time12h.split(' ');
     let [hours, minutes] = time.split(':');
@@ -38,21 +39,22 @@ export const DateTimePicker = (props:any) => {
 
   const handleHoursChange = (event: any) => {
     setHours(event.target.value);
+    field.onChange(event);
   };
 
   const handleNoonChange = (event: any) => {
     setNoon(event.target.value);
+    field.onChange(event);
   };
   const time = convertTime12to24(`${hours}:${minutes} ${noon}`);
 
   useEffect(() => {
-    props.callback(time);
-  }, [time, props.callback]);
+    helper.setValue(selectedDate + ' ' + time);
+  }, [time, selectedDate]);
 
   return (
-    <div {...field}>
+    <div {...field} aria-invalid={meta.touched && meta.error ? true : false}>
       <Calendar callback={callbackcal} />
-
       <div className="inline-flex gap-3 p-3 mt-6 bg-white border rounded-lg border-cu-black-100">
         <select
           value={hours}
