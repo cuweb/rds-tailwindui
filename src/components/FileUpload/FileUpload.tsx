@@ -15,16 +15,20 @@ export interface FileUploadProps {
   maxUploadSize?: Number;
   noButton?: Boolean;
   name?: string;
-  callback?: any;
+  minImageWidth?: Number;
+  minImageHeight?: Number;
+  callback: any;
 }
 
 export const FileUpload = ({
   label,
   caption,
-  maxUploadSize = 10,
+  maxUploadSize,
   noButton = false,
   name,
   callback,
+  minImageWidth,
+  minImageHeight,
   ...props
 }: FileUploadProps &
   InputHTMLAttributes<HTMLInputElement> &
@@ -38,15 +42,37 @@ export const FileUpload = ({
   const onFileUpload = async () => {
     let file = fileInput!.current!.files![0];
 
-    if (file.size > Number(maxUploadSize) * 1024 * 1024) {
+    // validations for uploaded images and size
+
+    if (maxUploadSize && file.size > Number(maxUploadSize) * 1024 * 1024) {
       fileInput.current.value = null;
       setErrorMessage(
         `Uploaded file too big. Max allowed size is ${maxUploadSize} MB`
       );
+      fileInput.current.value = null;
       return false;
     }
-    setErrorMessage(null);
-    setPreviewImage(file);
+    let img = new Image();
+    img.src = window.URL.createObjectURL(file);
+
+    if (minImageHeight && minImageWidth) {
+      img.onload = () => {
+        if (minImageWidth >= img.width || minImageHeight >= img.height) {
+          setErrorMessage(
+            `The resolution of image is less than the expected resolution ${minImageWidth} X ${minImageHeight}`
+          );
+          setPreviewImage(null);
+          fileInput.current.value = null;
+          return false;
+        }
+
+        setErrorMessage(null);
+        setPreviewImage(file);
+      };
+    } else {
+      setErrorMessage(null);
+      setPreviewImage(file);
+    }
   };
 
   const uploadHandleClick = () => {

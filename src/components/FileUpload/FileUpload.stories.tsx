@@ -34,6 +34,8 @@ export const Default = () => {
         maxUploadSize={10}
         accept="image/gif, image/jpeg , image/png , image/jpg"
         callback={callbackcal}
+        minImageHeight={1000}
+        minImageWidth={1000}
       />
     </>
   );
