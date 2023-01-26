@@ -21,7 +21,7 @@ export const Default = () => {
       console.log(' the file is ', uploadedFile);
       // a toast when it is logged successfully
     },
-    [setUploadedFile]
+    [setUploadedFile, uploadedFile]
   );
 
   // add resolution validation
