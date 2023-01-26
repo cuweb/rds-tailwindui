@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Meta } from '@storybook/react';
 
 import { FileUpload } from './FileUpload';
@@ -13,9 +13,16 @@ export default {
 } as Meta<typeof FileUpload>;
 
 export const Default = () => {
-  const handleUpload = () => {
-    alert('file has been uploaded successfully ');
-  };
+  const [uploadedFile, setUploadedFile] = useState(null);
+
+  const callbackcal = useCallback(
+    (itemSelected: any) => {
+      setUploadedFile(itemSelected);
+      console.log(' the file is ', uploadedFile);
+      // a toast when it is logged successfully
+    },
+    [setUploadedFile]
+  );
 
   // add resolution validation
   return (
@@ -25,8 +32,8 @@ export const Default = () => {
         name="coverPic"
         caption="PNG, JPG, GIF up to 10MB"
         maxUploadSize={10}
-        handleUpload={handleUpload}
         accept="image/gif, image/jpeg , image/png , image/jpg"
+        callback={callbackcal}
       />
     </>
   );

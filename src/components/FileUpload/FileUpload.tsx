@@ -13,20 +13,18 @@ export interface FileUploadProps {
   caption?: string;
   options?: any[];
   maxUploadSize?: Number;
-  handleUpload?: any;
   noButton?: Boolean;
-  bucketName?: string;
   name?: string;
-  uploadedUrl?: any;
+  callback?: any;
 }
 
 export const FileUpload = ({
   label,
   caption,
   maxUploadSize = 10,
-  handleUpload,
   noButton = false,
   name,
+  callback,
   ...props
 }: FileUploadProps &
   InputHTMLAttributes<HTMLInputElement> &
@@ -36,10 +34,9 @@ export const FileUpload = ({
     null
   );
   const [previewImage, setPreviewImage] = useState(null);
+
   const onFileUpload = async () => {
     let file = fileInput!.current!.files![0];
-
-    console.log(file);
 
     if (file.size > Number(maxUploadSize) * 1024 * 1024) {
       fileInput.current.value = null;
@@ -50,6 +47,11 @@ export const FileUpload = ({
     }
     setErrorMessage(null);
     setPreviewImage(file);
+  };
+
+  const uploadHandleClick = () => {
+    callback(fileInput!.current!.files![0]);
+    onRemove();
   };
 
   const onRemove = () => {
@@ -66,7 +68,7 @@ export const FileUpload = ({
       <div className="flex flex-block mt-5">
         <input
           {...props}
-          className="block max-w-md ml-5 text-sm text-gray-900    cursor-pointer focus:outline-none"
+          className="block max-w-md ml-5 text-sm text-gray-900  cursor-pointer focus:outline-none"
           aria-describedby="file_input_help"
           id={name}
           type="file"
@@ -75,7 +77,7 @@ export const FileUpload = ({
         />
         {!noButton && (
           <div className="mr-3">
-            <Button title="Upload" size="sm" onClick={handleUpload} />
+            <Button title="Upload" size="sm" onClick={uploadHandleClick} />
           </div>
         )}
       </div>
