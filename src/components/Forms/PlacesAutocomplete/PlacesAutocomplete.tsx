@@ -1,17 +1,19 @@
 import { Combobox } from '@headlessui/react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { useField } from 'formik';
 import React, { useState } from 'react';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-import { EventLocation } from '../EventLocation/EventLocation';
+import { EventLocation } from '../../EventLocation/EventLocation';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const PlacesAutoComplete = () => {
+export const PlacesAutoComplete = (props: any) => {
+  const [field, meta, helper] = useField(props);
   const [address, setAddress] = useState('');
   const [coordinates, setCoordinates] = useState({
     lat: 0,
@@ -23,11 +25,13 @@ export const PlacesAutoComplete = () => {
     const latLng = await getLatLng(results[0]);
     setAddress(value);
     setCoordinates(latLng);
+    helper.setValue(value);
+
   };
 
   return (
-    <div>
-      <PlacesAutocomplete
+    <div {...field} aria-invalid={meta.touched && meta.error ? true : false} >
+      <PlacesAutocomplete 
         value={address}
         onChange={setAddress}
         onSelect={handleSelect}
@@ -51,6 +55,7 @@ export const PlacesAutoComplete = () => {
                     onClick={() => {
                       setAddress('');
                       setCoordinates({ lat: 0, lng: 0 });
+                      helper.setValue('')
                     }}
                   />
                 )}

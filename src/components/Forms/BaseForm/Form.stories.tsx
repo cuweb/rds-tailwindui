@@ -28,50 +28,59 @@ const DefaultTemplate: Story<FormProps> = () => (
   </Form>
 );
 
-const ExampleTemplate: Story<FormProps> = args => (
-  <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
-    <Column cols="2">
-      <Form.Input
-        label="First Name"
-        name="firstname"
-        placeholder="Enter your first name"
-        required
-      />
+const ExampleTemplate: Story<FormProps> = args => {
+  return (
+    <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
+      <Column cols="2">
+        <Form.Input
+          label="First Name"
+          name="firstname"
+          placeholder="Enter your first name"
+          required
+        />
+
+        <Form.Input
+          label="Last Name"
+          name="lastname"
+          placeholder="Enter your last name"
+        />
+      </Column>
 
       <Form.Input
-        label="Last Name"
-        name="lastname"
-        placeholder="Enter your last name"
+        label="Address"
+        name="address"
+        placeholder="Enter your street name and house number, if applicable"
       />
-    </Column>
 
-    <Form.Input
-      label="Address"
-      name="address"
-      placeholder="Enter your street name and house number, if applicable"
-    />
+      <Form.Select
+        label="What is your favorite 90s sitcom?"
+        name="favsitcom"
+        options={SelectData}
+      />
 
-    <Form.Select
-      label="What is your favorite 90s sitcom?"
-      name="favsitcom"
-      options={SelectData}
-    />
+      <Form.Radio
+        label="How many of these shows did you watch regularly?"
+        name="regularviewer"
+        options={RadioData}
+      />
+      <div className="max-w-md">
+        <Form.DateTimePicker
+          label="Pick Start date and time"
+          name="dateTime"
+        />
+      </div>
+      <div className="max-w-md"><Form.PlacesAutoComplete name="location" /></div>
+      
+      <Form.Checkbox
+        label="Who are your favourite 90s sitcom characters?"
+        name="favcharacters"
+        options={CheckboxData}
+      />
 
-    <Form.Radio
-      label="How many of these shows did you watch regularly?"
-      name="regularviewer"
-      options={RadioData}
-    />
-
-    <Form.Checkbox
-      label="Who are your favourite 90s sitcom characters?"
-      name="favcharacters"
-      options={CheckboxData}
-    />
-
-    <Form.Submit title="Submit Your Answers" />
-  </Form>
-);
+      <Form.Submit title="Submit Your Answers" />
+    </Form>
+  );
+};
 
 export const Default = DefaultTemplate.bind({});
 export const Example = ExampleTemplate.bind({});
