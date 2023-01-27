@@ -1,8 +1,8 @@
+import { format } from 'date-fns';
 import { FieldHookConfig, useField } from 'formik';
 import React, { useCallback, useEffect, useState } from 'react';
-import { Calendar } from '../../Calendar/Calendar';
-import { format } from 'date-fns';
 import { formStyles } from '../../../utils/formClasses';
+import { Calendar } from '../../Calendar/Calendar';
 const styles = {
   select: `text-xs bg-white rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0`,
 };
@@ -59,9 +59,7 @@ export const DateTimePicker = ({
 
   return (
     <div className={formStyles.elementSpace}>
-      <label htmlFor={field.name} className={formStyles.label}>
-        {label} {props.required && <span className="text-cu-red">*</span>}
-      </label>
+      <label htmlFor={field.name} className={formStyles.label} />
       <div
         {...field}
         id={field.name}
@@ -69,7 +67,11 @@ export const DateTimePicker = ({
       >
         <Calendar callback={callbackcal} />
         <div className="inline-flex gap-3 p-3 mt-6 bg-white border rounded-lg border-cu-black-100">
+          <label htmlFor="field-hours" className="sr-only">
+            {label} {props.required && <span className="text-cu-red">*</span>}
+          </label>
           <select
+            id="field-hours"
             value={hours}
             onChange={handleHoursChange}
             name="hours"
@@ -82,7 +84,9 @@ export const DateTimePicker = ({
             ))}
           </select>
 
+          <label htmlFor="field-minutes" className="sr-only" />
           <select
+            id="field-minutes"
             value={minutes}
             onChange={handleMinutesChange}
             name="minutes"
@@ -102,10 +106,12 @@ export const DateTimePicker = ({
             </option>
           </select>
 
+          <label htmlFor="field-ampm" className="sr-only" />
           <select
+            id="field-ampm"
             value={noon}
             onChange={handleNoonChange}
-            name="Noon"
+            name="ampm"
             className={styles.select}
           >
             <option key="AM" value="AM">
