@@ -1,7 +1,7 @@
+import { format } from 'date-fns';
 import { useField } from 'formik';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Calendar } from '../../Calendar/Calendar';
-import { format } from 'date-fns';
 
 const styles = {
   select: `text-xs bg-white rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0`,
