@@ -2,7 +2,7 @@
   "name": "rds-tailwind",
   "author": "Web Services",
   "module": "dist/rds-tailwind.esm.js",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",

@@ -8,7 +8,7 @@ export default {
 } as Meta;
 
 export const Default = () => {
-  const [_, setMessage] = useState('');
+  const [, setMessage] = useState('');
   const callbackcal = useCallback(
     (message: any) => {
       setMessage(message);
