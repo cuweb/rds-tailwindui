@@ -1,11 +1,11 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Form, FormProps } from './Form';
-import { FormSchema } from './FormData';
-import { SelectData } from '../Select/SelectData';
+import React from 'react';
+import { Column } from '../../../layouts';
 import { CheckboxData } from '../Checkbox/CheckboxData';
 import { RadioData } from '../Radio/RadioData';
-import { Column } from '../../../layouts';
+import { SelectData } from '../Select/SelectData';
+import { Form, FormProps } from './Form';
+import { FormSchema } from './FormData';
 
 export default {
   title: 'Components/Forms/Base Form',
@@ -63,14 +63,13 @@ const ExampleTemplate: Story<FormProps> = args => {
         name="regularviewer"
         options={RadioData}
       />
-      <div className="max-w-md">
-        <Form.DateTimePicker
-          label="Pick Start date and time"
-          name="dateTime"
-        />
+      <div className="max-w-xl">
+        <Form.DateTimePicker label="Pick Start date and time" name="dateTime" />
       </div>
-      <div className="max-w-md"><Form.PlacesAutoComplete name="location" /></div>
-      
+      <div className="max-w-3xl">
+        <Form.PlacesAutoComplete name="location" />
+      </div>
+
       <Form.Checkbox
         label="Who are your favourite 90s sitcom characters?"
         name="favcharacters"
