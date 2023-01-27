@@ -56,6 +56,11 @@ export const PlacesAutoComplete = ({
                   <MagnifyingGlassIcon
                     className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
                     aria-hidden="true"
+                    onClick={() => {
+                      setAddress('');
+                      setCoordinates({ lat: 0, lng: 0 });
+                      helper.setValue('');
+                    }}
                   />
                   <Combobox.Input
                     className="h-12 rounded-lg w-full border-2 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"

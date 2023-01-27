@@ -1,11 +1,10 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { Form, FormProps } from './Form';
-import { FormSchema } from './FormData';
-import { SelectData } from '../Select/SelectData';
+import React from 'react';
 import { CheckboxData } from '../Checkbox/CheckboxData';
 import { RadioData } from '../Radio/RadioData';
-import { Column } from '../../../layouts';
+import { SelectData } from '../Select/SelectData';
+import { Form, FormProps } from './Form';
+import { FormSchema } from './FormData';
 
 export default {
   title: 'Components/Forms/Base Form',
@@ -31,20 +30,18 @@ const DefaultTemplate: Story<FormProps> = () => (
 const ExampleTemplate: Story<FormProps> = args => {
   return (
     <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
-      <Column cols="2">
-        <Form.Input
-          label="First Name"
-          name="firstname"
-          placeholder="Enter your first name"
-          required
-        />
+      <Form.Input
+        label="First Name"
+        name="firstname"
+        placeholder="Enter your first name"
+        required
+      />
 
-        <Form.Input
-          label="Last Name"
-          name="lastname"
-          placeholder="Enter your last name"
-        />
-      </Column>
+      <Form.Input
+        label="Last Name"
+        name="lastname"
+        placeholder="Enter your last name"
+      />
 
       <Form.Input
         label="Address"
@@ -52,6 +49,17 @@ const ExampleTemplate: Story<FormProps> = args => {
         placeholder="Enter your street name and house number, if applicable"
       />
 
+      <Form.WYSIWYG
+        label="Event Description"
+        name="description"
+        placeholder="write some Descriptoin..."
+      />
+
+      <Form.Input
+        label="Address"
+        name="address"
+        placeholder="Enter your street name and house number, if applicable"
+      />
       <Form.Select
         label="What is your favorite 90s sitcom?"
         name="favsitcom"
