@@ -26,12 +26,11 @@ export const PlacesAutoComplete = (props: any) => {
     setAddress(value);
     setCoordinates(latLng);
     helper.setValue(value);
-
   };
 
   return (
-    <div {...field} aria-invalid={meta.touched && meta.error ? true : false} >
-      <PlacesAutocomplete 
+    <div {...field} aria-invalid={meta.touched && meta.error ? true : false}>
+      <PlacesAutocomplete
         value={address}
         onChange={setAddress}
         onSelect={handleSelect}
@@ -55,7 +54,7 @@ export const PlacesAutoComplete = (props: any) => {
                     onClick={() => {
                       setAddress('');
                       setCoordinates({ lat: 0, lng: 0 });
-                      helper.setValue('')
+                      helper.setValue('');
                     }}
                   />
                 )}
