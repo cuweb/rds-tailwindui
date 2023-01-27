@@ -21,16 +21,16 @@ export const FormSchema = {
       .min(3, 'Name must be at least 3 characters long')
       .required('Required'),
   },
+  description: {
+    value: '',
+    validation: yup.string(),
+  },
   dateTime: {
     value: '',
-    validation: yup
-      .date()
-      .required('Required'),
+    validation: yup.date().required('Required'),
   },
   location: {
     value: '',
-    validation: yup
-      .string()
-      .required('Required'),
+    validation: yup.string().required('Required'),
   },
 };

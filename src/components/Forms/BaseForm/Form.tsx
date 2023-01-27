@@ -1,11 +1,12 @@
 import React from 'react';
-import { Input } from '../Input/Input';
-import { Select } from '../Select/Select';
-import { Checkbox } from '../Checkbox/Checkbox';
-import { Radio } from '../Radio/Radio';
 import { Button } from '../../Button';
+import { Checkbox } from '../Checkbox/Checkbox';
 import { DateTimePicker } from '../DateTimePicker';
+import { Input } from '../Input/Input';
 import { PlacesAutoComplete } from '../PlacesAutocomplete';
+import { Radio } from '../Radio/Radio';
+import { Select } from '../Select/Select';
+import { WYSIWYG } from '../WYSIWYG/WYSIWYG';
 
 import { Form as FormWrapper, Formik } from 'formik';
 import * as yup from 'yup';
@@ -63,6 +64,7 @@ export const Form = Object.assign(FormBase, {
   Checkbox,
   Radio,
   Submit,
+  WYSIWYG,
   DateTimePicker,
   PlacesAutoComplete,
 });
