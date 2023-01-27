@@ -17,7 +17,7 @@ export const Default = () => {
   return (
     <Column maxWidth="5xl">
       <Form onSubmit={() => {}} schema={{}}>
-      <PlacesAutoComplete name="location" />
+      <PlacesAutoComplete name="location" label="Pick a location" />
       </Form>
     </Column>
   );

@@ -1,13 +1,16 @@
-import { useField } from 'formik';
+import { FieldHookConfig, useField } from 'formik';
 import React, { useCallback, useEffect, useState } from 'react';
 import { Calendar } from '../../Calendar/Calendar';
 import { format } from 'date-fns';
-
+import { formStyles } from '../../../utils/formClasses';
 const styles = {
   select: `text-xs bg-white rounded-md outline-none appearance-none border-cu-black-100 text-cu-black-900 focus:border-red-500 focus:ring-0`,
 };
-
-export const DateTimePicker = (props: any) => {
+export interface PickerProps {
+  label?: string;
+}
+export const DateTimePicker = ({  label,...props} : PickerProps&
+  FieldHookConfig<string>) => {
   const [field, meta, helper] = useField(props);
   const [selectedDate, setSelectedDate] = useState(
     format(new Date(0), 'yyyy-MM-dd')
@@ -53,7 +56,11 @@ export const DateTimePicker = (props: any) => {
   }, [time, selectedDate]);
 
   return (
-    <div {...field} aria-invalid={meta.touched && meta.error ? true : false}>
+    <div className={formStyles.elementSpace}>
+    <label htmlFor={field.name} className={formStyles.label}>
+      {label} {props.required && <span className="text-cu-red">*</span>}
+    </label>
+    <div {...field} id={field.name} aria-invalid={meta.touched && meta.error ? true : false}>
       <Calendar callback={callbackcal} />
       <div className="inline-flex gap-3 p-3 mt-6 bg-white border rounded-lg border-cu-black-100">
         <select
@@ -103,6 +110,7 @@ export const DateTimePicker = (props: any) => {
           </option>
         </select>
       </div>
+    </div>
     </div>
   );
 };

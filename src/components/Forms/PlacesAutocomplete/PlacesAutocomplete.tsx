@@ -1,18 +1,22 @@
 import { Combobox } from '@headlessui/react';
 import { MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/24/outline';
-import { useField } from 'formik';
+import { FieldHookConfig, useField } from 'formik';
 import React, { useState } from 'react';
 import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
 import { EventLocation } from '../../EventLocation/EventLocation';
+import { formStyles } from '../../../utils/formClasses';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
-
-export const PlacesAutoComplete = (props: any) => {
+export interface PickerProps {
+  label?: string;
+}
+export const PlacesAutoComplete = ({label,...props} : PickerProps&
+  FieldHookConfig<string>) => {
   const [field, meta, helper] = useField(props);
   const [address, setAddress] = useState('');
   const [coordinates, setCoordinates] = useState({
@@ -26,12 +30,15 @@ export const PlacesAutoComplete = (props: any) => {
     setAddress(value);
     setCoordinates(latLng);
     helper.setValue(value);
-
   };
 
   return (
-    <div {...field} aria-invalid={meta.touched && meta.error ? true : false} >
-      <PlacesAutocomplete 
+    <div className={formStyles.elementSpace}>
+    <label htmlFor={field.name} className={formStyles.label}>
+      {label} {props.required && <span className="text-cu-red">*</span>}
+    </label>
+    <div {...field}  id={field.name} aria-invalid={meta.touched && meta.error ? true : false}>
+      <PlacesAutocomplete
         value={address}
         onChange={setAddress}
         onSelect={handleSelect}
@@ -55,7 +62,7 @@ export const PlacesAutoComplete = (props: any) => {
                     onClick={() => {
                       setAddress('');
                       setCoordinates({ lat: 0, lng: 0 });
-                      helper.setValue('')
+                      helper.setValue('');
                     }}
                   />
                 )}
@@ -68,7 +75,6 @@ export const PlacesAutoComplete = (props: any) => {
                 {suggestions.map(suggestion => {
                   return (
                     <Combobox.Option
-                      {...getSuggestionItemProps(suggestion)}
                       key={suggestion.index}
                       value={suggestion}
                       className={({ active }) =>
@@ -78,8 +84,11 @@ export const PlacesAutoComplete = (props: any) => {
                         )
                       }
                     >
+                      <div {...getSuggestionItemProps(suggestion)}>
                       {suggestion.description}
+                      </div>
                     </Combobox.Option>
+                 
                   );
                 })}
               </Combobox.Options>
@@ -94,6 +103,7 @@ export const PlacesAutoComplete = (props: any) => {
           location={address}
         />
       </div>
+    </div>
     </div>
   );
 };

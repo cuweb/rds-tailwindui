@@ -5,12 +5,14 @@ export interface EventLocationProps {
   lng?: string;
   location?: string;
   zoom?: number;
+  id?:any;
 }
 export const EventLocation = ({
   lat,
   lng,
   location,
   zoom = 15,
+  id,
 }: EventLocationProps) => {
   const [showInfo, setShowInfo] = React.useState(false);
   const mapRef = React.useRef();
@@ -27,7 +29,7 @@ export const EventLocation = ({
   };
 
   return (
-    <div>
+    <div id={id}>
       <GoogleMap
         mapContainerClassName="w-full h-96"
         center={{ lat: Number(lat), lng: Number(lng) }}

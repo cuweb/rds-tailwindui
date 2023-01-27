@@ -69,7 +69,7 @@ const ExampleTemplate: Story<FormProps> = args => {
           name="dateTime"
         />
       </div>
-      <div className="max-w-md"><Form.PlacesAutoComplete name="location" /></div>
+      <div className="max-w-md"><Form.PlacesAutoComplete name="location" label="Pick a location" /></div>
       
       <Form.Checkbox
         label="Who are your favourite 90s sitcom characters?"
