@@ -9,8 +9,10 @@ const styles = {
 export interface PickerProps {
   label?: string;
 }
-export const DateTimePicker = ({  label,...props} : PickerProps&
-  FieldHookConfig<string>) => {
+export const DateTimePicker = ({
+  label,
+  ...props
+}: PickerProps & FieldHookConfig<string>) => {
   const [field, meta, helper] = useField(props);
   const [selectedDate, setSelectedDate] = useState(
     format(new Date(0), 'yyyy-MM-dd')
@@ -57,60 +59,64 @@ export const DateTimePicker = ({  label,...props} : PickerProps&
 
   return (
     <div className={formStyles.elementSpace}>
-    <label htmlFor={field.name} className={formStyles.label}>
-      {label} {props.required && <span className="text-cu-red">*</span>}
-    </label>
-    <div {...field} id={field.name} aria-invalid={meta.touched && meta.error ? true : false}>
-      <Calendar callback={callbackcal} />
-      <div className="inline-flex gap-3 p-3 mt-6 bg-white border rounded-lg border-cu-black-100">
-        <select
-          value={hours}
-          onChange={handleHoursChange}
-          name="hours"
-          className={styles.select}
-        >
-          {Array.from({ length: 12 }, (_, i) => i + 1).map(num => (
-            <option key={num} value={num}>
-              {num < 10 ? '0' + num : num}
+      <label htmlFor={field.name} className={formStyles.label}>
+        {label} {props.required && <span className="text-cu-red">*</span>}
+      </label>
+      <div
+        {...field}
+        id={field.name}
+        aria-invalid={meta.touched && meta.error ? true : false}
+      >
+        <Calendar callback={callbackcal} />
+        <div className="inline-flex gap-3 p-3 mt-6 bg-white border rounded-lg border-cu-black-100">
+          <select
+            value={hours}
+            onChange={handleHoursChange}
+            name="hours"
+            className={styles.select}
+          >
+            {Array.from({ length: 12 }, (_, i) => i + 1).map(num => (
+              <option key={num} value={num}>
+                {num < 10 ? '0' + num : num}
+              </option>
+            ))}
+          </select>
+
+          <select
+            value={minutes}
+            onChange={handleMinutesChange}
+            name="minutes"
+            className={styles.select}
+          >
+            <option key="00" value="00">
+              00
             </option>
-          ))}
-        </select>
+            <option key="15" value="15">
+              15
+            </option>
+            <option key="30" value="30">
+              30
+            </option>
+            <option key="45" value="45">
+              45
+            </option>
+          </select>
 
-        <select
-          value={minutes}
-          onChange={handleMinutesChange}
-          name="minutes"
-          className={styles.select}
-        >
-          <option key="00" value="00">
-            00
-          </option>
-          <option key="15" value="15">
-            15
-          </option>
-          <option key="30" value="30">
-            30
-          </option>
-          <option key="45" value="45">
-            45
-          </option>
-        </select>
-
-        <select
-          value={noon}
-          onChange={handleNoonChange}
-          name="Noon"
-          className={styles.select}
-        >
-          <option key="AM" value="AM">
-            AM
-          </option>
-          <option key="PM" value="PM">
-            PM
-          </option>
-        </select>
+          <select
+            value={noon}
+            onChange={handleNoonChange}
+            name="Noon"
+            className={styles.select}
+          >
+            <option key="AM" value="AM">
+              AM
+            </option>
+            <option key="PM" value="PM">
+              PM
+            </option>
+          </select>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

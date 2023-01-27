@@ -72,7 +72,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
   useEffect(() => {
     callback(selectedDay);
   }, [selectedDay, callback]);
- 
+
   return (
     <div>
       <div className="flex items-center py-2 mb-6 bg-white border rounded-lg border-cu-black-100">

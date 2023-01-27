@@ -64,13 +64,12 @@ const ExampleTemplate: Story<FormProps> = args => {
         options={RadioData}
       />
       <div className="max-w-md">
-        <Form.DateTimePicker
-          label="Pick Start date and time"
-          name="dateTime"
-        />
+        <Form.DateTimePicker label="Pick Start date and time" name="dateTime" />
       </div>
-      <div className="max-w-md"><Form.PlacesAutoComplete name="location" label="Pick a location" /></div>
-      
+      <div className="max-w-md">
+        <Form.PlacesAutoComplete name="location" label="Pick a location" />
+      </div>
+
       <Form.Checkbox
         label="Who are your favourite 90s sitcom characters?"
         name="favcharacters"
