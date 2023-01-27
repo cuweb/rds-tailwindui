@@ -1,8 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { LocationPicker} from './LocationPicker';
+import { LocationPicker } from './LocationPicker';
 import { Column } from '../../layouts';
-
 
 export default {
   title: 'Components/Elements/LocationPicker',
@@ -16,7 +15,7 @@ export default {
 export const Default = () => {
   return (
     <Column maxWidth="5xl">
-        <LocationPicker />
+      <LocationPicker />
     </Column>
   );
 };
