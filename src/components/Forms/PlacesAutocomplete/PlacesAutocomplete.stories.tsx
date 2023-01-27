@@ -1,11 +1,12 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { PlacesAutoComplete } from './PlacesAutocomplete';
-import { Column } from '../../layouts';
+import { Column } from '../../../layouts';
+import { Form } from '../BaseForm/Form';
 
 export default {
-  title: 'Components/Elements/PlacesAutoComplete',
-  component: PlacesAutoComplete,
+  title: 'Components/Forms/PlacesAutoComplete',
+  component: Form,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
@@ -15,7 +16,9 @@ export default {
 export const Default = () => {
   return (
     <Column maxWidth="5xl">
-      <PlacesAutoComplete />
+      <Form onSubmit={() => {}} schema={{}}>
+        <PlacesAutoComplete name="location" />
+      </Form>
     </Column>
   );
 };

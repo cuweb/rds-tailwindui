@@ -25,4 +25,12 @@ export const FormSchema = {
     value: '',
     validation: yup.string(),
   },
+  dateTime: {
+    value: '',
+    validation: yup.date().required('Required'),
+  },
+  location: {
+    value: '',
+    validation: yup.string().required('Required'),
+  },
 };

@@ -1,9 +1,11 @@
 import React from 'react';
-import { Input } from '../Input/Input';
-import { Select } from '../Select/Select';
-import { Checkbox } from '../Checkbox/Checkbox';
-import { Radio } from '../Radio/Radio';
 import { Button } from '../../Button';
+import { Checkbox } from '../Checkbox/Checkbox';
+import { DateTimePicker } from '../DateTimePicker';
+import { Input } from '../Input/Input';
+import { PlacesAutoComplete } from '../PlacesAutocomplete';
+import { Radio } from '../Radio/Radio';
+import { Select } from '../Select/Select';
 import { WYSIWYG } from '../WYSIWYG/WYSIWYG';
 
 import { Form as FormWrapper, Formik } from 'formik';
@@ -14,7 +16,7 @@ export interface FormProps {
   onSubmit?: any;
   schema: {
     [k: string]: {
-      value: any;
+      value?: any;
       validation: any;
       label?: string;
     };
@@ -63,4 +65,6 @@ export const Form = Object.assign(FormBase, {
   Radio,
   Submit,
   WYSIWYG,
+  DateTimePicker,
+  PlacesAutoComplete,
 });
