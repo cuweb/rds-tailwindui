@@ -1,8 +1,6 @@
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { FieldHookConfig, useField } from 'formik';
 import React, { ClassAttributes, InputHTMLAttributes } from 'react';
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import { formErrorStyles, formStyles } from '../../../utils/formClasses';
 
 export interface WYSIWYGProps {
@@ -20,6 +18,8 @@ export const WYSIWYG = ({
   ClassAttributes<HTMLInputElement> &
   FieldHookConfig<string>) => {
   const [field, meta] = useField(props);
+  const ReactQuill =
+    typeof window === 'object' ? require('react-quill') : () => false;
 
   // const modules = {
   //   toolbar: [
