@@ -27,12 +27,11 @@ export const Checkbox = ({
       </legend>
 
       {options?.map(option => (
-        <div className={`${formStyles.checkboxList}`}>
+        <div className={`${formStyles.checkboxList}`} key={option.name}>
           <input
             {...field}
             name={option.name}
             id={option.name}
-            key={option.index}
             type="checkbox"
             className={`${formStyles.checkboxInput} ${
               meta.touched && meta.error

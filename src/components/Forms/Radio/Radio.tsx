@@ -27,26 +27,23 @@ export const Radio = ({
       </legend>
 
       {options?.map(option => (
-        <>
-          <div key={option.index} className={`${formStyles.radioList}`}>
-            <input
-              {...field}
-              //   name={option.name}
-              id={option.name}
-              type="radio"
-              className={`${formStyles.radioInput} ${
-                meta.touched && meta.error
-                  ? formErrorStyles.inputBorder
-                  : formStyles.inputBorder
-              }`}
-              checked={field.value === option.name}
-              value={option.name}
-            />
-            <label htmlFor={option.name} className={formStyles.radioLabel}>
-              {option.label}
-            </label>
-          </div>
-        </>
+        <div key={option.name} className={`${formStyles.radioList}`}>
+          <input
+            {...field}
+            id={option.name}
+            type="radio"
+            className={`${formStyles.radioInput} ${
+              meta.touched && meta.error
+                ? formErrorStyles.inputBorder
+                : formStyles.inputBorder
+            }`}
+            checked={field.value === option.name}
+            value={option.name}
+          />
+          <label htmlFor={option.name} className={formStyles.radioLabel}>
+            {option.label}
+          </label>
+        </div>
       ))}
 
       {/* Validation Error Icon*/}
