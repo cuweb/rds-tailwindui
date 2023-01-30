@@ -7,19 +7,19 @@ export interface WYSIWYGProps {
   label?: string;
   type?: string;
   placeholder?: string;
+  Editor?: any;
 }
 
 export const WYSIWYG = ({
   label,
   placeholder,
+  Editor = 'textarea',
   ...props
 }: WYSIWYGProps &
   InputHTMLAttributes<HTMLInputElement> &
   ClassAttributes<HTMLInputElement> &
   FieldHookConfig<string>) => {
   const [field, meta] = useField(props);
-  const ReactQuill =
-    typeof window === 'object' ? require('react-quill') : () => false;
 
   // const modules = {
   //   toolbar: [
@@ -65,10 +65,9 @@ export const WYSIWYG = ({
           {label} {props.required && <span className="text-cu-red">*</span>}
         </label>
         <div>
-          <ReactQuill
+          <Editor
             {...field}
             id={field.name}
-            theme="snow"
             value={field.value}
             onChange={field.onChange(field.name)}
             placeholder={placeholder}
