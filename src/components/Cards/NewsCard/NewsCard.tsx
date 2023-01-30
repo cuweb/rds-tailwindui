@@ -1,11 +1,10 @@
 import React from 'react';
 import { Badge } from '../../Badge';
 
-type TitleTypeProps = 'h2' | 'h3';
-
 export interface NewsCardProps {
   children?: React.ReactNode;
   title: string;
+  heading?: 'h2' | 'h3';
   link: string;
   date?: string | any;
   image?: string;
@@ -18,20 +17,16 @@ interface Tags {
   category: { id: number; name: string; slug: string }[];
 }
 
-export interface TitleProps {
-  as?: TitleTypeProps;
-}
-
 export const NewsCard = ({
   title,
-  as: Component = 'h3',
+  heading: HeadLevel = 'h3',
   link,
   date,
   image,
   alt,
   excerpt,
   tags,
-}: NewsCardProps & TitleProps) => {
+}: NewsCardProps) => {
   const formatedDate = new Date(date).toLocaleString('en-US', {
     month: 'long',
     day: '2-digit',
@@ -56,9 +51,9 @@ export const NewsCard = ({
             </p>
           )}
 
-          <Component className="text-lg font-semibold text-cu-black group-hover:text-cu-red @sm:md:text-xl">
+          <HeadLevel className="text-lg font-semibold text-cu-black group-hover:text-cu-red @sm:md:text-xl">
             {title}
-          </Component>
+          </HeadLevel>
 
           {excerpt && (
             <p className="flex items-start text-base text-cu-black-600">

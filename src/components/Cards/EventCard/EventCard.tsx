@@ -13,8 +13,9 @@ interface Tags {
 }
 
 export interface EventCardProps {
-  name?: string;
-  link?: string;
+  title?: string;
+  heading?: 'h2' | 'h3';
+  link: string;
   startDateTime: string;
   endDateTime: string;
   featuredImage?: string;
@@ -27,8 +28,9 @@ export interface EventCardProps {
 }
 
 export const EventCard = ({
-  name,
-  link = 'https://carleton.ca',
+  title,
+  heading: HeadLevel = 'h3',
+  link,
   startDateTime,
   endDateTime,
   featuredImage,
@@ -109,9 +111,9 @@ export const EventCard = ({
         </div>
 
         <div className="flex flex-col gap-px pt-16 pb-8 px-7">
-          <h3 className="text-lg font-semibold text-cu-black group-hover:text-cu-red @sm:md:text-xl">
-            {name}
-          </h3>
+          <HeadLevel className="text-lg font-semibold text-cu-black group-hover:text-cu-red @sm:md:text-xl">
+            {title}
+          </HeadLevel>
           <ul className="flex flex-col gap-2 mt-4">
             <li className="flex text-sm text-cu-black-600 @sm:md:text-base">
               {multiDayDisplay()}
