@@ -1,7 +1,7 @@
-import { Transition, Dialog, Combobox } from '@headlessui/react';
+import { Combobox, Dialog, Transition } from '@headlessui/react';
 import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
 import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon';
-import React, { ReactNode, useState, useEffect, Fragment } from 'react';
+import React, { Fragment, ReactNode, useEffect, useState } from 'react';
 
 export interface SearchProps {
   sourceData: any;
@@ -73,9 +73,7 @@ export const Search = ({
 
   return (
     <>
-      <button id="search-avatar" onClick={() => setOpen(true)}>
-        {searchAvatar}
-      </button>
+      <button onClick={() => setOpen(true)}>{searchAvatar}</button>
 
       <Transition.Root
         show={open}
