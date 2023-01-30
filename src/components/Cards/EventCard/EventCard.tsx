@@ -1,11 +1,11 @@
-import React from 'react';
 import {
+  CalendarDaysIcon,
   ClockIcon,
   MapPinIcon,
-  CalendarDaysIcon,
 } from '@heroicons/react/24/outline';
+import { getDate, getMonth, isSameDay, parseISO } from 'date-fns';
+import React from 'react';
 import { Badge } from '../../Badge/index';
-import { isSameDay, parseISO, getMonth, getDate } from 'date-fns';
 
 interface Tags {
   category: { id: number; name: string; slug: string }[];

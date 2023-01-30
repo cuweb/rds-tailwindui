@@ -1,11 +1,11 @@
 import { Disclosure } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import { Link } from '../Link/Link';
 import shield from '../../assets/cu-shield.svg';
-import { XMarkIcon, Bars3Icon } from '@heroicons/react/24/solid';
 import { UserInfoType } from '../../types/UserInfo';
 import { Avatar } from '../Avatar';
 import { DropDown, DropDownItemProps } from '../DropDown';
+import { Link } from '../Link/Link';
 import { Search } from '../Search';
 
 export interface LinkProps {
@@ -56,14 +56,14 @@ export const TopNav = ({
   mobileLogin,
 }: TopNavProps) => {
   const brandLogo = brand ? (
-    <div className="flex flex-shrink-0 items-center">
+    <div className="flex items-center flex-shrink-0">
       <h1 className="sr-only"> {title} </h1>
-      <img className="h-16 w-auto" src={brand} alt={title} />
+      <img className="w-auto h-16" src={brand} alt={title} />
     </div>
   ) : (
-    <div className="flex flex-shrink-0 items-center">
-      <img className="h-10 w-auto" src={shield} alt="Carleton Shield" />
-      <h1 className="items-center flex flex-shrink-0 pl-3 pr-2 text-2xl font-semibold">
+    <div className="flex items-center flex-shrink-0">
+      <img className="w-auto h-10" src={shield} alt="Carleton Shield" />
+      <h1 className="flex items-center flex-shrink-0 pl-3 pr-2 text-2xl font-semibold">
         {title}
       </h1>
     </div>
@@ -79,9 +79,9 @@ export const TopNav = ({
     >
       {({ open }) => (
         <>
-          <div className="mx-auto flex h-20 max-w-7xl gap-6">
+          <div className="flex h-20 gap-6 mx-auto max-w-7xl">
             {/* Logo  */}
-            <div className="flex flex-shrink-0 items-center hover:text-cu-red">
+            <div className="flex items-center flex-shrink-0 hover:text-cu-red">
               <Link href={logoUrl ? logoUrl : '/'} wrapper={wrapLink}>
                 {brandLogo}
               </Link>
@@ -91,12 +91,12 @@ export const TopNav = ({
             <div className="flex items-center lg:hidden">
               <div className="absolute ml-4 right-4">
                 {hasSearch && sourceData && (
-                  <div className=" inline-flex items-center  p-2">
+                  <div className="inline-flex items-center p-2 ">
                     <Search sourceData={sourceData} searchOn={searchOn} />
                   </div>
                 )}
 
-                <Disclosure.Button className="  inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cu-red-500">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md  hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cu-red-500">
                   <span className="sr-only">main menu</span>
                   {open ? (
                     <XMarkIcon className="block w-6 h-6" aria-hidden="true" />
@@ -132,7 +132,7 @@ export const TopNav = ({
               {/* search */}
               {/* this will just search on title in database , we need to extend it to add other props search on to top nav  */}
               {hasSearch && sourceData && (
-                <div className=" inline-flex items-center ">
+                <div className="inline-flex items-center ">
                   <Search sourceData={sourceData} searchOn={searchOn} />
                 </div>
               )}
@@ -157,7 +157,7 @@ export const TopNav = ({
           {/* Mobile Menu  */}
           {/* active state on mobile */}
 
-          <Disclosure.Panel className="lg:hidden -mx-2 sm:-mx-4 lg:-mx-8">
+          <Disclosure.Panel className="-mx-2 lg:hidden sm:-mx-4 lg:-mx-8">
             {({ close }) => (
               <>
                 <div className="pt-2 pb-3 space-y-1">
