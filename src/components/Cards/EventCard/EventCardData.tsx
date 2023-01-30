@@ -115,7 +115,7 @@ export const EventItemData = [
     user_id: 100292661,
     title: 'Title Of Champions 2',
     slug: 'title-of-champions-2',
-    featured_image: 'http://website/img.jpg',
+    featured_image: '',
     host_org: 'My Organization',
     content: '<p>This is a description</p>',
     start_date: '2022-11-28 10:45:00',
