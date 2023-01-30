@@ -39,7 +39,7 @@ export const EventCard = ({
   tags,
 }: EventCardProps) => {
   const defaultImage =
-    'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80';
+    'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80';
 
   const getMonthName = (month: any, short: boolean = false) => {
     const d = new Date();
@@ -73,14 +73,14 @@ export const EventCard = ({
     if (!isEventSameDay) {
       return (
         <CalendarDaysIcon
-          className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
+          className="flex-shrink-0 w-6 h-6 mr-2 text-cu-red-300"
           aria-hidden="true"
         />
       );
     } else {
       return (
         <ClockIcon
-          className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
+          className="flex-shrink-0 w-6 h-6 mr-2 text-cu-red-300"
           aria-hidden="true"
         />
       );
@@ -88,62 +88,57 @@ export const EventCard = ({
   };
 
   return (
-    <div className="relative flex flex-col overflow-hidden duration-300 ease-in rounded-lg shadow-lg group hover:scale-105">
-      <a href={link} className="cursor-pointer ">
-        <div className="absolute px-6 top-48">
-          <div className="flex-none w-16 md:w-20">
-            <div className="flex flex-col justify-center flex-none w-auto h-16 text-center duration-300 ease-in transform -translate-y-1/2 rounded-lg shadow bg-gray-50 group-hover:bg-cu-red md:h-20">
-              <p className="text-xs font-bold uppercase duration-300 ease-in text-cu-red group-hover:text-white">
-                {getMonthName(eventStartMonth, true)}
-              </p>
-              <p className="text-2xl font-bold uppercase duration-300 ease-in text-cu-black-800 group-hover:text-white">
-                {eventStartDate}
-              </p>
-            </div>
+    <div className="not-prose group relative overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
+      <a href={link} className="relative flex flex-col h-full cursor-pointer">
+        <div className="relative">
+          <div className="aspect-w-16 aspect-h-9 @sm:md:aspect-h-6">
+            <img
+              className="object-cover w-full"
+              src={featuredImage ? featuredImage : defaultImage}
+              alt=""
+            />
+          </div>
+          <div className="absolute z-10 flex flex-col items-center justify-center w-20 h-20 bg-white rounded-md shadow-md left-6 -bottom-10 group-hover:bg-cu-red">
+            <p className="text-xs font-bold uppercase text-cu-red group-hover:text-white">
+              {getMonthName(eventStartMonth, true)}
+            </p>
+            <p className="text-2xl font-bold uppercase text-cu-black-800 group-hover:text-white">
+              {eventStartDate}
+            </p>
           </div>
         </div>
 
-        <div>
-          <img
-            className="object-cover w-full h-48"
-            src={featuredImage ? featuredImage : defaultImage}
-            alt=""
-          />
+        <div className="flex flex-col gap-px pt-16 pb-8 px-7">
+          <h3 className="text-lg font-semibold text-cu-black group-hover:text-cu-red @sm:md:text-xl">
+            {name}
+          </h3>
+          <ul className="flex flex-col gap-2 mt-4">
+            <li className="flex text-sm text-cu-black-600 @sm:md:text-base">
+              {multiDayDisplay()}
+              {isEventSameDay
+                ? formatTime(startDate) + '-' + formatTime(endDate)
+                : getMonthName(eventStartMonth) +
+                  ' ' +
+                  eventStartDate +
+                  ' - ' +
+                  eventEndDate}
+            </li>
+            <li className="flex text-sm text-cu-black-600 @sm:md:text-base">
+              <MapPinIcon
+                className="flex-shrink-0 w-6 h-6 mr-2 text-cu-red-300"
+                aria-hidden="true"
+              />
+              {onCampus
+                ? onCampusBuilding + ', ' + onCampusRoomNumber
+                : eventAddress}
+            </li>
+          </ul>
         </div>
 
-        <div className="bg-white p-7">
-          <div className="mt-8">
-            <h3 className="text-xl font-semibold duration-300 ease-in text-cu-black group-hover:text-cu-red">
-              {name}
-            </h3>
-            <ul className="flex flex-col gap-3 mt-4">
-              <li className="flex items-start text-sm text-cu-black-600">
-                {multiDayDisplay()}
-                {isEventSameDay
-                  ? formatTime(startDate) + '-' + formatTime(endDate)
-                  : getMonthName(eventStartMonth) +
-                    ' ' +
-                    eventStartDate +
-                    ' - ' +
-                    eventEndDate}
-              </li>
-
-              <li className="flex items-start text-sm text-cu-black-600">
-                <MapPinIcon
-                  className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
-                  aria-hidden="true"
-                />
-                {onCampus
-                  ? onCampusBuilding + ', ' + onCampusRoomNumber
-                  : eventAddress}
-              </li>
-            </ul>
-            <div className="mt-4">
-              {tags?.category?.map(tag => (
-                <Badge key={tag.id}>{tag.name}</Badge>
-              ))}
-            </div>
-          </div>
+        <div className="pb-5 mt-auto px-7">
+          {tags?.category?.map(tag => (
+            <Badge key={tag.id}>{tag.name}</Badge>
+          ))}
         </div>
       </a>
     </div>
