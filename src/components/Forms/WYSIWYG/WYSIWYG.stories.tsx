@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Form } from '../BaseForm/Form';
+import ReactQuill from 'react-quill';
 
 export default {
   title: 'Components/Forms/WSYWIG',
@@ -13,7 +14,7 @@ export default {
 
 const DefaultTemplate: Story<any> = args => (
   <Form onSubmit={() => {}} schema={{}}>
-    <Form.WYSIWYG {...args} />
+    <Form.WYSIWYG Editor={ReactQuill} {...args} />
   </Form>
 );
 
