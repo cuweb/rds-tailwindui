@@ -33,4 +33,12 @@ export const FormSchema = {
     value: '',
     validation: yup.string().required('Required'),
   },
+  favcharacters: {
+    value: ['carltonbanks', 'zackmorris'],
+    validation: yup.array(),
+  },
+  regularviewer: {
+    value: '2',
+    validation: yup.string(),
+  },
 };

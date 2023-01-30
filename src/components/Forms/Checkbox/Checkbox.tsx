@@ -27,25 +27,25 @@ export const Checkbox = ({
       </legend>
 
       {options?.map(option => (
-        <>
-          <div className={`${formStyles.checkboxList}`}>
-            <input
-              {...field}
-              name={option.name}
-              id={option.name}
-              key={option.index}
-              type="checkbox"
-              className={`${formStyles.checkboxInput} ${
-                meta.touched && meta.error
-                  ? formErrorStyles.inputBorder
-                  : formStyles.inputBorder
-              }`}
-            />
-            <label htmlFor={option.name} className={formStyles.checkboxLabel}>
-              {option.label}
-            </label>
-          </div>
-        </>
+        <div className={`${formStyles.checkboxList}`}>
+          <input
+            {...field}
+            name={option.name}
+            id={option.name}
+            key={option.index}
+            type="checkbox"
+            className={`${formStyles.checkboxInput} ${
+              meta.touched && meta.error
+                ? formErrorStyles.inputBorder
+                : formStyles.inputBorder
+            }`}
+            checked={field.value.includes(option.name)}
+            value={option.name}
+          />
+          <label htmlFor={option.name} className={formStyles.checkboxLabel}>
+            {option.label}
+          </label>
+        </div>
       ))}
 
       {/* Validation Error Icon*/}

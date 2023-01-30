@@ -39,6 +39,8 @@ export const Radio = ({
                   ? formErrorStyles.inputBorder
                   : formStyles.inputBorder
               }`}
+              checked={field.value === option.name}
+              value={option.name}
             />
             <label htmlFor={option.name} className={formStyles.radioLabel}>
               {option.label}
