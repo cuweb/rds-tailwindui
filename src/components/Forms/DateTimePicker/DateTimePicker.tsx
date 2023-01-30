@@ -56,7 +56,7 @@ export const DateTimePicker = ({
 
   useEffect(() => {
     helper.setValue(selectedDate + ' ' + time);
-  }, [time, selectedDate]);
+  }, [time, selectedDate, helper]);
 
   return (
     <div className={formStyles.elementSpace}>
