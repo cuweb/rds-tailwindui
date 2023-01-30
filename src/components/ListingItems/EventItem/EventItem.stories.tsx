@@ -1,10 +1,10 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import { EventItem, EventItemProps } from './EventItem';
-import { Container } from '../../../layouts/Container';
+import React from 'react';
 import { Column } from '../../../layouts/Column';
+import { Container } from '../../../layouts/Container';
 import { Panel } from '../../../layouts/Panel';
 import { StackedList } from '../../../layouts/StackedList';
+import { EventItem, EventItemProps } from './EventItem';
 import { EventItemData as data } from './EventItemData';
 
 export default {
