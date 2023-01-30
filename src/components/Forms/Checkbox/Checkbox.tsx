@@ -28,11 +28,12 @@ export const Checkbox = ({
 
       {options?.map(option => (
         <>
-          <div key={option.index} className={`${formStyles.checkboxList}`}>
+          <div className={`${formStyles.checkboxList}`}>
             <input
               {...field}
-              //   name={option.name}
+              name={option.name}
               id={option.name}
+              key={option.index}
               type="checkbox"
               className={`${formStyles.checkboxInput} ${
                 meta.touched && meta.error

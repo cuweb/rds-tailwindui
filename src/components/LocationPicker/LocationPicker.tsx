@@ -11,7 +11,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const PlacesAutoComplete = () => {
+export const LocationPicker = () => {
   const [address, setAddress] = useState('');
   const [coordinates, setCoordinates] = useState({
     lat: 0,
@@ -63,7 +63,6 @@ export const PlacesAutoComplete = () => {
                 {suggestions.map(suggestion => {
                   return (
                     <Combobox.Option
-                      {...getSuggestionItemProps(suggestion)}
                       key={suggestion.index}
                       value={suggestion}
                       className={({ active }) =>
@@ -73,7 +72,9 @@ export const PlacesAutoComplete = () => {
                         )
                       }
                     >
-                      {suggestion.description}
+                      <div {...getSuggestionItemProps(suggestion)}>
+                        {suggestion.description}
+                      </div>
                     </Combobox.Option>
                   );
                 })}

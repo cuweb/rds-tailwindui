@@ -20,6 +20,7 @@ export { FeedItem, FeedItemProps } from './ListingItems/FeedItem';
 export { FileItem, FileItemProps } from './ListingItems/FileItem';
 export { JobItem, JobItemProps } from './ListingItems/JobItem';
 export { LinkItem, LinkItemProps } from './ListingItems/LinkItem';
+export { LocationPicker } from './LocationPicker';
 export {
   MarketplaceItem,
   MarketplaceItemProps,
@@ -35,5 +36,6 @@ export { Toast } from './Toast';
 export { Alert } from './Alert';
 export { Table, ColumnDefinitionType } from './Table';
 export { Link } from './Link/Link';
+export { WYSIWYG } from './Forms/WYSIWYG';
 export { Avatar } from './Avatar/Avatar';
 export { SearchForm } from './SearchForm/SearchForm';
