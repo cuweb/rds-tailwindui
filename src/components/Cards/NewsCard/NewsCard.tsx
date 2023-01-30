@@ -5,8 +5,8 @@ type TitleTypeProps = 'h2' | 'h3';
 
 export interface NewsCardProps {
   children?: React.ReactNode;
-  title?: string;
-  link?: string;
+  title: string;
+  link: string;
   date?: string | any;
   image?: string;
   alt?: string;
@@ -22,73 +22,59 @@ export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const NewsCardBase = ({ children, link }: NewsCardProps) => {
-  return (
-    <div className="relative flex flex-col max-w-sm overflow-hidden duration-300 ease-in rounded-lg shadow-lg group hover:scale-105">
-      <a href={link} className="flex flex-col h-full cursor-pointer">
-        {children}
-      </a>
-    </div>
-  );
-};
-
-const Image = ({ image, alt }: NewsCardProps) => {
-  return (
-    <div className="aspect-w-3 aspect-h-2">
-      <img
-        className="object-cover w-full"
-        src={image ? image : 'https://source.unsplash.com/random/400x266'}
-        alt={alt}
-      />
-    </div>
-  );
-};
-
-const Content = ({ children }: NewsCardProps) => {
-  return (
-    <div className="flex flex-col h-full py-6 space-y-2 px-7">{children}</div>
-  );
-};
-
-const Title = ({ as = 'h3', title }: TitleProps & NewsCardProps) => {
-  return React.createElement(
-    as,
-    {
-      className: `text-xl font-semibold duration-300 ease-in text-cu-black group-hover:text-cu-red`,
-    },
-    title
-  );
-};
-
-const PostDate = ({ date }: NewsCardProps) => {
+export const NewsCard = ({
+  title,
+  as: Component = 'h3',
+  link,
+  date,
+  image,
+  alt,
+  excerpt,
+  tags,
+}: NewsCardProps & TitleProps) => {
   const formatedDate = new Date(date).toLocaleString('en-US', {
     month: 'long',
     day: '2-digit',
     year: 'numeric',
   });
 
-  return <p className="text-sm italic text-cu-black-600">{formatedDate}</p>;
-};
-
-const Excerpt = ({ excerpt }: NewsCardProps) => {
-  return <p className="text-base text-cu-black-600">{excerpt}</p>;
-};
-
-const Badges = ({ tags }: NewsCardProps) => {
   return (
-    <div className="pb-6 mt-auto px-7">
-      {tags?.category?.map(tag => (
-        <Badge key={tag.id}>{tag.name}</Badge>
-      ))}
+    <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
+      <a href={link} className="relative flex flex-col h-full cursor-pointer">
+        {image && (
+          <img
+            className="object-cover w-full"
+            src={image ? image : 'https://source.unsplash.com/random/400x266'}
+            alt={alt}
+          />
+        )}
+
+        <div className="flex flex-col space-y-2 py-6 px-7 @sm:md:space-y-3">
+          {date && (
+            <p className="flex items-start text-sm italic text-cu-black-600">
+              {formatedDate}
+            </p>
+          )}
+
+          <Component className="text-lg font-semibold text-cu-black group-hover:text-cu-red @sm:md:text-xl">
+            {title}
+          </Component>
+
+          {excerpt && (
+            <p className="flex items-start text-base text-cu-black-600">
+              {excerpt.length > 170
+                ? `${excerpt.substring(0, 170)}...`
+                : excerpt}
+            </p>
+          )}
+        </div>
+
+        <div className="pb-5 mt-auto px-7">
+          {tags?.category?.map(tag => (
+            <Badge key={tag.id}>{tag.name}</Badge>
+          ))}
+        </div>
+      </a>
     </div>
   );
 };
-
-export const NewsCard = Object.assign(NewsCardBase, {
-  Image,
-  Content,
-  Title,
-  PostDate,
-  Excerpt,
-  Badges,
-});
