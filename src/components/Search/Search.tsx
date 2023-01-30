@@ -73,7 +73,9 @@ export const Search = ({
 
   return (
     <>
-      <button onClick={() => setOpen(true)}>{searchAvatar}</button>
+      <button onClick={() => setOpen(true)} aria-label="search">
+        {searchAvatar}
+      </button>
 
       <Transition.Root
         show={open}
