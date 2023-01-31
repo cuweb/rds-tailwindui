@@ -38,7 +38,7 @@ export const Checkbox = ({
                 ? formErrorStyles.inputBorder
                 : formStyles.inputBorder
             }`}
-            checked={field.value.includes(option.name)}
+            // checked={field.value.includes(option.name)}
             value={option.name}
           />
           <label htmlFor={option.name} className={formStyles.checkboxLabel}>
