@@ -30,6 +30,7 @@ const InitialValues = {
   firstname: 'ish',
   description: ' sample description',
   regularviewer: '2',
+  location:'Carl R. Darnall Army Medical Center, Santa Fe Avenue, Fort Hood, TX, USA'
 };
 
 const ExampleTemplate: Story<FormProps> = args => {

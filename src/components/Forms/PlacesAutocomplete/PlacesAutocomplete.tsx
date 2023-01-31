@@ -25,6 +25,7 @@ export const PlacesAutoComplete = ({
     lat: 0,
     lng: 0,
   });
+const defaultLocation = meta.value;
 
   const handleSelect = async (value: any) => {
     const results = await geocodeByAddress(value);
@@ -45,13 +46,13 @@ export const PlacesAutoComplete = ({
         aria-invalid={meta.touched && meta.error ? true : false}
       >
         <PlacesAutocomplete
-          value={address}
+          value={defaultLocation? defaultLocation: address}
           onChange={setAddress}
           onSelect={handleSelect}
         >
           {({ getInputProps, suggestions, getSuggestionItemProps }) => (
             <div>
-              <Combobox value={address} onChange={handleSelect}>
+              <Combobox value={defaultLocation? defaultLocation: address} onChange={handleSelect}>
                 <div className="relative">
                   <MagnifyingGlassIcon
                     className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
@@ -66,7 +67,7 @@ export const PlacesAutoComplete = ({
                     className="h-12 rounded-lg w-full border-2 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
                     {...getInputProps({ placeholder: 'Type address' })}
                   />
-                  {address && (
+                  {(defaultLocation || address) && (
                     <XMarkIcon
                       className="absolute top-3.5 right-4 h-4 w-4 text-gray-400"
                       aria-hidden="true"
@@ -110,7 +111,7 @@ export const PlacesAutoComplete = ({
           <EventLocation
             lat={coordinates?.lat.toString()}
             lng={coordinates?.lng.toString()}
-            location={address}
+            location={defaultLocation? defaultLocation: address}
           />
         </div>
       </div>
