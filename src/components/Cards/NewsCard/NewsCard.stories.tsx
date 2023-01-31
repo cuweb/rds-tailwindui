@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Column } from '../../../layouts';
-import { NewsCard } from './NewsCard';
+import { NewsCard, NewsCardProps } from './NewsCard';
 import { NewsItemData as data } from './NewsCardData';
 
 export default {
@@ -13,30 +13,42 @@ export default {
   },
 } as Meta<typeof NewsCard>;
 
-export const Default = () => (
+const DefaultTemplate: Story<NewsCardProps> = args => (
   <NewsCard
-    title="End-of-Year Reflections and Resolutions for Our Web Services Team"
-    link="#"
-    image="https://source.unsplash.com/random/400x266"
-    alt="Sample image alt tag"
-    date="2022-12-16"
-    excerpt="Donec dolor sapien, aliquet eu nibh vel, laoreet aliquam arcu. Suspendisse potenti. Nulla varius, enim nec maximus..."
-    tags={{
-      category: [
-        {
-          id: 3,
-          name: 'Category One',
-          slug: 'category-one',
-        },
-        {
-          id: 4,
-          name: 'Category Two',
-          slug: 'category-two',
-        },
-      ],
-    }}
+    title={args.title}
+    heading={args.heading}
+    link={args.link}
+    image={args.image}
+    date={args.date}
+    excerpt={args.excerpt}
+    tags={args.tags}
   />
 );
+
+export const Default = DefaultTemplate.bind({});
+Default.args = {
+  title: 'End-of-Year Reflections and Resolutions for Our Web Services Team',
+  link: '#',
+  image: 'https://source.unsplash.com/random/400x266',
+  alt: 'Sample image alt tag',
+  date: '2022-12-16',
+  excerpt:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a est vel mi finibus tempor. Etiam sagittis eros ac venenatis pretium. Donec bibendum eget ante quis maximus. Nullam ultrices erat sagittis luctus volutpat. Etiam nec arcu sodales, convallis justo quis, aliquam lorem. Curabitur feugiat accumsan felis, placerat eleifend ipsum auctor.',
+  tags: {
+    category: [
+      {
+        id: 1,
+        name: 'Breaking News',
+        slug: 'breaking-news',
+      },
+      {
+        id: 2,
+        name: 'Headline',
+        slug: 'headline',
+      },
+    ],
+  },
+};
 
 export const gridCards = () => (
   <Column cols="3" gridGap="8" maxWidth="7xl">
