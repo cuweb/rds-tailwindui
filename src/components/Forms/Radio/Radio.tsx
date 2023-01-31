@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, ClassAttributes } from 'react';
-import { useField, FieldHookConfig } from 'formik';
+import { useField, FieldHookConfig, Field } from 'formik';
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 
@@ -28,7 +28,7 @@ export const Radio = ({
 
       {options?.map(option => (
         <div key={option.name} className={`${formStyles.radioList}`}>
-          <input
+          <Field
             {...field}
             id={option.name}
             type="radio"
@@ -37,7 +37,6 @@ export const Radio = ({
                 ? formErrorStyles.inputBorder
                 : formStyles.inputBorder
             }`}
-            checked={field.value === option.name}
             value={option.name}
           />
           <label htmlFor={option.name} className={formStyles.radioLabel}>

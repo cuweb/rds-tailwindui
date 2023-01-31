@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, ClassAttributes } from 'react';
-import { useField, FieldHookConfig } from 'formik';
+import { useField, FieldHookConfig, Field } from 'formik';
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 
@@ -28,9 +28,8 @@ export const Checkbox = ({
 
       {options?.map(option => (
         <div className={`${formStyles.checkboxList}`} key={option.name}>
-          <input
+          <Field
             {...field}
-            name={option.name}
             id={option.name}
             type="checkbox"
             className={`${formStyles.checkboxInput} ${
@@ -38,7 +37,6 @@ export const Checkbox = ({
                 ? formErrorStyles.inputBorder
                 : formStyles.inputBorder
             }`}
-            // checked={field.value.includes(option.name)}
             value={option.name}
           />
           <label htmlFor={option.name} className={formStyles.checkboxLabel}>
