@@ -14,6 +14,7 @@ import * as yup from 'yup';
 export interface FormProps {
   children?: React.ReactNode;
   onSubmit?: any;
+  InitialValues?: any;
   schema: {
     [k: string]: {
       value?: any;
@@ -34,6 +35,7 @@ const FormBase = ({
   children,
   onSubmit = (values: any) => console.log(values),
   schema,
+  InitialValues,
 }: FormProps) => {
   const defaults: any = {};
   const rules: any = {};
@@ -46,9 +48,10 @@ const FormBase = ({
 
   return (
     <Formik
-      initialValues={defaults}
+      initialValues={InitialValues || defaults}
       validationSchema={yup.object().shape(rules)}
       onSubmit={onSubmit}
+      enableReinitialize
     >
       <FormWrapper className="space-y-5">{children}</FormWrapper>
     </Formik>

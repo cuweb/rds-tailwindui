@@ -5,6 +5,7 @@ import { RadioData } from '../Radio/RadioData';
 import { SelectData } from '../Select/SelectData';
 import { Form, FormProps } from './Form';
 import { FormSchema } from './FormData';
+import ReactQuill from 'react-quill';
 
 export default {
   title: 'Components/Forms/Base Form',
@@ -26,10 +27,22 @@ const DefaultTemplate: Story<FormProps> = () => (
     Add input components inside the form as children
   </Form>
 );
+const InitialValues = {
+  firstname: 'ish',
+  description: ' sample description',
+  regularviewer: '2',
+  favsitcom: 'familymatter',
+  favcharacters: ['kellykapowski', 'carltonbanks'],
+};
 
 const ExampleTemplate: Story<FormProps> = args => {
   return (
-    <Form {...args} onSubmit={formOnSubmit} schema={FormSchema}>
+    <Form
+      {...args}
+      onSubmit={formOnSubmit}
+      schema={FormSchema}
+      InitialValues={InitialValues}
+    >
       <Form.Input
         label="First Name"
         name="firstname"
@@ -41,6 +54,7 @@ const ExampleTemplate: Story<FormProps> = args => {
         label="Last Name"
         name="lastname"
         placeholder="Enter your last name"
+        required
       />
 
       <Form.Input
@@ -52,14 +66,10 @@ const ExampleTemplate: Story<FormProps> = args => {
       <Form.WYSIWYG
         label="Event Description"
         name="description"
-        placeholder="write some Descriptoin..."
+        placeholder="write some description..."
+        Editor={ReactQuill}
       />
 
-      <Form.Input
-        label="Address"
-        name="address"
-        placeholder="Enter your street name and house number, if applicable"
-      />
       <Form.Select
         label="What is your favorite 90s sitcom?"
         name="favsitcom"

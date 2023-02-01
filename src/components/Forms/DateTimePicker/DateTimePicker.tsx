@@ -39,6 +39,7 @@ export const DateTimePicker = ({
     }
     return `${hours}:${minutes}`;
   };
+  const time = convertTime12to24(`${hours}:${minutes} ${noon}`);
   const handleMinutesChange = (event: any) => {
     setMinutes(event.target.value);
   };
@@ -52,7 +53,6 @@ export const DateTimePicker = ({
     setNoon(event.target.value);
     field.onChange(event);
   };
-  const time = convertTime12to24(`${hours}:${minutes} ${noon}`);
 
   useEffect(() => {
     helper.setValue(selectedDate + ' ' + time);

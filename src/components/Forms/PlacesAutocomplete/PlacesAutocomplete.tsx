@@ -20,10 +20,12 @@ export const PlacesAutoComplete = ({
   ...props
 }: PickerProps & FieldHookConfig<string>) => {
   const [field, meta, helper] = useField(props);
-  const [address, setAddress] = useState('');
+  const [address, setAddress] = useState(
+    'Carleton University, Colonel By Drive, Ottawa, ON, Canada'
+  );
   const [coordinates, setCoordinates] = useState({
-    lat: 0,
-    lng: 0,
+    lat: 45.3875812,
+    lng: -75.69602019999999,
   });
 
   const handleSelect = async (value: any) => {
