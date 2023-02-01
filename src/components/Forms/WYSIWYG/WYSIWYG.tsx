@@ -68,9 +68,9 @@ export const WYSIWYG = ({
           <Editor
             {...field}
             id={field.name}
-            name={field.name}
             value={field.value}
             onChange={field.onChange(field.name)}
+            onBlur={() => {}}
             placeholder={placeholder}
             // modules={modules}
             // formats={formats}
