@@ -41,7 +41,9 @@ export const Select = ({
           }
         >
           {options?.map(option => (
-            <option value={option.value}>{option.label}</option>
+            <option value={option.value} key={option.value}>
+              {option.label}
+            </option>
           ))}
         </select>
         <div className="absolute top-2.5 right-3.5">
