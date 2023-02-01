@@ -30,6 +30,8 @@ const InitialValues = {
   firstname: 'ish',
   description: ' sample description',
   regularviewer: '2',
+  favsitcom: 'familymatter',
+  favcharacters: ['kellykapowski', 'carltonbanks'],
 };
 
 const ExampleTemplate: Story<FormProps> = args => {
