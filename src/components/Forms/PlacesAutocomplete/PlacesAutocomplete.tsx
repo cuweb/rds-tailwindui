@@ -27,12 +27,12 @@ export const PlacesAutoComplete = ({
   });
 const defaultLocation = meta.value;
 
-  const handleSelect = async (value: any) => {
-    const results = await geocodeByAddress(value);
+  const handleSelect = async (locationValue: any) => {
+    const results = await geocodeByAddress(defaultLocation ? defaultLocation: locationValue);
     const latLng = await getLatLng(results[0]);
-    setAddress(value);
+    setAddress(defaultLocation ? defaultLocation: locationValue);
     setCoordinates(latLng);
-    helper.setValue(value);
+    helper.setValue(defaultLocation ? defaultLocation: locationValue);
   };
 
   return (
