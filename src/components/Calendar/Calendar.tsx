@@ -38,7 +38,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
   const today = startOfToday();
   const [selectedDay, setSelectedDay] = useState(new Date());
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
-  const [showClear,setShowClear] = useState(false)
+  const [showClear, setShowClear] = useState(false);
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
   const colStartClasses = [
     '',
@@ -122,8 +122,8 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
               type="button"
               disabled={isBefore(day, today)}
               onClick={() => {
-                setSelectedDay(day)
-                setShowClear(true)
+                setSelectedDay(day);
+                setShowClear(true);
               }}
               className={classNames(
                 isEqual(day, selectedDay) && 'text-white',
@@ -167,7 +167,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             size="sm"
             onClick={() => {
               setSelectedDay(new Date());
-              setShowClear(false)
+              setShowClear(false);
             }}
           />
         </div>
