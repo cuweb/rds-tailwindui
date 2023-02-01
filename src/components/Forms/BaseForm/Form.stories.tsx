@@ -30,7 +30,8 @@ const InitialValues = {
   firstname: 'ish',
   description: ' sample description',
   regularviewer: '2',
-  location:'Carl R. Darnall Army Medical Center, Santa Fe Avenue, Fort Hood, TX, USA',
+  location:
+    'Carleton University, Colonel By Drive, Ottawa, ON, Canada',
   favsitcom: 'familymatter',
   favcharacters: ['kellykapowski', 'carltonbanks'],
 };
