@@ -55,7 +55,7 @@ export const EventCard = ({
   const formatTime = (date: any) => {
     var hours = date.getHours();
     var minutes = date.getMinutes();
-    var ampm = hours >= 12 ? 'pm' : 'am';
+    var ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
     hours = hours ? hours : 12;
     minutes = minutes < 10 ? '0' + minutes : minutes;
@@ -118,11 +118,11 @@ export const EventCard = ({
             <li className="flex text-sm text-cu-black-600 @sm:md:text-base">
               {multiDayDisplay()}
               {isEventSameDay
-                ? formatTime(startDate) + '-' + formatTime(endDate)
+                ? formatTime(startDate) + ' — ' + formatTime(endDate)
                 : getMonthName(eventStartMonth) +
                   ' ' +
                   eventStartDate +
-                  ' - ' +
+                  ' — ' +
                   eventEndDate}
             </li>
             <li className="flex text-sm text-cu-black-600 @sm:md:text-base">
