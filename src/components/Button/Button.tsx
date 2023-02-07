@@ -14,8 +14,7 @@ export interface ButtonProps
   isCenter?: boolean;
   isDisabled?: boolean;
   hasDropDown?: boolean;
-  url?: string | URL;
-  wrapper?: any;
+  url?: string | undefined;
 }
 
 const buttonSizes = {
@@ -45,7 +44,6 @@ export const Button = ({
   isFull,
   isCenter,
   url,
-  wrapper,
   isDisabled = false,
   hasDropDown,
   ...rest
@@ -85,7 +83,6 @@ export const Button = ({
         <Link
           href={url}
           className={`${styles.core}  ${styles[isType]}  ${buttonSizes[size]} ${shadowStyles} ${fullStyles} ${centerStyles}  `}
-          wrapper={wrapper}
         >
           {icon && (
             <span className={icon && title ? 'mr-0.5' : ''}>

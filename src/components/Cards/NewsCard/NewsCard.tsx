@@ -1,5 +1,6 @@
 import React from 'react';
 import { Badge } from '../../Badge';
+import { Link } from '../../Link/Link';
 
 export interface NewsCardProps {
   children?: React.ReactNode;
@@ -35,7 +36,7 @@ export const NewsCard = ({
 
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
-      <a href={link} className="relative flex flex-col h-full cursor-pointer">
+      <Link href={link} className="relative flex flex-col h-full cursor-pointer">
         {image && (
           <img
             className="object-cover w-full"
@@ -69,7 +70,7 @@ export const NewsCard = ({
             <Badge key={tag.id}>{tag.name}</Badge>
           ))}
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
