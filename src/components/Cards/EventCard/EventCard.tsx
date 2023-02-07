@@ -6,6 +6,7 @@ import {
 import { getDate, getMonth, isSameDay, parseISO } from 'date-fns';
 import React from 'react';
 import { Badge } from '../../Badge/index';
+import { Link } from '../../Link/Link';
 
 interface Tags {
   category: { id: number; name: string; slug: string }[];
@@ -91,7 +92,10 @@ export const EventCard = ({
 
   return (
     <div className="not-prose group relative overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
-      <a href={link} className="relative flex flex-col h-full cursor-pointer">
+      <Link
+        href={link}
+        className="relative flex flex-col h-full cursor-pointer"
+      >
         <div className="relative">
           <div className="aspect-w-16 aspect-h-9 @sm:md:aspect-h-6">
             <img
@@ -142,7 +146,7 @@ export const EventCard = ({
             <Badge key={tag.id}>{tag.name}</Badge>
           ))}
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

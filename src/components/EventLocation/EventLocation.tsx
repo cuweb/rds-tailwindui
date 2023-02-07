@@ -1,5 +1,6 @@
 import React from 'react';
 import { GoogleMap, MarkerF, InfoWindowF } from '@react-google-maps/api';
+
 export interface EventLocationProps {
   lat?: string;
   lng?: string;
