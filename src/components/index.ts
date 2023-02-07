@@ -3,6 +3,7 @@ export { Button, ButtonProps } from './Button/Button';
 export { Banner, BannerProps, BannerImgProps } from './Banner';
 export { Calendar, CalendarProps } from './Calendar';
 export { CardLoader } from './Loaders/CardLoader';
+export { EventLoader } from './Loaders/EventLoader';
 export { DropDown, DropDownItemProps, DropDownProps } from './DropDown';
 export { Filter, FilterProps } from './Filter/Filter';
 export { FooterBasic } from './Footer/FooterBasic';
