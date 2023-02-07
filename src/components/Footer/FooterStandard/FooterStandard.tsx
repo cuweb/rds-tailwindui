@@ -105,7 +105,10 @@ export const FooterStandard = () => {
           <ul>
             {linkData.Academics.map((item, index) => (
               <li key={index} className="mt-3 text-xs">
-                <Link href={item.href} className="text-gray-400 hover:text-white">
+                <Link
+                  href={item.href}
+                  className="text-gray-400 hover:text-white"
+                >
                   {item.name}
                 </Link>
               </li>
@@ -117,7 +120,10 @@ export const FooterStandard = () => {
           <ul>
             {linkData.Campus.map((item, index) => (
               <li key={index} className="mt-3 text-xs">
-                <Link href={item.href} className="text-gray-400 hover:text-white">
+                <Link
+                  href={item.href}
+                  className="text-gray-400 hover:text-white"
+                >
                   {item.name}
                 </Link>
               </li>
@@ -129,7 +135,10 @@ export const FooterStandard = () => {
           <ul>
             {linkData.Advancement.map((item, index) => (
               <li key={index} className="mt-3 text-xs">
-                <Link href={item.href} className="text-gray-400 hover:text-white">
+                <Link
+                  href={item.href}
+                  className="text-gray-400 hover:text-white"
+                >
                   {item.name}
                 </Link>
               </li>
@@ -141,7 +150,10 @@ export const FooterStandard = () => {
           <ul>
             {linkData.Ravens.map((item, index) => (
               <li key={index} className="mt-3 text-xs">
-                <Link href={item.href} className="text-gray-400 hover:text-white">
+                <Link
+                  href={item.href}
+                  className="text-gray-400 hover:text-white"
+                >
                   {item.name}
                 </Link>
               </li>
@@ -177,7 +189,10 @@ export const FooterStandard = () => {
         <ul className="flex justify-center mb-4 space-x-6 lg:mb-0 lg:justify-end">
           {Social.map((item, index) => (
             <li key={index}>
-              <Link href={item.href} className="text-gray-200 hover:text-cu-red">
+              <Link
+                href={item.href}
+                className="text-gray-200 hover:text-cu-red"
+              >
                 <span className="sr-only">{item.name}</span>
                 <item.icon
                   className="w-8 h-8 sm:h-6 sm:w-6"

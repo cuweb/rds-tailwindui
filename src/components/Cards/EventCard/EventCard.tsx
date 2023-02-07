@@ -92,7 +92,10 @@ export const EventCard = ({
 
   return (
     <div className="not-prose group relative overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
-      <Link href={link} className="relative flex flex-col h-full cursor-pointer">
+      <Link
+        href={link}
+        className="relative flex flex-col h-full cursor-pointer"
+      >
         <div className="relative">
           <div className="aspect-w-16 aspect-h-9 @sm:md:aspect-h-6">
             <img

@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 
 export interface LinkProps {
-  ref?: any,
+  ref?: any;
   href?: string | undefined;
   as?: string | undefined;
   replace?: boolean;
