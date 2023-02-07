@@ -31,7 +31,6 @@ export interface TopNavProps {
   sticky?: boolean;
   navLinks?: LinkProps[];
   mobileLinks?: LinkProps[];
-  wrapLink?: any;
   userMenuItems?: any;
   userInfo?: UserInfoType;
   searchOn?: string;
@@ -52,7 +51,6 @@ export const TopNav = ({
   userInfo,
   sticky,
   login,
-  wrapLink,
   mobileLogin,
 }: TopNavProps) => {
   const brandLogo = brand ? (
@@ -82,9 +80,7 @@ export const TopNav = ({
           <div className="flex h-20 gap-6 mx-auto max-w-7xl">
             {/* Logo  */}
             <div className="flex items-center flex-shrink-0 hover:text-cu-red">
-              <Link href={logoUrl ? logoUrl : '/'} wrapper={wrapLink}>
-                {brandLogo}
-              </Link>
+              <Link href={logoUrl ? logoUrl : '/'}>{brandLogo}</Link>
             </div>
 
             {/* mobile Menu open Button  */}
@@ -119,9 +115,7 @@ export const TopNav = ({
                         : 'border-transparent'
                     }`}
                   >
-                    <Link href={item.link} wrapper={wrapLink}>
-                      {item.title}
-                    </Link>
+                    <Link href={item.link}>{item.title}</Link>
                   </li>
                 ))}
             </ul>
@@ -144,11 +138,7 @@ export const TopNav = ({
                 <Avatar user={userInfo} size="xs" rounded="full" />
               )}
               {userInfo && userMenuItems && (
-                <DropDown
-                  listItems={userMenuItems}
-                  menuAlign="right"
-                  wrapLink={wrapLink}
-                >
+                <DropDown listItems={userMenuItems} menuAlign="right">
                   <Avatar user={userInfo} size="xs" rounded="full" />
                 </DropDown>
               )}
@@ -162,7 +152,6 @@ export const TopNav = ({
               <>
                 <div className="pt-2 pb-3 space-y-1">
                   {mobileLinks &&
-                    // Disclosure button as link when in next to passa wrapper
                     mobileLinks.map((item, index) => (
                       <Disclosure.Button
                         as="div"
@@ -173,7 +162,7 @@ export const TopNav = ({
                             : 'border-transparent'
                         }`}
                       >
-                        <Link wrapper={wrapLink} href={item.link}>
+                        <Link href={item.link}>
                           <span onClick={() => close()}>{item.title}</span>
                         </Link>
                       </Disclosure.Button>
@@ -188,7 +177,6 @@ export const TopNav = ({
                         className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
                       >
                         <Link
-                          wrapper={wrapLink}
                           href={mobileLogin.link ? mobileLogin.link : ''}
                           onClick={(e: any) => {
                             mobileLogin.onClick && e.preventDefault();
@@ -226,7 +214,6 @@ export const TopNav = ({
                               className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-cu-black-800 hover:border-cu-black-200 hover:bg-gray-50 hover:text-cu-red `}
                             >
                               <Link
-                                wrapper={wrapLink}
                                 href={item.href ? item.href : ''}
                                 onClick={e => {
                                   item.onClick && e.preventDefault();

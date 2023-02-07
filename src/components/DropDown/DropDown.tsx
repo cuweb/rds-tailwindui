@@ -17,7 +17,6 @@ export interface DropDownProps {
   renderAs?: 'button' | 'div';
   menuAlign?: 'left' | 'right';
   listItems: DropDownItemProps[];
-  wrapLink?: any;
 }
 
 const styles = {
@@ -30,7 +29,6 @@ export const DropDown = ({
   renderAs = 'div',
   listItems,
   menuAlign = 'left',
-  wrapLink,
 }: DropDownProps) => {
   return (
     <Popover as="div" className="relative flex-shrink-0 inline-block">
@@ -73,7 +71,6 @@ export const DropDown = ({
                   <Link
                     href={item.href ? item.href : ''}
                     className="hover:bg-gray-100 hover:text-gray-900 group text-gray-700 flex items-center px-4 py-2 text-sm"
-                    wrapper={wrapLink}
                     onClick={e => {
                       item.onClick && e.preventDefault();
                       item.onClick && item.onClick(e);
