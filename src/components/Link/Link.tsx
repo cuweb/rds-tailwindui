@@ -18,26 +18,12 @@ export interface LinkProps {
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-export const Link = forwardRef(function Linker({
-  ref,
-  href,
-  as,
-  children,
-  prefetch,
-  passHref,
-  replace,
-  shallow,
-  scroll,
-  locale,
-  className,
-  onClick,
-  onMouseEnter,
-  onTouchStart,
-}: LinkProps) {
-  const LinkParams = {
+export const Link = forwardRef(
+  ({
     ref,
     href,
     as,
+    children,
     prefetch,
     passHref,
     replace,
@@ -48,12 +34,28 @@ export const Link = forwardRef(function Linker({
     onClick,
     onMouseEnter,
     onTouchStart,
-  };
+  }: LinkProps) => {
+    const LinkParams = {
+      ref,
+      href,
+      as,
+      prefetch,
+      passHref,
+      replace,
+      shallow,
+      scroll,
+      locale,
+      className,
+      onClick,
+      onMouseEnter,
+      onTouchStart,
+    };
 
-  try {
-    const Link = require('next/link');
-    return <Link {...LinkParams}>{children}</Link>;
-  } catch (e) {
-    return <a {...LinkParams}>{children}</a>;
+    try {
+      const Link = require('next/link');
+      return <Link {...LinkParams}>{children}</Link>;
+    } catch (e) {
+      return <a {...LinkParams}>{children}</a>;
+    }
   }
-});
+);
