@@ -122,7 +122,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
               type="button"
               disabled={isBefore(day, today)}
               onClick={() => {
-                setSelectedDay(new Date(0));
+                setSelectedDay(day);
                 setShowClear(true);
               }}
               className={classNames(
@@ -166,7 +166,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             isCenter
             size="sm"
             onClick={() => {
-              setSelectedDay(new Date());
+              setSelectedDay(new Date(0));
               setShowClear(false);
             }}
           />
