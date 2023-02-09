@@ -70,6 +70,7 @@ export const WYSIWYG = ({
             id={field.name}
             value={field.value}
             onChange={field.onChange(field.name)}
+            onBlur={() => {}}
             placeholder={placeholder}
             // modules={modules}
             // formats={formats}

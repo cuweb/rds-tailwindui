@@ -5,6 +5,7 @@ import { RadioData } from '../Radio/RadioData';
 import { SelectData } from '../Select/SelectData';
 import { Form, FormProps } from './Form';
 import { FormSchema } from './FormData';
+import ReactQuill from 'react-quill';
 
 export default {
   title: 'Components/Forms/Base Form',
@@ -67,7 +68,8 @@ const ExampleTemplate: Story<FormProps> = args => {
       <Form.WYSIWYG
         label="Event Description"
         name="description"
-        placeholder="write some Descriptoin..."
+        placeholder="write some description..."
+        Editor={ReactQuill}
       />
 
       <Form.Select

@@ -1,70 +1,61 @@
 import React, { forwardRef } from 'react';
-import { UrlObject } from 'url';
-
-type Url = string | UrlObject;
 
 export interface LinkProps {
-  href: URL | string;
-  as?: Url;
-  wrapper?: any;
-  component?: string;
-  className?: string;
+  ref?: any;
+  href?: string | undefined;
+  as?: string | undefined;
   replace?: boolean;
-  soft?: boolean;
   scroll?: boolean;
   shallow?: boolean;
-  // passHref?: boolean
+  passHref?: boolean;
   prefetch?: boolean;
   locale?: string | false;
-  target?: string;
-  children: any;
-  onMouseEnter?: (e: any) => void;
-  onClick?: (e: any) => void;
+  legacyBehavior?: boolean;
+  children?: any;
+  className?: string;
+  onMouseEnter?: React.MouseEventHandler<HTMLAnchorElement>;
+  onTouchStart?: React.TouchEventHandler<HTMLAnchorElement>;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 }
 
-export const Link = forwardRef(function Link(
-  {
-    href,
-    as,
-    wrapper,
-    component = 'a',
-    className,
-    replace,
-    soft,
-    scroll,
-    shallow,
-    // passHref = false,
-    prefetch,
-    locale,
-    target,
-    children,
-    onClick,
-    onMouseEnter,
-  }: LinkProps,
-  ref
-) {
-  const nodeProps = {
+export const Link = forwardRef(
+  ({
     ref,
     href,
     as,
-    className,
-    replace,
-    soft,
-    scroll,
-    shallow,
-    // passHref,
+    children,
     prefetch,
+    passHref,
+    replace,
+    shallow,
+    scroll,
     locale,
-    target,
+    className,
     onClick,
     onMouseEnter,
-  };
+    onTouchStart,
+  }: LinkProps) => {
+    const LinkParams = {
+      ref,
+      href,
+      as,
+      prefetch,
+      passHref,
+      replace,
+      shallow,
+      scroll,
+      locale,
+      className,
+      onClick,
+      onMouseEnter,
+      onTouchStart,
+    };
 
-  return wrapper
-    ? React.createElement(
-        wrapper,
-        nodeProps,
-        React.createElement(component, nodeProps, children)
-      )
-    : React.createElement(component, nodeProps, children);
-});
+    try {
+      const Link = require('next/link');
+      return <Link {...LinkParams}>{children}</Link>;
+    } catch (e) {
+      return <a {...LinkParams}>{children}</a>;
+    }
+  }
+);

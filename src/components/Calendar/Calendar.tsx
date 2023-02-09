@@ -36,7 +36,7 @@ const classNames = (...classes: (string | boolean)[]) => {
 
 export const Calendar = ({ events, callback }: CalendarProps) => {
   const today = startOfToday();
-  const [selectedDay, setSelectedDay] = useState(new Date());
+  const [selectedDay, setSelectedDay] = useState(new Date(0));
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
   const [showClear, setShowClear] = useState(false);
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
@@ -166,7 +166,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             isCenter
             size="sm"
             onClick={() => {
-              setSelectedDay(new Date());
+              setSelectedDay(new Date(0));
               setShowClear(false);
             }}
           />

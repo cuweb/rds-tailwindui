@@ -1,5 +1,6 @@
 import React from 'react';
 import CarletonLogo from '../../../assets/cu-logo-stacked-white-outline.svg';
+import { Link } from '../../Link/Link';
 
 export const FooterWave = () => {
   return (
@@ -11,28 +12,28 @@ export const FooterWave = () => {
       />
       <ul className="flex justify-center space-x-4 text-xs text-gray-400 bg-cu-black-900 sm:space-x-6 sm:text-sm">
         <li key="privacy">
-          <a
+          <Link
             href="https://carleton.ca/privacy/privacy-notices/general-notice-of-collection-use-and-disclosure/"
             className="hover:text-white"
           >
             Privacy Policy
-          </a>
+          </Link>
         </li>
         <li key="accessibility">
-          <a
+          <Link
             href="https://carleton.ca/accessibility/"
             className="hover:text-white"
           >
             Accessibility
-          </a>
+          </Link>
         </li>
         <li key="copyright">
-          <a
+          <Link
             href="https://library.carleton.ca/copyright-carleton"
             className="hover:text-white"
           >
             &copy; Copyright {new Date().getFullYear()}
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
