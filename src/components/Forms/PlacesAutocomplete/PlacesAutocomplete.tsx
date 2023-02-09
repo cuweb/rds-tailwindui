@@ -21,7 +21,7 @@ export const PlacesAutoComplete = ({
 }: PickerProps & FieldHookConfig<string>) => {
   const [field, meta, helper] = useField(props);
 
-  const [address, setAddress] = useState(field.value ? field.value :'Carleton University, Colonel By Drive, Ottawa, ON, Canada');
+  const [address, setAddress] = useState('');
 
   const [coordinates, setCoordinates] = useState({
     lat: 45.3875812,
@@ -29,28 +29,23 @@ export const PlacesAutoComplete = ({
   });
   const defaultLocation = field.value;
 
-
   const handleSelect = async (locationValue: any) => {
-    const results = await geocodeByAddress(
-       locationValue
-    );
+    const results = await geocodeByAddress(locationValue);
     const latLng = await getLatLng(results[0]);
     setAddress(locationValue);
     setCoordinates(latLng);
     helper.setValue(locationValue);
   };
   useEffect(() => {
-   const DefaultLocationCoordinates = async()=>{
-      const results = await geocodeByAddress(
-        defaultLocation
-      );
-      console.log("results",results)
+    const DefaultLocationCoordinates = async () => {
+      const results = await geocodeByAddress(defaultLocation);
+      console.log('results', results);
       const latLng = await getLatLng(results[0]);
-      setCoordinates(latLng)
-      helper.setValue(defaultLocation); 
-    }
-   DefaultLocationCoordinates()
-  },[defaultLocation]);
+      setCoordinates(latLng);
+      helper.setValue(defaultLocation);
+    };
+    DefaultLocationCoordinates();
+  }, [defaultLocation]);
   return (
     <div className={formStyles.elementSpace}>
       <label htmlFor={field.name} className={formStyles.label}>
@@ -87,8 +82,8 @@ export const PlacesAutoComplete = ({
                       aria-hidden="true"
                       onClick={() => {
                         setAddress('');
-                         setCoordinates({ lat: 0, lng: 0 });
-                         helper.setValue('Carleton University, Colonel By Drive, Ottawa, ON, Canada')
+                        setCoordinates({ lat: 0, lng: 0 });
+                        helper.setValue('');
                       }}
                     />
                   )}
