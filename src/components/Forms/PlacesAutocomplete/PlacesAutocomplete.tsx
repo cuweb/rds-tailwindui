@@ -45,7 +45,7 @@ export const PlacesAutoComplete = ({
       helper.setValue(defaultLocation);
     };
     DefaultLocationCoordinates();
-  }, [defaultLocation, helper]);
+  }, [defaultLocation]);
   return (
     <div className={formStyles.elementSpace}>
       <label htmlFor={field.name} className={formStyles.label}>
