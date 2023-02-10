@@ -55,7 +55,7 @@ export const Search = ({
 
   // Validations just checking on first , not in all
 
-  if (!sourceData[0].hasOwnProperty('url')) {
+  if (sourceData[0] && !sourceData[0].hasOwnProperty('url')) {
     return (
       <p className="text-cu-red">
         Url Does not exisit on Passed Database Please pass appropriate data
@@ -63,7 +63,7 @@ export const Search = ({
     );
   }
 
-  if (!sourceData[0].hasOwnProperty(searchOn)) {
+  if (sourceData[0] && !sourceData[0].hasOwnProperty(searchOn)) {
     return (
       <p className="text-cu-red">
         Passed search key does not exisit on passed Database
