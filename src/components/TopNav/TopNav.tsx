@@ -72,7 +72,7 @@ export const TopNav = ({
       as="nav"
       className={` ${
         sticky ? 'sticky' : ''
-      } top-0 z-50 border-t-2 border-cu-red bg-white shadow px-6 lg:px-8`}
+      } top-0 relative z-50 border-t-2 border-cu-red bg-white shadow-md px-6 lg:px-8`}
       id="topNav"
     >
       {({ open }) => (
@@ -92,7 +92,7 @@ export const TopNav = ({
                   </div>
                 )}
 
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md  hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cu-red-500">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cu-red-500">
                   <span className="sr-only">main menu</span>
                   {open ? (
                     <XMarkIcon className="block w-6 h-6" aria-hidden="true" />

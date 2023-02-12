@@ -25,7 +25,7 @@ const DefaultTemplate: Story<MainProps> = () => (
 const WithContentTemplate: Story<MainProps> = args => (
   <Main {...args}>
     <Column maxWidth="3xl">
-      <Prose as="article" content={sampleContent} />
+      <Prose as="article">{sampleContent}</Prose>
     </Column>
   </Main>
 );
@@ -33,7 +33,7 @@ const WithContentTemplate: Story<MainProps> = args => (
 const WithSpacingTemplate: Story<MainProps> = args => (
   <Main {...args}>
     <Column maxWidth="3xl">
-      <Prose as="article" content={sampleContent} />
+      <Prose as="article">{sampleContent}</Prose>
     </Column>
   </Main>
 );
@@ -42,7 +42,7 @@ const WithContainerTemplate: Story<MainProps> = args => (
   <Main {...args}>
     <Container bgColor="grey">
       <Column maxWidth="3xl">
-        <Prose as="article" content={sampleContent} />
+        <Prose as="article">{sampleContent}</Prose>
       </Column>
     </Container>
   </Main>
@@ -53,8 +53,8 @@ const WithOverlapTemplate: Story<MainProps> = args => (
     <Banner hasOverlap isType="dark-wave" title="Content Overlay" />
     <Main {...args}>
       <Column maxWidth="3xl">
-        <div className="bg-white px-14 py-12 rounded-lg">
-          <Prose as="article" content={sampleContent} />
+        <div className="py-12 bg-white rounded-lg px-14">
+          <Prose as="article">{sampleContent}</Prose>
         </div>
       </Column>
     </Main>

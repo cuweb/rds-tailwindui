@@ -1,6 +1,6 @@
 import React from 'react';
 
-type BaseItemTypeProps = 'article' | 'div';
+type BaseItemTypeProps = 'article' | 'section' | 'div';
 
 export interface ItemBaseProps {
   as?: keyof JSX.IntrinsicElements;
@@ -8,17 +8,20 @@ export interface ItemBaseProps {
 
 export interface ProseProps {
   as?: BaseItemTypeProps;
-  content: string;
+  children?: React.ReactNode;
+  //   content: string;
 }
 
-const styles =
-  'prose prose-lg prose-article prose-img:w-full prose-img:rounded-lg lg:prose-xl';
+const styles = {
+  'prose-base': `prose prose-lg`,
+  'prose-rds': `prose-rds cutheme-spacing max-w-none md:prose-xl`,
+  //   'prose-events': `prose-article prose-img:w-full prose-img:rounded-lg lg:prose-xl`,
+};
 
-export const Prose = ({ as: Component = 'article', content }: ProseProps) => {
+export const Prose = ({ children, as: Component = 'article' }: ProseProps) => {
   return (
-    <Component
-      className={`${styles}`}
-      dangerouslySetInnerHTML={{ __html: content }}
-    />
+    <Component className={`${styles['prose-base']} ${styles['prose-rds']}`}>
+      {children}
+    </Component>
   );
 };

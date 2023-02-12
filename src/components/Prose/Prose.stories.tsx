@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Prose, ProseProps } from './Prose';
-import { ProseData as data } from './ProseData';
+import { ProseData as sampleContent } from './ProseData';
 
 export default {
   title: 'Components/Typography/Prose',
@@ -12,11 +12,9 @@ export default {
   },
 } as Meta<typeof Prose>;
 
-const ArticleTemplate: Story<ProseProps> = args => (
-  <Prose as="article" content={args.content} />
+const ArticleTemplate: Story<ProseProps> = () => (
+  <Prose as="article">{sampleContent}</Prose>
 );
 
 export const Article = ArticleTemplate.bind({});
-Article.args = {
-  content: data,
-};
+Article.args = {};
