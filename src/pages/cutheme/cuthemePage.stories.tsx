@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import { TopNav, Banner, NewsCard, Prose, FooterBasic } from '../../components';
 
 import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
-import { Container, Column } from '../../layouts';
+import { Container, Column, Main } from '../../layouts';
 
 export default {
   title: 'Page Templates/cutheme',
@@ -56,9 +56,9 @@ const DoublePara = () => {
 export const cuthemePage = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Space Testing" />
+    <Banner title="Space Testing" isType="dark-wave" />
 
-    <main className="mx-10">
+    <Main>
       <Prose as="section">
         <SinglePara />
 
@@ -385,7 +385,7 @@ export const cuthemePage = () => (
           </Column>
         </Container>
       </Prose>
-    </main>
+    </Main>
 
     <FooterBasic />
   </>
