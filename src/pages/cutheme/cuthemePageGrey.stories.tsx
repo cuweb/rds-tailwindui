@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, NewsCard, Prose, FooterBasic } from '../../components';
+import { TopNav, Banner, NewsCard, FooterBasic } from '../../components';
 
 import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
 import { Container, Column, Main } from '../../layouts';

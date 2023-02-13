@@ -7,7 +7,6 @@ import {
   FooterBasic,
   EventCard,
   EventItem,
-  Prose,
   Pagination,
   Calendar,
 } from '../../components';

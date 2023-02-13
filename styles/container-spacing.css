@@ -1,13 +1,6 @@
-@tailwind base;
-
-/**
-* Layout Component Spacing
-* Added to @import './container-spacing.css';
-*/
-
 /* Remove spacing if container is first item inside prose container */
 .prose > .cu-container {
-  @apply first:-mt-12;
+  @apply first:-mt-12 bg-cu-red;
 }
 
 /* Remove top and bottom space added by prose when columns are used inside prose container */
@@ -40,8 +33,3 @@
 .cu-container > .cu-container {
   @apply last:-mb-12;
 }
-
-@tailwind components;
-@tailwind utilities;
-
-@import '../node_modules/react-quill/dist/quill.snow.css';
