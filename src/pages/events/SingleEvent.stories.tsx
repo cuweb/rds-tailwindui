@@ -2,13 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { DetailsItemData as data } from '../../components/ListingItems/DetailsItem/DetailsItemData';
 
-import {
-  TopNav,
-  Banner,
-  FooterBasic,
-  Prose,
-  DetailsItem,
-} from '../../components';
+import { TopNav, Banner, FooterBasic, DetailsItem } from '../../components';
 import {
   Main,
   Column,
@@ -85,9 +79,9 @@ export const SingleEvent = () => (
     <Main>
       <Container>
         <Column cols="2/3" maxWidth="7xl">
-          <Prose as="article">
+          <article>
             <EventContent />
-          </Prose>
+          </article>
 
           <Aside isSticky topSpace="12">
             <Panel hasShadow>
