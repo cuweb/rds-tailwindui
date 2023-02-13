@@ -13,6 +13,46 @@ export default {
   },
 } as Meta;
 
+const SinglePara = () => {
+  return (
+    <>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet
+        tortor pellentesque, posuere tellus vitae, sagittis justo. Vivamus
+        imperdiet turpis nec elit ultricies, sed tempus diam dignissim.
+        Suspendisse condimentum magna vel orci vulputate, eget vulputate neque
+        porttitor. Suspendisse euismod, urna et gravida volutpat, tortor risus
+        vehicula nisl, in vulputate lectus dolor viverra est. Etiam quis
+        interdum nisi, et malesuada lectus. Aliquam luctus, velit eget suscipit
+        tincidunt, sem ex tempus turpis, quis pulvinar metus sapien in urna.
+      </p>
+    </>
+  );
+};
+
+const DoublePara = () => {
+  return (
+    <>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet
+        tortor pellentesque, posuere tellus vitae, sagittis justo. Vivamus
+        imperdiet turpis nec elit ultricies, sed tempus diam dignissim.
+        Suspendisse condimentum magna vel orci vulputate, eget vulputate neque
+        porttitor. Suspendisse euismod, urna et gravida volutpat, tortor risus
+        vehicula nisl, in vulputate lectus dolor viverra est. Etiam quis
+        interdum nisi, et malesuada lectus. Aliquam luctus, velit eget suscipit
+        tincidunt, sem ex tempus turpis, quis pulvinar metus sapien in urna.
+      </p>
+      <p>
+        Nobis voluptatem dolorum et eum doloremque cupiditate velit. Praesentium
+        architecto a distinctio aut reprehenderit ducimus. Perferendis excepturi
+        delectus nihil voluptatem non. Molestiae quas dolores accusamus in.
+        Praesent quis ligula quis nulla malesuada tempor.
+      </p>
+    </>
+  );
+};
+
 const style = {
   proseBase: `prose prose-lg md:prose-xl max-w-none`,
   proseFirst: `[&>:not(.new-container):not(.new-column):first-child]:mt-10`,
@@ -33,63 +73,18 @@ export const cuthemePage = () => (
       <section
         className={`${style.proseBase} ${style.proseFirst} ${style.proseLast} ${style.proseWidth}`}
       >
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit
-          amet tortor pellentesque, posuere tellus vitae, sagittis justo.
-          Vivamus imperdiet turpis nec elit ultricies, sed tempus diam
-          dignissim. Suspendisse condimentum magna vel orci vulputate, eget
-          vulputate neque porttitor. Suspendisse euismod, urna et gravida
-          volutpat, tortor risus vehicula nisl, in vulputate lectus dolor
-          viverra est. Etiam quis interdum nisi, et malesuada lectus. Aliquam
-          luctus, velit eget suscipit tincidunt, sem ex tempus turpis, quis
-          pulvinar metus sapien in urna.
-        </p>
+        <SinglePara />
 
         <h2>This is a header 2</h2>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in. Praesent quis ligula quis nulla malesuada
-          tempor.
-        </p>
+        <SinglePara />
 
         <h3>This is a header 3</h3>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in. Praesent quis ligula quis nulla malesuada
-          tempor.
-        </p>
+        <SinglePara />
 
         <h4>This is a header 4</h4>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in. Praesent quis ligula quis nulla malesuada
-          tempor.
-        </p>
+        <SinglePara />
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit
-          amet tortor pellentesque, posuere tellus vitae, sagittis justo.
-          Vivamus imperdiet turpis nec elit ultricies, sed tempus diam
-          dignissim. Suspendisse condimentum magna vel orci vulputate, eget
-          vulputate neque porttitor. Suspendisse euismod, urna et gravida
-          volutpat, tortor risus vehicula nisl, in vulputate lectus dolor
-          viverra est. Etiam quis interdum nisi, et malesuada lectus. Aliquam
-          luctus, velit eget suscipit tincidunt, sem ex tempus turpis, quis
-          pulvinar metus sapien in urna.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in. Praesent quis ligula quis nulla malesuada
-          tempor.
-        </p>
+        <DoublePara />
 
         <div
           className={`${style.containerWrap} ${style.containerWhite} ${style.containerWidth}`}
@@ -108,13 +103,7 @@ export const cuthemePage = () => (
           </Column>
         </div>
 
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in. Praesent quis ligula quis nulla malesuada
-          tempor.
-        </p>
+        <SinglePara />
 
         <div
           className={`${style.containerWrap} ${style.containerWhite} ${style.containerWidth}`}
@@ -135,24 +124,7 @@ export const cuthemePage = () => (
           </Column>
         </div>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit
-          amet tortor pellentesque, posuere tellus vitae, sagittis justo.
-          Vivamus imperdiet turpis nec elit ultricies, sed tempus diam
-          dignissim. Suspendisse condimentum magna vel orci vulputate, eget
-          vulputate neque porttitor. Suspendisse euismod, urna et gravida
-          volutpat, tortor risus vehicula nisl, in vulputate lectus dolor
-          viverra est. Etiam quis interdum nisi, et malesuada lectus. Aliquam
-          luctus, velit eget suscipit tincidunt, sem ex tempus turpis, quis
-          pulvinar metus sapien in urna.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in. Praesent quis ligula quis nulla malesuada
-          tempor.
-        </p>
+        <DoublePara />
 
         <div
           className={`${style.containerWrap} ${style.containerGrey} ${style.containerWidth}`}
@@ -171,17 +143,9 @@ export const cuthemePage = () => (
               />
             ))}
           </Column>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit
-            amet tortor pellentesque, posuere tellus vitae, sagittis justo.
-            Vivamus imperdiet turpis nec elit ultricies, sed tempus diam
-            dignissim. Suspendisse condimentum magna vel orci vulputate, eget
-            vulputate neque porttitor. Suspendisse euismod, urna et gravida
-            volutpat, tortor risus vehicula nisl, in vulputate lectus dolor
-            viverra est. Etiam quis interdum nisi, et malesuada lectus. Aliquam
-            luctus, velit eget suscipit tincidunt, sem ex tempus turpis, quis
-            pulvinar metus sapien in urna.
-          </p>
+
+          <SinglePara />
+
           <Column cols="3" gridGap="8" maxWidth="5xl">
             {data.map(item => (
               <NewsCard
@@ -206,26 +170,11 @@ export const cuthemePage = () => (
               />
             ))}
           </Column>
-          <p>
-            Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-            Praesentium architecto a distinctio aut reprehenderit ducimus.
-            Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-            dolores accusamus in. Praesent quis ligula quis nulla malesuada
-            tempor.
-          </p>
+
+          <SinglePara />
         </div>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit
-          amet tortor pellentesque, posuere tellus vitae, sagittis justo.
-          Vivamus imperdiet turpis nec elit ultricies, sed tempus diam
-          dignissim. Suspendisse condimentum magna vel orci vulputate, eget
-          vulputate neque porttitor. Suspendisse euismod, urna et gravida
-          volutpat, tortor risus vehicula nisl, in vulputate lectus dolor
-          viverra est. Etiam quis interdum nisi, et malesuada lectus. Aliquam
-          luctus, velit eget suscipit tincidunt, sem ex tempus turpis, quis
-          pulvinar metus sapien in urna.
-        </p>
+        <DoublePara />
 
         <div
           className={`${style.containerWrap} ${style.containerGrey} ${style.containerWidth}`}
@@ -242,17 +191,9 @@ export const cuthemePage = () => (
               />
             ))}
           </Column>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit
-            amet tortor pellentesque, posuere tellus vitae, sagittis justo.
-            Vivamus imperdiet turpis nec elit ultricies, sed tempus diam
-            dignissim. Suspendisse condimentum magna vel orci vulputate, eget
-            vulputate neque porttitor. Suspendisse euismod, urna et gravida
-            volutpat, tortor risus vehicula nisl, in vulputate lectus dolor
-            viverra est. Etiam quis interdum nisi, et malesuada lectus. Aliquam
-            luctus, velit eget suscipit tincidunt, sem ex tempus turpis, quis
-            pulvinar metus sapien in urna.
-          </p>
+
+          <SinglePara />
+
           <Column cols="3" gridGap="8" maxWidth="5xl">
             {data.map(item => (
               <NewsCard
