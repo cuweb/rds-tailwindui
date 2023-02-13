@@ -30,14 +30,6 @@ const WithContentTemplate: Story<MainProps> = args => (
   </Main>
 );
 
-const WithSpacingTemplate: Story<MainProps> = args => (
-  <Main {...args}>
-    <Column maxWidth="3xl">
-      <Prose as="article">{sampleContent}</Prose>
-    </Column>
-  </Main>
-);
-
 const WithContainerTemplate: Story<MainProps> = args => (
   <Main {...args}>
     <Container bgColor="grey">
@@ -67,16 +59,10 @@ Default.args = {};
 export const WithContent = WithContentTemplate.bind({});
 WithContent.args = {};
 
-export const WithSpacing = WithSpacingTemplate.bind({});
-WithSpacing.args = {
-  hasSpacing: true,
-};
-
 export const WithContainer = WithContainerTemplate.bind({});
 WithContainer.args = {};
 
 export const WithOverlap = WithOverlapTemplate.bind({});
 WithOverlap.args = {
-  hasSpacing: true,
   hasOverlap: true,
 };

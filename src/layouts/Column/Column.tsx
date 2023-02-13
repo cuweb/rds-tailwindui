@@ -6,7 +6,9 @@ import {
 } from '../../utils/tailwindClasses';
 
 const styles = {
-  column: `cu-column mx-auto grid grid-cols-1 [&:last-child]:mb-0`,
+  column: `cu-column mx-auto grid`,
+  //   column: `cu-column mx-auto grid grid-cols-1`,
+  //   column: `cu-column mx-auto grid grid-cols-1 -my-6`,
 };
 
 export interface ColumnProps {
@@ -20,7 +22,7 @@ export interface ColumnProps {
 export const Column = ({
   children,
   maxWidth = '5xl',
-  gridGap = '8',
+  gridGap = '10',
   cols = '1',
 }: ColumnProps) => {
   return (

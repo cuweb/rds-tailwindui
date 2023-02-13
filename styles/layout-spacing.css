@@ -1,0 +1,37 @@
+.cu-container-grey {
+  @apply py-12;
+}
+
+.cu-container-grey > *:last-child {
+  @apply mb-0;
+}
+
+.cu-container-grey > h2 {
+  @apply mt-0;
+}
+
+.cu-container-white + .cu-container-white,
+.cu-container-grey + .cu-container-grey {
+  @apply pt-0;
+}
+
+.cu-container-white
+  + :not(.cu-container-white):not(h2):not(h3):not(h4):not(h5):not(h6) {
+  @apply mt-0;
+}
+
+.cu-container-grey + .cu-container-grey > * {
+  @apply -mt-6;
+}
+
+.cu-container-grey > .cu-column:last-child {
+  @apply -mb-6;
+}
+
+.cu-column {
+  @apply [&:last-child]:mb-0;
+}
+
+.cu-column + .cu-column {
+  @apply mt-0;
+}
