@@ -43,7 +43,7 @@ export const Homepage = () => (
     />
 
     <Main hasOverlap>
-      <Prose as="section">
+      <Container maxWidth="7xl">
         <Column cols="3" gridGap="8" maxWidth="7xl">
           {dataCard.map(item => (
             <EventCard
@@ -60,62 +60,60 @@ export const Homepage = () => (
             />
           ))}
         </Column>
-      </Prose>
+      </Container>
 
-      <Prose as="section">
-        <Container bgColor="grey" maxWidth="7xl">
-          <h2>Upcoming Events</h2>
+      <Container bgColor="grey" maxWidth="7xl">
+        <h2>Upcoming Events</h2>
 
-          <Column cols="2/3" maxWidth="7xl">
-            <div>
-              <Panel hasShadow>
-                <StackedList hasDividers>
-                  {dataList.map(
-                    ({
-                      id,
-                      title, // link,
-                      start_date,
-                      end_date,
-                      event_address,
-                      on_campus,
-                      on_campus_building,
-                      on_campus_room_number,
-                      tags,
-                    }) => (
-                      <EventItem key={id} link="#">
-                        <EventItem.DateBox startDateTime={start_date} />
-                        <EventItem.Content>
-                          <EventItem.Title name={title} />
-                          <EventItem.Details
-                            startDateTime={start_date}
-                            endDateTime={end_date}
-                            event_address={event_address}
-                            on_campus={on_campus}
-                            on_campus_building={on_campus_building}
-                            on_campus_room_number={on_campus_room_number}
-                          />
-                          <EventItem.Category tags={tags} />
-                        </EventItem.Content>
-                      </EventItem>
-                    )
-                  )}
-                </StackedList>
-              </Panel>
+        <Column cols="2/3" maxWidth="7xl">
+          <div>
+            <Panel hasShadow>
+              <StackedList hasDividers>
+                {dataList.map(
+                  ({
+                    id,
+                    title, // link,
+                    start_date,
+                    end_date,
+                    event_address,
+                    on_campus,
+                    on_campus_building,
+                    on_campus_room_number,
+                    tags,
+                  }) => (
+                    <EventItem key={id} link="#">
+                      <EventItem.DateBox startDateTime={start_date} />
+                      <EventItem.Content>
+                        <EventItem.Title name={title} />
+                        <EventItem.Details
+                          startDateTime={start_date}
+                          endDateTime={end_date}
+                          event_address={event_address}
+                          on_campus={on_campus}
+                          on_campus_building={on_campus_building}
+                          on_campus_room_number={on_campus_room_number}
+                        />
+                        <EventItem.Category tags={tags} />
+                      </EventItem.Content>
+                    </EventItem>
+                  )
+                )}
+              </StackedList>
+            </Panel>
 
-              <Pagination
-                totalCount={48}
-                siblingCount={1}
-                pageSize={5}
-                callback={() => {}}
-              />
-            </div>
+            <Pagination
+              totalCount={48}
+              siblingCount={1}
+              pageSize={5}
+              callback={() => {}}
+            />
+          </div>
 
-            <Aside>
-              <Calendar callback={() => {}} />
-            </Aside>
-          </Column>
-        </Container>
-      </Prose>
+          <Aside>
+            <Calendar callback={() => {}} />
+          </Aside>
+        </Column>
+      </Container>
     </Main>
 
     <FooterBasic />

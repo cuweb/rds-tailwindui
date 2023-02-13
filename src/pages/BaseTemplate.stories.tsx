@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, Prose } from '../components';
-import { Aside, Column, Container, Main } from '../layouts';
+import { TopNav, Banner } from '../components';
+import { Column, Container, Main } from '../layouts';
 
 export default {
   title: 'Page Templates/Base Template',
@@ -15,18 +15,33 @@ export default {
   },
 } as Meta;
 
+const SinglePara = () => {
+  return (
+    <>
+      <p>
+        <strong>Single Paragraph:</strong> Nobis voluptatem dolorum et eum
+        doloremque cupiditate velit. Praesentium architecto a distinctio aut
+        reprehenderit ducimus. Perferendis excepturi delectus nihil voluptatem
+        non. Molestiae quas dolores accusamus in. Praesent quis ligula quis
+        nulla malesuada tempor.
+      </p>
+    </>
+  );
+};
+
 const DoublePara = () => {
   return (
     <>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet
-        tortor pellentesque, posuere tellus vitae, sagittis justo. Vivamus
-        imperdiet turpis nec elit ultricies, sed tempus diam dignissim.
-        Suspendisse condimentum magna vel orci vulputate, eget vulputate neque
-        porttitor. Suspendisse euismod, urna et gravida volutpat, tortor risus
-        vehicula nisl, in vulputate lectus dolor viverra est. Etiam quis
-        interdum nisi, et malesuada lectus. Aliquam luctus, velit eget suscipit
-        tincidunt, sem ex tempus turpis, quis pulvinar metus sapien in urna.
+        <strong>Double Paragraph:</strong> Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Aenean sit amet tortor pellentesque,
+        posuere tellus vitae, sagittis justo. Vivamus imperdiet turpis nec elit
+        ultricies, sed tempus diam dignissim. Suspendisse condimentum magna vel
+        orci vulputate, eget vulputate neque porttitor. Suspendisse euismod,
+        urna et gravida volutpat, tortor risus vehicula nisl, in vulputate
+        lectus dolor viverra est. Etiam quis interdum nisi, et malesuada lectus.
+        Aliquam luctus, velit eget suscipit tincidunt, sem ex tempus turpis,
+        quis pulvinar metus sapien in urna.
       </p>
       <p>
         Nobis voluptatem dolorum et eum doloremque cupiditate velit. Praesentium
@@ -41,79 +56,178 @@ const DoublePara = () => {
 export const BaseTemplate = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Prose as First Child of Main" isType="dark-wave" />
+    <Banner
+      title="Main > Prose Container > Basic Content"
+      paragraph="Prose container as first child of main with a first nested item of prose is basic content"
+      isType="dark-wave"
+    />
     <Main>
-      <Prose as="section">
+      <Container>
+        <SinglePara />
+        <Column cols="2" maxWidth="7xl">
+          <div>
+            <DoublePara />
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+            <DoublePara />
+          </div>
+        </Column>
         <DoublePara />
-      </Prose>
-    </Main>
-    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
-      Footer
-    </footer>
+      </Container>
 
-    <TopNav title="Carleton University" />
-    <Banner
-      title="Prose as First Child of Main with Nested Container"
-      isType="dark-wave"
-    />
-    <Main>
-      <Prose as="section">
-        <Container bgColor="white">
-          <DoublePara />
-        </Container>
-      </Prose>
-    </Main>
-    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
-      Footer
-    </footer>
-
-    <TopNav title="Carleton University" />
-    <Banner
-      title="Container as First Child of Main with Nested Prose"
-      isType="dark-wave"
-    />
-    <Main>
-      <Container bgColor="white">
-        <Prose as="article">
-          <DoublePara />
-        </Prose>
+      <Container>
+        <DoublePara />
+      </Container>
+      <Container bgColor="grey">
+        <SinglePara />
+      </Container>
+      <Container bgColor="grey">
+        <DoublePara />
       </Container>
     </Main>
     <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
       Footer
     </footer>
 
+    <br />
+
     <TopNav title="Carleton University" />
     <Banner
-      title="Prose as First Child of Main with Nested Container"
+      title="Main > Prose Container > Basic Content"
+      paragraph="Prose container as first child of main with a first nested item of prose is basic content"
       isType="dark-wave"
     />
     <Main>
-      <Prose as="article">
+      <Container bgColor="grey">
+        <SinglePara />
         <Column cols="2">
-          <DoublePara />
+          <div>
+            <DoublePara />
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+            <DoublePara />
+          </div>
         </Column>
-      </Prose>
+        <DoublePara />
+      </Container>
+      <Container bgColor="grey">
+        <DoublePara />
+      </Container>
+      <Container>
+        <SinglePara />
+      </Container>
+      <Container>
+        <DoublePara />
+      </Container>
     </Main>
     <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
       Footer
     </footer>
 
+    <br />
+
     <TopNav title="Carleton University" />
     <Banner
-      title="Column as First Child of Main with Nested Prose"
+      title="Main > Prose Container > Columns"
+      paragraph="Prose container as first child of main with a first nested item of prose is basic content"
       isType="dark-wave"
     />
+
     <Main>
-      <Column cols="2/3">
-        <Prose as="article">
-          <DoublePara />
-        </Prose>
-        <Aside>
-          <p>This is an aside</p>
-        </Aside>
-      </Column>
+      <Container>
+        <Column cols="2">
+          <div>
+            <DoublePara />
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+            <DoublePara />
+          </div>
+        </Column>
+      </Container>
+      <Container maxWidth="7xl">
+        <DoublePara />
+        <Column cols="2" maxWidth="7xl">
+          <div>
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+          </div>
+        </Column>
+        <Column cols="2">
+          <div>
+            <DoublePara />
+          </div>
+          <div>
+            <DoublePara />
+          </div>
+        </Column>
+      </Container>
+      <Container bgColor="grey">
+        <Column cols="2">
+          <div>
+            <DoublePara />
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+            <DoublePara />
+          </div>
+        </Column>
+      </Container>
+      <Container bgColor="grey">
+        <Column cols="2">
+          <div>
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+          </div>
+        </Column>
+        <Column cols="2">
+          <div>
+            <DoublePara />
+          </div>
+          <div>
+            <DoublePara />
+          </div>
+        </Column>
+      </Container>
     </Main>
+
+    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
+      Footer
+    </footer>
+
+    <br />
+
+    <TopNav title="Carleton University" />
+    <Banner
+      title="Main > Prose Container > Columns"
+      paragraph="Prose container as first child of main with a first nested item of prose is basic content"
+      isType="dark-wave"
+    />
+
+    <Main>
+      <Container>
+        <Column cols="2/3" maxWidth="7xl">
+          <div>
+            <DoublePara />
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+          </div>
+        </Column>
+      </Container>
+    </Main>
+
     <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
       Footer
     </footer>

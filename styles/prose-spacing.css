@@ -1,0 +1,35 @@
+/* .prose-rds > .cu-container {
+  @apply -mx-10;
+}
+
+.prose-rds > :not(.cu-container):not(.cu-column):first-child {
+  @apply mt-10;
+}
+
+.prose-rds > :not(.cu-container):not(.cu-column):last-child {
+  @apply mb-16;
+}
+
+.prose-rds-3xl > :not(.cu-container):not(.cu-column) {
+  @apply max-w-3xl mx-auto;
+}
+
+.prose-rds-4xl > :not(.cu-container):not(.cu-column) {
+  @apply max-w-3xl mx-auto;
+}
+
+.prose-rds-5xl > :not(.cu-container):not(.cu-column) {
+  @apply max-w-5xl mx-auto;
+}
+
+.prose-rds-6xl > :not(.cu-container):not(.cu-column) {
+  @apply max-w-6xl mx-auto;
+}
+
+.prose-rds-7xl > :not(.cu-container):not(.cu-column) {
+  @apply mx-auto max-w-7xl;
+}
+
+.prose-rds-full > :not(.cu-container):not(.cu-column) {
+  @apply max-w-full mx-auto;
+} */

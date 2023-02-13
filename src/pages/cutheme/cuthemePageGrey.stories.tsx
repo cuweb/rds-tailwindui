@@ -56,11 +56,11 @@ const DoublePara = () => {
 export const cuthemePageGrey = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Space Testing" isType="dark-wave" />
+    <Banner title="cutheme layout testing" isType="dark-wave" />
 
     <Main>
-      <Prose as="section">
-        <Container bgColor="grey">
+      <Container as="section">
+        <Container as="div" bgColor="grey">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8">
@@ -76,8 +76,6 @@ export const cuthemePageGrey = () => (
             ))}
           </Column>
         </Container>
-
-        <SinglePara />
 
         <h2>This is a header 2</h2>
         <SinglePara />
@@ -88,23 +86,9 @@ export const cuthemePageGrey = () => (
         <h4>This is a header 4</h4>
         <DoublePara />
 
-        <Column cols="3" gridGap="8">
-          {data.map(item => (
-            <NewsCard
-              title={item?.title}
-              link={item?.url}
-              image={item?.image}
-              date={item?.date}
-              excerpt={item?.excerpt}
-              tags={item?.tags}
-            />
-          ))}
-        </Column>
-
-        <DoublePara />
-        <DoublePara />
-
-        <Container>
+        <Container as="div" bgColor="white">
+          <h2>News Card Grid</h2>
+          <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8">
             {data.map(item => (
               <NewsCard
@@ -119,9 +103,12 @@ export const cuthemePageGrey = () => (
           </Column>
         </Container>
 
+        <DoublePara />
+
+        <h2>This is a header 2</h2>
         <SinglePara />
 
-        <Container>
+        <Container as="div" bgColor="grey">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8">
@@ -138,9 +125,29 @@ export const cuthemePageGrey = () => (
           </Column>
         </Container>
 
+        <Container as="div" bgColor="grey" maxWidth="7xl">
+          <h2>News Card Grid</h2>
+          <p>Uses Container, Column and NewsCard components.</p>
+          <Column cols="3" gridGap="8" maxWidth="7xl">
+            {data.map(item => (
+              <NewsCard
+                title={item?.title}
+                link={item?.url}
+                image={item?.image}
+                date={item?.date}
+                excerpt={item?.excerpt}
+                tags={item?.tags}
+              />
+            ))}
+          </Column>
+        </Container>
+
         <DoublePara />
 
-        <Container bgColor="grey">
+        <h2>This is a header 2</h2>
+        <SinglePara />
+
+        <Container as="div" bgColor="white">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8">
@@ -155,67 +162,11 @@ export const cuthemePageGrey = () => (
               />
             ))}
           </Column>
-
-          <SinglePara />
-
-          <Column cols="3" gridGap="8" maxWidth="5xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-          <Column cols="3" gridGap="8" maxWidth="7xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-
-          <SinglePara />
         </Container>
 
-        <DoublePara />
-
-        <Container bgColor="grey">
-          <Column cols="3" gridGap="8">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-
-          <SinglePara />
-
-          <Column cols="3" gridGap="8" maxWidth="5xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
+        <Container as="div" bgColor="white" maxWidth="7xl">
+          <h2>News Card Grid</h2>
+          <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8" maxWidth="7xl">
             {data.map(item => (
               <NewsCard
@@ -229,179 +180,7 @@ export const cuthemePageGrey = () => (
             ))}
           </Column>
         </Container>
-
-        <DoublePara />
-
-        <Container bgColor="grey">
-          <Column cols="3" gridGap="8">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-
-          <SinglePara />
-
-          <Column cols="3" gridGap="8" maxWidth="5xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-          <Column cols="3" gridGap="8" maxWidth="7xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-        </Container>
-
-        <Container bgColor="grey">
-          <Column cols="3" gridGap="8">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-
-          <SinglePara />
-
-          <Column cols="3" gridGap="8" maxWidth="5xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-          <Column cols="3" gridGap="8" maxWidth="7xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-        </Container>
-
-        <DoublePara />
-
-        <Container>
-          <Column cols="3" gridGap="8">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-
-          <SinglePara />
-
-          <Column cols="3" gridGap="8" maxWidth="5xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-          <Column cols="3" gridGap="8" maxWidth="7xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-        </Container>
-
-        <Container>
-          <Column cols="3" gridGap="8">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-
-          <SinglePara />
-
-          <Column cols="3" gridGap="8" maxWidth="5xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-          <Column cols="3" gridGap="8" maxWidth="7xl">
-            {data.map(item => (
-              <NewsCard
-                title={item?.title}
-                link={item?.url}
-                image={item?.image}
-                date={item?.date}
-                excerpt={item?.excerpt}
-                tags={item?.tags}
-              />
-            ))}
-          </Column>
-        </Container>
-      </Prose>
+      </Container>
     </Main>
 
     <FooterBasic />
