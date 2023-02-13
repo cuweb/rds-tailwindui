@@ -31,6 +31,7 @@ const InitialValues = {
   firstname: 'ish',
   description: ' sample description',
   regularviewer: '2',
+  location: 'Carleton University, Colonel By Drive, Ottawa, ON, Canada',
   favsitcom: 'familymatter',
   favcharacters: ['kellykapowski', 'carltonbanks'],
 };

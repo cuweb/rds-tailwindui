@@ -1,7 +1,8 @@
 import { Combobox, Dialog, Transition } from '@headlessui/react';
 import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
 import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon';
-import React, { Fragment, ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useState, useEffect, Fragment } from 'react';
+import { rdsOverlay } from '../../utils/tailwindClasses';
 
 export interface SearchProps {
   sourceData: any;
@@ -55,7 +56,7 @@ export const Search = ({
 
   // Validations just checking on first , not in all
 
-  if (!sourceData[0].hasOwnProperty('url')) {
+  if (sourceData[0] && !sourceData[0].hasOwnProperty('url')) {
     return (
       <p className="text-cu-red">
         Url Does not exisit on Passed Database Please pass appropriate data
@@ -63,7 +64,7 @@ export const Search = ({
     );
   }
 
-  if (!sourceData[0].hasOwnProperty(searchOn)) {
+  if (sourceData[0] && !sourceData[0].hasOwnProperty(searchOn)) {
     return (
       <p className="text-cu-red">
         Passed search key does not exisit on passed Database
@@ -93,7 +94,9 @@ export const Search = ({
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 transition-opacity bg-cu-black/70" />
+            <div
+              className={`fixed inset-0 transition-opacity ${rdsOverlay} `}
+            />
           </Transition.Child>
 
           <div className="fixed inset-0 p-4 overflow-y-auto z-100 sm:p-6 md:p-20">

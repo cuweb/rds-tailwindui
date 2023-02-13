@@ -8,6 +8,8 @@ export const rdsMaxWidth = {
   '7xl': 'max-w-7xl',
 };
 
+export const rdsOverlay = 'bg-cu-black/30';
+
 export const rdsGridColumns = {
   '1': '',
   '2': 'md:grid-cols-2',
