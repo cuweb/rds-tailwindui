@@ -59,9 +59,12 @@ export const cuthemePage = () => (
     <Banner title="cutheme layout testing" isType="dark-wave" />
 
     <Main>
-      <Container as="section">
-        <Container as="div" bgColor="white">
-          <h2>News Card Grid</h2>
+      <Container as="section" hasProse>
+        <h2>News Card Grid</h2>
+        <p>Uses Container, Column and NewsCard components.</p>
+
+        <Container as="div" bgColor="white" hasProse>
+          <h3>News Card Grid</h3>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8">
             {data.map(item => (
@@ -86,7 +89,7 @@ export const cuthemePage = () => (
         <h4>This is a header 4</h4>
         <DoublePara />
 
-        <Container as="div" bgColor="white">
+        <Container as="div" bgColor="white" hasProse>
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8">

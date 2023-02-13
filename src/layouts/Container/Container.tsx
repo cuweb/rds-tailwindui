@@ -9,6 +9,7 @@ export interface ItemBaseProps {
 export interface ContainerProps {
   children: React.ReactNode;
   as?: BaseItemTypeProps;
+  hasProse?: boolean;
   bgColor?: 'white' | 'grey';
   maxWidth?: 'none' | 'full' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl';
 }
@@ -19,36 +20,35 @@ const prose = {
 
 const styles = {
   base: `cu-container py-12 px-8 -mx-8`,
+  noSpacing: `py-0 px-0 mx-0`,
   white: `cu-container-white [&+.cu-container-white]:pt-0`,
   grey: `cu-container-grey bg-cu-black-50 [&+.cu-container-grey]:pt-0`,
   width5xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-5xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
   width7xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
   widthFull: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
+  autoMargin: `[&>:not(.cu-container):not(.cu-column)]:mx-auto`,
 };
 
 export const Container = ({
   children,
   as: Component = 'section',
+  hasProse = false,
   bgColor = 'white',
   maxWidth = '5xl',
 }: ContainerProps) => {
+  const addProse = hasProse ? prose.prose : '[&>*:first-child]:-mt-0';
+  const removeSpace = Component === 'article' ? `${styles.noSpacing}` : ``;
   const bgStyles = bgColor === 'grey' ? `${styles.grey}` : `${styles.white}`;
 
   const childWidth = maxWidth
-    ? ' [&>:not(.cu-container):not(.cu-column)]:mx-auto [&>:not(.cu-container):not(.cu-column)]:max-w-' +
-      maxWidth
+    ? `${styles.autoMargin} [&>:not(.cu-container):not(.cu-column)]:max-w-${maxWidth}`
     : '';
 
   return (
-    <>
-      {/* <div className={`${styles.containerWrap} ${bgStyles} ${childWidth}`}>
+    <Component
+      className={`${styles.base} ${removeSpace} ${bgStyles} ${childWidth} ${addProse}`}
+    >
       {children}
-    </div> */}
-      <Component
-        className={`${styles.base} ${bgStyles} ${childWidth} ${prose.prose}`}
-      >
-        {children}
-      </Component>
-    </>
+    </Component>
   );
 };

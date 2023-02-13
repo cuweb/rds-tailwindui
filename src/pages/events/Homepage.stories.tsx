@@ -61,7 +61,7 @@ export const Homepage = () => (
         </Column>
       </Container>
 
-      <Container bgColor="grey" maxWidth="7xl">
+      <Container bgColor="grey" maxWidth="7xl" hasProse>
         <h2>Upcoming Events</h2>
 
         <Column cols="2/3" maxWidth="7xl">

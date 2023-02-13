@@ -79,9 +79,9 @@ export const SingleEvent = () => (
     <Main>
       <Container>
         <Column cols="2/3" maxWidth="7xl">
-          <article>
+          <Container as="article" hasProse>
             <EventContent />
-          </article>
+          </Container>
 
           <Aside isSticky topSpace="12">
             <Panel hasShadow>

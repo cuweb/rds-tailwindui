@@ -59,7 +59,7 @@ export const cuthemePageGrey = () => (
     <Banner title="cutheme layout testing" isType="dark-wave" />
 
     <Main>
-      <Container as="section">
+      <Container as="section" hasProse>
         <Container as="div" bgColor="grey">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
