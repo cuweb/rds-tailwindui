@@ -60,11 +60,17 @@ export const cuthemePage = () => (
 
     <Main>
       <Container as="section" hasProse>
-        <h2>News Card Grid</h2>
-        <p>Uses Container, Column and NewsCard components.</p>
+        <h2>This is a header 2</h2>
+        <SinglePara />
+
+        <h3>This is a header 3</h3>
+        <SinglePara />
+
+        <h4>This is a header 4</h4>
+        <DoublePara />
 
         <Container as="div" bgColor="white" hasProse>
-          <h3>News Card Grid</h3>
+          <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" gridGap="8">
             {data.map(item => (
@@ -79,15 +85,6 @@ export const cuthemePage = () => (
             ))}
           </Column>
         </Container>
-
-        <h2>This is a header 2</h2>
-        <SinglePara />
-
-        <h3>This is a header 3</h3>
-        <SinglePara />
-
-        <h4>This is a header 4</h4>
-        <DoublePara />
 
         <Container as="div" bgColor="white" hasProse>
           <h2>News Card Grid</h2>
