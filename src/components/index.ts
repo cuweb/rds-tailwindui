@@ -11,6 +11,7 @@ export { FooterStandard } from './Footer/FooterStandard';
 export { FooterWave } from './Footer/FooterWave';
 export { EventCard, EventCardProps } from './Cards/EventCard';
 export { NewsCard, NewsCardProps } from './Cards/NewsCard';
+export { VideoCard, VideoCardProps } from './Videos/VideoCard';
 export {
   EventLocation,
   EventLocationProps,
