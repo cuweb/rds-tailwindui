@@ -47,7 +47,7 @@
 
 /**
 * Layout Component Spacing
-* Add to @import './layout-spacing.css';
+* Added to @import './layout-spacing.css';
 */
 
 .prose > .cu-container {
@@ -67,6 +67,10 @@
 }
 
 .cu-container > .cu-column {
+  @apply py-4;
+}
+
+:not(.cu-container):not(.cu-column) + .cu-column {
   @apply py-4;
 }
 

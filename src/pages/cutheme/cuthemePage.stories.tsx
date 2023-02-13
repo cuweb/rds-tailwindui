@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, NewsCard, Prose } from '../../components';
+import { TopNav, Banner, NewsCard, Prose, FooterBasic } from '../../components';
 
 import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
 import { Container, Column } from '../../layouts';
@@ -69,6 +69,22 @@ export const cuthemePage = () => (
         <SinglePara />
 
         <h4>This is a header 4</h4>
+        <DoublePara />
+
+        <Column cols="3" gridGap="8">
+          {data.map(item => (
+            <NewsCard
+              title={item?.title}
+              link={item?.url}
+              image={item?.image}
+              date={item?.date}
+              excerpt={item?.excerpt}
+              tags={item?.tags}
+            />
+          ))}
+        </Column>
+
+        <DoublePara />
         <DoublePara />
 
         <Container>
@@ -371,6 +387,6 @@ export const cuthemePage = () => (
       </Prose>
     </main>
 
-    <footer className="px-10 py-6 text-white bg-cu-black-800">Footer</footer>
+    <FooterBasic />
   </>
 );
