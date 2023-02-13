@@ -25,7 +25,9 @@ const DefaultTemplate: Story<MainProps> = () => (
 const WithContentTemplate: Story<MainProps> = args => (
   <Main {...args}>
     <Column maxWidth="3xl">
-      <Prose as="article">{sampleContent}</Prose>
+      <Prose as="article">
+        <div dangerouslySetInnerHTML={sampleContent()} />
+      </Prose>
     </Column>
   </Main>
 );
@@ -34,7 +36,9 @@ const WithContainerTemplate: Story<MainProps> = args => (
   <Main {...args}>
     <Container bgColor="grey">
       <Column maxWidth="3xl">
-        <Prose as="article">{sampleContent}</Prose>
+        <Prose as="article">
+          <div dangerouslySetInnerHTML={sampleContent()} />
+        </Prose>
       </Column>
     </Container>
   </Main>
@@ -46,7 +50,9 @@ const WithOverlapTemplate: Story<MainProps> = args => (
     <Main {...args}>
       <Column maxWidth="3xl">
         <div className="py-12 bg-white rounded-lg px-14">
-          <Prose as="article">{sampleContent}</Prose>
+          <Prose as="article">
+            <div dangerouslySetInnerHTML={sampleContent()} />
+          </Prose>
         </div>
       </Column>
     </Main>

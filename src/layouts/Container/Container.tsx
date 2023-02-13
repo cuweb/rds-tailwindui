@@ -1,9 +1,9 @@
 import React from 'react';
 
 const styles = {
-  containerWrap: `cu-container [&>*]:mx-auto`,
+  containerWrap: `cu-container [&>*]:mx-auto py-12`,
   containerWhite: `cu-container-white bg-white`,
-  containerGrey: `cu-container-grey bg-cu-black-50 py-4 my-10`,
+  containerGrey: `cu-container-grey bg-cu-black-50 my-10`,
   container5xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-5xl`,
   container7xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl`,
 };

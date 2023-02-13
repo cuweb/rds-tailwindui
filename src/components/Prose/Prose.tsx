@@ -12,9 +12,11 @@ export interface ProseProps {
 }
 
 const styles = {
-  proseBase: `prose prose-lg md:prose-xl max-w-none`,
-  proseFirst: `[&>:not(.cu-container):not(.cu-column):first-child]:mt-10`,
-  proseLast: `[&>:not(.cu-container):not(.cu-column):last-child]:mb-10`,
+  proseBase: `prose prose-lg md:prose-xl max-w-none prose-img:w-full prose-img:rounded-lg`,
+  proseFirst: ``,
+  proseLast: ``,
+  //   proseFirst: `[&>:not(.cu-container):not(.cu-column):first-child]:mt-10`,
+  //   proseLast: `[&>:not(.cu-container):not(.cu-column):last-child]:mb-10`,
   proseWidth: `[&>:not(.cu-container):not(.cu-column)]:max-w-5xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
 };
 

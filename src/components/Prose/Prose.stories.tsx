@@ -13,7 +13,9 @@ export default {
 } as Meta<typeof Prose>;
 
 const ArticleTemplate: Story<ProseProps> = () => (
-  <Prose as="article">{sampleContent}</Prose>
+  <Prose as="article">
+    <div dangerouslySetInnerHTML={sampleContent()} />
+  </Prose>
 );
 
 export const Article = ArticleTemplate.bind({});

@@ -25,7 +25,9 @@ Default.args = {};
 
 const IsStickyTemplate: Story<AsideProps> = args => (
   <Column cols="2/3" maxWidth="7xl">
-    <Prose as="article">{sampleContent}</Prose>
+    <Prose as="article">
+      <div dangerouslySetInnerHTML={sampleContent()} />
+    </Prose>
     <Aside {...args}>
       <p>This is an aside as a sticky item</p>
     </Aside>

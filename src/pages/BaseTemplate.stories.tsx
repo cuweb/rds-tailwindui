@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { Column, Container, Main } from '../layouts';
 import { TopNav, Banner, Prose } from '../components';
+import { Aside, Column, Container, Main } from '../layouts';
 
 export default {
   title: 'Page Templates/Base Template',
@@ -15,302 +15,107 @@ export default {
   },
 } as Meta;
 
+const DoublePara = () => {
+  return (
+    <>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet
+        tortor pellentesque, posuere tellus vitae, sagittis justo. Vivamus
+        imperdiet turpis nec elit ultricies, sed tempus diam dignissim.
+        Suspendisse condimentum magna vel orci vulputate, eget vulputate neque
+        porttitor. Suspendisse euismod, urna et gravida volutpat, tortor risus
+        vehicula nisl, in vulputate lectus dolor viverra est. Etiam quis
+        interdum nisi, et malesuada lectus. Aliquam luctus, velit eget suscipit
+        tincidunt, sem ex tempus turpis, quis pulvinar metus sapien in urna.
+      </p>
+      <p>
+        Nobis voluptatem dolorum et eum doloremque cupiditate velit. Praesentium
+        architecto a distinctio aut reprehenderit ducimus. Perferendis excepturi
+        delectus nihil voluptatem non. Molestiae quas dolores accusamus in.
+        Praesent quis ligula quis nulla malesuada tempor.
+      </p>
+    </>
+  );
+};
+
 export const BaseTemplate = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Page Space Testing" />
-
+    <Banner title="Prose as First Child of Main" isType="dark-wave" />
     <Main>
       <Prose as="section">
-        <p>
-          Velit et dolor delectus enim. Nemo necessitatibus illo ratione facilis
-          culpa. Culpa praesentium eligendi laudantium cumque et optio itaque.
-          Ex assumenda aut minus voluptate.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
+        <DoublePara />
+      </Prose>
+    </Main>
+    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
+      Footer
+    </footer>
 
-        <Container maxWidth="5xl">
-          <h2>Header inside container</h2>
-          <p>
-            Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-            facilis culpa. Culpa praesentium eligendi laudantium cumque et optio
-            itaque. Ex assumenda aut minus voluptate.
-          </p>
-        </Container>
-        <Container maxWidth="5xl">
-          <p>
-            Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-            facilis culpa. Culpa praesentium eligendi laudantium cumque et optio
-            itaque. Ex assumenda aut minus voluptate.
-          </p>
-        </Container>
-        <Container maxWidth="5xl">
-          <p>
-            Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-            facilis culpa. Culpa praesentium eligendi laudantium cumque et optio
-            itaque. Ex assumenda aut minus voluptate.
-          </p>
-        </Container>
-
-        <h2>Heading outside container</h2>
-        <p>
-          Velit et dolor delectus enim. Nemo necessitatibus illo ratione facilis
-          culpa. Culpa praesentium eligendi laudantium cumque et optio itaque.
-          Ex assumenda aut minus voluptate.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
-
-        <Column maxWidth="5xl" cols="2">
-          <div>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-          </div>
-          <div>
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-          </div>
-        </Column>
-
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
-
-        <Column maxWidth="5xl" cols="2">
-          <div>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-          </div>
-          <div>
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-          </div>
-        </Column>
-        <Column maxWidth="5xl" cols="2">
-          <div>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-            <h3>Heading</h3>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-          </div>
-          <div>
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-            <h3>Heading</h3>
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-          </div>
-        </Column>
-
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
-
-        <h2>Heading outside container</h2>
-        <p>
-          Velit et dolor delectus enim. Nemo necessitatibus illo ratione facilis
-          culpa. Culpa praesentium eligendi laudantium cumque et optio itaque.
-          Ex assumenda aut minus voluptate.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
-
-        <Container maxWidth="5xl">
-          <Column maxWidth="5xl" cols="2">
-            <div>
-              <p>
-                Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-                facilis culpa. Culpa praesentium eligendi laudantium cumque et
-                optio itaque. Ex assumenda aut minus voluptate.
-              </p>
-            </div>
-            <div>
-              <p>
-                Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-                Praesentium architecto a distinctio aut reprehenderit ducimus.
-                Perferendis excepturi delectus nihil voluptatem non. Molestiae
-                quas dolores accusamus in.
-              </p>
-            </div>
-          </Column>
-        </Container>
-        {/* </Prose>
-
-      <Prose as="section" maxWidth="5xl"> */}
-        <p>
-          Velit et dolor delectus enim. Nemo necessitatibus illo ratione facilis
-          culpa. Culpa praesentium eligendi laudantium cumque et optio itaque.
-          Ex assumenda aut minus voluptate.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
-
-        <Container bgColor="grey" maxWidth="5xl">
-          <h2>Header inside container</h2>
-          <p>
-            Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-            facilis culpa. Culpa praesentium eligendi laudantium cumque et optio
-            itaque. Ex assumenda aut minus voluptate.
-          </p>
-        </Container>
-        <Container bgColor="grey" maxWidth="5xl">
-          <p>
-            Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-            facilis culpa. Culpa praesentium eligendi laudantium cumque et optio
-            itaque. Ex assumenda aut minus voluptate.
-          </p>
-        </Container>
-        <Container bgColor="grey" maxWidth="5xl">
-          <p>
-            Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-            facilis culpa. Culpa praesentium eligendi laudantium cumque et optio
-            itaque. Ex assumenda aut minus voluptate.
-          </p>
-        </Container>
-
-        <h2>Heading outside container</h2>
-        <p>
-          Velit et dolor delectus enim. Nemo necessitatibus illo ratione facilis
-          culpa. Culpa praesentium eligendi laudantium cumque et optio itaque.
-          Ex assumenda aut minus voluptate.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
-
-        <Column maxWidth="5xl" cols="2">
-          <p>
-            Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-            facilis culpa. Culpa praesentium eligendi laudantium cumque et optio
-            itaque. Ex assumenda aut minus voluptate.
-          </p>
-          <p>
-            Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-            Praesentium architecto a distinctio aut reprehenderit ducimus.
-            Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-            dolores accusamus in.
-          </p>
-        </Column>
-
-        <h2>Heading outside container</h2>
-        <p>
-          Velit et dolor delectus enim. Nemo necessitatibus illo ratione facilis
-          culpa. Culpa praesentium eligendi laudantium cumque et optio itaque.
-          Ex assumenda aut minus voluptate.
-        </p>
-        <p>
-          Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-          Praesentium architecto a distinctio aut reprehenderit ducimus.
-          Perferendis excepturi delectus nihil voluptatem non. Molestiae quas
-          dolores accusamus in.
-        </p>
-
-        <Container bgColor="grey" maxWidth="5xl">
-          <Column maxWidth="5xl" cols="2">
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-          </Column>
-          <Column maxWidth="5xl" cols="2">
-            <p>
-              Velit et dolor delectus enim. Nemo necessitatibus illo ratione
-              facilis culpa. Culpa praesentium eligendi laudantium cumque et
-              optio itaque. Ex assumenda aut minus voluptate.
-            </p>
-            <p>
-              Nobis voluptatem dolorum et eum doloremque cupiditate velit.
-              Praesentium architecto a distinctio aut reprehenderit ducimus.
-              Perferendis excepturi delectus nihil voluptatem non. Molestiae
-              quas dolores accusamus in.
-            </p>
-          </Column>
+    <TopNav title="Carleton University" />
+    <Banner
+      title="Prose as First Child of Main with Nested Container"
+      isType="dark-wave"
+    />
+    <Main>
+      <Prose as="section">
+        <Container bgColor="white">
+          <DoublePara />
         </Container>
       </Prose>
     </Main>
+    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
+      Footer
+    </footer>
+
+    <TopNav title="Carleton University" />
+    <Banner
+      title="Container as First Child of Main with Nested Prose"
+      isType="dark-wave"
+    />
+    <Main>
+      <Container bgColor="white">
+        <Prose as="article">
+          <DoublePara />
+        </Prose>
+      </Container>
+    </Main>
+    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
+      Footer
+    </footer>
+
+    <TopNav title="Carleton University" />
+    <Banner
+      title="Prose as First Child of Main with Nested Container"
+      isType="dark-wave"
+    />
+    <Main>
+      <Prose as="article">
+        <Column cols="2">
+          <DoublePara />
+        </Column>
+      </Prose>
+    </Main>
+    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
+      Footer
+    </footer>
+
+    <TopNav title="Carleton University" />
+    <Banner
+      title="Column as First Child of Main with Nested Prose"
+      isType="dark-wave"
+    />
+    <Main>
+      <Column cols="2/3">
+        <Prose as="article">
+          <DoublePara />
+        </Prose>
+        <Aside>
+          <p>This is an aside</p>
+        </Aside>
+      </Column>
+    </Main>
+    <footer className="p-8 mb-16 bg-cu-black-900 text-cu-black-400">
+      Footer
+    </footer>
   </>
 );

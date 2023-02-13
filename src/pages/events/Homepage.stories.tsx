@@ -32,7 +32,7 @@ export default {
   },
 } as Meta;
 
-export const EventsHome = () => (
+export const Homepage = () => (
   <>
     <TopNav title="Events Calendar" />
     <Banner
