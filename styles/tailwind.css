@@ -9,10 +9,6 @@
 * Add to @import './prose-spacing.css';
 */
 
-.prose > .new-container {
-  @apply -mx-10;
-}
-
 /* .prose-rds > .cu-container {
   @apply -mx-10;
 }
@@ -54,66 +50,42 @@
 * Add to @import './layout-spacing.css';
 */
 
-.new-container > .cu-column {
+.prose > .cu-container {
+  @apply -mx-10;
+}
+
+.prose > .cu-container-white {
+  @apply last:mb-12;
+}
+
+.cu-container-white + .cu-container-white {
+  @apply mt-10;
+}
+
+.cu-container-grey + .cu-container-grey {
+  @apply pt-0 -mt-10;
+}
+
+.cu-container > .cu-column {
   @apply py-4;
 }
 
-.new-container-grey > .cu-column {
-  @apply mt-6 mb-6;
+.cu-container-grey > .cu-column {
+  @apply first:mt-5 last:mb-6;
 }
 
 .cu-column + .cu-column {
-  @apply pt-0 mt-0;
+  @apply pt-0 mt-6;
 }
 
-.new-container-grey > h1:first-child,
-.new-container-grey > h2:first-child,
-.new-container-grey > h3:first-child,
-.new-container-grey > h4:first-child,
-.new-container-grey > h5:first-child,
-.new-container-grey > h6:first-child {
-  @apply mt-6;
+.cu-container-grey > h1,
+.cu-container-grey > h2,
+.cu-container-grey > h3,
+.cu-container-grey > h4,
+.cu-container-grey > h5,
+.cu-container-grey > h6 {
+  @apply first:mt-6;
 }
-
-/* .cu-column + .cu-column */
-
-/* .cu-container-grey {
-  @apply py-10;
-}
-
-.cu-container-grey > *:last-child {
-  @apply mb-0;
-}
-
-.cu-container-grey > h2 {
-  @apply mt-0;
-}
-
-.cu-container-white + .cu-container-white,
-.cu-container-grey + .cu-container-grey {
-  @apply pt-0;
-}
-
-.cu-container-white
-  + :not(.cu-container-white):not(h2):not(h3):not(h4):not(h5):not(h6) {
-  @apply mt-0;
-}
-
-.cu-container-grey + .cu-container-grey > * {
-  @apply -mt-6;
-}
-
-.cu-container-grey > .cu-column:last-child {
-  @apply -mb-6;
-}
-
-.cu-column {
-  @apply [&:last-child]:mb-0;
-}
-
-.cu-column + .cu-column {
-  @apply mt-0;
-} */
 
 @tailwind components;
 @tailwind utilities;

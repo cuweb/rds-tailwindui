@@ -1,12 +1,11 @@
 import React from 'react';
-import { rdsBgColor } from '../../utils/tailwindClasses';
 
 const styles = {
-  container: `cu-container`,
-  containerGrey: ``,
-  //   containerGrey: `py-6`,
-  containerSpace: `px-6 py-10 lg:py-12 lg:px-10 -mx-10`,
-  //   containerTargets: `[&.bg-cu-black-50+.cu-container.bg-cu-black-50]:pt-0 [&.bg-transparent+.cu-container.bg-transparent]:pt-0`,
+  containerWrap: `cu-container [&>*]:mx-auto`,
+  containerWhite: `cu-container-white bg-white`,
+  containerGrey: `cu-container-grey bg-cu-black-50 py-4 my-10`,
+  container5xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-5xl`,
+  container7xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl`,
 };
 
 export interface ContainerProps {
@@ -18,21 +17,17 @@ export interface ContainerProps {
 export const Container = ({
   children,
   bgColor = 'white',
-  maxWidth,
+  maxWidth = '5xl',
 }: ContainerProps) => {
   const bgStyles =
-    bgColor === 'grey'
-      ? `cu-container-grey ${styles.containerGrey}`
-      : `cu-container-white`;
+    bgColor === 'grey' ? `${styles.containerGrey}` : `${styles.containerWhite}`;
 
-  const maxWidthChildren = bgColor
-    ? '[&>*]:mx-auto [&>*]:max-w-' + maxWidth
+  const childWidth = maxWidth
+    ? '[&>:not(.cu-container):not(.cu-column)]:max-w-' + maxWidth
     : '';
 
   return (
-    <div
-      className={`${styles.container} ${bgStyles} ${rdsBgColor[bgColor]} ${maxWidthChildren}`}
-    >
+    <div className={`${styles.containerWrap} ${bgStyles} ${childWidth}`}>
       {children}
     </div>
   );

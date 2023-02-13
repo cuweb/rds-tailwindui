@@ -9,26 +9,19 @@ export interface ItemBaseProps {
 export interface ProseProps {
   as?: BaseItemTypeProps;
   children?: React.ReactNode;
-  maxWidth?: 'none' | 'full' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl';
-  //   content: string;
 }
 
 const styles = {
-  'prose-base': `prose prose-lg`,
-  'prose-rds': `prose-rds max-w-none md:prose-xl`,
-  //   'prose-events': `prose-article prose-img:w-full prose-img:rounded-lg lg:prose-xl`,
+  proseBase: `prose prose-lg md:prose-xl max-w-none`,
+  proseFirst: `[&>:not(.cu-container):not(.cu-column):first-child]:mt-10`,
+  proseLast: `[&>:not(.cu-container):not(.cu-column):last-child]:mb-10`,
+  proseWidth: `[&>:not(.cu-container):not(.cu-column)]:max-w-5xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
 };
 
-export const Prose = ({
-  children,
-  as: Component = 'article',
-  maxWidth,
-}: ProseProps) => {
-  const proseMaxWidth = maxWidth ? 'prose-rds-' + maxWidth : '';
-
+export const Prose = ({ children, as: Component = 'article' }: ProseProps) => {
   return (
     <Component
-      className={`${styles['prose-base']} ${proseMaxWidth} ${styles['prose-rds']}`}
+      className={`${styles.proseBase} ${styles.proseFirst} ${styles.proseLast} ${styles.proseWidth}`}
     >
       {children}
     </Component>

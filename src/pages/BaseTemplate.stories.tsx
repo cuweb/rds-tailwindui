@@ -21,7 +21,7 @@ export const BaseTemplate = () => (
     <Banner title="Page Space Testing" />
 
     <Main>
-      <Prose as="section" maxWidth="5xl">
+      <Prose as="section">
         <p>
           Velit et dolor delectus enim. Nemo necessitatibus illo ratione facilis
           culpa. Culpa praesentium eligendi laudantium cumque et optio itaque.
