@@ -57,6 +57,7 @@ export const ModalNoButton: Story<ModalProps> = () => {
         isOpen={ModalOpen}
         setIsOpen={setModalOpen}
         noButton
+        hasOverlay
       >
         <Button
           onClick={() => {

@@ -2,6 +2,7 @@ import { Fragment, useRef } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import React from 'react';
 import { Button } from '../Button';
+import { rdsOverlay } from '../../utils/tailwindClasses';
 
 export interface ModalProps {
   children?: React.ReactNode;
@@ -10,6 +11,7 @@ export interface ModalProps {
   noButton?: boolean;
   isOpen: any;
   setIsOpen: any;
+  hasOverlay?: boolean;
 }
 
 export const Modal = ({
@@ -19,6 +21,7 @@ export const Modal = ({
   noButton,
   isOpen,
   setIsOpen,
+  hasOverlay = false,
 }: ModalProps) => {
   const cancelButtonRef = useRef(null);
 
@@ -39,7 +42,11 @@ export const Modal = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-100 bg-opacity-60 transition-opacity" />
+          <div
+            className={`fixed inset-0 ${
+              hasOverlay ? rdsOverlay : ''
+            }  transition-opacity bg-opacity-60`}
+          />
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto">
