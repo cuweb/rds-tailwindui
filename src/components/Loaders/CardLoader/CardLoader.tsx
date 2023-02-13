@@ -12,6 +12,7 @@ export const CardLoader = () => {
           <span className="block w-4/12 h-4 bg-cu-black-100 -mt-3"></span>
         </div>
       </div>
+      <span className="sr-only">Loading...</span>
     </div>
   );
 };

@@ -9,7 +9,6 @@ import {
   endOfMonth,
   format,
   getDay,
-  getYear,
   isBefore,
   isEqual,
   isSameDay,
@@ -39,6 +38,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
   const today = startOfToday();
   const [selectedDay, setSelectedDay] = useState(new Date(0));
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
+  const [showClear, setShowClear] = useState(false);
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
   const colStartClasses = [
     '',
@@ -121,7 +121,10 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             <button
               type="button"
               disabled={isBefore(day, today)}
-              onClick={() => setSelectedDay(day)}
+              onClick={() => {
+                setSelectedDay(day);
+                setShowClear(true);
+              }}
               className={classNames(
                 isEqual(day, selectedDay) && 'text-white',
                 !isEqual(day, selectedDay) &&
@@ -156,7 +159,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
           </div>
         ))}
       </div>
-      {getYear(selectedDay) !== 1969 && (
+      {showClear && (
         <div className="mt-2">
           <Button
             title="Clear Calendar"
@@ -164,6 +167,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             size="sm"
             onClick={() => {
               setSelectedDay(new Date(0));
+              setShowClear(false);
             }}
           />
         </div>

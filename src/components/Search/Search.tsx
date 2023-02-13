@@ -1,4 +1,4 @@
-import { Transition, Dialog, Combobox } from '@headlessui/react';
+import { Combobox, Dialog, Transition } from '@headlessui/react';
 import MagnifyingGlassIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon';
 import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon';
 import React, { ReactNode, useState, useEffect, Fragment } from 'react';
@@ -56,7 +56,7 @@ export const Search = ({
 
   // Validations just checking on first , not in all
 
-  if (!sourceData[0].hasOwnProperty('url')) {
+  if (sourceData[0] && !sourceData[0].hasOwnProperty('url')) {
     return (
       <p className="text-cu-red">
         Url Does not exisit on Passed Database Please pass appropriate data
@@ -64,7 +64,7 @@ export const Search = ({
     );
   }
 
-  if (!sourceData[0].hasOwnProperty(searchOn)) {
+  if (sourceData[0] && !sourceData[0].hasOwnProperty(searchOn)) {
     return (
       <p className="text-cu-red">
         Passed search key does not exisit on passed Database
@@ -74,7 +74,7 @@ export const Search = ({
 
   return (
     <>
-      <button id="search-avatar" onClick={() => setOpen(true)}>
+      <button onClick={() => setOpen(true)} aria-label="search">
         {searchAvatar}
       </button>
 

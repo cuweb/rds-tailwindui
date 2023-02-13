@@ -1,21 +1,21 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { PlacesAutoComplete } from './PlacesAutocomplete';
+import { LocationPicker } from './LocationPicker';
 import { Column } from '../../layouts';
 
 export default {
-  title: 'Components/Elements/PlacesAutoComplete',
-  component: PlacesAutoComplete,
+  title: 'Components/Elements/LocationPicker',
+  component: LocationPicker,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
   },
-} as Meta<typeof PlacesAutoComplete>;
+} as Meta<typeof LocationPicker>;
 
 export const Default = () => {
   return (
     <Column maxWidth="5xl">
-      <PlacesAutoComplete />
+      <LocationPicker />
     </Column>
   );
 };
