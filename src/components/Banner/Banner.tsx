@@ -43,6 +43,7 @@ const contentStyles = {
 const otherStyles = {
   buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
   overlap: ``,
+  //   overlap: `md:pb-48 md:pt-36`,
 };
 
 const BannerBase = ({
@@ -57,7 +58,7 @@ const BannerBase = ({
   image,
   imageAlt = 'Decorative background image',
 }: BannerProps & BannerImgProps) => {
-  const bannerSpacing = isType === 'image' ? 'md:py-48' : 'md:py-36';
+  const bannerSpacing = isType === 'image' ? 'md:py-48' : 'md:py-32';
   const flexAlign =
     align === 'center'
       ? 'flex-col last:[&>*]:justify-center'

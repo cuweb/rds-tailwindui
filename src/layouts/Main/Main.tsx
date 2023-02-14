@@ -7,7 +7,7 @@ export interface MainProps {
 
 const styles = {
   core: `relative mx-8`,
-  overlap: `z-20 md:-mt-20 md:[&>.cu-container-white:first-child]:pt-0`,
+  overlap: `z-20 md:-mt-16 md:[&>.cu-container-white:first-child]:pt-0`,
 };
 
 export const Main = ({ children, hasOverlap }: MainProps) => {
