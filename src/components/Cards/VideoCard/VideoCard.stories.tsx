@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { VideoCard } from './VideoCard';
-import { Column } from '../../../layouts';
 
 export default {
   title: 'Components/Cards/Videos',
@@ -13,9 +12,5 @@ export default {
 } as Meta<typeof VideoCard>;
 
 export const Default = () => {
-  return (
-    <Column maxWidth="5xl">
-      <VideoCard source="https://www.youtube.com/watch?v=f2Wrqj1wjng" />
-    </Column>
-  );
+  return <VideoCard source="https://www.youtube.com/watch?v=f2Wrqj1wjng" />;
 };
