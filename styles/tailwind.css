@@ -16,14 +16,12 @@
   @apply first:mt-0 last:mb-0;
 }
 
-/* Add spacing when columns are used consecutively */
-.cu-column + .cu-column {
-  @apply mt-10;
-}
-
+/* Add spacing when columns and panels are used in some consecutive order */
+.cu-column + .cu-column,
+.cu-panel + .cu-panel,
 .cu-column + .cu-panel,
 .cu-panel + .cu-column {
-  @apply mt-8;
+  @apply mt-10;
 }
 
 /* Add spacing when white container follows non-layout components */
@@ -33,7 +31,7 @@
 
 /* Add spacing when grey container follows non-layout components */
 :not(.cu-container):not(.cu-column) + .cu-container-grey {
-  @apply mt-12;
+  @apply mt-14;
 }
 
 /* Remove spacing on non-layout components that follow container or column */
