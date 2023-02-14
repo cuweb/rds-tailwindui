@@ -77,7 +77,7 @@ const BannerBase = ({
   return (
     <>
       <header
-        className={`relative ${typeStyles[isType]} py-16 ${bannerSpacing} ${overlapStyles} md:flex md:items-center md:px-8 md:min-h-[240px]`}
+        className={`not-prose relative ${typeStyles[isType]} py-16 ${bannerSpacing} ${overlapStyles} md:flex md:items-center md:px-8 md:min-h-[240px]`}
         id="banner"
       >
         <div

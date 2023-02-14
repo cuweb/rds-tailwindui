@@ -31,7 +31,7 @@ export const DropDown = ({
   menuAlign = 'left',
 }: DropDownProps) => {
   return (
-    <Popover as="div" className="relative flex-shrink-0 inline-block">
+    <Popover as="div" className="relative flex-shrink-0 inline-block not-prose">
       <div>
         <Popover.Button as={renderAs} className="cursor-pointer">
           <span className="sr-only">Open menu</span>
@@ -70,7 +70,7 @@ export const DropDown = ({
                 <div key={index}>
                   <Link
                     href={item.href ? item.href : ''}
-                    className="hover:bg-gray-100 hover:text-gray-900 group text-gray-700 flex items-center px-4 py-2 text-sm"
+                    className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 group"
                     onClick={e => {
                       item.onClick && e.preventDefault();
                       item.onClick && item.onClick(e);
