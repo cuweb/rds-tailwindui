@@ -26,6 +26,7 @@ export {
   MarketplaceItem,
   MarketplaceItemProps,
 } from './ListingItems/MarketplaceItem';
+export { Modal, ModalProps } from './Modal';
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
 export { Pagination, PaginationProps } from './Pagination';
 export { SocialShare, SocialShareProps } from './SocialShare';
