@@ -64,7 +64,7 @@ Default.args = {
 };
 
 export const gridCards = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" maxWidth="7xl">
     {data.map(item => (
       <EventCard
         title={item?.title}

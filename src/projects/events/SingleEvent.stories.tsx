@@ -1,26 +1,32 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import { Main, MainProps } from './Main';
-import { Column } from '../Column';
-import { Banner } from '../../components/Banner';
-import { Container } from '../Container';
+import { Meta } from '@storybook/react';
+import { DetailsItemData as data } from '../../components/ListingItems/DetailsItem/DetailsItemData';
+
+import {
+  TopNav,
+  Banner,
+  FooterBasic,
+  DetailsItem,
+  Button,
+} from '../../components';
+import {
+  Main,
+  Column,
+  Aside,
+  Container,
+  Panel,
+  StackedList,
+} from '../../layouts';
 
 export default {
-  title: 'Layouts/Main',
-  component: Main,
+  title: 'Projects/Events Calendar',
   argTypes: {},
   parameters: {
     controls: { expanded: true },
   },
-} as Meta<typeof Main>;
+} as Meta;
 
-const DefaultTemplate: Story<MainProps> = () => (
-  <Main>
-    <p>This is a main element</p>
-  </Main>
-);
-
-const SampleContent = () => {
+const EventContent = () => {
   return (
     <>
       <p>
@@ -65,53 +71,51 @@ const SampleContent = () => {
   );
 };
 
-const WithContentTemplate: Story<MainProps> = args => (
-  <Main {...args}>
-    <Column maxWidth="5xl">
-      <article>
-        <SampleContent />
-      </article>
-    </Column>
-  </Main>
-);
-
-const WithContainerTemplate: Story<MainProps> = args => (
-  <Main {...args}>
-    <Container bgColor="grey">
-      <Column maxWidth="5xl">
-        <article>
-          <SampleContent />
-        </article>
-      </Column>
-    </Container>
-  </Main>
-);
-
-const WithOverlapTemplate: Story<MainProps> = args => (
+export const SingleEvent = () => (
   <>
-    <Banner hasOverlap isType="dark-wave" title="Content Overlay" />
-    <Main {...args}>
-      <Column maxWidth="5xl">
-        <div className="py-12 bg-white rounded-lg px-14">
-          <article>
-            <SampleContent />
-          </article>
-        </div>
-      </Column>
+    <TopNav title="Events Calendar" />
+    <Banner
+      title="Single Event Post Template"
+      align="left"
+      maxWidth="7xl"
+      isType="image"
+      image="https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg"
+    />
+
+    <Main>
+      <Container as="section">
+        <Column cols="2/3" maxWidth="7xl">
+          <Container as="article" hasProse>
+            <EventContent />
+          </Container>
+
+          <Aside isSticky topSpace="8">
+            <Column cols="1" gridGap="5">
+              <Button onClick={() => {}} title="Remove from my events" />
+              <Button
+                isType="grey"
+                onClick={() => {}}
+                title="Add to my events"
+              />
+            </Column>
+            <Panel hasShadow>
+              <StackedList hasDividers>
+                {data.map(({ title, description, icon }) => (
+                  <DetailsItem key={title}>
+                    <DetailsItem.Icon icon={icon} />
+                    <DetailsItem.Content>
+                      <DetailsItem.Title title={title} />
+                      <DetailsItem.Description description={description} />
+                    </DetailsItem.Content>
+                  </DetailsItem>
+                ))}
+              </StackedList>
+            </Panel>
+          </Aside>
+        </Column>
+      </Container>
     </Main>
+
+    <FooterBasic />
   </>
 );
-
-export const Default = DefaultTemplate.bind({});
-Default.args = {};
-
-export const WithContent = WithContentTemplate.bind({});
-WithContent.args = {};
-
-export const WithContainer = WithContainerTemplate.bind({});
-WithContainer.args = {};
-
-export const WithOverlap = WithOverlapTemplate.bind({});
-WithOverlap.args = {
-  hasOverlap: true,
-};

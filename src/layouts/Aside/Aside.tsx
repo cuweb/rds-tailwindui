@@ -12,7 +12,7 @@ export const Aside = ({ children, isSticky, topSpace }: AsideProps) => {
   const topClass = topSpace ? rdsTopSpacing[topSpace] : '';
 
   return (
-    <aside>
+    <aside className="relative">
       <div className={`${stickyClass} ${topClass}`}>{children}</div>
     </aside>
   );

@@ -72,6 +72,34 @@ const WithImageTemplate: Story<BannerProps> = args => (
   </Banner>
 );
 
+const WithGreyGradientTemplate: Story<BannerProps> = args => (
+  <Banner {...args}>
+    <Banner.ButtonGroup>
+      <Button
+        isType="default"
+        onClick={() => {}}
+        title="Primary Button"
+        hasShadow
+      />
+      <Button
+        isType="white"
+        onClick={() => {}}
+        title="Secondary Button"
+        hasShadow
+      />
+      <Button
+        hasShadow
+        icon="StarIcon"
+        isType="dark-grey"
+        onClick={() => {
+          alert('Add to favs clicked');
+        }}
+        title="Add to Favs"
+      />
+    </Banner.ButtonGroup>
+  </Banner>
+);
+
 const WithDarkWaveTemplate: Story<BannerProps> = args => (
   <Banner {...args}>
     <Banner.ButtonGroup>
@@ -212,6 +240,12 @@ WithImage.args = {
   title: 'Image Banner',
   isType: 'image',
   image: `https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg`,
+};
+
+export const WithGreyGradient = WithGreyGradientTemplate.bind({});
+WithGreyGradient.args = {
+  title: 'CU Light Fade Banner',
+  isType: 'light-fade',
 };
 
 export const WithDarkWave = WithDarkWaveTemplate.bind({});

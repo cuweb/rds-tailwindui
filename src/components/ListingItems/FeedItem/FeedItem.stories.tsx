@@ -33,7 +33,7 @@ const DefaultTemplate: Story<FeedItemProps> = args => (
 );
 
 const SingleItemPanelTemplate: Story<FeedItemProps> = args => (
-  <Column maxWidth="3xl">
+  <Column maxWidth="5xl">
     <Panel hasBorder>
       <FeedItem as="div" link={args.link}>
         <FeedItem.Content>
@@ -49,7 +49,7 @@ const SingleItemPanelTemplate: Story<FeedItemProps> = args => (
 
 const StackedListPanelTemplate: Story<FeedItemProps> = () => (
   <Container>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
           {data.map(({ id, title, link, date, excerpt, category }) => (
@@ -70,7 +70,7 @@ const StackedListPanelTemplate: Story<FeedItemProps> = () => (
 
 const StackedListPanelTitleTemplate: Story<FeedItemProps> = () => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>News feed listing</Panel.Title>
         <StackedList hasDividers>
