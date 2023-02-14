@@ -27,7 +27,7 @@ const DefaultTemplate: Story<DetailsItemProps> = args => (
 );
 
 const SingleItemPanelTemplate: Story<DetailsItemProps> = args => (
-  <Column maxWidth="3xl">
+  <Column maxWidth="5xl">
     <Panel hasBorder>
       <DetailsItem as="div">
         <DetailsItem.Icon icon={args.icon} />
@@ -42,7 +42,7 @@ const SingleItemPanelTemplate: Story<DetailsItemProps> = args => (
 
 const StackedListPanelTemplate: Story<DetailsItemProps> = () => (
   <Container>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
           {data.map(({ title, description, icon }) => (
@@ -62,7 +62,7 @@ const StackedListPanelTemplate: Story<DetailsItemProps> = () => (
 
 const StackedListPanelTitleTemplate: Story<DetailsItemProps> = () => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Details listing</Panel.Title>
         <StackedList hasDividers>

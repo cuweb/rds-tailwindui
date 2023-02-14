@@ -1,17 +1,54 @@
 import React from 'react';
-import { rdsBgColor } from '../../utils/tailwindClasses';
 
-const styles = {
-  //   container: `cu-container py-8`,
-  container: `cu-container not-prose py-10 lg:py-12 px-6 lg:px-8 [&.bg-cu-black-50+.cu-container.bg-cu-black-50]:pt-0 [&.bg-transparent+.cu-container.bg-transparent]:pt-0`,
-};
+type BaseItemTypeProps = 'article' | 'section' | 'div';
+
+export interface ItemBaseProps {
+  as?: keyof JSX.IntrinsicElements;
+}
 
 export interface ContainerProps {
   children: React.ReactNode;
-  bgColor?: 'none' | 'grey';
+  as?: BaseItemTypeProps;
+  hasProse?: boolean;
+  bgColor?: 'white' | 'grey';
+  maxWidth?: 'none' | 'full' | '5xl' | '7xl';
 }
 
-export const Container = ({ children, bgColor = 'none' }: ContainerProps) => {
-  const bgStyles = bgColor ? rdsBgColor[bgColor] : '';
-  return <div className={`${styles.container} ${bgStyles}`}>{children}</div>;
+const prose = {
+  prose: `prose prose-lg md:prose-xl max-w-none prose-img:w-full prose-img:rounded-lg`,
+};
+
+const styles = {
+  base: `cu-container py-12 px-8 -mx-8`,
+  white: `cu-container-white md:py-14 [&+.cu-container-white]:pt-0`,
+  grey: `cu-container-grey bg-cu-black-50 [&+.cu-container-grey]:pt-0`,
+  width5xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-5xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
+  width7xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
+  widthFull: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
+  autoMargin: `[&>:not(.cu-container):not(.cu-column)]:mx-auto`,
+  noSpacing: `py-0 md:py-0 px-0 mx-0`,
+};
+
+export const Container = ({
+  children,
+  as: Component = 'section',
+  hasProse = false,
+  bgColor = 'white',
+  maxWidth = '5xl',
+}: ContainerProps) => {
+  const addProse = hasProse ? prose.prose : '[&>*:first-child]:-mt-0';
+  const removeSpace = Component === 'article' ? `${styles.noSpacing}` : ``;
+  const bgStyles = bgColor === 'grey' ? `${styles.grey}` : `${styles.white}`;
+
+  const childWidth = maxWidth
+    ? `${styles.autoMargin} [&>:not(.cu-container):not(.cu-column)]:max-w-${maxWidth}`
+    : '';
+
+  return (
+    <Component
+      className={`${styles.base} ${removeSpace} ${bgStyles} ${childWidth} ${addProse}`}
+    >
+      {children}
+    </Component>
+  );
 };

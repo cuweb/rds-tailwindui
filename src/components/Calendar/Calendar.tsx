@@ -75,7 +75,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
 
   return (
     <div>
-      <div className="flex items-center py-2 mb-6 bg-white border rounded-lg border-cu-black-100">
+      <div className="flex items-center py-2 mb-6 bg-white border rounded-lg not-prose border-cu-black-100">
         <button
           type="button"
           onClick={previousMonth}
@@ -84,7 +84,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
           <span className="sr-only">Previous month</span>
           <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
         </button>
-        <h2 className="flex-auto font-semibold text-center text-cu-black-900">
+        <h2 className="flex-auto text-base font-semibold text-center text-cu-black-900">
           {format(firstDayCurrentMonth, 'MMMM yyyy')}
         </h2>
         <button
@@ -108,7 +108,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
       </div>
 
       <div
-        className={`${styles.calendarGrid} text-sm rounded-lg bg-cu-black-50 isolate border border-cu-black-100 overflow-hidden`}
+        className={`${styles.calendarGrid} text-sm rounded-lg bg-cu-black-100 isolate border border-cu-black-100 overflow-hidden`}
       >
         {days.map((day, dayIdx) => (
           <div
@@ -127,9 +127,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
               }}
               className={classNames(
                 isEqual(day, selectedDay) && 'text-white',
-                !isEqual(day, selectedDay) &&
-                  isToday(day) &&
-                  'text-cu-red hover:text-cu-black-800',
+                !isEqual(day, selectedDay) && isToday(day) && 'text-cu-red',
                 !isEqual(day, selectedDay) &&
                   !isToday(day) &&
                   isSameMonth(day, firstDayCurrentMonth) &&

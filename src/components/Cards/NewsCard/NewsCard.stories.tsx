@@ -51,7 +51,7 @@ Default.args = {
 };
 
 export const gridCards = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" maxWidth="7xl">
     {data.map(item => (
       <NewsCard
         title={item?.title}
@@ -66,7 +66,7 @@ export const gridCards = () => (
 );
 
 export const noExcerpt = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" maxWidth="7xl">
     {data.map(item => (
       <NewsCard
         title={item?.title}
@@ -80,7 +80,7 @@ export const noExcerpt = () => (
 );
 
 export const NoImage = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" maxWidth="7xl">
     {data.map(item => (
       <NewsCard
         title={item?.title}
@@ -94,7 +94,7 @@ export const NoImage = () => (
 );
 
 export const bareMinimum = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" maxWidth="7xl">
     {data.map(item => (
       <NewsCard title={item?.title} link={item?.url} />
     ))}

@@ -33,7 +33,7 @@ export const GreyBackground = () => {
 
 export const MaxWidth = () => {
   return (
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Form onSubmit={() => {}} schema={{}}>
         <Form.DateTimePicker name="dateTime" label="Pick Start date and time" />
       </Form>
