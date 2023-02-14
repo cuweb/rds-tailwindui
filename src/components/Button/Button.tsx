@@ -24,7 +24,7 @@ const buttonSizes = {
 };
 
 const styles = {
-  core: `inline-flex gap-1 items-center justify-center font-medium rounded-md focus:outline-none`,
+  core: `not-prose inline-flex gap-1 items-center justify-center font-medium rounded-md focus:outline-none`,
   default: `bg-cu-red text-white hover:bg-cu-black-600`,
   ghost: `border border-1 border-cu-red text-cu-red bg-white hover:bg-cu-red hover:text-white`,
   grey: `text-cu-black-800 bg-cu-black-50 hover:bg-cu-black-600 hover:text-white`,

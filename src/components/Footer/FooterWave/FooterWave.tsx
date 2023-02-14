@@ -4,7 +4,7 @@ import { Link } from '../../Link/Link';
 
 export const FooterWave = () => {
   return (
-    <div className="grid justify-center bg-cu-waves-red bg-[length:100%] bg-bottom bg-no-repeat pb-24 sm:pb-36 lg:pb-44">
+    <div className="not-prose grid justify-center bg-cu-waves-red bg-[length:100%] bg-bottom bg-no-repeat pb-24 sm:pb-36 lg:pb-44">
       <img
         className="w-auto h-32 mx-auto mb-6 sm:h-44"
         src={CarletonLogo}

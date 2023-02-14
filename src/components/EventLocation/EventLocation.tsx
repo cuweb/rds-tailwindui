@@ -28,7 +28,7 @@ export const EventLocation = ({
   };
 
   return (
-    <div>
+    <div className="not-prose">
       <GoogleMap
         mapContainerClassName="w-full h-96"
         center={{ lat: Number(lat), lng: Number(lng) }}
@@ -51,13 +51,13 @@ export const EventLocation = ({
             onCloseClick={() => setShowInfo(false)}
           >
             <div>
-              <p className="text-center text-base font-regular">{location}</p>
+              <p className="text-base text-center font-regular">{location}</p>
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${location}&z=15`}
                 target="_blank"
                 rel="noreferrer"
               >
-                <p className="text-center font-medium text-blue-600">
+                <p className="font-medium text-center text-blue-600">
                   View on Google Maps
                 </p>
               </a>

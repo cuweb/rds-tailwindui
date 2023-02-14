@@ -71,7 +71,7 @@ export const Filter = ({ sortOptions, filters, callback }: FilterProps) => {
   }, [selectedItems, callback]);
 
   return (
-    <div>
+    <div className="not-prose">
       {/* Mobile filter dialog */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 sm:hidden" onClose={setOpen}>

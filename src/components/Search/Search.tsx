@@ -74,7 +74,11 @@ export const Search = ({
 
   return (
     <>
-      <button onClick={() => setOpen(true)} aria-label="search">
+      <button
+        onClick={() => setOpen(true)}
+        aria-label="search"
+        className="not-prose"
+      >
         {searchAvatar}
       </button>
 
@@ -84,7 +88,7 @@ export const Search = ({
         afterLeave={() => setQuery('')}
         appear
       >
-        <Dialog as="div" className="relative z-50" onClose={setOpen}>
+        <Dialog as="div" className="relative z-50 not-prose" onClose={setOpen}>
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"

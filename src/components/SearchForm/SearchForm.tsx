@@ -16,7 +16,7 @@ export const SearchForm = ({ callback }: SearchFormProps) => {
     callback(message);
   }, [message, callback]);
   return (
-    <div className="relative flex items-center">
+    <div className="relative flex items-center not-prose">
       <MagnifyingGlassIcon
         className="absolute w-5 h-5 text-gray-400 left-4"
         aria-hidden="true"

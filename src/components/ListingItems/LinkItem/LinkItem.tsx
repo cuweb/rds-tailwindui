@@ -35,7 +35,7 @@ const LinkItemBase = ({
     <Component>
       <Link
         href={link}
-        className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
+        className="relative flex items-center gap-2 p-6 cursor-pointer not-prose group hover:bg-gray-50 focus:outline-none"
       >
         <div className="flex items-center gap-1">
           <div className="flex-none w-auto">
