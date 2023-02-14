@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PlayCircleIcon } from '@heroicons/react/24/solid';
 import ReactPlayer from 'react-player';
-import { VideoModal } from '../VideoModal';
+import { VideoModal } from '../../VideoModal';
 
 export interface VideoCardProps {
   source?: any;
@@ -53,7 +53,7 @@ export function VideoCard({ source }: VideoCardProps) {
             />
             <div className="absolute top-0 left-0 flex items-center justify-center w-full h-full duration-300 ease-in group-hover:bg-cu-black-900 group-hover:bg-opacity-50">
               <PlayCircleIcon
-                className="h-20 w-20"
+                className="w-20 h-20"
                 aria-hidden="true"
                 color="white"
               />

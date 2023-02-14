@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { VideoCard } from './VideoCard';
-import { Column } from '../../layouts';
+import { Column } from '../../../layouts';
 
 export default {
-  title: 'Components/Elements/VideoCard',
+  title: 'Components/Cards/Videos',
   component: VideoCard,
   argTypes: {},
   parameters: {
