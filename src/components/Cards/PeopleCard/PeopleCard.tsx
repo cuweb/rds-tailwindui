@@ -90,16 +90,14 @@ export const PeopleCard = ({
           <ul className="pt-3 space-y-1 text-center">
             <li className="text-sm text-cyan-700 hover:text-cu-red @lg:md:text-base">
               <a
-                href="mailto:webdevs@carleton.ca"
+                href={`mailto:${email}`}
                 className="font-semibold text-cyan-700 hover:text-cu-red"
               >
                 {email}
               </a>
             </li>
             <li className="text-sm text-cu-black-600 hover:text-cu-red @lg:md:text-base">
-              <a href="#" className="">
-                {phoneNumber ? phoneNumber : ''}
-              </a>
+              {phoneNumber ? phoneNumber : ''}
             </li>
           </ul>
         </div>
