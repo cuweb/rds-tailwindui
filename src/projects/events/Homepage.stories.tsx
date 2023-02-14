@@ -80,21 +80,19 @@ export const Homepage = () => (
                     on_campus_room_number,
                     tags,
                   }) => (
-                    <EventItem key={id} link="#">
-                      <EventItem.DateBox startDateTime={start_date} />
-                      <EventItem.Content>
-                        <EventItem.Title name={title} />
-                        <EventItem.Details
-                          startDateTime={start_date}
-                          endDateTime={end_date}
-                          event_address={event_address}
-                          on_campus={on_campus}
-                          on_campus_building={on_campus_building}
-                          on_campus_room_number={on_campus_room_number}
-                        />
-                        <EventItem.Category tags={tags} />
-                      </EventItem.Content>
-                    </EventItem>
+                    <EventItem
+                      key={id}
+                      as="div"
+                      link="#"
+                      title={title}
+                      startDateTime={start_date}
+                      endDateTime={end_date}
+                      event_address={event_address}
+                      on_campus={on_campus}
+                      on_campus_building={on_campus_building}
+                      on_campus_room_number={on_campus_room_number}
+                      tags={tags}
+                    />
                   )
                 )}
               </StackedList>
