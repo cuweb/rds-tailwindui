@@ -70,9 +70,9 @@ export const SingleEvent = () => (
     <TopNav title="Events Calendar" />
     <Banner
       title="Single Event Post Template"
-      align="horizontal"
+      align="left"
+      maxWidth="7xl"
       isType="image"
-      fontSize="5xl"
       image="https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg"
     />
 

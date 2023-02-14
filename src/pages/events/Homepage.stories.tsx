@@ -36,9 +36,9 @@ export const Homepage = () => (
     <TopNav title="Events Calendar" />
     <Banner
       title="Featured Events"
-      align="horizontal"
+      align="left"
       isType="animated"
-      hasOverlap
+      maxWidth="7xl"
     />
 
     <Main hasOverlap>
