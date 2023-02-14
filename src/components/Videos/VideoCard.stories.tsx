@@ -15,7 +15,7 @@ export default {
 export const Default = () => {
   return (
     <Column maxWidth="5xl">
-      <VideoCard source="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" />
+      <VideoCard source="https://www.youtube.com/watch?v=f2Wrqj1wjng" />
     </Column>
   );
 };
