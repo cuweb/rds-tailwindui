@@ -124,7 +124,7 @@ export const SinglePage = () => (
           </Column>
         </Container>
 
-        <Container as="div" bgColor="grey" maxWidth="7xl">
+        <Container as="div" bgColor="grey" maxWidth="5xl">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" maxWidth="7xl">
@@ -163,7 +163,7 @@ export const SinglePage = () => (
           </Column>
         </Container>
 
-        <Container as="div" bgColor="white" maxWidth="7xl">
+        <Container as="div" bgColor="white" maxWidth="5xl">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" maxWidth="7xl">
