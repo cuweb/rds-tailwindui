@@ -31,7 +31,7 @@ const DefaultTemplate: Story<JobItemProps> = args => (
 );
 
 const SingleItemPanelTemplate: Story<JobItemProps> = args => (
-  <Column maxWidth="3xl">
+  <Column maxWidth="5xl">
     <Panel hasBorder>
       <JobItem as="div" link={args.link}>
         <JobItem.Content>
@@ -45,7 +45,7 @@ const SingleItemPanelTemplate: Story<JobItemProps> = args => (
 
 const StackedListPanelTemplate: Story<JobItemProps> = () => (
   <Container>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
           {data.map(({ id, title, link, dateData, date }) => (
@@ -64,7 +64,7 @@ const StackedListPanelTemplate: Story<JobItemProps> = () => (
 
 const StackedListPanelTitleTemplate: Story<JobItemProps> = () => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Job listing</Panel.Title>
         <StackedList hasDividers>

@@ -72,7 +72,7 @@ const WithPanelStackedTemplate: Story<ContainerProps> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  bgColor: 'none',
+  bgColor: 'white',
 };
 
 export const GreyBackground = GreyBgTemplateTemplate.bind({});
