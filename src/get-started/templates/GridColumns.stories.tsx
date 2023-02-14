@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { TopNav, Banner, FooterBasic } from '../../components';
-import { Container, Main } from '../../layouts';
+import { Column, Container, Main } from '../../layouts';
 
 export default {
-  title: 'Page Templates/Get Started',
+  title: 'Get Started/Templates/Grids And Columns',
   argTypes: {
     bgColor: {
       control: 'inline-radio',
@@ -53,16 +53,48 @@ const DoublePara = () => {
   );
 };
 
-export const ExampleOne = () => (
+export const GridsAndColumns = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Example One" />
+    <Banner
+      title="Grid Layouts and Columns"
+      paragraph="This template uses the same layout configuration as the basic markup and grey section template examples and adds examples for a two and three column content layout"
+    />
 
     <Main>
       <Container hasProse>
         <SinglePara />
+        <h2>This is a header two</h2>
+
+        <Column cols="2">
+          <div>
+            <SinglePara />
+          </div>
+          <div>
+            <SinglePara />
+          </div>
+        </Column>
+
         <DoublePara />
-        <SinglePara />
+      </Container>
+
+      <Container bgColor="grey" hasProse>
+        <h2>This is a header two</h2>
+        <DoublePara />
+        <Column cols="3">
+          <div>
+            <h3>Header three</h3>
+            <SinglePara />
+          </div>
+          <div>
+            <h3>Header three</h3>
+            <SinglePara />
+          </div>
+          <div>
+            <h3>Header three</h3>
+            <SinglePara />
+          </div>
+        </Column>
       </Container>
     </Main>
 

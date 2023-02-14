@@ -19,7 +19,7 @@ import {
 } from '../../layouts';
 
 export default {
-  title: 'Page Templates/Events Calendar',
+  title: 'Projects/Events Calendar',
   argTypes: {},
   parameters: {
     controls: { expanded: true },
@@ -90,12 +90,12 @@ export const SingleEvent = () => (
           </Container>
 
           <Aside isSticky topSpace="8">
-            <Column cols="2" gridGap="5">
-              <Button onClick={() => {}} title="Remove MyEvent" />
+            <Column cols="1" gridGap="5">
+              <Button onClick={() => {}} title="Remove from my events" />
               <Button
                 isType="grey"
                 onClick={() => {}}
-                title="Add to MyEvents"
+                title="Add to my events"
               />
             </Column>
             <Panel hasShadow>

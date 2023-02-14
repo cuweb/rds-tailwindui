@@ -4,7 +4,7 @@ import { TopNav, Banner, FooterBasic } from '../../components';
 import { Container, Main } from '../../layouts';
 
 export default {
-  title: 'Page Templates/Get Started',
+  title: 'Get Started/Templates/Grey Section',
   argTypes: {
     bgColor: {
       control: 'inline-radio',
@@ -53,15 +53,20 @@ const DoublePara = () => {
   );
 };
 
-export const ExampleTwo = () => (
+export const GreySection = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Example Two" isType="dark-wave" />
+    <Banner
+      title="Grey Section Container"
+      paragraph="This template replicates the basic markup template by using simple headings and paragraphs but is modifying the section container to feature a grey background that extends to the full width of the browser"
+    />
 
     <Main>
-      <Container bgColor="grey" hasProse>
+      <Container hasProse>
         <SinglePara />
+        <h2>This is a header two</h2>
         <DoublePara />
+        <h3>This is a header three</h3>
         <SinglePara />
       </Container>
     </Main>

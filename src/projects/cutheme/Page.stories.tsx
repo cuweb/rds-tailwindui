@@ -5,7 +5,7 @@ import { Container, Column, Main } from '../../layouts';
 import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
 
 export default {
-  title: 'Page Templates/cutheme',
+  title: 'Projects/cutheme',
   argTypes: {},
   parameters: {
     controls: { expanded: true },

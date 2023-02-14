@@ -24,7 +24,7 @@ import { EventItemData as dataCard } from '../../components/Cards/EventCard/Even
 import { EventItemData as dataList } from '../../components/ListingItems/EventItem/EventItemData';
 
 export default {
-  title: 'Page Templates/Events Calendar',
+  title: 'Projects/Events Calendar',
   argTypes: {},
   parameters: {
     controls: { expanded: true },

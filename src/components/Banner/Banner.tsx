@@ -83,7 +83,7 @@ const BannerBase = ({
         <div
           className={`z-10 flex flex-1 ${flexAlign} items-center justify-center gap-8 m-auto ${rdsMaxWidth[maxWidth]} [&>*]:z-10`}
         >
-          <div className={`flex flex-auto flex-col gap-4 ${contentAlign}`}>
+          <div className={`flex flex-auto flex-col gap-6 ${contentAlign}`}>
             <h1 className={`${contentStyles.title} ${rdsFontSizes[fontSize]}`}>
               {title}
             </h1>

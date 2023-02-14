@@ -4,7 +4,15 @@ export const parameters = {
     options: {
         storySort: {
             order: [
-                'Get Started',
+                'Get Started', [
+                    'Introduction',
+                    'Templates', [
+                        'Basic Markup',
+                        'Grey Section',
+                        'Alternating Sections',
+                        'Grids And Columns',
+                    ],
+                ],
                 'Components',
                 'Layouts', [
                     'Main',
@@ -14,12 +22,7 @@ export const parameters = {
                     'Panel',
                     'Stacked List',
                 ],
-                'Page Templates', [
-                    'Get Started', [
-                        'Example One',
-                        'Example Two',
-                        'Example Three',
-                    ],
+                'Project Templates', [
                     'Events Calendar',
                     'Intranet',
                     'cutheme', [

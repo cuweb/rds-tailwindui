@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, FooterBasic, Button } from '../../components';
-import { Container, Main, Column, Aside } from '../../layouts';
+import { TopNav, Banner, FooterBasic } from '../../components';
+import { Container, Main } from '../../layouts';
 
 export default {
-  title: 'Page Templates/Get Started',
+  title: 'Get Started/Templates/Basic Markup',
   argTypes: {
     bgColor: {
       control: 'inline-radio',
@@ -53,23 +53,21 @@ const DoublePara = () => {
   );
 };
 
-export const ExampleThree = () => (
+export const BasicMarkup = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Example Three" isType="dark-wave" />
+    <Banner
+      title="Basic Markup"
+      paragraph="This template is the most basic form of an RDS template using simple markup for headings and paragraphs contained withing a section container"
+    />
 
     <Main>
-      <Container>
-        <Column cols="2/3" maxWidth="7xl">
-          <Container as="article" maxWidth="7xl" hasProse>
-            <SinglePara />
-            <DoublePara />
-            <SinglePara />
-          </Container>
-          <Aside>
-            <Button onClick={() => {}} title="Default Button" />
-          </Aside>
-        </Column>
+      <Container hasProse>
+        <SinglePara />
+        <h2>This is a header two</h2>
+        <DoublePara />
+        <h3>This is a header three</h3>
+        <SinglePara />
       </Container>
     </Main>
 
