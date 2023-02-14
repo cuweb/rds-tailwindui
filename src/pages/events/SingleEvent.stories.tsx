@@ -2,7 +2,13 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { DetailsItemData as data } from '../../components/ListingItems/DetailsItem/DetailsItemData';
 
-import { TopNav, Banner, FooterBasic, DetailsItem } from '../../components';
+import {
+  TopNav,
+  Banner,
+  FooterBasic,
+  DetailsItem,
+  Button,
+} from '../../components';
 import {
   Main,
   Column,
@@ -77,13 +83,21 @@ export const SingleEvent = () => (
     />
 
     <Main>
-      <Container>
+      <Container as="section">
         <Column cols="2/3" maxWidth="7xl">
           <Container as="article" hasProse>
             <EventContent />
           </Container>
 
-          <Aside isSticky topSpace="12">
+          <Aside isSticky topSpace="8">
+            <Column cols="2" gridGap="5">
+              <Button onClick={() => {}} title="Remove MyEvent" />
+              <Button
+                isType="grey"
+                onClick={() => {}}
+                title="Add to MyEvents"
+              />
+            </Column>
             <Panel hasShadow>
               <StackedList hasDividers>
                 {data.map(({ title, description, icon }) => (

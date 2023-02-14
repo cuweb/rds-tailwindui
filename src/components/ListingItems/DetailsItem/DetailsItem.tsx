@@ -32,7 +32,7 @@ const DetailsItemBase = ({
 }: ItemBaseProps & DetailsItemProps) => {
   return (
     <Component>
-      <div className="relative flex items-center gap-2 p-6 focus:outline-none ">
+      <div className="relative flex items-center gap-2 p-6 not-prose focus:outline-none ">
         <div className="flex items-start gap-4">{children}</div>
       </div>
     </Component>

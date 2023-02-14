@@ -7,7 +7,7 @@
 
 /* Remove spacing if container is first item inside prose container */
 .prose > .cu-container {
-  @apply first:-mt-12;
+  @apply first:-mt-14;
 }
 
 /* Remove top and bottom space added by prose when columns are used inside prose container */
@@ -21,9 +21,14 @@
   @apply mt-10;
 }
 
+.cu-column + .cu-panel,
+.cu-panel + .cu-column {
+  @apply mt-8;
+}
+
 /* Add spacing when white container follows non-layout components */
 :not(.cu-container):not(.cu-column) + .cu-container-white {
-  @apply mt-6;
+  @apply pt-8;
 }
 
 /* Add spacing when grey container follows non-layout components */

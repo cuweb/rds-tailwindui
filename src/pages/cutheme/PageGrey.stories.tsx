@@ -56,7 +56,7 @@ const DoublePara = () => {
 export const SinglePageGreyIntro = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="cutheme layout testing" isType="dark-wave" />
+    <Banner title="cutheme layout testing" isType="dark-wave" align="left" />
 
     <Main>
       <Container as="section" hasProse>
