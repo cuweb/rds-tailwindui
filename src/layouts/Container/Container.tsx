@@ -11,7 +11,7 @@ export interface ContainerProps {
   as?: BaseItemTypeProps;
   hasProse?: boolean;
   bgColor?: 'white' | 'grey';
-  maxWidth?: 'none' | 'full' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl';
+  maxWidth?: 'none' | 'full' | '5xl' | '7xl';
 }
 
 const prose = {

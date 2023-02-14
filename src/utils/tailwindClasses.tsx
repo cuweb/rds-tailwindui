@@ -1,20 +1,14 @@
 export const rdsMaxWidth = {
   none: 'max-w-none',
   full: 'max-w-full',
-  '3xl': 'max-w-3xl',
-  '4xl': 'max-w-4xl',
   '5xl': 'max-w-5xl',
-  '6xl': 'max-w-6xl',
   '7xl': 'max-w-7xl',
 };
 
 export const rdsMaxWidthChildren = {
   none: '[&>*]:max-w-none',
   full: '[&>*]:max-w-full',
-  '3xl': '[&>*]:max-w-3xl',
-  '4xl': '[&>*]:max-w-4xl',
   '5xl': '[&>*]:max-w-5xl',
-  '6xl': '[&>*]:max-w-6xl',
   '7xl': '[&>*]:max-w-7xl',
 };
 
@@ -29,23 +23,9 @@ export const rdsGridColumns = {
 
 export const rdsGridSpacing = {
   '0': 'gap-0', // none
-  '0.5': 'gap-0.5', // 2px
-  '1': 'gap-1', // 4px
-  '2': 'gap-2', // 8px
-  '4': 'gap-4', // 16px
-  '8': 'gap-8', // 32px
+  '5': 'gap-5', // 20px
   '10': 'gap-10', // 40px
 };
-
-// export const rdsGridSpacing = {
-//   '0': 'gap-0 [&+.cu-column]:mt-0', // none
-//   '0.5': 'gap-0.5 [&+.cu-column]:mt-0.5', // 2px
-//   '1': 'gap-1 [&+.cu-column]:mt-1', // 4px
-//   '2': 'gap-2 [&+.cu-column]:mt-2', // 8px
-//   '4': 'gap-4 [&+.cu-column]:mt-4', // 16px
-//   '8': 'gap-8 [&+.cu-column]:mt-8', // 32px
-//   '10': 'gap-10 [&+.cu-column]:mt-10', // 40px
-// };
 
 export const rdsBgColor = {
   none: 'bg-transparent',

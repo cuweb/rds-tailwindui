@@ -39,7 +39,7 @@ const DefaultTemplate: Story<MarketplaceItemProps> = args => (
 );
 
 const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
-  <Column maxWidth="3xl">
+  <Column maxWidth="5xl">
     <Panel hasBorder>
       <MarketplaceItem as="div" link={args.link}>
         <MarketplaceItem.Image image={args.image} alt={args.alt} />
@@ -64,7 +64,7 @@ const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
 
 const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
   <Container>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
           {data.map(
@@ -87,7 +87,7 @@ const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
 
 const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Marketplace listing</Panel.Title>
         <StackedList hasDividers>

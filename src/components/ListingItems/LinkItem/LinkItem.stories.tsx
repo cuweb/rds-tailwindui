@@ -30,7 +30,7 @@ const DefaultTemplate: Story<LinkItemProps> = args => (
 );
 
 const SingleItemPanelTemplate: Story<LinkItemProps> = args => (
-  <Column maxWidth="3xl">
+  <Column maxWidth="5xl">
     <Panel hasBorder>
       <LinkItem as="div" link={args.link}>
         <LinkItem.Content>
@@ -43,7 +43,7 @@ const SingleItemPanelTemplate: Story<LinkItemProps> = args => (
 
 const StackedListPanelTemplate: Story<LinkItemProps> = () => (
   <Container>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
           {data.map(({ id, title, link }) => (
@@ -61,7 +61,7 @@ const StackedListPanelTemplate: Story<LinkItemProps> = () => (
 
 const StackedListPanelTitleTemplate: Story<LinkItemProps> = () => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Link listing</Panel.Title>
         <StackedList hasDividers>

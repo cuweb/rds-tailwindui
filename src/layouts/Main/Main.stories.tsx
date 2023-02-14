@@ -67,7 +67,7 @@ const SampleContent = () => {
 
 const WithContentTemplate: Story<MainProps> = args => (
   <Main {...args}>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <article>
         <SampleContent />
       </article>
@@ -78,7 +78,7 @@ const WithContentTemplate: Story<MainProps> = args => (
 const WithContainerTemplate: Story<MainProps> = args => (
   <Main {...args}>
     <Container bgColor="grey">
-      <Column maxWidth="3xl">
+      <Column maxWidth="5xl">
         <article>
           <SampleContent />
         </article>
@@ -91,7 +91,7 @@ const WithOverlapTemplate: Story<MainProps> = args => (
   <>
     <Banner hasOverlap isType="dark-wave" title="Content Overlay" />
     <Main {...args}>
-      <Column maxWidth="3xl">
+      <Column maxWidth="5xl">
         <div className="py-12 bg-white rounded-lg px-14">
           <article>
             <SampleContent />

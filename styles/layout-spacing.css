@@ -1,6 +1,6 @@
 /* Remove spacing if container is first item inside prose container */
 .prose > .cu-container {
-  @apply first:-mt-12 bg-cu-red;
+  @apply first:-mt-12;
 }
 
 /* Remove top and bottom space added by prose when columns are used inside prose container */

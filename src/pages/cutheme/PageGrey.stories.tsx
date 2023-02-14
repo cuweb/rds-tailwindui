@@ -53,7 +53,7 @@ const DoublePara = () => {
   );
 };
 
-export const cuthemePageGrey = () => (
+export const SinglePageGreyIntro = () => (
   <>
     <TopNav title="Carleton University" />
     <Banner title="cutheme layout testing" isType="dark-wave" />
@@ -63,7 +63,7 @@ export const cuthemePageGrey = () => (
         <Container as="div" bgColor="grey">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
-          <Column cols="3" gridGap="8">
+          <Column cols="3">
             {data.map(item => (
               <NewsCard
                 title={item?.title}
@@ -89,7 +89,7 @@ export const cuthemePageGrey = () => (
         <Container as="div" bgColor="white">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
-          <Column cols="3" gridGap="8">
+          <Column cols="3">
             {data.map(item => (
               <NewsCard
                 title={item?.title}
@@ -111,7 +111,7 @@ export const cuthemePageGrey = () => (
         <Container as="div" bgColor="grey">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
-          <Column cols="3" gridGap="8">
+          <Column cols="3">
             {data.map(item => (
               <NewsCard
                 title={item?.title}
@@ -128,7 +128,7 @@ export const cuthemePageGrey = () => (
         <Container as="div" bgColor="grey" maxWidth="7xl">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
-          <Column cols="3" gridGap="8" maxWidth="7xl">
+          <Column cols="3" maxWidth="7xl">
             {data.map(item => (
               <NewsCard
                 title={item?.title}
@@ -150,7 +150,7 @@ export const cuthemePageGrey = () => (
         <Container as="div" bgColor="white">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
-          <Column cols="3" gridGap="8">
+          <Column cols="3">
             {data.map(item => (
               <NewsCard
                 title={item?.title}
@@ -167,7 +167,7 @@ export const cuthemePageGrey = () => (
         <Container as="div" bgColor="white" maxWidth="7xl">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
-          <Column cols="3" gridGap="8" maxWidth="7xl">
+          <Column cols="3" maxWidth="7xl">
             {data.map(item => (
               <NewsCard
                 title={item?.title}

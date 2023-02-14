@@ -70,7 +70,6 @@ const TwoThirdTemplate: Story<ColumnProps> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  gridGap: '8',
   cols: '1',
   isNested: false,
 };

@@ -45,7 +45,7 @@ const WithDividersTemplate: Story<StackedListProps> = args => (
 
 const PanelAndDividersTemplate: Story<StackedListProps> = args => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <StackedList hasDividers={args.hasDividers}>
           <li className={`${styles.spacing}`}>List Item</li>
@@ -59,7 +59,7 @@ const PanelAndDividersTemplate: Story<StackedListProps> = args => (
 
 const WithFeedItemTemplate: Story<StackedListProps> = args => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <StackedList hasDividers={args.hasDividers}>
           {data.map(({ id, title, link, date, excerpt, category }) => (
@@ -80,7 +80,7 @@ const WithFeedItemTemplate: Story<StackedListProps> = args => (
 
 const WithPaginationTemplate: Story<StackedListProps> = args => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <StackedList hasDividers={args.hasDividers}>
           {data.map(({ id, title, link, date, excerpt, category }) => (

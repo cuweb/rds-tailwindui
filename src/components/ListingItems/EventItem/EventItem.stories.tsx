@@ -37,7 +37,7 @@ const DefaultTemplate: Story<EventItemProps> = args => (
 );
 
 const SingleItemPanelTemplate: Story<EventItemProps> = args => (
-  <Column maxWidth="3xl">
+  <Column maxWidth="5xl">
     <Panel hasBorder>
       <EventItem as="div" link={args.link}>
         <EventItem.DateBox startDateTime={args.startDateTime} />
@@ -57,7 +57,7 @@ const SingleItemPanelTemplate: Story<EventItemProps> = args => (
 
 const StackedListPanelTemplate: Story<EventItemProps> = args => (
   <Container>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
           {data.map(
@@ -97,7 +97,7 @@ const StackedListPanelTemplate: Story<EventItemProps> = args => (
 
 const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>Event listing</Panel.Title>
         <StackedList hasDividers>

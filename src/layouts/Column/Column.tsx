@@ -7,14 +7,12 @@ import {
 
 const styles = {
   column: `cu-column mx-auto grid`,
-  //   column: `cu-column mx-auto grid grid-cols-1`,
-  //   column: `cu-column mx-auto grid grid-cols-1 -my-6`,
 };
 
 export interface ColumnProps {
   children: React.ReactNode;
-  maxWidth?: 'none' | 'full' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl';
-  gridGap?: '0' | '0.5' | '1' | '2' | '4' | '8' | '10';
+  maxWidth?: 'none' | 'full' | '5xl' | '7xl';
+  gridGap?: '0' | '5' | '10';
   cols?: '1' | '2' | '3' | '4' | '1/3' | '2/3';
   isNested?: boolean;
 }
