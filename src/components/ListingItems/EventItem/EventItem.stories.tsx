@@ -22,35 +22,37 @@ export default {
 } as Meta<typeof EventItem>;
 
 const DefaultTemplate: Story<EventItemProps> = args => (
-  <EventItem as="div" link={args.link}>
-    <EventItem.DateBox startDateTime={args.startDateTime} />
-    <EventItem.Content>
-      <EventItem.Title as="h2" fontSize={args.fontSize} name={args.name} />
-      <EventItem.Details
-        startDateTime={args.startDateTime}
-        endDateTime={args.endDateTime}
-        event_address={args.event_address}
-      />
-      <EventItem.Category tags={args.tags} />
-    </EventItem.Content>
-  </EventItem>
+  <EventItem
+    as="div"
+    link={args.link}
+    fontSize={args.fontSize}
+    title={args.title}
+    startDateTime={args.startDateTime}
+    endDateTime={args.endDateTime}
+    event_address={args.event_address}
+    on_campus={args.on_campus}
+    on_campus_building={args.on_campus_building}
+    on_campus_room_number={args.on_campus_room_number}
+    tags={args.tags}
+  />
 );
 
 const SingleItemPanelTemplate: Story<EventItemProps> = args => (
   <Column maxWidth="5xl">
     <Panel hasBorder>
-      <EventItem as="div" link={args.link}>
-        <EventItem.DateBox startDateTime={args.startDateTime} />
-        <EventItem.Content>
-          <EventItem.Title as="h3" fontSize={args.fontSize} name={args.name} />
-          <EventItem.Details
-            startDateTime={args.startDateTime}
-            endDateTime={args.endDateTime}
-            event_address={args.event_address}
-          />
-          <EventItem.Category tags={args.tags} />
-        </EventItem.Content>
-      </EventItem>
+      <EventItem
+        as="div"
+        link={args.link}
+        fontSize={args.fontSize}
+        title={args.title}
+        startDateTime={args.startDateTime}
+        endDateTime={args.endDateTime}
+        event_address={args.event_address}
+        on_campus={args.on_campus}
+        on_campus_building={args.on_campus_building}
+        on_campus_room_number={args.on_campus_room_number}
+        tags={args.tags}
+      />
     </Panel>
   </Column>
 );
@@ -60,35 +62,21 @@ const StackedListPanelTemplate: Story<EventItemProps> = args => (
     <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
-          {data.map(
-            ({
-              id,
-              title, // link,
-              start_date,
-              end_date,
-              event_address,
-              on_campus,
-              on_campus_building,
-              on_campus_room_number,
-              tags,
-            }) => (
-              <EventItem key={id} link={args.link}>
-                <EventItem.DateBox startDateTime={start_date} />
-                <EventItem.Content>
-                  <EventItem.Title name={title} />
-                  <EventItem.Details
-                    startDateTime={start_date}
-                    endDateTime={end_date}
-                    event_address={event_address}
-                    on_campus={on_campus}
-                    on_campus_building={on_campus_building}
-                    on_campus_room_number={on_campus_room_number}
-                  />
-                  <EventItem.Category tags={tags} />
-                </EventItem.Content>
-              </EventItem>
-            )
-          )}
+          {data.map(() => (
+            <EventItem
+              as="div"
+              link={args.link}
+              fontSize={args.fontSize}
+              title={args.title}
+              startDateTime={args.startDateTime}
+              endDateTime={args.endDateTime}
+              event_address={args.event_address}
+              on_campus={args.on_campus}
+              on_campus_building={args.on_campus_building}
+              on_campus_room_number={args.on_campus_room_number}
+              tags={args.tags}
+            />
+          ))}
         </StackedList>
       </Panel>
     </Column>
@@ -101,35 +89,21 @@ const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
       <Panel hasBorder hasShadow>
         <Panel.Title>Event listing</Panel.Title>
         <StackedList hasDividers>
-          {data.map(
-            ({
-              id,
-              title,
-              start_date,
-              end_date,
-              event_address,
-              tags,
-              on_campus,
-              on_campus_building,
-              on_campus_room_number,
-            }) => (
-              <EventItem key={id} link={args.link}>
-                <EventItem.DateBox startDateTime={start_date} />
-                <EventItem.Content>
-                  <EventItem.Title name={title} />
-                  <EventItem.Details
-                    startDateTime={start_date}
-                    endDateTime={end_date}
-                    event_address={event_address}
-                    on_campus={on_campus}
-                    on_campus_building={on_campus_building}
-                    on_campus_room_number={on_campus_room_number}
-                  />
-                  <EventItem.Category tags={tags} />
-                </EventItem.Content>
-              </EventItem>
-            )
-          )}
+          {data.map(() => (
+            <EventItem
+              as="div"
+              link={args.link}
+              fontSize={args.fontSize}
+              title={args.title}
+              startDateTime={args.startDateTime}
+              endDateTime={args.endDateTime}
+              event_address={args.event_address}
+              on_campus={args.on_campus}
+              on_campus_building={args.on_campus_building}
+              on_campus_room_number={args.on_campus_room_number}
+              tags={args.tags}
+            />
+          ))}
         </StackedList>
       </Panel>
     </Column>
@@ -139,7 +113,7 @@ const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   fontSize: 'base',
-  name: 'Event item title',
+  title: 'Event item title',
   link: 'https://carleton.ca',
   event_address: 'Robertson Hall',
   startDateTime: '2022-12-16 01:48:41',

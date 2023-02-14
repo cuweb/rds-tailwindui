@@ -1,14 +1,16 @@
 import React from 'react';
+import { Link } from '../../Link/Link';
 import {
-  ClockIcon,
+  CalendarDaysIcon,
   MapPinIcon,
   ChevronRightIcon,
-  CalendarDaysIcon,
+  ClockIcon,
 } from '@heroicons/react/24/outline';
-import { rdsFontSizes } from '../../../utils/tailwindClasses';
-import { Badge } from '../../Badge';
 import { isSameDay, parseISO, getMonth, getDate } from 'date-fns';
-import { Link } from '../../Link/Link';
+import { Badge } from '../../Badge';
+
+// import { rdsFontSizes } from '../../../utils/tailwindClasses';
+// import { Badge } from '../../Badge';
 
 // Set types for as props
 type BaseItemTypeProps = 'li' | 'div';
@@ -21,7 +23,7 @@ interface Tags {
 export interface EventItemProps {
   children?: React.ReactNode;
   fontSize?: 'base' | 'lg' | 'xl';
-  name?: string;
+  title?: string;
   link?: string;
   startDateTime?: string;
   endDateTime?: string;
@@ -46,46 +48,22 @@ export interface TitleProps {
   as?: TitleTypeProps;
 }
 
-const EventItemBase = ({
+export const EventItem = ({
   as: Component = 'div',
-  children,
   link,
+  title,
+  startDateTime,
+  endDateTime,
+  featuredImage,
+  on_campus,
+  on_campus_building,
+  on_campus_room_number,
+  event_address,
+  tags,
 }: ItemBaseProps & EventItemProps) => {
-  return (
-    <Component>
-      <Link
-        href={link}
-        className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
-      >
-        <div className="flex flex-col gap-4 md:flex-row">{children}</div>
-        <ChevronRightIcon
-          className="flex-none w-5 h-5 ml-auto text-cu-black-300"
-          aria-hidden="true"
-        />
-      </Link>
-    </Component>
-  );
-};
+  const defaultImage =
+    'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1200&amp;q=80';
 
-const Content = ({ children }: EventItemProps) => {
-  return <div className="flex flex-col gap-4 md:gap-2">{children}</div>;
-};
-
-const Title = ({
-  as = 'h3',
-  fontSize = 'base',
-  name,
-}: TitleProps & EventItemProps) => {
-  return React.createElement(
-    as,
-    {
-      className: `text-sm font-semibold text-cu-black group-hover:text-cu-red ${rdsFontSizes[fontSize]}`,
-    },
-    name
-  );
-};
-
-const DateBox = ({ startDateTime }: EventItemProps) => {
   const getMonthName = (month: any, short: boolean = false) => {
     const d = new Date();
     d.setMonth(month);
@@ -95,32 +73,6 @@ const DateBox = ({ startDateTime }: EventItemProps) => {
     return monthName;
   };
 
-  const startDate = startDateTime && parseISO(startDateTime);
-  const eventStartDate = startDate && getDate(startDate);
-  const eventStartMonth = startDate && getMonth(startDate);
-
-  return (
-    <div className="flex-none w-16 md:w-20">
-      <div className="flex flex-col justify-center flex-none w-auto h-16 text-center rounded-lg shadow bg-gray-50 md:h-20">
-        <p className="text-xs font-bold uppercase text-cu-red">
-          {getMonthName(eventStartMonth, true)}
-        </p>
-        <p className="text-2xl font-bold uppercase text-cu-black">
-          {eventStartDate}
-        </p>
-      </div>
-    </div>
-  );
-};
-
-const Details = ({
-  startDateTime,
-  endDateTime,
-  event_address,
-  on_campus,
-  on_campus_building,
-  on_campus_room_number,
-}: EventItemProps) => {
   const startDate = startDateTime && parseISO(startDateTime);
   const endDate = endDateTime && parseISO(endDateTime);
   const isEventSameDay = startDate && endDate && isSameDay(startDate, endDate);
@@ -143,81 +95,80 @@ const Details = ({
     if (!isEventSameDay) {
       return (
         <CalendarDaysIcon
-          className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
+          className="flex-shrink-0 w-6 h-6 mr-2 text-cu-red-300"
           aria-hidden="true"
         />
       );
     } else {
       return (
         <ClockIcon
-          className="flex-shrink-0 w-5 h-5 mr-2 text-cu-red-300"
+          className="flex-shrink-0 w-6 h-6 mr-2 text-cu-red-300"
           aria-hidden="true"
         />
       );
     }
   };
 
-  const getMonthName = (month: any, short: boolean = false) => {
-    const d = new Date();
-    d.setMonth(month);
-    const monthName = d.toLocaleString('default', {
-      month: short ? 'short' : 'long',
-    });
-    return monthName;
-  };
-
   return (
-    <ul className="flex flex-col flex-wrap gap-2 md:flex-row">
-      <li className="flex items-center text-sm text-cu-black-700">
-        {multiDayDisplay()}
+    <Component className="not-prose group relative @container">
+      <Link
+        href={link}
+        className="group relative flex cursor-pointer flex-col gap-6 bg-white p-6 hover:bg-slate-50 focus:outline-none @xl:md:flex-row @2xl:lg:gap-8"
+      >
+        <div className="hidden md:block relative max-w-[40%]">
+          <img
+            className="hidden w-full rounded-md object-cover @4xl:lg:block"
+            src={featuredImage ? featuredImage : defaultImage}
+            alt=""
+          />
+          <div className="hidden md:flex h-20 w-20 flex-col items-center justify-center rounded-md bg-white shadow-md group-hover:bg-cu-red @4xl:lg:hidden">
+            <p className="text-xs font-bold uppercase text-cu-red group-hover:text-white">
+              {getMonthName(eventStartMonth, true)}
+            </p>
+            <p className="text-2xl font-bold uppercase text-cu-black-800 group-hover:text-white">
+              {eventStartDate}
+            </p>
+          </div>
+        </div>
 
-        {isEventSameDay
-          ? formatTime(startDate) + '-' + formatTime(endDate)
-          : getMonthName(eventStartMonth) +
-            ' ' +
-            eventStartDate +
-            ' - ' +
-            eventEndDate}
-      </li>
-      <li className="flex items-start text-sm text-cu-black-700">
-        <MapPinIcon
-          className="flex-shrink-0 w-5 h-5 mr-1 text-cu-red-300"
-          aria-hidden="true"
-        />
-        {on_campus
-          ? on_campus_room_number + ', ' + on_campus_building
-          : event_address}
-      </li>
-    </ul>
+        <div className="flex flex-1 flex-col gap-1.5 pr-6 md:gap-3.5 @lg:md:pt-1.5">
+          <h3 className="text-lg font-semibold text-cu-black group-hover:text-cu-red @lg:md:text-xl @2xl:lg:text-2xl">
+            {title}
+          </h3>
+
+          <ul className="flex flex-col flex-wrap gap-2 md:flex-row @lg:md:flex-col">
+            <li className="flex items-center text-sm text-cu-black-700 @2xl:lg:text-base">
+              {multiDayDisplay()}
+              {isEventSameDay
+                ? formatTime(startDate) + '-' + formatTime(endDate)
+                : getMonthName(eventStartMonth) +
+                  ' ' +
+                  eventStartDate +
+                  ' - ' +
+                  eventEndDate}
+            </li>
+            <li className="flex items-start text-sm text-cu-black-700 @2xl:lg:text-base">
+              <MapPinIcon className="flex-shrink-0 w-6 h-6 mr-2 text-cu-red-300" />
+              {on_campus
+                ? on_campus_room_number + ', ' + on_campus_building
+                : event_address}
+            </li>
+          </ul>
+
+          <div className="mt-auto">
+            {tags?.category?.map(tag => (
+              <Badge key={tag.id}>{tag.name}</Badge>
+            ))}
+          </div>
+        </div>
+
+        <div className="absolute -mt-3 top-1/2 right-4">
+          <ChevronRightIcon
+            className="flex-none w-6 h-6 ml-auto text-cu-black-300 group-hover:text-cu-red"
+            aria-hidden="true"
+          />
+        </div>
+      </Link>
+    </Component>
   );
 };
-
-const Category = ({ tags }: EventItemProps) => {
-  return (
-    <div>
-      {tags?.category?.map(tag => (
-        <Badge key={tag.id}>{tag.name}</Badge>
-      ))}
-    </div>
-  );
-};
-
-// Set default for base component as props
-EventItemBase.defaultProps = {
-  as: 'li',
-};
-
-EventItemBase.displayName = 'EventItem';
-Content.displayName = 'EventItem.Content';
-Title.displayName = 'EventItem.Title';
-DateBox.displayName = 'EventItem.DateBox';
-Details.displayName = 'EventItem.Details';
-Category.displayName = 'EventItem.Category';
-
-export const EventItem = Object.assign(EventItemBase, {
-  Content,
-  Title,
-  DateBox,
-  Details,
-  Category,
-});
