@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, FooterStandard } from '../../components';
-import { Column, Container, Main } from '../../layouts';
+import { TopNav, Banner, FooterStandard, Button } from '../../components';
+import { Aside, Column, Container, Main } from '../../layouts';
 
 export default {
   title: 'Projects/Intranet',
@@ -56,15 +56,33 @@ const DoublePara = () => {
 export const Homepage = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="Intranet Homepage" />
+    <Banner title="Intranet Homepage" paragraph="Coming Soon" />
 
     <Main>
-      <Container hasProse>
+      <Container maxWidth="7xl" hasProse>
         <SinglePara />
         <h2>This is a header two</h2>
         <DoublePara />
-        <h3>This is a header three</h3>
-        <SinglePara />
+
+        <Container bgColor="grey" maxWidth="7xl">
+          <Column cols="2/3" maxWidth="7xl">
+            <Container as="article">
+              <h3>This is a header three</h3>
+              <DoublePara />
+            </Container>
+
+            <Aside>
+              <Column cols="1" gridGap="5">
+                <Button onClick={() => {}} title="Remove from my events" />
+                <Button
+                  isType="white"
+                  onClick={() => {}}
+                  title="Add to my events"
+                />
+              </Column>
+            </Aside>
+          </Column>
+        </Container>
       </Container>
     </Main>
 
