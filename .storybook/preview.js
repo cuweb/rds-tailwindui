@@ -1,12 +1,37 @@
 import '../styles/tailwind.css';
 
-
-// https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 export const parameters = {
-  // https://storybook.js.org/docs/react/essentials/actions#automatically-matching-args
+    options: {
+        storySort: {
+            order: [
+                'Get Started',
+                'Components',
+                'Layouts', [
+                    'Main',
+                    'Container',
+                    'Column',
+                    'Aside',
+                    'Panel',
+                    'Stacked List',
+                ],
+                'Page Templates', [
+                    'Get Started', [
+                        'Example One',
+                        'Example Two',
+                        'Example Three',
+                    ],
+                    'Events Calendar',
+                    'Intranet',
+                    'cutheme', [
+                        'Single Page',
+                        'Grey Container Intro'
+                    ]
+                ]
+            ],
+        },
+    },
   actions: { argTypesRegex: '^on.*' },
 };
-
 
 var script = document.createElement('script');
     script.type = 'text/javascript';

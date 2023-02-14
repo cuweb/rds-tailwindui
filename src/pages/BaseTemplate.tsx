@@ -4,7 +4,7 @@ import { TopNav, Banner } from '../components';
 import { Column, Container, Main } from '../layouts';
 
 export default {
-  title: 'Page Templates/Base Template',
+  title: 'Page Templates',
   argTypes: {
     bgColor: {
       control: 'inline-radio',
@@ -53,7 +53,7 @@ const DoublePara = () => {
   );
 };
 
-export const BaseTemplate = () => (
+export const TestingToDelete = () => (
   <>
     <TopNav title="Carleton University" />
     <Banner

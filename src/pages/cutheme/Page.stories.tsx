@@ -1,9 +1,8 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { TopNav, Banner, FooterBasic, NewsCard } from '../../components';
-
-import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
 import { Container, Column, Main } from '../../layouts';
+import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
 
 export default {
   title: 'Page Templates/cutheme',

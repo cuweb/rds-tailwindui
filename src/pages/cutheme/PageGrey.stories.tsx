@@ -53,10 +53,15 @@ const DoublePara = () => {
   );
 };
 
-export const SinglePageGreyIntro = () => (
+export const GreyContainerIntro = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="cutheme layout testing" isType="dark-wave" align="left" />
+    <Banner
+      title="cutheme layout testing"
+      isType="dark-wave"
+      align="left"
+      paragraph="This is an example page that starts with a container component with a grey background"
+    />
 
     <Main>
       <Container as="section" hasProse>
