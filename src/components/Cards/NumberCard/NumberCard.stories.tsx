@@ -18,7 +18,7 @@ export const Default = () => (
 );
 
 export const twoColumns = () => (
-  <Column cols="2" gridGap="8" maxWidth="5xl">
+  <Column cols="2" gridGap="10" maxWidth="5xl">
     {data.map(item => (
       <NumberCard title={item?.title} content={item?.content} />
     ))}
@@ -26,7 +26,7 @@ export const twoColumns = () => (
 );
 
 export const threeColumns = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" gridGap="10" maxWidth="7xl">
     {data.map(item => (
       <NumberCard title={item?.title} content={item?.content} />
     ))}
@@ -34,7 +34,7 @@ export const threeColumns = () => (
 );
 
 export const Center = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" gridGap="10" maxWidth="7xl">
     {data.map(item => (
       <NumberCard title={item?.title} content={item?.content} isCenter />
     ))}
