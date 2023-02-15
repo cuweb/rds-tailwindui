@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Meta, Story } from '@storybook/react';
-
-// COMPONENT AND PROP NAME UPDATE REQUIRED
-// UPDATE FILE NAME FOR IMPORT
 import { PeopleCard, PeopleCardProps } from './PeopleCard';
 import { Column } from '../../../layouts';
 

@@ -52,7 +52,7 @@ export const PeopleCard = ({
 
         {!profileImage && (
           <div
-            className={` ${styles.profile} flex items-center justify-center font-semibold text-4xl bg-cu-black-100  `}
+            className={` ${styles.profile} flex items-center justify-center font-semibold text-4xl bg-cu-black-100`}
           >
             {initials}
           </div>
@@ -80,7 +80,7 @@ export const PeopleCard = ({
           </ul>
         </div>
 
-        <div className="pb-5 mt-auto px-7">
+        <div className="mx-auto mt-auto">
           {tags?.category?.map(tag => (
             <Badge key={tag.id}>{tag.name}</Badge>
           ))}
