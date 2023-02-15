@@ -12,7 +12,7 @@ const MetaBase = ({
 }: MetaProps) => {
   return (
     <>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
       <meta name="HandheldFriendly" content="True" />
       <meta name="MobileOptimized" content="640" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -28,11 +28,11 @@ const MetaBase = ({
 
 // Meta Title
 export interface TitleProps {
-  title?: string;
+  children?: React.ReactNode;
 }
 
-const Title = ({ title = 'Carleton University' }: TitleProps) => {
-  return <>{title}</>;
+const Title = ({ children }: TitleProps) => {
+  return <title>{children}</title>;
 };
 
 // Meta Icons
