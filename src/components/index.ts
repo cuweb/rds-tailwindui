@@ -7,7 +7,6 @@ export { Calendar, CalendarProps } from './Calendar';
 export { CardLoader } from './Loaders/CardLoader';
 export { EventLoader } from './Loaders/EventLoader';
 export { DropDown, DropDownItemProps, DropDownProps } from './DropDown';
-export { Filter, FilterProps } from './Filter/Filter';
 export { FooterBasic } from './Footer/FooterBasic';
 export { FooterStandard } from './Footer/FooterStandard';
 export { FooterWave } from './Footer/FooterWave';
@@ -20,12 +19,8 @@ export {
   EventLocationProps,
 } from './EventLocation/EventLocation';
 export { Filter, FilterProps } from './Filter/Filter';
-export { FooterBasic } from './Footer/FooterBasic';
-export { FooterStandard } from './Footer/FooterStandard';
-export { FooterWave } from './Footer/FooterWave';
 export { Form, FormProps } from './Forms/BaseForm';
 export { HeroIcon, HeroIconProps } from './HeroIcon';
-export { Link } from './Link/Link';
 export { DetailsItem, DetailsItemProps } from './ListingItems/DetailsItem';
 export { EventItem, EventItemProps } from './ListingItems/EventItem';
 export { FeedItem, FeedItemProps } from './ListingItems/FeedItem';
@@ -39,15 +34,11 @@ export {
 } from './ListingItems/MarketplaceItem';
 export { Modal, ModalProps } from './Modal';
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
-export { CardLoader } from './Loaders/CardLoader';
 export { Pagination, PaginationProps } from './Pagination';
 export { SocialShare, SocialShareProps } from './SocialShare';
-export { ColumnDefinitionType, Table } from './Table';
 export { Toast } from './Toast';
 export { TopNav, TopNavProps } from './TopNav';
-export { Alert } from './Alert';
 export { Table, ColumnDefinitionType } from './Table';
 export { Link } from './Link/Link';
 export { WYSIWYG } from './Forms/WYSIWYG';
-export { Avatar } from './Avatar/Avatar';
 export { SearchForm } from './SearchForm/SearchForm';
