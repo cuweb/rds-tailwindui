@@ -14,6 +14,7 @@ export { NewsCard, NewsCardProps } from './Cards/NewsCard';
 export { EventCard, EventCardProps } from './Cards/EventCard';
 export { NumberCard, NumberCardProps } from './Cards/NumberCard';
 export { VideoCard, VideoCardProps } from './Cards/VideoCard';
+export { PeopleCard, PeopleCardProps } from './Cards/PeopleCard';
 export {
   EventLocation,
   EventLocationProps,
