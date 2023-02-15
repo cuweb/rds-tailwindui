@@ -74,7 +74,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
   }, [selectedDay, callback]);
 
   return (
-    <div>
+    <div className="not-prose">
       <div className="flex items-center py-2 mb-6 bg-white border rounded-lg not-prose border-cu-black-100">
         <button
           type="button"
