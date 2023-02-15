@@ -14,19 +14,21 @@ export default {
 } as Meta<typeof NumberCard>;
 
 export const Default = () => (
-  <NumberCard>
-    <NumberCard.Title title="Carleton Alumni" />
-    <NumberCard.Content content="177,000+" />
-  </NumberCard>
+  <NumberCard title="Carleton Alumni" content="177,000+" />
 );
 
-export const gridCards = () => (
+export const twoColumns = () => (
+  <Column cols="2" gridGap="8" maxWidth="5xl">
+    {data.map(item => (
+      <NumberCard title={item?.title} content={item?.content} />
+    ))}
+  </Column>
+);
+
+export const threeColumns = () => (
   <Column cols="3" gridGap="8" maxWidth="7xl">
     {data.map(item => (
-      <NumberCard>
-        <NumberCard.Title title={item?.title} />
-        <NumberCard.Content content={item?.content} />
-      </NumberCard>
+      <NumberCard title={item?.title} content={item?.content} />
     ))}
   </Column>
 );
@@ -34,21 +36,7 @@ export const gridCards = () => (
 export const Center = () => (
   <Column cols="3" gridGap="8" maxWidth="7xl">
     {data.map(item => (
-      <NumberCard isCenter>
-        <NumberCard.Title title={item?.title} />
-        <NumberCard.Content content={item?.content} />
-      </NumberCard>
-    ))}
-  </Column>
-);
-
-export const Reversed = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
-    {data.map(item => (
-      <NumberCard>
-        <NumberCard.Content content={item?.content} />
-        <NumberCard.Title title={item?.title} />
-      </NumberCard>
+      <NumberCard title={item?.title} content={item?.content} isCenter />
     ))}
   </Column>
 );
