@@ -69,7 +69,7 @@ export const GreyContainerIntro = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map((item:any) => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -95,7 +95,7 @@ export const GreyContainerIntro = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map((item:any) => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -117,7 +117,7 @@ export const GreyContainerIntro = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map((item:any) => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -134,7 +134,7 @@ export const GreyContainerIntro = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" maxWidth="7xl">
-            {data.map((item:any) => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -156,7 +156,7 @@ export const GreyContainerIntro = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map((item:any) => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -173,7 +173,7 @@ export const GreyContainerIntro = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" maxWidth="7xl">
-            {data.map((item:any) => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
