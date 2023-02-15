@@ -36,6 +36,7 @@ export { LinkItem, LinkItemProps } from './ListingItems/LinkItem';
 export { LocationPicker } from './LocationPicker';
 
 export { Modal, ModalProps } from './Modal';
+export { Meta, MetaProps } from './Meta/Meta';
 export {
   MarketplaceItem,
   MarketplaceItemProps,
