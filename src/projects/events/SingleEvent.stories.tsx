@@ -19,7 +19,7 @@ import {
 } from '../../layouts';
 
 export default {
-  title: 'Projects/Events Calendar',
+  title: 'Get Started/Projects/Events Calendar',
   argTypes: {},
   parameters: {
     controls: { expanded: true },

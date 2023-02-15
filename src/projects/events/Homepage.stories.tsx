@@ -26,7 +26,7 @@ import { EventItemData as dataList } from '../../components/ListingItems/EventIt
 import data from '../../components/Filter/FilterData.json';
 
 export default {
-  title: 'Projects/Events Calendar',
+  title: 'Get Started/Projects/Events Calendar',
   argTypes: {},
   parameters: {
     controls: { expanded: true },
