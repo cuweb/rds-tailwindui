@@ -20,7 +20,6 @@ const prose = {
 };
 
 const styles = {
-  //   base: `cu-container py-12 px-8 -mx-8`,
   base: `cu-container`,
   white: `cu-container-white md:py-14 [&+.cu-container-white]:pt-0`,
   grey: `cu-container-grey bg-cu-black-50 [&+.cu-container-grey]:pt-0`,
