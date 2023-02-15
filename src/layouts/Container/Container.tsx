@@ -7,9 +7,10 @@ export interface ItemBaseProps {
 }
 
 export interface ContainerProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   as?: BaseItemTypeProps;
   hasProse?: boolean;
+  content?: string;
   bgColor?: 'white' | 'grey';
   maxWidth?: 'none' | 'full' | '5xl' | '7xl';
 }
@@ -19,25 +20,26 @@ const prose = {
 };
 
 const styles = {
-  base: `cu-container py-12 px-8 -mx-8`,
+  //   base: `cu-container py-12 px-8 -mx-8`,
+  base: `cu-container`,
   white: `cu-container-white md:py-14 [&+.cu-container-white]:pt-0`,
   grey: `cu-container-grey bg-cu-black-50 [&+.cu-container-grey]:pt-0`,
   width5xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-5xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
   width7xl: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
   widthFull: `[&>:not(.cu-container):not(.cu-column)]:max-w-7xl [&>:not(.cu-container):not(.cu-column)]:mx-auto`,
   autoMargin: `[&>:not(.cu-container):not(.cu-column)]:mx-auto`,
-  noSpacing: `py-0 md:py-0 px-0 mx-0`,
 };
 
 export const Container = ({
   children,
+  content,
   as: Component = 'section',
   hasProse = false,
   bgColor = 'white',
   maxWidth = '5xl',
 }: ContainerProps) => {
   const addProse = hasProse ? prose.prose : '[&>*:first-child]:-mt-0';
-  const removeSpace = Component === 'article' ? `${styles.noSpacing}` : ``;
+  const removeSpace = Component !== 'article' ? `py-12 px-8 -mx-8` : `md:py-0`;
   const bgStyles = bgColor === 'grey' ? `${styles.grey}` : `${styles.white}`;
 
   const childWidth = maxWidth
@@ -45,10 +47,21 @@ export const Container = ({
     : '';
 
   return (
-    <Component
-      className={`${styles.base} ${removeSpace} ${bgStyles} ${childWidth} ${addProse}`}
-    >
-      {children}
-    </Component>
+    <>
+      {content && (
+        <Component
+          className={`${styles.base} ${removeSpace} ${bgStyles} ${childWidth} ${prose.prose}`}
+          dangerouslySetInnerHTML={{ __html: content }}
+        />
+      )}
+
+      {!content && (
+        <Component
+          className={`${styles.base} ${removeSpace} ${bgStyles} ${childWidth} ${addProse}`}
+        >
+          {children}
+        </Component>
+      )}
+    </>
   );
 };
