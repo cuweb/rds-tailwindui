@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { TopNav, Banner, NewsCard, FooterBasic } from '../../components';
 
-import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
+import { NewsCardData as data } from '../../components/Cards/NewsCard/NewsCardData';
 import { Container, Column, Main } from '../../layouts';
 
 export default {
