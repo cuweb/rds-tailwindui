@@ -50,6 +50,7 @@ NoProfileImage.args = {
   lastName: 'Banks',
   email: 'george.hadjisophocleous@carleton.ca',
   phoneNumber: ' 613-520-2600 x1234',
+  link: 'https://carleton.ca',
   tags: {
     category: [
       {
@@ -68,12 +69,13 @@ NoProfileImage.args = {
 };
 
 export const MultipleCardsWithImage = () => (
-  <Column cols="3">
+  <Column cols="4" maxWidth="7xl" gridGap="5">
     <PeopleCard
       firstName="Carleton"
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -96,6 +98,7 @@ export const MultipleCardsWithImage = () => (
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -118,6 +121,7 @@ export const MultipleCardsWithImage = () => (
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -140,6 +144,7 @@ export const MultipleCardsWithImage = () => (
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -161,12 +166,13 @@ export const MultipleCardsWithImage = () => (
 );
 
 export const MultipleCardsWithoutImage = () => (
-  <Column cols="3">
+  <Column cols="4" maxWidth="7xl" gridGap="5">
     <PeopleCard
       firstName="Carleton"
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -188,6 +194,7 @@ export const MultipleCardsWithoutImage = () => (
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -209,6 +216,7 @@ export const MultipleCardsWithoutImage = () => (
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -230,6 +238,7 @@ export const MultipleCardsWithoutImage = () => (
       lastName="Banks"
       email="george.hadjisophocleous@carleton.ca"
       phoneNumber=" 613-520-2600 x1234"
+      link="https://carleton.ca"
       tags={{
         category: [
           {
@@ -254,5 +263,6 @@ export const MinimumPeople = () => (
     firstName="Carleton"
     lastName="Banks"
     email="george.hadjisophocleous@carleton.ca"
+    link="https://carleton.ca"
   />
 );

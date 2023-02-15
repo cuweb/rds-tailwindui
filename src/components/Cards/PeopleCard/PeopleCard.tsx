@@ -1,6 +1,7 @@
 import React from 'react';
 import { Tags } from '../../../types/Tags';
 import { Badge } from '../../Badge';
+import { Link } from '../../Link/Link';
 
 export interface PeopleCardProps {
   firstName: string;
@@ -10,7 +11,13 @@ export interface PeopleCardProps {
   phoneNumber?: string;
   tags?: Tags;
   profileImage?: any;
+  link?: string;
 }
+
+const styles = {
+  profile:
+    'mx-auto h-48 w-48 rounded-full border-4 border-white object-cover group-hover:shadow-md group-hover:duration-300 group-hover:ease-in @sm:md:h-60 @sm:md:w-60',
+};
 
 export const PeopleCard = ({
   firstName,
@@ -20,65 +27,36 @@ export const PeopleCard = ({
   tags,
   designation,
   profileImage,
+  link = '',
 }: PeopleCardProps) => {
-  // const [size, setSize] = useState<AvatarSize>('4xl');
-  // let user: UserInfoType;
-
-  // if (profileImage) {
-  //   user = {
-  //     image: {
-  //       src: profileImage,
-  //       alt: '',
-  //     },
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //   };
-  // } else {
-  //   user = {
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //   };
-  // }
-
   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
-
-  // useEffect(() => {
-  //   if (window.innerWidth > 900) {
-  //     setSize('4xl');
-  //   } else {
-  //     if (window.innerWidth > 600) {
-  //       setSize('2xl');
-  //     } else {
-  //       setSize('xl');
-  //     }
-  //   }
-  // }, []);
+  console.log(' href ', link);
 
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white py-8 px-7 shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
-      <a
-        href="https://carleton.ca"
+      <Link
+        href={link}
         className="relative flex flex-col h-full cursor-pointer"
       >
         {profileImage && (
           <img
-            className="mx-auto h-48 w-48 rounded-full border-4 border-white object-cover group-hover:shadow-md group-hover:duration-300 group-hover:ease-in @sm:md:h-60 @sm:md:w-60"
-            src={profileImage}
+            className={`${styles.profile}`}
+            src={
+              profileImage
+                ? profileImage
+                : 'https://source.unsplash.com/random/400x266'
+            }
             alt=""
           />
         )}
 
         {!profileImage && (
           <div
-            className={`mx-auto h-48 w-48 bg-cu-black-100 rounded-full border-4 border-white object-cover group-hover:shadow-md group-hover:duration-300 group-hover:ease-in @sm:md:h-60 @sm:md:w-60 flex items-center justify-center font-semibold} text-4xl h-40 w-40   `}
+            className={` ${styles.profile} flex items-center justify-center font-semibold text-4xl bg-cu-black-100  `}
           >
             {initials}
           </div>
         )}
-        {/* <div className="mx-auto"> */}
-        {/*  make Avatar size responsive  xl for small size , 2xl for larger screen and 4xl in general for people card   */}
-        {/* <Avatar user={user} rounded="full" size={size} /> */}
-        {/* </div> */}
 
         <div className="flex flex-col items-center space-y-0.5 py-6 px-7">
           <h3 className="text-lg font-semibold text-cu-black  group-hover:text-cu-red @xs:md:text-2xl">
@@ -102,30 +80,12 @@ export const PeopleCard = ({
           </ul>
         </div>
 
-        {/* <div className="mx-auto mt-auto">
-          {tags?.map(item => {
-            return (
-              <div
-                key={item}
-                // className="inline-flex px-2 mr-2 text-xs font-semibold rounded-xl bg-cu-black-50 text-cu-black-900 last:mr-0"
-              >
-                <Badge>{item}</Badge>
-              </div>
-            );
-          })}
-          {/* // <p className="inline-flex px-2 mr-2 text-xs font-semibold rounded-xl bg-cu-black-50 text-cu-black-900 last:mr-0">
-          //   Tom Jones Love
-          // </p>
-          // <p className="inline-flex px-2 mr-2 text-xs font-semibold rounded-xl bg-cu-black-50 text-cu-black-900 last:mr-0">
-          //   Dance Superstar
-          // </p> 
-        </div> */}
         <div className="pb-5 mt-auto px-7">
           {tags?.category?.map(tag => (
             <Badge key={tag.id}>{tag.name}</Badge>
           ))}
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
