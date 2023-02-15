@@ -8,7 +8,7 @@ import { StackedList } from '../../../layouts/StackedList';
 import { LinkItemData as data } from './LinkItemData';
 
 export default {
-  title: 'Components/List Items/Links',
+  title: 'Cards & Lists/Link List Items',
   component: LinkItem,
   argTypes: {
     fontSize: {

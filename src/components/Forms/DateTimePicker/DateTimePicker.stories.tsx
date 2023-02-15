@@ -5,7 +5,7 @@ import { Form } from '../BaseForm/Form';
 import { DateTimePicker } from './DateTimePicker';
 
 export default {
-  title: 'Components/Forms/Date & Time Picker',
+  title: 'Forms/Date & Time Picker',
   component: Form,
   argTypes: {},
   parameters: {

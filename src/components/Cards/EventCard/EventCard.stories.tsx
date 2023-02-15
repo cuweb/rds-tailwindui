@@ -5,7 +5,7 @@ import { EventCard, EventCardProps } from './EventCard';
 import { EventItemData as data } from './EventCardData';
 
 export default {
-  title: 'Components/Cards/Events',
+  title: 'Cards & Lists/Event Card',
   component: EventCard,
   argTypes: {},
   parameters: {

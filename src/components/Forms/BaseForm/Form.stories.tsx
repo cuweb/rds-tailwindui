@@ -8,7 +8,7 @@ import { FormSchema } from './FormData';
 import ReactQuill from 'react-quill';
 
 export default {
-  title: 'Components/Forms/Base Form',
+  title: 'Forms/Base Form',
   component: Form,
   argTypes: {},
   parameters: {

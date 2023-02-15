@@ -6,7 +6,7 @@ import { UserInfoType } from '../../types/UserInfo';
 import { DropDownItemProps } from '../DropDown/DropDown';
 
 export default {
-  title: 'Components/Navigation/TopNav',
+  title: 'Headers & Footers/Top Nav',
   component: TopNav,
   argTypes: {},
   parameters: {

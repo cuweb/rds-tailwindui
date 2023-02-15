@@ -4,7 +4,7 @@ import { Search, SearchProps } from './Search';
 import { Button } from '../Button';
 
 export default {
-  title: 'Components/Inputs/Search',
+  title: 'Components/Search',
   component: Search,
   argTypes: {},
   parameters: {

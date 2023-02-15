@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Toast, ToastBaseProps } from './Toast';
 
 export default {
-  title: 'Components/Notifications/Toast',
+  title: 'Components/Toast',
   component: Toast,
   argTypes: {},
   parameters: {
