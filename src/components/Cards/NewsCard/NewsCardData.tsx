@@ -1,4 +1,4 @@
-export const NewsItemData = [
+export const NewsCardData = [
   {
     id: 1,
     title: 'End-of-Year Reflections and Resolutions for Our Web Services Team',
