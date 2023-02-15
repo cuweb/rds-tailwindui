@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player';
 import { Badge } from '../../Badge';
+import { intervalToDuration } from 'date-fns';
 
 export interface VideoCardProps {
   source: any;
-  duration?: any;
-  title: string;
   tags?: Tags;
 }
 
@@ -13,21 +12,50 @@ interface Tags {
   category: { id: number; name: string; slug: string }[];
 }
 
-export function VideoCard({ source, duration, title, tags }: VideoCardProps) {
+export function VideoCard({ source, tags }: VideoCardProps) {
+  const [videoDuration, setVideoDuration] = useState(0);
+  const [videoTitle, setVideoTitle] = useState('');
+
+  const handleDuration = (duration: any) => {
+    setVideoDuration(duration);
+  };
+
+  const getVideoId = () => {
+    let videoId = source.split('v=')[1];
+    var ampersandPosition = videoId.indexOf('&');
+    if (ampersandPosition != -1) {
+      videoId = videoId.substring(0, ampersandPosition);
+    }
+    return videoId;
+  };
+  useEffect(() => {
+    fetch(
+      `https://noembed.com/embed?url=https://www.youtube.com/watch?v=${getVideoId()}`
+    )
+      .then(res => res.json())
+      .then(data => setVideoTitle(data.title));
+  }, [source]);
+
+  const duration = intervalToDuration({ start: 0, end: videoDuration * 1000 });
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
       <a className="relative flex flex-col h-full cursor-pointer">
         <div className="relative [&>iframe]:aspect-video">
-          <ReactPlayer url={source} width="100%" controls />
+          <ReactPlayer
+            url={source}
+            width="100%"
+            controls
+            onDuration={handleDuration}
+          />
         </div>
         <div className="flex flex-col space-y-2 py-6 px-7 @sm:md:space-y-3">
-          {duration && (
+          {videoDuration && (
             <p className="text-sm italic text-cu-black-600 @sm:md:text-base">
-              Duration: {duration}
+              Duration: {`${duration.minutes}m : ${duration.seconds}s`}
             </p>
           )}
           <h3 className="text-lg font-semibold text-cu-black group-hover:text-cu-red @sm:md:text-xl">
-            {title}
+            {videoTitle}
           </h3>
         </div>
         {tags && (

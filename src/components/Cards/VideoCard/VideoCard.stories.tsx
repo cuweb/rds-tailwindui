@@ -16,8 +16,7 @@ export default {
 export const Default = () => {
   return (
     <VideoCard
-      source="https://www.youtube.com/watch?v=f2Wrqj1wjng"
-      title="Donec commodo sit viverra aliquam porttitor ultrices gravida"
+      source="https://www.youtube.com/watch?v=n_uFzLPYDd8"
       tags={{
         category: [
           {
@@ -32,19 +31,16 @@ export const Default = () => {
           },
         ],
       }}
-      duration="5m 43s"
     />
   );
 };
 
 export const gridCards = () => (
-  <Column cols="3" gridGap="8" maxWidth="7xl">
+  <Column cols="3" gridGap="10" maxWidth="7xl">
     {data.map(item => (
       <VideoCard
         source={item?.source}
-        title={item?.title}
         tags={item?.tags}
-        duration={item?.duration}
       />
     ))}
   </Column>
