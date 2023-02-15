@@ -2,7 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Column } from '../../../layouts';
 import { NewsCard, NewsCardProps } from './NewsCard';
-import { NewsItemData as data } from './NewsCardData';
+import { NewsCardData as data } from './NewsCardData';
 
 export default {
   title: 'Components/Cards/News',

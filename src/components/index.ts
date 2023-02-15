@@ -9,8 +9,9 @@ export { Filter, FilterProps } from './Filter/Filter';
 export { FooterBasic } from './Footer/FooterBasic';
 export { FooterStandard } from './Footer/FooterStandard';
 export { FooterWave } from './Footer/FooterWave';
-export { EventCard, EventCardProps } from './Cards/EventCard';
 export { NewsCard, NewsCardProps } from './Cards/NewsCard';
+export { EventCard, EventCardProps } from './Cards/EventCard';
+export { VideoCard, VideoCardProps } from './Cards/VideoCard';
 export {
   EventLocation,
   EventLocationProps,
