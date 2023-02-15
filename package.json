@@ -48,7 +48,7 @@
     "storybook": "start-storybook -p 6006",
     "test:ci": "concurrently 'yarn start-storybook --quiet --ci -p 6006' 'yarn cypress run'",
     "build-storybook": "build-storybook",
-    "build-tailwind": "NODE_ENV=production npx tailwindcss -o ./dist/tailwind.css --minify",
+    "build-tailwind": "tailwindcss -i ./styles/tailwind.css -o ./dist/tailwind.css --minify",
     "packages": "rm -rf node_modules ; yarn install",
     "build-assets": "cpx 'src/assets/**' 'dist/assets' && yarn build-tailwind"
   },

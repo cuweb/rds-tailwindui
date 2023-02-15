@@ -9,12 +9,24 @@
   @apply first:mt-0 last:mb-0;
 }
 
+/* Remove top and bottom space added by prose inside container */
+.prose > .cu-container > *,
+.prose > .cu-container > * > * {
+  @apply first:mt-0 last:mb-0;
+}
+
 /* Add spacing when columns and panels are used in some consecutive order */
+.cu-container + .cu-column,
+.cu-column + .cu-container,
 .cu-column + .cu-column,
 .cu-panel + .cu-panel,
 .cu-column + .cu-panel,
 .cu-panel + .cu-column {
-  @apply mt-10;
+  @apply mt-10 bg-purple-800;
+}
+
+.cu-column + .cu-container-white {
+  @apply pt-0;
 }
 
 /* Add spacing when white container follows non-layout components */
@@ -34,5 +46,5 @@
 
 /* Remove spacing if nested container is last item inside another container */
 .cu-container > .cu-container {
-  @apply last:-mb-12;
+  @apply last:-mb-14;
 }
