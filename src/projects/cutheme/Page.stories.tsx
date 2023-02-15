@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta } from '@storybook/react';
 import { TopNav, Banner, FooterBasic, NewsCard } from '../../components';
 import { Container, Column, Main } from '../../layouts';
-import { NewsItemData as data } from '../../components/Cards/NewsCard/NewsCardData';
+import { NewsCardData as data } from '../../components/Cards/NewsCard/NewsCardData';
 
 export default {
   title: 'Projects/cutheme',
