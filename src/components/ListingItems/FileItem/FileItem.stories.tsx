@@ -31,7 +31,7 @@ const DefaultTemplate: Story<FileItemProps> = args => (
 );
 
 const SingleItemPanelTemplate: Story<FileItemProps> = args => (
-  <Column maxWidth="3xl">
+  <Column maxWidth="5xl">
     <Panel hasBorder>
       <FileItem as="div" link={args.link}>
         <FileItem.Content>
@@ -45,7 +45,7 @@ const SingleItemPanelTemplate: Story<FileItemProps> = args => (
 
 const StackedListPanelTemplate: Story<FileItemProps> = () => (
   <Container>
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasShadow>
         <StackedList hasDividers>
           {data.map(({ id, title, link, filesize, date }) => (
@@ -64,7 +64,7 @@ const StackedListPanelTemplate: Story<FileItemProps> = () => (
 
 const StackedListPanelTitleTemplate: Story<FileItemProps> = () => (
   <Container bgColor="grey">
-    <Column maxWidth="3xl">
+    <Column maxWidth="5xl">
       <Panel hasBorder hasShadow>
         <Panel.Title>File listing</Panel.Title>
         <StackedList hasDividers>

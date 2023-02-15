@@ -16,9 +16,26 @@ export const FormSchema = {
   },
   address: {
     value: '',
-    validation: yup
-      .string()
-      .min(3, 'Name must be at least 3 characters long')
-      .required('Required'),
+    validation: yup.string().min(3, 'Name must be at least 3 characters long'),
+  },
+  description: {
+    value: '',
+    validation: yup.string(),
+  },
+  dateTime: {
+    value: '',
+    validation: yup.date(),
+  },
+  location: {
+    value: '',
+    validation: yup.string(),
+  },
+  favcharacters: {
+    value: ['carltonbanks', 'zackmorris'],
+    validation: yup.array(),
+  },
+  regularviewer: {
+    value: '2',
+    validation: yup.string(),
   },
 };

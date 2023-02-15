@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, ClassAttributes } from 'react';
-import { useField, FieldHookConfig } from 'formik';
+import { useField, FieldHookConfig, Field } from 'formik';
 import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
 import { formStyles, formErrorStyles } from '../../../utils/formClasses';
 
@@ -27,24 +27,22 @@ export const Radio = ({
       </legend>
 
       {options?.map(option => (
-        <>
-          <div key={option.index} className={`${formStyles.radioList}`}>
-            <input
-              {...field}
-              //   name={option.name}
-              id={option.name}
-              type="radio"
-              className={`${formStyles.radioInput} ${
-                meta.touched && meta.error
-                  ? formErrorStyles.inputBorder
-                  : formStyles.inputBorder
-              }`}
-            />
-            <label htmlFor={option.name} className={formStyles.radioLabel}>
-              {option.label}
-            </label>
-          </div>
-        </>
+        <div key={option.name} className={`${formStyles.radioList}`}>
+          <Field
+            {...field}
+            id={option.name}
+            type="radio"
+            className={`${formStyles.radioInput} ${
+              meta.touched && meta.error
+                ? formErrorStyles.inputBorder
+                : formStyles.inputBorder
+            }`}
+            value={option.name}
+          />
+          <label htmlFor={option.name} className={formStyles.radioLabel}>
+            {option.label}
+          </label>
+        </div>
       ))}
 
       {/* Validation Error Icon*/}

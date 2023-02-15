@@ -1,6 +1,7 @@
 import React from 'react';
 import { ChevronRightIcon } from '@heroicons/react/24/outline';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
+import { Link } from '../../Link/Link';
 
 // Set types for as props
 type BaseItemTypeProps = 'li' | 'div';
@@ -34,9 +35,9 @@ const FileItemBase = ({
 }: ItemBaseProps & FileItemProps) => {
   return (
     <Component>
-      <a
+      <Link
         href={link}
-        className="relative flex items-center gap-2 p-6 cursor-pointer group hover:bg-gray-50 focus:outline-none"
+        className="relative flex items-center gap-2 p-6 cursor-pointer not-prose group hover:bg-gray-50 focus:outline-none"
       >
         <div className="flex items-center gap-4">
           <div className="flex-none w-auto">
@@ -76,7 +77,7 @@ const FileItemBase = ({
           className="flex-none w-5 h-5 ml-auto text-cu-black-300"
           aria-hidden="true"
         />
-      </a>
+      </Link>
     </Component>
   );
 };

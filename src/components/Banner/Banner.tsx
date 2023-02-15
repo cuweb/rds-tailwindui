@@ -1,14 +1,21 @@
 import React from 'react';
-import { rdsFontSizes } from '../../utils/tailwindClasses';
+import { rdsFontSizes, rdsMaxWidth } from '../../utils/tailwindClasses';
 import { BannerAnimated } from './Banner.Animated';
 
 export interface BannerProps {
   children?: React.ReactNode;
   title?: string;
   paragraph?: string;
-  fontSize?: '4xl' | '5xl' | '6xl';
-  isType?: 'light-fade' | 'dark-wave' | 'red-wave' | 'image' | 'animated';
-  align?: 'vertical' | 'horizontal';
+  fontSize?: '5xl' | '6xl';
+  maxWidth?: 'none' | 'full' | '5xl' | '7xl';
+  isType?:
+    | 'light-grey'
+    | 'light-fade'
+    | 'dark-wave'
+    | 'red-wave'
+    | 'image'
+    | 'animated';
+  align?: 'center' | 'left';
   hasOverlap?: boolean;
   image?: string;
   imageAlt?: string;
@@ -20,7 +27,8 @@ export interface BannerImgProps {
 }
 
 const typeStyles = {
-  'light-fade': `bg-gradient-to-b from-white to-cu-black-100 text-cu-black-800`,
+  'light-grey': `bg-cu-black-50 text-cu-black-800`,
+  'light-fade': `bg-gradient-to-b from-white to-cu-black-50 text-cu-black-800`,
   'dark-wave': `bg-cu-black-800 text-white`,
   'red-wave': `bg-gradient-to-b from-cu-red to-cu-red-900 text-white`,
   animated: `bg-white text-cu-black-800`,
@@ -34,23 +42,25 @@ const contentStyles = {
 
 const otherStyles = {
   buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
-  overlap: `pb-20 md:pb-36`,
+  overlap: ``,
+  //   overlap: `md:pb-48 md:pt-36`,
 };
 
 const BannerBase = ({
   children,
   title,
   paragraph,
-  isType = 'light-fade',
-  fontSize = '4xl',
-  align = 'vertical',
+  maxWidth = '5xl',
+  isType = 'light-grey',
+  fontSize = '5xl',
+  align = 'center',
   hasOverlap,
   image,
   imageAlt = 'Decorative background image',
 }: BannerProps & BannerImgProps) => {
-  const bannerSpacing = isType === 'image' ? 'md:py-48' : 'md:py-20';
+  const bannerSpacing = isType === 'image' ? 'md:py-48' : 'md:py-32';
   const flexAlign =
-    align === 'vertical'
+    align === 'center'
       ? 'flex-col last:[&>*]:justify-center'
       : 'flex-col md:flex-row last:[&>*]:justify-center last:md:[&>*]:justify-end';
 
@@ -58,7 +68,7 @@ const BannerBase = ({
     paragraph && children ? ' md:max-w-3xl md:w-8/12' : '';
 
   const contentAlign =
-    align === 'vertical'
+    align === 'center'
       ? 'text-center'
       : 'text-center md:text-left' + hasParaAndButtons;
 
@@ -67,13 +77,13 @@ const BannerBase = ({
   return (
     <>
       <header
-        className={`relative ${typeStyles[isType]} py-8 px-6  ${bannerSpacing} ${overlapStyles} md:flex md:items-center md:px-8 md:min-h-[240px]`}
+        className={`not-prose relative ${typeStyles[isType]} py-16 ${bannerSpacing} ${overlapStyles} md:flex md:items-center md:px-8 md:min-h-[240px]`}
         id="banner"
       >
         <div
-          className={`z-10 flex flex-1 ${flexAlign} items-center justify-center gap-8 m-auto max-w-7xl [&>*]:z-10`}
+          className={`z-10 flex flex-1 ${flexAlign} items-center justify-center gap-8 m-auto ${rdsMaxWidth[maxWidth]} [&>*]:z-10`}
         >
-          <div className={`flex flex-auto flex-col gap-4 ${contentAlign}`}>
+          <div className={`flex flex-auto flex-col gap-6 ${contentAlign}`}>
             <h1 className={`${contentStyles.title} ${rdsFontSizes[fontSize]}`}>
               {title}
             </h1>

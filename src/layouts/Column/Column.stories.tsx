@@ -1,5 +1,5 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react';
+import React from 'react';
 import { Column, ColumnProps } from './Column';
 
 const styles = {
@@ -70,8 +70,6 @@ const TwoThirdTemplate: Story<ColumnProps> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  maxWidth: '7xl',
-  gridGap: '8',
   cols: '1',
   isNested: false,
 };

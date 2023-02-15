@@ -80,7 +80,7 @@ export const Pagination = ({
 
   return (
     <div
-      className={`flex items-center justify-between ${borderStyles} ${spacingStyles}`}
+      className={`not-prose mt-8 first:mt-0 flex items-center justify-between ${borderStyles} ${spacingStyles}`}
     >
       <div className="flex justify-between flex-1 sm:hidden">
         <button onClick={onPrevious} className={`${styles.mobileButtons}`}>

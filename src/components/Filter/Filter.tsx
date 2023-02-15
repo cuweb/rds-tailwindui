@@ -8,6 +8,7 @@ import {
 } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
+import { Link } from '../Link/Link';
 
 const styles = {
   dropDownTitles: `inline-flex justify-center text-sm font-medium text-cu-black-800 group hover:text-cu-red`,
@@ -70,7 +71,7 @@ export const Filter = ({ sortOptions, filters, callback }: FilterProps) => {
   }, [selectedItems, callback]);
 
   return (
-    <div>
+    <div className="not-prose">
       {/* Mobile filter dialog */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 sm:hidden" onClose={setOpen}>
@@ -211,7 +212,7 @@ export const Filter = ({ sortOptions, filters, callback }: FilterProps) => {
                       {sortOptions.map(option => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <a
+                            <Link
                               href={option.href}
                               className={classNames(
                                 option.name === sortItem
@@ -224,7 +225,7 @@ export const Filter = ({ sortOptions, filters, callback }: FilterProps) => {
                               <span onClick={() => setSortItem(option.name)}>
                                 {option.name}
                               </span>
-                            </a>
+                            </Link>
                           )}
                         </Menu.Item>
                       ))}

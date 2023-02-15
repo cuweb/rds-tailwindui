@@ -1,9 +1,12 @@
 import React from 'react';
-import { Input } from '../Input/Input';
-import { Select } from '../Select/Select';
-import { Checkbox } from '../Checkbox/Checkbox';
-import { Radio } from '../Radio/Radio';
 import { Button } from '../../Button';
+import { Checkbox } from '../Checkbox/Checkbox';
+import { DateTimePicker } from '../DateTimePicker';
+import { Input } from '../Input/Input';
+import { PlacesAutoComplete } from '../PlacesAutocomplete';
+import { Radio } from '../Radio/Radio';
+import { Select } from '../Select/Select';
+import { WYSIWYG } from '../WYSIWYG/WYSIWYG';
 
 import { Form as FormWrapper, Formik } from 'formik';
 import * as yup from 'yup';
@@ -11,9 +14,10 @@ import * as yup from 'yup';
 export interface FormProps {
   children?: React.ReactNode;
   onSubmit?: any;
+  InitialValues?: any;
   schema: {
     [k: string]: {
-      value: any;
+      value?: any;
       validation: any;
       label?: string;
     };
@@ -31,6 +35,7 @@ const FormBase = ({
   children,
   onSubmit = (values: any) => console.log(values),
   schema,
+  InitialValues,
 }: FormProps) => {
   const defaults: any = {};
   const rules: any = {};
@@ -43,11 +48,12 @@ const FormBase = ({
 
   return (
     <Formik
-      initialValues={defaults}
+      initialValues={InitialValues || defaults}
       validationSchema={yup.object().shape(rules)}
       onSubmit={onSubmit}
+      enableReinitialize
     >
-      <FormWrapper className="space-y-5">{children}</FormWrapper>
+      <FormWrapper className="space-y-5 not-prose">{children}</FormWrapper>
     </Formik>
   );
 };
@@ -61,4 +67,7 @@ export const Form = Object.assign(FormBase, {
   Checkbox,
   Radio,
   Submit,
+  WYSIWYG,
+  DateTimePicker,
+  PlacesAutoComplete,
 });

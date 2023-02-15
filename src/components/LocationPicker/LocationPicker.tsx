@@ -11,7 +11,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
 }
 
-export const PlacesAutoComplete = () => {
+export const LocationPicker = () => {
   const [address, setAddress] = useState('');
   const [coordinates, setCoordinates] = useState({
     lat: 0,
@@ -26,7 +26,7 @@ export const PlacesAutoComplete = () => {
   };
 
   return (
-    <div>
+    <div className="not-prose">
       <PlacesAutocomplete
         value={address}
         onChange={setAddress}
@@ -41,7 +41,7 @@ export const PlacesAutoComplete = () => {
                   aria-hidden="true"
                 />
                 <Combobox.Input
-                  className="h-12 rounded-lg w-full border-2 bg-transparent pl-11 pr-4 text-gray-800 placeholder-gray-400 focus:ring-0 sm:text-sm"
+                  className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-2 rounded-lg pl-11 focus:ring-0 sm:text-sm"
                   {...getInputProps({ placeholder: 'Type address' })}
                 />
                 {address && (
@@ -58,12 +58,11 @@ export const PlacesAutoComplete = () => {
 
               <Combobox.Options
                 static
-                className="max-h-72 scroll-py-2 overflow-y-auto  text-sm text-gray-800 bg-slate-200"
+                className="overflow-y-auto text-sm text-gray-800 max-h-72 scroll-py-2 bg-slate-200"
               >
                 {suggestions.map(suggestion => {
                   return (
                     <Combobox.Option
-                      {...getSuggestionItemProps(suggestion)}
                       key={suggestion.index}
                       value={suggestion}
                       className={({ active }) =>
@@ -73,7 +72,9 @@ export const PlacesAutoComplete = () => {
                         )
                       }
                     >
-                      {suggestion.description}
+                      <div {...getSuggestionItemProps(suggestion)}>
+                        {suggestion.description}
+                      </div>
                     </Combobox.Option>
                   );
                 })}

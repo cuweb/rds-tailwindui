@@ -9,7 +9,6 @@ import {
   endOfMonth,
   format,
   getDay,
-  getYear,
   isBefore,
   isEqual,
   isSameDay,
@@ -39,6 +38,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
   const today = startOfToday();
   const [selectedDay, setSelectedDay] = useState(new Date(0));
   const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'));
+  const [showClear, setShowClear] = useState(false);
   const firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date());
   const colStartClasses = [
     '',
@@ -74,8 +74,8 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
   }, [selectedDay, callback]);
 
   return (
-    <div>
-      <div className="flex items-center py-2 mb-6 bg-white border rounded-lg border-cu-black-100">
+    <div className="not-prose">
+      <div className="flex items-center py-2 mb-6 bg-white border rounded-lg not-prose border-cu-black-100">
         <button
           type="button"
           onClick={previousMonth}
@@ -84,7 +84,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
           <span className="sr-only">Previous month</span>
           <ChevronLeftIcon className="w-5 h-5" aria-hidden="true" />
         </button>
-        <h2 className="flex-auto font-semibold text-center text-cu-black-900">
+        <h2 className="flex-auto text-base font-semibold text-center text-cu-black-900">
           {format(firstDayCurrentMonth, 'MMMM yyyy')}
         </h2>
         <button
@@ -108,7 +108,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
       </div>
 
       <div
-        className={`${styles.calendarGrid} text-sm rounded-lg bg-cu-black-50 isolate border border-cu-black-100 overflow-hidden`}
+        className={`${styles.calendarGrid} text-sm rounded-lg bg-cu-black-100 isolate border border-cu-black-100 overflow-hidden`}
       >
         {days.map((day, dayIdx) => (
           <div
@@ -121,12 +121,13 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             <button
               type="button"
               disabled={isBefore(day, today)}
-              onClick={() => setSelectedDay(day)}
+              onClick={() => {
+                setSelectedDay(day);
+                setShowClear(true);
+              }}
               className={classNames(
                 isEqual(day, selectedDay) && 'text-white',
-                !isEqual(day, selectedDay) &&
-                  isToday(day) &&
-                  'text-cu-red hover:text-cu-black-800',
+                !isEqual(day, selectedDay) && isToday(day) && 'text-cu-red',
                 !isEqual(day, selectedDay) &&
                   !isToday(day) &&
                   isSameMonth(day, firstDayCurrentMonth) &&
@@ -156,7 +157,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
           </div>
         ))}
       </div>
-      {getYear(selectedDay) !== 1969 && (
+      {showClear && (
         <div className="mt-2">
           <Button
             title="Clear Calendar"
@@ -164,6 +165,7 @@ export const Calendar = ({ events, callback }: CalendarProps) => {
             size="sm"
             onClick={() => {
               setSelectedDay(new Date(0));
+              setShowClear(false);
             }}
           />
         </div>
