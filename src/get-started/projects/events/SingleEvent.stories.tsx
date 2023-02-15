@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { DetailsItemData as data } from '../../components/ListingItems/DetailsItem/DetailsItemData';
+import { DetailsItemData as data } from '../../../components/ListingItems/DetailsItem/DetailsItemData';
 
 import {
   TopNav,
@@ -8,7 +8,7 @@ import {
   FooterBasic,
   DetailsItem,
   Button,
-} from '../../components';
+} from '../../../components';
 import {
   Main,
   Column,
@@ -16,7 +16,7 @@ import {
   Container,
   Panel,
   StackedList,
-} from '../../layouts';
+} from '../../../layouts';
 
 export default {
   title: 'Get Started/Projects/Events Calendar',

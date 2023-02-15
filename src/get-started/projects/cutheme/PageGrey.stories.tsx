@@ -1,8 +1,9 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, FooterBasic, NewsCard } from '../../components';
-import { Container, Column, Main } from '../../layouts';
-import { NewsCardData as data } from '../../components/Cards/NewsCard/NewsCardData';
+import { TopNav, Banner, NewsCard, FooterBasic } from '../../../components';
+
+import { NewsCardData as data } from '../../../components/Cards/NewsCard/NewsCardData';
+import { Container, Column, Main } from '../../../layouts';
 
 export default {
   title: 'Get Started/Projects/cutheme',
@@ -52,27 +53,23 @@ const DoublePara = () => {
   );
 };
 
-export const SinglePage = () => (
+export const GreyContainerIntro = () => (
   <>
     <TopNav title="Carleton University" />
-    <Banner title="cutheme layout testing" isType="dark-wave" align="left" />
+    <Banner
+      title="cutheme layout testing"
+      isType="dark-wave"
+      align="left"
+      paragraph="This is an example page that starts with a container component with a grey background"
+    />
 
     <Main>
       <Container as="section" hasProse>
-        <h2>This is a header 2</h2>
-        <SinglePara />
-
-        <h3>This is a header 3</h3>
-        <SinglePara />
-
-        <h4>This is a header 4</h4>
-        <DoublePara />
-
-        <Container as="div" bgColor="white" hasProse>
+        <Container as="div" bgColor="grey">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map(item => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -85,11 +82,20 @@ export const SinglePage = () => (
           </Column>
         </Container>
 
-        <Container as="div" bgColor="white" hasProse>
+        <h2>This is a header 2</h2>
+        <SinglePara />
+
+        <h3>This is a header 3</h3>
+        <SinglePara />
+
+        <h4>This is a header 4</h4>
+        <DoublePara />
+
+        <Container as="div" bgColor="white">
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map(item => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -111,7 +117,7 @@ export const SinglePage = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map(item => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -128,7 +134,7 @@ export const SinglePage = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" maxWidth="7xl">
-            {data.map(item => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -150,7 +156,7 @@ export const SinglePage = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3">
-            {data.map(item => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}
@@ -167,7 +173,7 @@ export const SinglePage = () => (
           <h2>News Card Grid</h2>
           <p>Uses Container, Column and NewsCard components.</p>
           <Column cols="3" maxWidth="7xl">
-            {data.map(item => (
+            {data.map((item: any) => (
               <NewsCard
                 title={item?.title}
                 link={item?.url}

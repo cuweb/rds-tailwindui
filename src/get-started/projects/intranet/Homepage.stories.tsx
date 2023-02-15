@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, FooterStandard, Button } from '../../components';
-import { Aside, Column, Container, Main } from '../../layouts';
+import { TopNav, Banner, FooterStandard, Button } from '../../../components';
+import { Aside, Column, Container, Main } from '../../../layouts';
 
 export default {
   title: 'Get Started/Projects/Intranet',
