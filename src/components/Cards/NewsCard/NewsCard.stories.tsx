@@ -5,7 +5,7 @@ import { NewsCard, NewsCardProps } from './NewsCard';
 import { NewsCardData as data } from './NewsCardData';
 
 export default {
-  title: 'Cards & Lists/News Card',
+  title: 'Cards & Lists/News/Card',
   component: NewsCard,
   argTypes: {},
   parameters: {

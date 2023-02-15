@@ -8,7 +8,7 @@ import { StackedList } from '../../../layouts/StackedList';
 import { JobItemData as data } from './JobItemData';
 
 export default {
-  title: 'Cards & Lists/Job List Item',
+  title: 'Cards & Lists/Jobs/List Item',
   component: JobItem,
   argTypes: {
     fontSize: {

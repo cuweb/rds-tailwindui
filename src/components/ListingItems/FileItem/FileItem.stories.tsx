@@ -8,7 +8,7 @@ import { StackedList } from '../../../layouts/StackedList';
 import { FileItemData as data } from './FileItemData';
 
 export default {
-  title: 'Cards & Lists/File List Item',
+  title: 'Cards & Lists/Files/List Item',
   component: FileItem,
   argTypes: {
     fontSize: {

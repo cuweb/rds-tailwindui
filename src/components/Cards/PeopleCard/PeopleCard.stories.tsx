@@ -4,7 +4,7 @@ import { PeopleCard, PeopleCardProps } from './PeopleCard';
 import { Column } from '../../../layouts';
 
 export default {
-  title: 'Cards & Lists/People Card',
+  title: 'Cards & Lists/People/Card',
   component: PeopleCard,
   argTypes: {},
   parameters: {

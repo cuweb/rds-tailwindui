@@ -16,8 +16,8 @@ export const parameters = {
                 ],
                 'Components',
                 'Cards & Lists',
-                'Headers & Footers',
-                'Forms',
+                'Headers',
+                'Footers',
                 'Layouts', [
                     'Main',
                     'Container',
@@ -26,6 +26,7 @@ export const parameters = {
                     'Panel',
                     'Stacked List',
                 ],
+                'Forms',
                 'Loading Screens',
                 'Project Templates'
             ],

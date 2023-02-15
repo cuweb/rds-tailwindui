@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { FooterBasic } from './FooterBasic';
 
 export default {
-  title: 'Headers & Footers/Footer Basic',
+  title: 'Footers/Basic',
   component: FooterBasic,
   argTypes: {},
   parameters: {

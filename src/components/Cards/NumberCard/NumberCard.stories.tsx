@@ -5,7 +5,7 @@ import { NumberCard } from './NumberCard';
 import { NumberCardData as data } from './NumberCardData';
 
 export default {
-  title: 'Cards & Lists/Number Card',
+  title: 'Cards & Lists/Numbers/Card',
   component: NumberCard,
   argTypes: {},
   parameters: {

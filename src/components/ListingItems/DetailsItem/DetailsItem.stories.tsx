@@ -8,7 +8,7 @@ import { StackedList } from '../../../layouts/StackedList';
 import { DetailsItemData as data } from './DetailsItemData';
 
 export default {
-  title: 'Cards & Lists/Details List Item',
+  title: 'Cards & Lists/Details/List Item',
   component: DetailsItem,
   argTypes: {},
   parameters: {

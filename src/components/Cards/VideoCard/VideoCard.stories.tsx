@@ -5,7 +5,7 @@ import { Column } from '../../../layouts';
 import { VideoCardData as data } from './VideoCardData';
 
 export default {
-  title: 'Cards & Lists/Video Card',
+  title: 'Cards & Lists/Video/Card',
   component: VideoCard,
   argTypes: {},
   parameters: {
