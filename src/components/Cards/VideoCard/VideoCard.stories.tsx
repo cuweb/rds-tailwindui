@@ -16,7 +16,7 @@ export default {
 export const Default = () => {
   return (
     <VideoCard
-      source="https://www.youtube.com/watch?v=n_uFzLPYDd8"
+      source="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       tags={{
         category: [
           {
@@ -38,10 +38,7 @@ export const Default = () => {
 export const gridCards = () => (
   <Column cols="3" gridGap="10" maxWidth="7xl">
     {data.map(item => (
-      <VideoCard
-        source={item?.source}
-        tags={item?.tags}
-      />
+      <VideoCard source={item?.source} tags={item?.tags} />
     ))}
   </Column>
 );

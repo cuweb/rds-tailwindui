@@ -40,10 +40,12 @@ export function VideoCard({ source, tags }: VideoCardProps) {
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
       <a className="relative flex flex-col h-full cursor-pointer">
-        <div className="relative [&>iframe]:aspect-video">
+        <div className="relative pt-[56.25%]">
           <ReactPlayer
             url={source}
+            className="absolute top-0 left-0"
             width="100%"
+            height="100%"
             controls
             onDuration={handleDuration}
           />
