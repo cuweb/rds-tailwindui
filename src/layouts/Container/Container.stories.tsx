@@ -3,6 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Container, ContainerProps } from './Container';
 import { Column } from '../Column';
 import { Panel } from '../Panel';
+import { ContainerData as data } from './ContainerData';
 
 const content = {
   paragraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id augue id est iaculis auctor. Vestibulum lobortis hendrerit enim, sit amet viverra velit tincidunt a. Sed lobortis consectetur sapien a egestas. Ut vestibulum turpis non molestie aliquam. Quisque dictum iaculis tellus, vel vehicula diam lobortis non.`,
@@ -22,14 +23,16 @@ export default {
 } as Meta<typeof Container>;
 
 const DefaultTemplate: Story<ContainerProps> = args => (
-  <Container bgColor={args.bgColor}>
-    <p className="px-8">Empty Container</p>
-  </Container>
+  <>
+    <Container bgColor={args.bgColor}>
+      <p>Empty Container</p>
+    </Container>
+  </>
 );
 
 const GreyBgTemplateTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
-    <p className="px-8">Grey Container</p>
+    <p>Grey Container</p>
   </Container>
 );
 
@@ -70,6 +73,10 @@ const WithPanelStackedTemplate: Story<ContainerProps> = args => (
   </Container>
 );
 
+const MarkupTemplate: Story<ContainerProps> = args => (
+  <Container bgColor={args.bgColor} content={data} />
+);
+
 export const Default = DefaultTemplate.bind({});
 Default.args = {
   bgColor: 'white',
@@ -95,8 +102,14 @@ WithPanelStacked.args = {
   ...GreyBackground.args,
 };
 
+export const Markup = MarkupTemplate.bind({});
+Markup.args = {
+  bgColor: 'white',
+};
+
 Default.storyName = 'Default transparent bg';
 GreyBackground.storyName = 'Grey background';
 WithTwoColumns.storyName = 'With two columns';
 WithPanelGrid.storyName = 'Two column panels';
 WithPanelStacked.storyName = 'Stacked panels';
+Markup.storyName = 'Markup and Prose';
