@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import { EventLocation } from './EventLocation';
 
 export default {
-  title: 'Components/Elements/Location',
+  title: 'Components/Location',
   component: EventLocation,
   argTypes: {},
   parameters: {

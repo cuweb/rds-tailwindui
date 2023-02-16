@@ -4,7 +4,7 @@ import { Form } from '../BaseForm/Form';
 import { SelectData } from './SelectData';
 
 export default {
-  title: 'Components/Forms/Select List',
+  title: 'Forms/Select List',
   component: Form,
   argTypes: {},
   parameters: {

@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { HeroIcon } from '../HeroIcon';
 
 export default {
-  title: 'Components/Inputs/Drop Down',
+  title: 'Components/Drop Down',
   component: DropDown,
   argTypes: {},
   parameters: {

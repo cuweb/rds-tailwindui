@@ -5,7 +5,7 @@ import { Modal, ModalProps } from './Modal';
 import { Button } from '../Button';
 
 export default {
-  title: 'Components/Inputs/Modal',
+  title: 'Components/Modal',
   component: Modal,
   argTypes: {},
   parameters: {

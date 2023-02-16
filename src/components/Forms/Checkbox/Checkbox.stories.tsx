@@ -4,7 +4,7 @@ import { Form } from '../BaseForm/Form';
 import { CheckboxData } from './CheckboxData';
 
 export default {
-  title: 'Components/Forms/Checkbox',
+  title: 'Forms/Checkbox',
   component: Form,
   argTypes: {},
   parameters: {

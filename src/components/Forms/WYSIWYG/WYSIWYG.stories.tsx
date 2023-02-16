@@ -4,7 +4,7 @@ import { Form } from '../BaseForm/Form';
 import ReactQuill from 'react-quill';
 
 export default {
-  title: 'Components/Forms/WSYWIG',
+  title: 'Forms/WSYWIG',
   component: Form,
   argTypes: {},
   parameters: {

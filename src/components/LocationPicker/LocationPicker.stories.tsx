@@ -4,7 +4,7 @@ import { LocationPicker } from './LocationPicker';
 import { Column } from '../../layouts';
 
 export default {
-  title: 'Components/Elements/LocationPicker',
+  title: 'Components/LocationPicker',
   component: LocationPicker,
   argTypes: {},
   parameters: {

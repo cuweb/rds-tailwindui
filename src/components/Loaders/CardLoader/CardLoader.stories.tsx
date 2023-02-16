@@ -4,7 +4,7 @@ import { CardLoader } from './CardLoader';
 import { Column } from '../../../layouts';
 
 export default {
-  title: 'Components/Loaders/Card Loader',
+  title: 'Load Screens/Card Loader',
   component: CardLoader,
   argTypes: {},
   parameters: {

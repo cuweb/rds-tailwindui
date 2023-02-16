@@ -4,7 +4,7 @@ import { Button, ButtonProps } from './Button';
 import { Link } from '../Link/Link';
 
 export default {
-  title: 'Components/Inputs/Button',
+  title: 'Components/Button',
   component: Button,
   argTypes: {
     onClick: { action: 'clicked' },

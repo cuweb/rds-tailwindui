@@ -8,7 +8,7 @@ import { EventItem, EventItemProps } from './EventItem';
 import { EventItemData as data } from './EventItemData';
 
 export default {
-  title: 'Components/List Items/Events',
+  title: 'Cards & Lists/Events/List Item',
   component: EventItem,
   argTypes: {
     fontSize: {

@@ -4,7 +4,7 @@ import { Calendar } from './Calendar';
 import data from './CalendarData.json';
 
 export default {
-  title: 'Components/Inputs/Calendar',
+  title: 'Components/Calendar',
   component: Calendar,
   argTypes: {},
   parameters: {

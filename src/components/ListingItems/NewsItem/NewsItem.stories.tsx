@@ -8,7 +8,7 @@ import { StackedList } from '../../../layouts/StackedList';
 import { NewsItemData as data } from './NewsItemData';
 
 export default {
-  title: 'Components/List Items/News',
+  title: 'Cards & Lists/News/List Item',
   component: NewsItem,
   argTypes: {
     fontSize: {
