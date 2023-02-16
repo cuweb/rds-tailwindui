@@ -10,7 +10,7 @@ import {
   Pagination,
   Calendar,
   Filter,
-} from '../../components';
+} from '../../../components';
 
 import {
   Main,
@@ -19,14 +19,14 @@ import {
   Panel,
   StackedList,
   Aside,
-} from '../../layouts';
+} from '../../../layouts';
 
-import { EventItemData as dataCard } from '../../components/Cards/EventCard/EventCardData';
-import { EventItemData as dataList } from '../../components/ListingItems/EventItem/EventItemData';
-import data from '../../components/Filter/FilterData.json';
+import { EventItemData as dataCard } from '../../../components/Cards/EventCard/EventCardData';
+import { EventItemData as dataList } from '../../../components/ListingItems/EventItem/EventItemData';
+import data from '../../../components/Filter/FilterData.json';
 
 export default {
-  title: 'Projects/Events Calendar',
+  title: 'Get Started/Projects/Events Calendar',
   argTypes: {},
   parameters: {
     controls: { expanded: true },

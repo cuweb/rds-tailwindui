@@ -6,7 +6,7 @@ import { Button } from '../Button';
 import { Column } from '../../layouts';
 
 export default {
-  title: 'Components/Elements/Banner',
+  title: 'Headers/Banner',
   component: Banner,
   argTypes: {},
   parameters: {

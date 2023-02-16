@@ -4,7 +4,7 @@ import { Filter } from './Filter';
 import data from './FilterData.json';
 
 export default {
-  title: 'Components/Inputs/Filter',
+  title: 'Components/Filter',
   component: Filter,
   argTypes: {},
 } as Meta<typeof Filter>;

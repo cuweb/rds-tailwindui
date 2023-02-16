@@ -4,7 +4,7 @@ import { Avatar, AvatarProps } from './Avatar';
 import { UserInfoType } from '../../types/UserInfo';
 
 export default {
-  title: 'Components/Elements/Avatar',
+  title: 'Components/Avatar',
   component: Avatar,
   argTypes: {},
   parameters: {

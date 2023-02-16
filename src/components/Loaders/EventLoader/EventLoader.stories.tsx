@@ -4,7 +4,7 @@ import { EventLoader } from './EventLoader';
 import { Column } from '../../../layouts';
 
 export default {
-  title: 'Components/Loaders/Event Loader',
+  title: 'Load Screens/Event Loader',
   component: EventLoader,
   argTypes: {},
   parameters: {

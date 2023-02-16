@@ -8,7 +8,7 @@ import { StackedList } from '../../../layouts/StackedList';
 import { FeedItemData as data } from './FeedItemData';
 
 export default {
-  title: 'Components/List Items/Feeds',
+  title: 'Cards & Lists/Feeds/List Item',
   component: FeedItem,
   argTypes: {
     fontSize: {

@@ -5,7 +5,7 @@ import { Column } from '../../../layouts';
 import { Form } from '../BaseForm/Form';
 
 export default {
-  title: 'Components/Forms/PlacesAutoComplete',
+  title: 'Forms/PlacesAutoComplete',
   component: Form,
   argTypes: {},
   parameters: {

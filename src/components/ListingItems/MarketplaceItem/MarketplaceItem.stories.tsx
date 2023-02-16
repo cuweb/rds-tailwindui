@@ -8,7 +8,7 @@ import { StackedList } from '../../../layouts/StackedList';
 import { MarketplaceItemData as data } from './MarketplaceItemData';
 
 export default {
-  title: 'Components/List Items/Marketplace',
+  title: 'Cards & Lists/Marketplace/List Item',
   component: MarketplaceItem,
   argTypes: {
     fontSize: {

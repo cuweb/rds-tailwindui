@@ -1,10 +1,10 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, FooterStandard, Button } from '../../components';
-import { Aside, Column, Container, Main } from '../../layouts';
+import { TopNav, Banner, FooterStandard, Button } from '../../../components';
+import { Aside, Column, Container, Main } from '../../../layouts';
 
 export default {
-  title: 'Projects/Intranet',
+  title: 'Get Started/Projects/Intranet',
   argTypes: {
     bgColor: {
       control: 'inline-radio',

@@ -4,6 +4,15 @@ import exampleTableData from './exampleTableData.json';
 import { Table, TableProps, ColumnDefinitionType } from './Table';
 import { Link } from '../Link/Link';
 
+export default {
+  title: 'Components/Table',
+  component: Table,
+  argTypes: {},
+  parameters: {
+    controls: { expanded: true },
+  },
+} as Meta<typeof Table>;
+
 interface Table {
   id: number;
   title: string;
@@ -51,15 +60,6 @@ const columns: ColumnDefinitionType<Table, keyof Table>[] = [
     },
   },
 ];
-
-export default {
-  title: 'Components/Elements/Table',
-  component: Table,
-  argTypes: {},
-  parameters: {
-    controls: { expanded: true },
-  },
-} as Meta<typeof Table>;
 
 const Template: Story<TableProps<any, any>> = args => <Table {...args} />;
 
