@@ -16,7 +16,7 @@ export default {
 export const Default = () => {
   return (
     <VideoCard
-      source="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      source="https://vimeo.com/432973331"
       tags={{
         category: [
           {
