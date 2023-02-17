@@ -21,6 +21,7 @@ export const parameters = {
                 'Layouts', [
                     'Main',
                     'Container',
+                    'Article',
                     'Column',
                     'Aside',
                     'Panel',
