@@ -13,7 +13,7 @@ interface Tags {
 }
 
 export function VideoCard({ source, tags }: VideoCardProps) {
-  const [videoDuration, setVideoDuration] = useState(0);
+  const [videoDuration, setVideoDuration] = useState('');
   const [videoTitle, setVideoTitle] = useState('');
 
   const handleDuration = (duration: any) => {
