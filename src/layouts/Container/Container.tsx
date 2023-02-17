@@ -15,7 +15,7 @@ export interface ContainerProps {
 }
 
 const prose = {
-  prose: `prose prose-lg md:prose-xl max-w-none prose-img:w-full prose-img:rounded-lg`,
+  prose: `prose prose-rds prose-lg md:prose-xl max-w-none prose-img:w-full prose-img:rounded-lg`,
 };
 
 const styles = {
