@@ -27,9 +27,7 @@ export function VideoCard({ source, tags }: VideoCardProps) {
         .then(res => res.json())
         .then(data => setVideoTitle(data.title));
     } else {
-      fetch(
-        `https://noembed.com/embed?url=${source}`
-      )
+      fetch(`https://noembed.com/embed?url=${source}`)
         .then(res => res.json())
         .then(data => setVideoTitle(data.title));
     }
