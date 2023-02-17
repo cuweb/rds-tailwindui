@@ -20,23 +20,21 @@ export function VideoCard({ source, tags }: VideoCardProps) {
     setVideoDuration(duration);
   };
 
-  const getVideoId = () => {
-    let videoId = source.split('v=')[1];
-    var ampersandPosition = videoId.indexOf('&');
-    if (ampersandPosition !== -1) {
-      videoId = videoId.substring(0, ampersandPosition);
-    }
-    return videoId;
-  };
   useEffect(() => {
-    fetch(
-      `https://noembed.com/embed?url=https://www.youtube.com/watch?v=${getVideoId()}`
-    )
-      .then(res => res.json())
-      .then(data => setVideoTitle(data.title));
+    let link = source.toString();
+    if (link.includes('vimeo')) {
+      fetch(`https://vimeo.com/api/oembed.json?url=${source}`)
+        .then(res => res.json())
+        .then(data => setVideoTitle(data.title));
+    } else {
+      fetch(`https://noembed.com/embed?url=${source}`)
+        .then(res => res.json())
+        .then(data => setVideoTitle(data.title));
+    }
   }, [source]);
 
   const duration = intervalToDuration({ start: 0, end: videoDuration * 1000 });
+
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
       <a className="relative flex flex-col h-full cursor-pointer">
