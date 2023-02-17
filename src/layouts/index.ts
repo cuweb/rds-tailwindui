@@ -1,3 +1,4 @@
+export * from './Article';
 export * from './Aside';
 export * from './Column';
 export * from './Container';
