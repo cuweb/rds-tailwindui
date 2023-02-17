@@ -16,6 +16,7 @@ import {
   Container,
   Panel,
   StackedList,
+  Article,
 } from '../../../layouts';
 
 export default {
@@ -85,9 +86,9 @@ export const SingleEvent = () => (
     <Main>
       <Container as="section">
         <Column cols="2/3" maxWidth="7xl">
-          <Container as="article" hasProse>
+          <Article>
             <EventContent />
-          </Container>
+          </Article>
 
           <Aside isSticky topSpace="8">
             <Column cols="1" gridGap="5">
