@@ -50,6 +50,7 @@ export const Homepage = () => {
         align="left"
         isType="animated"
         maxWidth="7xl"
+        hasOverlap
       />
 
       <Main hasOverlap>
