@@ -26,24 +26,24 @@ export interface BannerImgProps {
   imageAlt?: string;
 }
 
+const styles = {
+  core: `not-prose relative py-16 md:py-32 md:flex md:items-center md:px-8 md:min-h-[240px]`,
+  buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
+  overlap: `md:pb-32 md:pt-20`,
+};
+
 const typeStyles = {
   'light-grey': `bg-cu-black-50 text-cu-black-800`,
   'light-fade': `bg-gradient-to-b from-white to-cu-black-50 text-cu-black-800`,
   'dark-wave': `bg-cu-black-800 text-white`,
   'red-wave': `bg-gradient-to-b from-cu-red to-cu-red-900 text-white`,
   animated: `bg-white text-cu-black-800`,
-  image: `bg-cu-black-800 text-white`,
+  image: `bg-cu-black-800 text-white md:py-48`,
 };
 
 const contentStyles = {
   title: `font-semibold text-3xl`,
   paragraph: `text-base lg:text-xl max-w-5xl`,
-};
-
-const otherStyles = {
-  buttonWrapper: `flex gap-6 flex-wrap md:flex-1`,
-  overlap: ``,
-  //   overlap: `md:pb-48 md:pt-36`,
 };
 
 const BannerBase = ({
@@ -59,6 +59,7 @@ const BannerBase = ({
   imageAlt = 'Decorative background image',
 }: BannerProps & BannerImgProps) => {
   const bannerSpacing = isType === 'image' ? 'md:py-48' : 'md:py-32';
+
   const flexAlign =
     align === 'center'
       ? 'flex-col last:[&>*]:justify-center'
@@ -72,12 +73,21 @@ const BannerBase = ({
       ? 'text-center'
       : 'text-center md:text-left' + hasParaAndButtons;
 
-  const overlapStyles = hasOverlap ? otherStyles.overlap : '';
+  let overlapStyles = hasOverlap ? styles.overlap : '';
+
+  if (hasOverlap && isType === 'image') {
+    overlapStyles = 'md:pb-48 md:pt-40';
+  }
+
+  //   const overlapStyles2 =
+  //     hasOverlap && isType !== image ? styles.overlap : 'md:pb-48';
+
+  //   alert(overlapStyles);
 
   return (
     <>
       <header
-        className={`not-prose relative ${typeStyles[isType]} py-16 ${bannerSpacing} ${overlapStyles} md:flex md:items-center md:px-8 md:min-h-[240px]`}
+        className={`${styles.core} ${typeStyles[isType]} ${bannerSpacing} ${overlapStyles}`}
         id="banner"
       >
         <div
@@ -122,9 +132,7 @@ const BannerWave = () => {
 };
 
 const ButtonGroup = ({ children }: BannerProps) => {
-  return (
-    <div className={`buttons ${otherStyles.buttonWrapper}`}>{children}</div>
-  );
+  return <div className={`buttons ${styles.buttonWrapper}`}>{children}</div>;
 };
 
 export const Banner = Object.assign(BannerBase, {
