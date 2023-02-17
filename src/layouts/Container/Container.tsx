@@ -1,6 +1,6 @@
 import React from 'react';
 
-type BaseContainerTypeProps = 'article' | 'section' | 'div';
+type BaseContainerTypeProps = 'section' | 'div';
 
 export interface ContainerBaseProps {
   as?: keyof JSX.IntrinsicElements;
