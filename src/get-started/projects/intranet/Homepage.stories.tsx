@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
 import { TopNav, Banner, FooterStandard, Button } from '../../../components';
-import { Aside, Column, Container, Main } from '../../../layouts';
+import { Article, Aside, Column, Container, Main } from '../../../layouts';
 
 export default {
   title: 'Get Started/Projects/Intranet',
@@ -66,10 +66,10 @@ export const Homepage = () => (
 
         <Container bgColor="grey" maxWidth="7xl">
           <Column cols="2/3" maxWidth="7xl">
-            <Container as="article">
+            <Article>
               <h3>This is a header three</h3>
               <DoublePara />
-            </Container>
+            </Article>
 
             <Aside>
               <Column cols="1" gridGap="5">
