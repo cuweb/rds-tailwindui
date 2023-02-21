@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { NewsItem, NewsItemProps } from './NewsItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
-import { Panel } from '../../../layouts/Panel';
+import { StackedList } from '../../../layouts/StackedList';
 import { NewsItemData as data } from './NewsItemData';
 
 export default {
@@ -33,7 +33,7 @@ const DefaultTemplate: Story<NewsItemProps> = args => (
 
 const SingleItemListTemplate: Story<NewsItemProps> = args => (
   <Column maxWidth="5xl">
-    <Panel hasBorder>
+    <StackedList hasBorder>
       <NewsItem as="div" link={args.link}>
         <NewsItem.Image image={args.image} />
         <NewsItem.Content>
@@ -42,14 +42,14 @@ const SingleItemListTemplate: Story<NewsItemProps> = args => (
           <NewsItem.Excerpt excerpt={args.excerpt} />
         </NewsItem.Content>
       </NewsItem>
-    </Panel>
+    </StackedList>
   </Column>
 );
 
 const MultiItemListTemplate: Story<NewsItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel header="News listing" hasBorder hasShadow>
+      <StackedList header="News listing" hasBorder hasShadow>
         {data.map(({ id, title, link, image, date, excerpt }) => (
           <NewsItem key={id}>
             <NewsItem.Image image={image} />
@@ -60,7 +60,7 @@ const MultiItemListTemplate: Story<NewsItemProps> = () => (
             </NewsItem.Content>
           </NewsItem>
         ))}
-      </Panel>
+      </StackedList>
     </Column>
   </Container>
 );

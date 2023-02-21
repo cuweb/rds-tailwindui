@@ -65,7 +65,7 @@ export const PeopleItems = ({
             {email && (
               <li className="text-sm text-cu-black-700 @2xl:lg:text-base">
                 <a
-                  href="mailto:webdevs@carleton.ca"
+                  href={'mailto:' + email}
                   className="font-semibold text-cyan-700 hover:text-cu-red"
                 >
                   {email}
@@ -75,7 +75,7 @@ export const PeopleItems = ({
 
             {phoneNumber && (
               <li className="text-sm text-cu-black-700 hover:text-cu-red @2xl:lg:text-base">
-                <a href="#" className="">
+                <a href={'tel:' + phoneNumber} className="">
                   {phoneNumber}
                 </a>
               </li>
