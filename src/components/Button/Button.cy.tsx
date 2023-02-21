@@ -46,7 +46,7 @@ describe('Button', () => {
   types.forEach(type => {
     it(`Should render the ${type.name} button`, () => {
       cy.clearCookies();
-      cy.visit(`/iframe.html?id=components-inputs-button--${type.component}`);
+      cy.visit(`/iframe.html?id=components-button--${type.component}`);
       cy.get('button').should('exist');
       cy.get(`${type.tag}`).should('exist');
     });

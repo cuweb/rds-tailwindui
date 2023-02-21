@@ -1,7 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
-import { Link } from '../Link/Link';
 
 export default {
   title: 'Components/Button',
@@ -26,7 +25,6 @@ export default {
 
 const Template: Story<ButtonProps> = args => (
   <>
-    <Link href="/aaaa">A Link</Link>
     <Button {...args} />
   </>
 );
