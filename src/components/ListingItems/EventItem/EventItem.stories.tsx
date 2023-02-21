@@ -3,7 +3,6 @@ import React from 'react';
 import { Column } from '../../../layouts/Column';
 import { Container } from '../../../layouts/Container';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { EventItem, EventItemProps } from './EventItem';
 import { EventItemData as data } from './EventItemData';
 
@@ -61,23 +60,21 @@ const StackedListPanelTemplate: Story<EventItemProps> = args => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(() => (
-            <EventItem
-              as="div"
-              link={args.link}
-              fontSize={args.fontSize}
-              title={args.title}
-              startDateTime={args.startDateTime}
-              endDateTime={args.endDateTime}
-              event_address={args.event_address}
-              on_campus={args.on_campus}
-              on_campus_building={args.on_campus_building}
-              on_campus_room_number={args.on_campus_room_number}
-              tags={args.tags}
-            />
-          ))}
-        </StackedList>
+        {data.map(() => (
+          <EventItem
+            as="div"
+            link={args.link}
+            fontSize={args.fontSize}
+            title={args.title}
+            startDateTime={args.startDateTime}
+            endDateTime={args.endDateTime}
+            event_address={args.event_address}
+            on_campus={args.on_campus}
+            on_campus_building={args.on_campus_building}
+            on_campus_room_number={args.on_campus_room_number}
+            tags={args.tags}
+          />
+        ))}
       </Panel>
     </Column>
   </Container>
@@ -87,23 +84,21 @@ const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="Event listing" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(() => (
-            <EventItem
-              as="div"
-              link={args.link}
-              fontSize={args.fontSize}
-              title={args.title}
-              startDateTime={args.startDateTime}
-              endDateTime={args.endDateTime}
-              event_address={args.event_address}
-              on_campus={args.on_campus}
-              on_campus_building={args.on_campus_building}
-              on_campus_room_number={args.on_campus_room_number}
-              tags={args.tags}
-            />
-          ))}
-        </StackedList>
+        {data.map(() => (
+          <EventItem
+            as="div"
+            link={args.link}
+            fontSize={args.fontSize}
+            title={args.title}
+            startDateTime={args.startDateTime}
+            endDateTime={args.endDateTime}
+            event_address={args.event_address}
+            on_campus={args.on_campus}
+            on_campus_building={args.on_campus_building}
+            on_campus_room_number={args.on_campus_room_number}
+            tags={args.tags}
+          />
+        ))}
       </Panel>
     </Column>
   </Container>

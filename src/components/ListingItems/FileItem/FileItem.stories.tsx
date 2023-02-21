@@ -4,7 +4,6 @@ import { FileItem, FileItemProps } from './FileItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { FileItemData as data } from './FileItemData';
 
 export default {
@@ -47,16 +46,14 @@ const StackedListPanelTemplate: Story<FileItemProps> = () => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, filesize, date }) => (
-            <FileItem key={id}>
-              <FileItem.Content>
-                <FileItem.Title title={title} link={link} />
-                <FileItem.Details filesize={filesize} date={date} />
-              </FileItem.Content>
-            </FileItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, filesize, date }) => (
+          <FileItem key={id}>
+            <FileItem.Content>
+              <FileItem.Title title={title} link={link} />
+              <FileItem.Details filesize={filesize} date={date} />
+            </FileItem.Content>
+          </FileItem>
+        ))}
       </Panel>
     </Column>
   </Container>
@@ -66,16 +63,14 @@ const StackedListPanelTitleTemplate: Story<FileItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="File listing" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, filesize, date }) => (
-            <FileItem key={id}>
-              <FileItem.Content>
-                <FileItem.Title title={title} link={link} />
-                <FileItem.Details filesize={filesize} date={date} />
-              </FileItem.Content>
-            </FileItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, filesize, date }) => (
+          <FileItem key={id}>
+            <FileItem.Content>
+              <FileItem.Title title={title} link={link} />
+              <FileItem.Details filesize={filesize} date={date} />
+            </FileItem.Content>
+          </FileItem>
+        ))}
       </Panel>
     </Column>
   </Container>

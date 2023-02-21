@@ -4,7 +4,6 @@ import { LinkItem, LinkItemProps } from './LinkItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { LinkItemData as data } from './LinkItemData';
 
 export default {
@@ -45,15 +44,13 @@ const StackedListPanelTemplate: Story<LinkItemProps> = () => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link }) => (
-            <LinkItem key={id}>
-              <LinkItem.Content>
-                <LinkItem.Title title={title} link={link} />
-              </LinkItem.Content>
-            </LinkItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link }) => (
+          <LinkItem key={id}>
+            <LinkItem.Content>
+              <LinkItem.Title title={title} link={link} />
+            </LinkItem.Content>
+          </LinkItem>
+        ))}
       </Panel>
     </Column>
   </Container>
@@ -63,15 +60,13 @@ const StackedListPanelTitleTemplate: Story<LinkItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="Link listing" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link }) => (
-            <LinkItem key={id}>
-              <LinkItem.Content>
-                <LinkItem.Title title={title} link={link} />
-              </LinkItem.Content>
-            </LinkItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link }) => (
+          <LinkItem key={id}>
+            <LinkItem.Content>
+              <LinkItem.Title title={title} link={link} />
+            </LinkItem.Content>
+          </LinkItem>
+        ))}
       </Panel>
     </Column>
   </Container>

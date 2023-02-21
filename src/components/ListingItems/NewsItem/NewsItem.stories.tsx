@@ -4,7 +4,6 @@ import { NewsItem, NewsItemProps } from './NewsItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { NewsItemData as data } from './NewsItemData';
 
 export default {
@@ -51,18 +50,16 @@ const StackedListPanelTemplate: Story<NewsItemProps> = () => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, image, date, excerpt }) => (
-            <NewsItem key={id}>
-              <NewsItem.Image image={image} />
-              <NewsItem.Content>
-                <NewsItem.Title title={title} link={link} />
-                <NewsItem.Date date={date} />
-                <NewsItem.Excerpt excerpt={excerpt} />
-              </NewsItem.Content>
-            </NewsItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, image, date, excerpt }) => (
+          <NewsItem key={id}>
+            <NewsItem.Image image={image} />
+            <NewsItem.Content>
+              <NewsItem.Title title={title} link={link} />
+              <NewsItem.Date date={date} />
+              <NewsItem.Excerpt excerpt={excerpt} />
+            </NewsItem.Content>
+          </NewsItem>
+        ))}
       </Panel>
     </Column>
   </Container>
@@ -72,18 +69,16 @@ const StackedListPanelTitleTemplate: Story<NewsItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="News listing" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, image, date, excerpt }) => (
-            <NewsItem key={id}>
-              <NewsItem.Image image={image} />
-              <NewsItem.Content>
-                <NewsItem.Title title={title} link={link} />
-                <NewsItem.Date date={date} />
-                <NewsItem.Excerpt excerpt={excerpt} />
-              </NewsItem.Content>
-            </NewsItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, image, date, excerpt }) => (
+          <NewsItem key={id}>
+            <NewsItem.Image image={image} />
+            <NewsItem.Content>
+              <NewsItem.Title title={title} link={link} />
+              <NewsItem.Date date={date} />
+              <NewsItem.Excerpt excerpt={excerpt} />
+            </NewsItem.Content>
+          </NewsItem>
+        ))}
       </Panel>
     </Column>
   </Container>

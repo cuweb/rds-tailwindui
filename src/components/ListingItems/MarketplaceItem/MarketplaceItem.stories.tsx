@@ -4,7 +4,6 @@ import { MarketplaceItem, MarketplaceItemProps } from './MarketplaceItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { MarketplaceItemData as data } from './MarketplaceItemData';
 
 export default {
@@ -66,20 +65,18 @@ const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(
-            ({ id, title, link, image, alt, condition, cost, category }) => (
-              <MarketplaceItem key={id}>
-                <MarketplaceItem.Image image={image} alt={alt} />
-                <MarketplaceItem.Content>
-                  <MarketplaceItem.Title title={title} link={link} />
-                  <MarketplaceItem.Details condition={condition} cost={cost} />
-                  <MarketplaceItem.Category category={category} />
-                </MarketplaceItem.Content>
-              </MarketplaceItem>
-            )
-          )}
-        </StackedList>
+        {data.map(
+          ({ id, title, link, image, alt, condition, cost, category }) => (
+            <MarketplaceItem key={id}>
+              <MarketplaceItem.Image image={image} alt={alt} />
+              <MarketplaceItem.Content>
+                <MarketplaceItem.Title title={title} link={link} />
+                <MarketplaceItem.Details condition={condition} cost={cost} />
+                <MarketplaceItem.Category category={category} />
+              </MarketplaceItem.Content>
+            </MarketplaceItem>
+          )
+        )}
       </Panel>
     </Column>
   </Container>
@@ -89,20 +86,18 @@ const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="Marketplace listing" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(
-            ({ id, title, link, image, alt, condition, cost, category }) => (
-              <MarketplaceItem key={id}>
-                <MarketplaceItem.Image image={image} alt={alt} />
-                <MarketplaceItem.Content>
-                  <MarketplaceItem.Title title={title} link={link} />
-                  <MarketplaceItem.Details condition={condition} cost={cost} />
-                  <MarketplaceItem.Category category={category} />
-                </MarketplaceItem.Content>
-              </MarketplaceItem>
-            )
-          )}
-        </StackedList>
+        {data.map(
+          ({ id, title, link, image, alt, condition, cost, category }) => (
+            <MarketplaceItem key={id}>
+              <MarketplaceItem.Image image={image} alt={alt} />
+              <MarketplaceItem.Content>
+                <MarketplaceItem.Title title={title} link={link} />
+                <MarketplaceItem.Details condition={condition} cost={cost} />
+                <MarketplaceItem.Category category={category} />
+              </MarketplaceItem.Content>
+            </MarketplaceItem>
+          )
+        )}
       </Panel>
     </Column>
   </Container>

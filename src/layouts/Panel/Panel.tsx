@@ -35,9 +35,7 @@ export const Panel = ({
   return (
     <div className={`${styles.wrapper} ${borderStyle} ${shadowStyle}`}>
       {header && <h2 className={`${styles.title}`}>Test</h2>}
-      <div className={`grid overflow-hidden md:grid-cols-1 ${gridColumns}`}>
-        {children}
-      </div>
+      <div className={`grid overflow-hidden ${gridColumns}`}>{children}</div>
     </div>
   );
 };

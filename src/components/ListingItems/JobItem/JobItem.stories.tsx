@@ -4,7 +4,6 @@ import { JobItem, JobItemProps } from './JobItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { JobItemData as data } from './JobItemData';
 
 export default {
@@ -47,16 +46,14 @@ const StackedListPanelTemplate: Story<JobItemProps> = () => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, dateData, date }) => (
-            <JobItem key={id}>
-              <JobItem.Content>
-                <JobItem.Title title={title} link={link} />
-                <JobItem.Details dateData={dateData} date={date} />
-              </JobItem.Content>
-            </JobItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, dateData, date }) => (
+          <JobItem key={id}>
+            <JobItem.Content>
+              <JobItem.Title title={title} link={link} />
+              <JobItem.Details dateData={dateData} date={date} />
+            </JobItem.Content>
+          </JobItem>
+        ))}
       </Panel>
     </Column>
   </Container>
@@ -66,16 +63,14 @@ const StackedListPanelTitleTemplate: Story<JobItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="Job listings" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, dateData, date }) => (
-            <JobItem key={id}>
-              <JobItem.Content>
-                <JobItem.Title title={title} link={link} />
-                <JobItem.Details dateData={dateData} date={date} />
-              </JobItem.Content>
-            </JobItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, dateData, date }) => (
+          <JobItem key={id}>
+            <JobItem.Content>
+              <JobItem.Title title={title} link={link} />
+              <JobItem.Details dateData={dateData} date={date} />
+            </JobItem.Content>
+          </JobItem>
+        ))}
       </Panel>
     </Column>
   </Container>

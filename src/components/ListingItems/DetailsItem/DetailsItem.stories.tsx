@@ -4,7 +4,6 @@ import { DetailsItem, DetailsItemProps } from './DetailsItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { DetailsItemData as data } from './DetailsItemData';
 
 export default {
@@ -44,17 +43,15 @@ const StackedListPanelTemplate: Story<DetailsItemProps> = () => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ title, description, icon }) => (
-            <DetailsItem key={title}>
-              <DetailsItem.Icon icon={icon} />
-              <DetailsItem.Content>
-                <DetailsItem.Title title={title} />
-                <DetailsItem.Description description={description} />
-              </DetailsItem.Content>
-            </DetailsItem>
-          ))}
-        </StackedList>
+        {data.map(({ title, description, icon }) => (
+          <DetailsItem key={title}>
+            <DetailsItem.Icon icon={icon} />
+            <DetailsItem.Content>
+              <DetailsItem.Title title={title} />
+              <DetailsItem.Description description={description} />
+            </DetailsItem.Content>
+          </DetailsItem>
+        ))}
       </Panel>
     </Column>
   </Container>
@@ -64,17 +61,15 @@ const StackedListPanelTitleTemplate: Story<DetailsItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="Details listing" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ title, description, icon }) => (
-            <DetailsItem key={title}>
-              <DetailsItem.Icon icon={icon} />
-              <DetailsItem.Content>
-                <DetailsItem.Title title={title} />
-                <DetailsItem.Description description={description} />
-              </DetailsItem.Content>
-            </DetailsItem>
-          ))}
-        </StackedList>
+        {data.map(({ title, description, icon }) => (
+          <DetailsItem key={title}>
+            <DetailsItem.Icon icon={icon} />
+            <DetailsItem.Content>
+              <DetailsItem.Title title={title} />
+              <DetailsItem.Description description={description} />
+            </DetailsItem.Content>
+          </DetailsItem>
+        ))}
       </Panel>
     </Column>
   </Container>

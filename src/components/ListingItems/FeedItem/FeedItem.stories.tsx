@@ -4,7 +4,6 @@ import { FeedItem, FeedItemProps } from './FeedItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { Panel } from '../../../layouts/Panel';
-import { StackedList } from '../../../layouts/StackedList';
 import { FeedItemData as data } from './FeedItemData';
 
 export default {
@@ -51,18 +50,16 @@ const StackedListPanelTemplate: Story<FeedItemProps> = () => (
   <Container>
     <Column maxWidth="5xl">
       <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, date, excerpt, category }) => (
-            <FeedItem key={id}>
-              <FeedItem.Content>
-                <FeedItem.Title title={title} link={link} />
-                <FeedItem.Date date={date} />
-                <FeedItem.Excerpt excerpt={excerpt} />
-                <FeedItem.Category category={category} />
-              </FeedItem.Content>
-            </FeedItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, date, excerpt, category }) => (
+          <FeedItem key={id}>
+            <FeedItem.Content>
+              <FeedItem.Title title={title} link={link} />
+              <FeedItem.Date date={date} />
+              <FeedItem.Excerpt excerpt={excerpt} />
+              <FeedItem.Category category={category} />
+            </FeedItem.Content>
+          </FeedItem>
+        ))}
       </Panel>
     </Column>
   </Container>
@@ -72,18 +69,16 @@ const StackedListPanelTitleTemplate: Story<FeedItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="News feed listing" hasBorder hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, date, excerpt, category }) => (
-            <FeedItem key={id}>
-              <FeedItem.Content>
-                <FeedItem.Title title={title} link={link} />
-                <FeedItem.Date date={date} />
-                <FeedItem.Excerpt excerpt={excerpt} />
-                <FeedItem.Category category={category} />
-              </FeedItem.Content>
-            </FeedItem>
-          ))}
-        </StackedList>
+        {data.map(({ id, title, link, date, excerpt, category }) => (
+          <FeedItem key={id}>
+            <FeedItem.Content>
+              <FeedItem.Title title={title} link={link} />
+              <FeedItem.Date date={date} />
+              <FeedItem.Excerpt excerpt={excerpt} />
+              <FeedItem.Category category={category} />
+            </FeedItem.Content>
+          </FeedItem>
+        ))}
       </Panel>
     </Column>
   </Container>
