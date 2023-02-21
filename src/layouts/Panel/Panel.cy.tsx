@@ -34,11 +34,5 @@ describe('Panel', () => {
       .and('have.class', 'shadow-lg');
     cy.get('p').should('exist');
   });
-  // Panel with Title
-  it('Panel with Title', () => {
-    cy.visit('/iframe.html?id=layouts-panel--with-title');
-    cy.get('div').should('have.class', 'cu-panel');
-    cy.get('h2').contains('Panel Title');
-  });
 });
 export {};

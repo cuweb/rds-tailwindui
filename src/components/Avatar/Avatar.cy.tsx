@@ -1,26 +1,26 @@
 describe('Avatar', () => {
   it(`Should render Avatar Image`, () => {
-    cy.visit(`/iframe.html?id=components-elements-avatar--default`);
+    cy.visit(`/iframe.html?id=components-avatar--default`);
     cy.get(`img`).should('exist');
   });
 
   it(`Should render rounded Avatar`, () => {
-    cy.visit(`/iframe.html?id=components-elements-avatar--rounded`);
+    cy.visit(`/iframe.html?id=components-avatar--rounded`);
     cy.get(`.rounded-lg`).should('exist');
   });
 
   // it(`Should render no border`, () => {
-  //   cy.visit(`/iframe.html?id=components-elements-avatar--rounded-no-border`);
+  //   cy.visit(`/iframe.html?id=components-avatar--rounded-no-border`);
   //   cy.get(`.ring-2`).should('not.exist');
   // });
 
   it(`Should render Initial for No Image `, () => {
-    cy.visit(`/iframe.html?id=components-elements-avatar--no-image`);
+    cy.visit(`/iframe.html?id=components-avatar--no-image`);
     cy.get(`div`).contains('DB');
   });
 
   it(`Should render all the sizes`, () => {
-    cy.visit(`/iframe.html?id=components-elements-avatar--sizes`);
+    cy.visit(`/iframe.html?id=components-avatar--sizes`);
     cy.get(`.text-xs`).should('exist');
     cy.get(`.text-base`).should('exist');
     cy.get(`.text-lg`).should('exist');
@@ -29,7 +29,7 @@ describe('Avatar', () => {
   });
 
   it(`Should render alert when Clicked -- Handle Click `, () => {
-    cy.visit(`/iframe.html?id=components-elements-avatar--default`);
+    cy.visit(`/iframe.html?id=components-avatar--default`);
     cy.get('[alt="Avatar of Danny Brown"]').click();
     cy.on('window:alert', str => {
       expect(str).to.contains(`I am an alert`);

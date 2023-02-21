@@ -1,7 +1,7 @@
 // UPDATE IFRAME URL
 describe('Check Table Render', () => {
   beforeEach(() => {
-    cy.visit('/iframe.html?id=components-elements-table--default');
+    cy.visit('/iframe.html?id=components-table--default');
   });
 
   it('Does table exist', () => {
@@ -23,7 +23,7 @@ describe('Check Table Render', () => {
 
 describe('Check if sorting works', () => {
   beforeEach(() => {
-    cy.visit(`/iframe.html?id=components-elements-table--default`);
+    cy.visit(`/iframe.html?id=components-table--default`);
   });
 
   it('Test Column Sort', () => {

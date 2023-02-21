@@ -1,13 +1,13 @@
 describe('Alert', () => {
   it(`Should render Default Alert`, () => {
-    cy.visit(`/iframe.html?id=components-notifications-alert--default`);
+    cy.visit(`/iframe.html?id=components-alert--default`);
     cy.get(`h3`).contains('Success');
     cy.get(`button`).should('exist');
     cy.get(`.bg-green-50`).should('exist');
   });
 
   it(`Should render Multi Line Alert `, () => {
-    cy.visit(`/iframe.html?id=components-notifications-alert--multiline`);
+    cy.visit(`/iframe.html?id=components-alert--multiline`);
     cy.get(`h3`).contains('Success');
     cy.get(`button`).should('exist');
     cy.get(`.bg-green-50`).should('exist');
@@ -15,7 +15,7 @@ describe('Alert', () => {
   });
 
   it(`Should render Stacked Alert `, () => {
-    cy.visit(`/iframe.html?id=components-notifications-alert--stacked`);
+    cy.visit(`/iframe.html?id=components-alert--stacked`);
     cy.get('div')
       .should('have.class', 'w-full')
       .and('have.class', 'space-y-4')

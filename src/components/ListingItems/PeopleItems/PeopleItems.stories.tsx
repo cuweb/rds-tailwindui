@@ -1,9 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { PeopleItems, PeopleItemsProps } from './PeopleItems';
-import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
-import { Panel } from '../../../layouts/Panel';
 import { StackedList } from '../../../layouts/StackedList';
 import { PeopleItemsData as data } from './PeopleItemsData';
 
@@ -21,129 +19,87 @@ export default {
   },
 } as Meta<typeof PeopleItems>;
 
-const styles = {
-  twoColBorder: `[&>*]:border-t [&>*]:border-cu-black-100 first:[&>*]:border-t-0 md:odd:[&>*]:border-r md:[&>*:nth-child(2)]:border-t-0`,
-};
-
 const DefaultTemplate: Story<PeopleItemsProps> = args => (
   <PeopleItems {...args} />
 );
 
-// const SingleItemPanelTemplate: Story<PeopleItemsProps> = args => (
-//   <Column maxWidth="5xl">
-//     <Panel hasBorder>
-//       <PeopleItems as="div" link={args.link}>
-//         <PeopleItems.Image image={args.image} />
-//         <PeopleItems.Content>
-//           <PeopleItems.Title title={args.title} link={args.link} />
-//           <PeopleItems.Date date={args.date} />
-//           <PeopleItems.Excerpt excerpt={args.excerpt} />
-//         </PeopleItems.Content>
-//       </PeopleItems>
-//     </Panel>
-//   </Column>
-// );
-
-const StackedListPanelTemplate: Story<PeopleItemsProps> = () => (
-  <Container>
-    <Column maxWidth="5xl">
-      <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(
-            ({
-              id,
-              firstName,
-              lastName,
-              email,
-              tags,
-              profileImage,
-              jobTitle,
-              phoneNumber,
-              link,
-              alt,
-            }) => (
-              <div key={id}>
-                <PeopleItems
-                  firstName={firstName}
-                  lastName={lastName}
-                  email={email}
-                  tags={tags}
-                  profileImage={profileImage}
-                  jobTitle={jobTitle}
-                  phoneNumber={phoneNumber}
-                  link={link}
-                  alt={alt}
-                />
-              </div>
-            )
-          )}
-        </StackedList>
-      </Panel>
-    </Column>
-  </Container>
+const SingleItemStackedListTemplate: Story<PeopleItemsProps> = args => (
+  <Column maxWidth="5xl">
+    <StackedList hasBorder>
+      <PeopleItems {...args} />
+    </StackedList>
+  </Column>
 );
 
-const StackedListTwoColumnTemplate: Story<PeopleItemsProps> = () => (
-  <Container>
-    <Column maxWidth="5xl">
-      <Panel hasShadow>
-        <div
-          className={`grid overflow-hidden md:grid-cols-2 ${styles.twoColBorder}`}
-        >
-          {data.map(
-            ({
-              id,
-              firstName,
-              lastName,
-              email,
-              tags,
-              profileImage,
-              jobTitle,
-              phoneNumber,
-              link,
-              alt,
-            }) => (
-              <div key={id}>
-                <PeopleItems
-                  firstName={firstName}
-                  lastName={lastName}
-                  email={email}
-                  tags={tags}
-                  profileImage={profileImage}
-                  jobTitle={jobTitle}
-                  phoneNumber={phoneNumber}
-                  link={link}
-                  alt={alt}
-                />
-              </div>
-            )
-          )}
-        </div>
-      </Panel>
-    </Column>
-  </Container>
+const SingleColListStackedListTemplate: Story<PeopleItemsProps> = () => (
+  <Column maxWidth="5xl">
+    <StackedList hasBorder>
+      {data.map(
+        ({
+          id,
+          firstName,
+          lastName,
+          email,
+          tags,
+          profileImage,
+          jobTitle,
+          phoneNumber,
+          link,
+          alt,
+        }) => (
+          <div key={id}>
+            <PeopleItems
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+              tags={tags}
+              profileImage={profileImage}
+              jobTitle={jobTitle}
+              phoneNumber={phoneNumber}
+              link={link}
+              alt={alt}
+            />
+          </div>
+        )
+      )}
+    </StackedList>
+  </Column>
 );
-// const StackedListPanelTitleTemplate: Story<PeopleItemsProps> = () => (
-//   <Container bgColor="grey">
-//     <Column maxWidth="5xl">
-//       <Panel hasBorder hasShadow>
-//         <Panel.Title>News listing</Panel.Title>
-//         <StackedList hasDividers>
-//           {data.map(({ id, title, link, image, date, excerpt }) => (
-//             <PeopleItems key={id}>
-//               <PeopleItems.Image image={image} />
-//               <PeopleItems.Content>
-//                 <PeopleItems.Title title={title} link={link} />
-//                 <PeopleItems.Date date={date} />
-//                 <PeopleItems.Excerpt excerpt={excerpt} />
-//               </PeopleItems.Content>
-//             </PeopleItems>
-//           ))}
-//         </StackedList>
-//       </Panel>
-//     </Column>
-//   </Container>
-// );
+
+const DoubleColListStackedListTemplate: Story<PeopleItemsProps> = () => (
+  <Column maxWidth="5xl">
+    <StackedList cols="2" hasBorder hasShadow>
+      {data.map(
+        ({
+          id,
+          firstName,
+          lastName,
+          email,
+          tags,
+          profileImage,
+          jobTitle,
+          phoneNumber,
+          link,
+          alt,
+        }) => (
+          <div key={id}>
+            <PeopleItems
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
+              tags={tags}
+              profileImage={profileImage}
+              jobTitle={jobTitle}
+              phoneNumber={phoneNumber}
+              link={link}
+              alt={alt}
+            />
+          </div>
+        )
+      )}
+    </StackedList>
+  </Column>
+);
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
@@ -172,8 +128,8 @@ Default.args = {
   alt: 'Image alt tag',
 };
 
-export const NoImage = DefaultTemplate.bind({});
-NoImage.args = {
+export const SingleItemStackedList = SingleItemStackedListTemplate.bind({});
+SingleItemStackedList.args = {
   firstName: 'Carleton',
   lastName: 'Banks',
   email: 'george.hadjisophocleous@carleton.ca',
@@ -196,23 +152,21 @@ NoImage.args = {
   link: '#',
 };
 
-export const StackedListTwoColumn = StackedListTwoColumnTemplate.bind({});
-StackedListTwoColumn.args = {
+export const SingleColListStackedList = SingleColListStackedListTemplate.bind(
+  {}
+);
+SingleColListStackedList.args = {
   ...Default.args,
 };
 
-export const StackedListPanel = StackedListPanelTemplate.bind({});
-StackedListPanel.args = {
+export const DoubleColListStackedList = DoubleColListStackedListTemplate.bind(
+  {}
+);
+DoubleColListStackedList.args = {
   ...Default.args,
 };
-
-// export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
-// StackedListPanelTitle.args = {
-//   ...Default.args,
-// };
 
 Default.storyName = 'Default item';
-NoImage.storyName = ' No People Image Item';
-StackedListPanel.storyName = 'List w/shadow';
-StackedListTwoColumn.storyName = 'Two Column Listing ';
-// StackedListPanelTitle.storyName = 'List w/title';
+SingleItemStackedList.storyName = 'Item in panel';
+SingleColListStackedList.storyName = 'Single column list';
+DoubleColListStackedList.storyName = 'Double column list';
