@@ -123,11 +123,11 @@ const StackedListTwoColumnTemplate: Story<PeopleItemsProps> = () => (
     </Column>
   </Container>
 );
+
 // const StackedListPanelTitleTemplate: Story<PeopleItemsProps> = () => (
 //   <Container bgColor="grey">
 //     <Column maxWidth="5xl">
-//       <Panel hasBorder hasShadow>
-//         <Panel.Title>News listing</Panel.Title>
+//       <Panel header="People listing" hasBorder hasShadow>
 //         <StackedList hasDividers>
 //           {data.map(({ id, title, link, image, date, excerpt }) => (
 //             <PeopleItems key={id}>

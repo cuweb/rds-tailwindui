@@ -65,8 +65,7 @@ const StackedListPanelTemplate: Story<JobItemProps> = () => (
 const StackedListPanelTitleTemplate: Story<JobItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Job listing</Panel.Title>
+      <Panel header="Job listings" hasBorder hasShadow>
         <StackedList hasDividers>
           {data.map(({ id, title, link, dateData, date }) => (
             <JobItem key={id}>

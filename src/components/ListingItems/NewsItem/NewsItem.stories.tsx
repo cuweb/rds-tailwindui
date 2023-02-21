@@ -71,8 +71,7 @@ const StackedListPanelTemplate: Story<NewsItemProps> = () => (
 const StackedListPanelTitleTemplate: Story<NewsItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>News listing</Panel.Title>
+      <Panel header="News listing" hasBorder hasShadow>
         <StackedList hasDividers>
           {data.map(({ id, title, link, image, date, excerpt }) => (
             <NewsItem key={id}>

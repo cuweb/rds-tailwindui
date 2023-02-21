@@ -1,37 +1,43 @@
 import React from 'react';
 
 const styles = {
-  panel: `cu-panel not-prose rounded-lg bg-white [&+.cu-panel]:mt-8 overflow-hidden`,
+  wrapper: `cu-panel not-prose overflow-hidden rounded-lg bg-white`,
+  title: `px-6 py-4 text-base md:text-xl font-semibold border-b rounded-t-lg bg-gray-50 text-cu-black-800`,
+  grid: `grid overflow-hidden`,
   border: `border border-cu-black-100`,
   shadow: `shadow-lg`,
-  title: `px-6 py-4 text-base font-bold border-b rounded-t-lg bg-gray-50 text-cu-black-900`,
+};
+
+const gridStyles = {
+  oneCol: `md:grid-cols-1 [&>*]:border-cu-cu-black-100 [&>*]:border-b last:[&>*]:border-b-0`,
+  twoCol: `md:grid-cols-2 [&>*]:border-t [&>*]:border-cu-black-100 first:[&>*]:border-t-0 md:odd:[&>*]:border-r md:[&>*:nth-child(2)]:border-t-0`,
 };
 
 export interface PanelProps {
   children: React.ReactNode;
+  cols?: '1' | '2';
+  header?: string;
   hasBorder?: boolean;
   hasShadow?: boolean;
-  hasGap?: boolean;
 }
 
-const PanelBase = ({ children, hasBorder, hasShadow }: PanelProps) => {
+export const Panel = ({
+  children,
+  cols = '1',
+  header,
+  hasBorder,
+  hasShadow,
+}: PanelProps) => {
   const borderStyle = hasBorder ? styles.border : '';
   const shadowStyle = hasShadow ? styles.shadow : '';
+  const gridColumns = cols === '1' ? gridStyles.oneCol : gridStyles.twoCol;
 
   return (
-    <div className={`${styles.panel} ${borderStyle} ${shadowStyle}`}>
-      {children}
+    <div className={`${styles.wrapper} ${borderStyle} ${shadowStyle}`}>
+      {header && <h2 className={`${styles.title}`}>Test</h2>}
+      <div className={`grid overflow-hidden md:grid-cols-1 ${gridColumns}`}>
+        {children}
+      </div>
     </div>
   );
 };
-
-const Title = ({ children }: any) => {
-  return <h2 className={`${styles.title}`}>{children}</h2>;
-};
-
-PanelBase.displayName = 'Panel';
-Title.displayName = 'Panel.Title';
-
-export const Panel = Object.assign(PanelBase, {
-  Title,
-});

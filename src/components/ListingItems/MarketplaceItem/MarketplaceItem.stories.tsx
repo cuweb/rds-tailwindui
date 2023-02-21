@@ -88,8 +88,7 @@ const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
 const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Marketplace listing</Panel.Title>
+      <Panel header="Marketplace listing" hasBorder hasShadow>
         <StackedList hasDividers>
           {data.map(
             ({ id, title, link, image, alt, condition, cost, category }) => (

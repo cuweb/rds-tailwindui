@@ -62,8 +62,7 @@ const StackedListPanelTemplate: Story<LinkItemProps> = () => (
 const StackedListPanelTitleTemplate: Story<LinkItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Link listing</Panel.Title>
+      <Panel header="Link listing" hasBorder hasShadow>
         <StackedList hasDividers>
           {data.map(({ id, title, link }) => (
             <LinkItem key={id}>

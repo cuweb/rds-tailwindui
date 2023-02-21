@@ -63,8 +63,7 @@ const StackedListPanelTemplate: Story<DetailsItemProps> = () => (
 const StackedListPanelTitleTemplate: Story<DetailsItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Details listing</Panel.Title>
+      <Panel header="Details listing" hasBorder hasShadow>
         <StackedList hasDividers>
           {data.map(({ title, description, icon }) => (
             <DetailsItem key={title}>

@@ -86,8 +86,7 @@ const StackedListPanelTemplate: Story<EventItemProps> = args => (
 const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Event listing</Panel.Title>
+      <Panel header="Event listing" hasBorder hasShadow>
         <StackedList hasDividers>
           {data.map(() => (
             <EventItem
