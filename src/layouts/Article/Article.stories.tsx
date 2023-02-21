@@ -37,7 +37,8 @@ const DefaultTemplate: Story<ArticleProps> = args => (
           donec est. Odio penatibus risus viverra tellus varius sit neque erat
           velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
           risus enim.
-          <a href="#">Mattis mauris semper</a> sed amet vitae sed turpis id.
+          <a href="https://carleton.ca">Mattis mauris semper</a> sed amet vitae
+          sed turpis id.
         </p>
 
         <img
@@ -88,12 +89,13 @@ const DefaultTemplate: Story<ArticleProps> = args => (
 
         <h4>H4 Heading</h4>
         <p>
-          Purus morbi dignissim senectus mattis <a href="#">adipiscing</a>.
-          Amet, massa quam varius orci dapibus volutpat cras. In amet eu
-          ridiculus leo sodales cursus tristique. Tincidunt sed tempus ut
-          viverra ridiculus non molestie. Gravida quis fringilla amet eget dui
-          tempor dignissim. Facilisis auctor venenatis varius nunc, congue erat
-          ac. Cras fermentum convallis quam.
+          Purus morbi dignissim senectus mattis{' '}
+          <a href="https://carleton.ca">adipiscing</a>. Amet, massa quam varius
+          orci dapibus volutpat cras. In amet eu ridiculus leo sodales cursus
+          tristique. Tincidunt sed tempus ut viverra ridiculus non molestie.
+          Gravida quis fringilla amet eget dui tempor dignissim. Facilisis
+          auctor venenatis varius nunc, congue erat ac. Cras fermentum convallis
+          quam.
         </p>
 
         <p>
