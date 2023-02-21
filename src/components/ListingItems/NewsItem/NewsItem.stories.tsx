@@ -4,7 +4,7 @@ import { NewsItem, NewsItemProps } from './NewsItem';
 // import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { StackedList } from '../../../layouts/StackedList';
-// import { NewsItemData as data } from './NewsItemData';
+import { NewsItemData as data } from './NewsItemData';
 
 export default {
   title: 'Cards & Lists/News/List Item',
@@ -22,7 +22,7 @@ export default {
 
 const DefaultTemplate: Story<NewsItemProps> = args => <NewsItem {...args} />;
 
-const SingleItemStackedListTemplate: Story<NewsItemProps> = args => (
+const SingleItemListTemplate: Story<NewsItemProps> = args => (
   <Column maxWidth="5xl">
     <StackedList hasBorder>
       <NewsItem {...args} />
@@ -30,39 +30,41 @@ const SingleItemStackedListTemplate: Story<NewsItemProps> = args => (
   </Column>
 );
 
-// const SingleItemListTemplate: Story<NewsItemProps> = args => (
-//   <Column maxWidth="5xl">
-//     <StackedList hasBorder>
-//       <NewsItem as="div" link={args.link}>
-//         <NewsItem.Image image={args.image} />
-//         <NewsItem.Content>
-//           <NewsItem.Title title={args.title} link={args.link} />
-//           <NewsItem.Date date={args.date} />
-//           <NewsItem.Excerpt excerpt={args.excerpt} />
-//         </NewsItem.Content>
-//       </NewsItem>
-//     </StackedList>
-//   </Column>
-// );
+const MultiItemListTemplate: Story<NewsItemProps> = () => (
+  <Column maxWidth="5xl">
+    <StackedList header="News listing" hasBorder hasShadow>
+      {data.map(({ id, title, link, image, alt, date, excerpt }) => (
+        <NewsItem
+          key={id}
+          image={image}
+          alt={alt}
+          title={title}
+          link={link}
+          date={date}
+          excerpt={excerpt}
+        />
+      ))}
+    </StackedList>
+  </Column>
+);
 
-// const MultiItemListTemplate: Story<NewsItemProps> = () => (
-//   <Container bgColor="grey">
-//     <Column maxWidth="5xl">
-//       <StackedList header="News listing" hasBorder hasShadow>
-//         {data.map(({ id, title, link, image, date, excerpt }) => (
-//           <NewsItem key={id}>
-//             <NewsItem.Image image={image} />
-//             <NewsItem.Content>
-//               <NewsItem.Title title={title} link={link} />
-//               <NewsItem.Date date={date} />
-//               <NewsItem.Excerpt excerpt={excerpt} />
-//             </NewsItem.Content>
-//           </NewsItem>
-//         ))}
-//       </StackedList>
-//     </Column>
-//   </Container>
-// );
+const MultiItemColumnsTemplate: Story<NewsItemProps> = () => (
+  <Column maxWidth="5xl">
+    <StackedList header="News listing" cols="2" hasBorder hasShadow>
+      {data.map(({ id, title, link, image, alt, date, excerpt }) => (
+        <NewsItem
+          key={id}
+          image={image}
+          alt={alt}
+          title={title}
+          link={link}
+          date={date}
+          excerpt={excerpt}
+        />
+      ))}
+    </StackedList>
+  </Column>
+);
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
@@ -89,16 +91,22 @@ Default.args = {
   },
 };
 
-// export const SingleItemList = SingleItemListTemplate.bind({});
-// SingleItemList.args = {
-//   ...Default.args,
-// };
+export const SingleItemList = SingleItemListTemplate.bind({});
+SingleItemList.args = {
+  ...Default.args,
+};
 
-// export const MultiItemList = MultiItemListTemplate.bind({});
-// MultiItemList.args = {
-//   ...Default.args,
-// };
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
+  ...Default.args,
+};
+
+export const MultiItemColumns = MultiItemColumnsTemplate.bind({});
+MultiItemColumns.args = {
+  ...Default.args,
+};
 
 Default.storyName = 'Default item';
-// SingleItemList.storyName = 'Single item list';
-// MultiItemList.storyName = 'Multi item list';
+SingleItemList.storyName = 'Single item list';
+MultiItemList.storyName = 'Multi item list';
+MultiItemColumns.storyName = 'Multi item columns';

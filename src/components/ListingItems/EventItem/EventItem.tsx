@@ -113,7 +113,7 @@ export const EventItem = ({
     <Component className="not-prose group relative @container">
       <Link
         href={link}
-        className="group relative flex cursor-pointer flex-col gap-6 bg-white p-6 hover:bg-slate-50 focus:outline-none @xl:md:flex-row @2xl:lg:gap-8"
+        className="h-full group relative flex cursor-pointer flex-col gap-6 bg-white p-6 hover:bg-slate-50 focus:outline-none @xl:md:flex-row @2xl:lg:gap-8"
       >
         <div className="hidden md:block relative max-w-[40%]">
           <img
@@ -136,7 +136,7 @@ export const EventItem = ({
             {title}
           </h3>
 
-          <ul className="flex flex-col flex-wrap gap-2 md:flex-row @lg:md:flex-col">
+          <ul className="flex flex-col flex-wrap gap-2">
             <li className="flex items-center text-sm text-cu-black-700 @2xl:lg:text-base">
               {multiDayDisplay()}
               {isEventSameDay

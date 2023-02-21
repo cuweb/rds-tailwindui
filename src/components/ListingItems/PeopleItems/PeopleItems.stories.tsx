@@ -23,7 +23,7 @@ const DefaultTemplate: Story<PeopleItemsProps> = args => (
   <PeopleItems {...args} />
 );
 
-const SingleItemStackedListTemplate: Story<PeopleItemsProps> = args => (
+const SingleItemListTemplate: Story<PeopleItemsProps> = args => (
   <Column maxWidth="5xl">
     <StackedList hasBorder>
       <PeopleItems {...args} />
@@ -31,7 +31,7 @@ const SingleItemStackedListTemplate: Story<PeopleItemsProps> = args => (
   </Column>
 );
 
-const SingleColListStackedListTemplate: Story<PeopleItemsProps> = () => (
+const MultiItemListTemplate: Story<PeopleItemsProps> = () => (
   <Column maxWidth="5xl">
     <StackedList hasBorder>
       {data.map(
@@ -66,7 +66,7 @@ const SingleColListStackedListTemplate: Story<PeopleItemsProps> = () => (
   </Column>
 );
 
-const DoubleColListStackedListTemplate: Story<PeopleItemsProps> = () => (
+const MultiItemColumnsTemplate: Story<PeopleItemsProps> = () => (
   <Column maxWidth="5xl">
     <StackedList cols="2" hasBorder hasShadow>
       {data.map(
@@ -128,8 +128,8 @@ Default.args = {
   alt: 'Image alt tag',
 };
 
-export const SingleItemStackedList = SingleItemStackedListTemplate.bind({});
-SingleItemStackedList.args = {
+export const SingleItemList = SingleItemListTemplate.bind({});
+SingleItemList.args = {
   firstName: 'Carleton',
   lastName: 'Banks',
   email: 'george.hadjisophocleous@carleton.ca',
@@ -152,21 +152,17 @@ SingleItemStackedList.args = {
   link: '#',
 };
 
-export const SingleColListStackedList = SingleColListStackedListTemplate.bind(
-  {}
-);
-SingleColListStackedList.args = {
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
   ...Default.args,
 };
 
-export const DoubleColListStackedList = DoubleColListStackedListTemplate.bind(
-  {}
-);
-DoubleColListStackedList.args = {
+export const MultiItemColumns = MultiItemColumnsTemplate.bind({});
+MultiItemColumns.args = {
   ...Default.args,
 };
 
 Default.storyName = 'Default item';
-SingleItemStackedList.storyName = 'Item in panel';
-SingleColListStackedList.storyName = 'Single column list';
-DoubleColListStackedList.storyName = 'Double column list';
+SingleItemList.storyName = 'Item in panel';
+MultiItemList.storyName = 'Single column list';
+MultiItemColumns.storyName = 'Double column list';
