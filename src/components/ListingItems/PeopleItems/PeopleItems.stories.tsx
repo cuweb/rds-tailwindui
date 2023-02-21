@@ -57,7 +57,7 @@ const StackedListPanelTemplate: Story<PeopleItemsProps> = () => (
               email,
               tags,
               profileImage,
-              designation,
+              jobTitle,
               phoneNumber,
               link,
               alt,
@@ -69,7 +69,7 @@ const StackedListPanelTemplate: Story<PeopleItemsProps> = () => (
                   email={email}
                   tags={tags}
                   profileImage={profileImage}
-                  designation={designation}
+                  jobTitle={jobTitle}
                   phoneNumber={phoneNumber}
                   link={link}
                   alt={alt}
@@ -98,7 +98,7 @@ const StackedListTwoColumnTemplate: Story<PeopleItemsProps> = () => (
               email,
               tags,
               profileImage,
-              designation,
+              jobTitle,
               phoneNumber,
               link,
               alt,
@@ -110,7 +110,7 @@ const StackedListTwoColumnTemplate: Story<PeopleItemsProps> = () => (
                   email={email}
                   tags={tags}
                   profileImage={profileImage}
-                  designation={designation}
+                  jobTitle={jobTitle}
                   phoneNumber={phoneNumber}
                   link={link}
                   alt={alt}
@@ -165,7 +165,7 @@ Default.args = {
       },
     ],
   },
-  designation: 'Manager',
+  jobTitle: 'Manager',
   link: '#',
   profileImage:
     'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
@@ -192,7 +192,7 @@ NoImage.args = {
       },
     ],
   },
-  designation: 'Manager',
+  jobTitle: 'Manager',
   link: '#',
 };
 

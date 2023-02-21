@@ -19,7 +19,7 @@ export const PeopleItemsData = [
         },
       ],
     },
-    designation: 'Manager',
+    jobTitle: 'Manager',
     link: '#',
     profileImage:
       'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
@@ -45,7 +45,7 @@ export const PeopleItemsData = [
         },
       ],
     },
-    designation: 'Manager',
+    jobTitle: 'Manager',
     link: '#',
     profileImage:
       'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
@@ -71,7 +71,7 @@ export const PeopleItemsData = [
         },
       ],
     },
-    designation: 'Manager',
+    jobTitle: 'Manager',
     link: '#',
     profileImage:
       'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
@@ -97,7 +97,7 @@ export const PeopleItemsData = [
         },
       ],
     },
-    designation: 'Manager',
+    jobTitle: 'Manager',
     link: '#',
     profileImage:
       'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
@@ -123,7 +123,7 @@ export const PeopleItemsData = [
         },
       ],
     },
-    designation: 'Manager',
+    jobTitle: 'Manager',
     link: '#',
     profileImage:
       'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
