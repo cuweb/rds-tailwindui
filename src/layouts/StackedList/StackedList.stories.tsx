@@ -33,43 +33,52 @@ const DefaultTemplate: Story<StackedListProps> = args => (
   </StackedList>
 );
 
-// const WithBorderTemplate: Story<StackedListProps> = args => (
-//   <StackedList hasBorder={args.hasBorder}>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </StackedList>
-// );
+const WithBorderTemplate: Story<StackedListProps> = args => (
+  <StackedList hasBorder={args.hasBorder}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </StackedList>
+);
 
-// const WithShadowTemplate: Story<StackedListProps> = args => (
-//   <StackedList hasShadow={args.hasShadow}>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </StackedList>
-// );
+const WithShadowTemplate: Story<StackedListProps> = args => (
+  <StackedList hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </StackedList>
+);
 
-// const ShadowAndBorderTemplate: Story<StackedListProps> = args => (
-//   <StackedList hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </StackedList>
-// );
+const ShadowAndBorderTemplate: Story<StackedListProps> = args => (
+  <StackedList hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </StackedList>
+);
 
-// const WithTitleTemplate: Story<StackedListProps> = args => (
-//   <StackedList hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//     <StackedList.Title>StackedList Title</StackedList.Title>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </StackedList>
-// );
+const WithTitleTemplate: Story<StackedListProps> = args => (
+  <StackedList
+    header="Stacked List Title"
+    hasBorder={args.hasBorder}
+    hasShadow={args.hasShadow}
+  >
+    <p className={content.spacing}>{content.paragraph}</p>
+  </StackedList>
+);
 
-// const ConsecutiveTemplate: Story<StackedListProps> = args => (
-//   <>
-//     <StackedList hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//       <StackedList.Title>StackedList Title</StackedList.Title>
-//       <p className={content.spacing}>{content.paragraph}</p>
-//     </StackedList>
-//     <StackedList hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//       <StackedList.Title>StackedList Title</StackedList.Title>
-//       <p className={content.spacing}>{content.paragraph}</p>
-//     </StackedList>
-//   </>
-// );
+const ConsecutiveTemplate: Story<StackedListProps> = args => (
+  <>
+    <StackedList
+      header="Stacked List Title"
+      hasBorder={args.hasBorder}
+      hasShadow={args.hasShadow}
+    >
+      <p className={content.spacing}>{content.paragraph}</p>
+    </StackedList>
+    <StackedList
+      header="Stacked List Title"
+      hasBorder={args.hasBorder}
+      hasShadow={args.hasShadow}
+    >
+      <p className={content.spacing}>{content.paragraph}</p>
+    </StackedList>
+  </>
+);
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
@@ -77,37 +86,37 @@ Default.args = {
   hasShadow: false,
 };
 
-// export const WithBorder = WithBorderTemplate.bind({});
-// WithBorder.args = {
-//   hasBorder: true,
-//   hasShadow: false,
-// };
+export const WithBorder = WithBorderTemplate.bind({});
+WithBorder.args = {
+  hasBorder: true,
+  hasShadow: false,
+};
 
-// export const WithShadow = WithShadowTemplate.bind({});
-// WithShadow.args = {
-//   hasBorder: false,
-//   hasShadow: true,
-// };
+export const WithShadow = WithShadowTemplate.bind({});
+WithShadow.args = {
+  hasBorder: false,
+  hasShadow: true,
+};
 
-// export const ShadowAndBorder = ShadowAndBorderTemplate.bind({});
-// ShadowAndBorder.args = {
-//   hasBorder: true,
-//   hasShadow: true,
-// };
+export const ShadowAndBorder = ShadowAndBorderTemplate.bind({});
+ShadowAndBorder.args = {
+  hasBorder: true,
+  hasShadow: true,
+};
 
-// export const WithTitle = WithTitleTemplate.bind({});
-// WithTitle.args = {
-//   ...ShadowAndBorder.args,
-// };
+export const WithTitle = WithTitleTemplate.bind({});
+WithTitle.args = {
+  ...ShadowAndBorder.args,
+};
 
-// export const Consecutive = ConsecutiveTemplate.bind({});
-// Consecutive.args = {
-//   ...ShadowAndBorder.args,
-// };
+export const Consecutive = ConsecutiveTemplate.bind({});
+Consecutive.args = {
+  ...ShadowAndBorder.args,
+};
 
 Default.storyName = 'Default item';
-// WithBorder.storyName = 'With border';
-// WithShadow.storyName = 'With shadow';
-// ShadowAndBorder.storyName = 'With border & shadow';
-// WithTitle.storyName = 'With a title';
-// Consecutive.storyName = 'Consecutive panels';
+WithBorder.storyName = 'With border';
+WithShadow.storyName = 'With shadow';
+ShadowAndBorder.storyName = 'With border & shadow';
+WithTitle.storyName = 'With a title';
+Consecutive.storyName = 'Consecutive panels';

@@ -33,43 +33,40 @@ const DefaultTemplate: Story<PanelProps> = args => (
   </Panel>
 );
 
-// const WithBorderTemplate: Story<PanelProps> = args => (
-//   <Panel hasBorder={args.hasBorder}>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </Panel>
-// );
+const WithBorderTemplate: Story<PanelProps> = args => (
+  <Panel hasBorder={args.hasBorder}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </Panel>
+);
 
-// const WithShadowTemplate: Story<PanelProps> = args => (
-//   <Panel hasShadow={args.hasShadow}>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </Panel>
-// );
+const WithShadowTemplate: Story<PanelProps> = args => (
+  <Panel hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </Panel>
+);
 
-// const ShadowAndBorderTemplate: Story<PanelProps> = args => (
-//   <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </Panel>
-// );
+const ShadowAndBorderTemplate: Story<PanelProps> = args => (
+  <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </Panel>
+);
 
-// const WithTitleTemplate: Story<PanelProps> = args => (
-//   <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//     <Panel.Title>Panel Title</Panel.Title>
-//     <p className={content.spacing}>{content.paragraph}</p>
-//   </Panel>
-// );
+const WithTitleTemplate: Story<PanelProps> = args => (
+  <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </Panel>
+);
 
-// const ConsecutiveTemplate: Story<PanelProps> = args => (
-//   <>
-//     <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//       <Panel.Title>Panel Title</Panel.Title>
-//       <p className={content.spacing}>{content.paragraph}</p>
-//     </Panel>
-//     <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
-//       <Panel.Title>Panel Title</Panel.Title>
-//       <p className={content.spacing}>{content.paragraph}</p>
-//     </Panel>
-//   </>
-// );
+const ConsecutiveTemplate: Story<PanelProps> = args => (
+  <>
+    <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+      <p className={content.spacing}>{content.paragraph}</p>
+    </Panel>
+    <Panel hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+      <p className={content.spacing}>{content.paragraph}</p>
+    </Panel>
+  </>
+);
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
@@ -77,37 +74,37 @@ Default.args = {
   hasShadow: false,
 };
 
-// export const WithBorder = WithBorderTemplate.bind({});
-// WithBorder.args = {
-//   hasBorder: true,
-//   hasShadow: false,
-// };
+export const WithBorder = WithBorderTemplate.bind({});
+WithBorder.args = {
+  hasBorder: true,
+  hasShadow: false,
+};
 
-// export const WithShadow = WithShadowTemplate.bind({});
-// WithShadow.args = {
-//   hasBorder: false,
-//   hasShadow: true,
-// };
+export const WithShadow = WithShadowTemplate.bind({});
+WithShadow.args = {
+  hasBorder: false,
+  hasShadow: true,
+};
 
-// export const ShadowAndBorder = ShadowAndBorderTemplate.bind({});
-// ShadowAndBorder.args = {
-//   hasBorder: true,
-//   hasShadow: true,
-// };
+export const ShadowAndBorder = ShadowAndBorderTemplate.bind({});
+ShadowAndBorder.args = {
+  hasBorder: true,
+  hasShadow: true,
+};
 
-// export const WithTitle = WithTitleTemplate.bind({});
-// WithTitle.args = {
-//   ...ShadowAndBorder.args,
-// };
+export const WithTitle = WithTitleTemplate.bind({});
+WithTitle.args = {
+  ...ShadowAndBorder.args,
+};
 
-// export const Consecutive = ConsecutiveTemplate.bind({});
-// Consecutive.args = {
-//   ...ShadowAndBorder.args,
-// };
+export const Consecutive = ConsecutiveTemplate.bind({});
+Consecutive.args = {
+  ...ShadowAndBorder.args,
+};
 
 Default.storyName = 'Default item';
-// WithBorder.storyName = 'With border';
-// WithShadow.storyName = 'With shadow';
-// ShadowAndBorder.storyName = 'With border & shadow';
-// WithTitle.storyName = 'With a title';
-// Consecutive.storyName = 'Consecutive panels';
+WithBorder.storyName = 'With border';
+WithShadow.storyName = 'With shadow';
+ShadowAndBorder.storyName = 'With border & shadow';
+WithTitle.storyName = 'With a title';
+Consecutive.storyName = 'Consecutive panels';
