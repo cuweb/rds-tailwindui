@@ -2,8 +2,8 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { NewsItem, NewsItemProps } from './NewsItem';
 // import { Container } from '../../../layouts/Container';
-// import { Column } from '../../../layouts/Column';
-// import { StackedList } from '../../../layouts/StackedList';
+import { Column } from '../../../layouts/Column';
+import { StackedList } from '../../../layouts/StackedList';
 // import { NewsItemData as data } from './NewsItemData';
 
 export default {
@@ -20,15 +20,14 @@ export default {
   },
 } as Meta<typeof NewsItem>;
 
-const DefaultTemplate: Story<NewsItemProps> = args => (
-  <NewsItem as="div" link={args.link}>
-    <NewsItem.Image image={args.image} />
-    <NewsItem.Content>
-      <NewsItem.Title title={args.title} link={args.link} />
-      <NewsItem.Date date={args.date} />
-      <NewsItem.Excerpt excerpt={args.excerpt} />
-    </NewsItem.Content>
-  </NewsItem>
+const DefaultTemplate: Story<NewsItemProps> = args => <NewsItem {...args} />;
+
+const SingleItemStackedListTemplate: Story<NewsItemProps> = args => (
+  <Column maxWidth="5xl">
+    <StackedList hasBorder>
+      <NewsItem {...args} />
+    </StackedList>
+  </Column>
 );
 
 // const SingleItemListTemplate: Story<NewsItemProps> = args => (
@@ -67,13 +66,27 @@ const DefaultTemplate: Story<NewsItemProps> = args => (
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  fontSize: 'base',
   title: 'News item title',
   link: 'https://carleton.ca',
   date: 'January 7, 2020',
   image: 'https://source.unsplash.com/random/400x300',
+  alt: 'This is the alt tag for the card image',
   excerpt:
     'Tenetur libero voluptatem rerum occaecati qui est molestiae exercitationem. Voluptate quisquam iure assumenda consequatur ex et recusandae.',
+  tags: {
+    category: [
+      {
+        id: 1,
+        name: 'Breaking News',
+        slug: 'breaking-news',
+      },
+      {
+        id: 2,
+        name: 'Headline',
+        slug: 'headline',
+      },
+    ],
+  },
 };
 
 // export const SingleItemList = SingleItemListTemplate.bind({});
