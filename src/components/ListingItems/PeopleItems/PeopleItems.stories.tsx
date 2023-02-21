@@ -47,19 +47,19 @@ const SingleColListStackedListTemplate: Story<PeopleItemsProps> = () => (
           link,
           alt,
         }) => (
-          <div key={id}>
-            <PeopleItems
-              firstName={firstName}
-              lastName={lastName}
-              email={email}
-              tags={tags}
-              profileImage={profileImage}
-              jobTitle={jobTitle}
-              phoneNumber={phoneNumber}
-              link={link}
-              alt={alt}
-            />
-          </div>
+          <PeopleItems
+            key={id}
+            as="li"
+            firstName={firstName}
+            lastName={lastName}
+            email={email}
+            tags={tags}
+            profileImage={profileImage}
+            jobTitle={jobTitle}
+            phoneNumber={phoneNumber}
+            link={link}
+            alt={alt}
+          />
         )
       )}
     </StackedList>
@@ -82,19 +82,19 @@ const DoubleColListStackedListTemplate: Story<PeopleItemsProps> = () => (
           link,
           alt,
         }) => (
-          <div key={id}>
-            <PeopleItems
-              firstName={firstName}
-              lastName={lastName}
-              email={email}
-              tags={tags}
-              profileImage={profileImage}
-              jobTitle={jobTitle}
-              phoneNumber={phoneNumber}
-              link={link}
-              alt={alt}
-            />
-          </div>
+          <PeopleItems
+            key={id}
+            as="li"
+            firstName={firstName}
+            lastName={lastName}
+            email={email}
+            tags={tags}
+            profileImage={profileImage}
+            jobTitle={jobTitle}
+            phoneNumber={phoneNumber}
+            link={link}
+            alt={alt}
+          />
         )
       )}
     </StackedList>
