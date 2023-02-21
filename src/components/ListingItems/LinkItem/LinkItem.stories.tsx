@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { LinkItem, LinkItemProps } from './LinkItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
-import { Panel } from '../../../layouts/Panel';
+import { StackedList } from '../../../layouts/StackedList';
 import { LinkItemData as data } from './LinkItemData';
 
 export default {
@@ -28,38 +28,22 @@ const DefaultTemplate: Story<LinkItemProps> = args => (
   </LinkItem>
 );
 
-const SingleItemPanelTemplate: Story<LinkItemProps> = args => (
+const SingleItemListTemplate: Story<LinkItemProps> = args => (
   <Column maxWidth="5xl">
-    <Panel hasBorder>
+    <StackedList hasBorder>
       <LinkItem as="div" link={args.link}>
         <LinkItem.Content>
           <LinkItem.Title as="h3" fontSize={args.fontSize} title={args.title} />
         </LinkItem.Content>
       </LinkItem>
-    </Panel>
+    </StackedList>
   </Column>
 );
 
-const StackedListPanelTemplate: Story<LinkItemProps> = () => (
-  <Container>
-    <Column maxWidth="5xl">
-      <Panel hasShadow>
-        {data.map(({ id, title, link }) => (
-          <LinkItem key={id}>
-            <LinkItem.Content>
-              <LinkItem.Title title={title} link={link} />
-            </LinkItem.Content>
-          </LinkItem>
-        ))}
-      </Panel>
-    </Column>
-  </Container>
-);
-
-const StackedListPanelTitleTemplate: Story<LinkItemProps> = () => (
+const MultiItemListTemplate: Story<LinkItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel header="Link listing" hasBorder hasShadow>
+      <StackedList header="Link listing" hasBorder hasShadow>
         {data.map(({ id, title, link }) => (
           <LinkItem key={id}>
             <LinkItem.Content>
@@ -67,7 +51,7 @@ const StackedListPanelTitleTemplate: Story<LinkItemProps> = () => (
             </LinkItem.Content>
           </LinkItem>
         ))}
-      </Panel>
+      </StackedList>
     </Column>
   </Container>
 );
@@ -79,22 +63,16 @@ Default.args = {
   link: 'https://carleton.ca',
 };
 
-export const SingleItemPanel = SingleItemPanelTemplate.bind({});
-SingleItemPanel.args = {
+export const SingleItemList = SingleItemListTemplate.bind({});
+SingleItemList.args = {
   ...Default.args,
 };
 
-export const StackedListPanel = StackedListPanelTemplate.bind({});
-StackedListPanel.args = {
-  ...Default.args,
-};
-
-export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
-StackedListPanelTitle.args = {
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
   ...Default.args,
 };
 
 Default.storyName = 'Default item';
-SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'List w/shadow';
-StackedListPanelTitle.storyName = 'List w/title';
+SingleItemList.storyName = 'Single item list';
+MultiItemList.storyName = 'Multi item list';

@@ -1,26 +1,44 @@
-describe('Stacked List', () => {
+describe('Panel', () => {
   //default
-  it('Stacked List Default', () => {
-    cy.visit('/iframe.html?id=layouts-stacked-list--default');
-    cy.get('li').should('exist');
+  it('Panel Default', () => {
+    cy.visit('/iframe.html?id=layouts-panel--default');
+    cy.get('div').should('have.class', 'cu-panel');
+    cy.get('p').should('exist');
   });
-  //with-dividers
-  it('Stacked List with dividers', () => {
-    cy.visit('/iframe.html?id=layouts-stacked-list--with-dividers');
-    cy.get('ul').should('have.class', '[&>li]:border-cu-cu-black-50');
-  });
-  //panel-and-dividers
-  it('Stacked List panel and dividers', () => {
-    cy.visit('/iframe.html?id=layouts-stacked-list--panel-and-dividers');
-    cy.get('ul').should('have.class', '[&>li]:border-cu-cu-black-50');
+
+  // Panel with Border
+  it('Panel with Border', () => {
+    cy.visit('/iframe.html?id=layouts-panel--with-border');
     cy.get('div')
       .should('have.class', 'cu-panel')
-      .and('has.class', 'shadow-lg');
+      .and('have.class', 'border')
+      .and('have.class', 'border-cu-black-100');
+    cy.get('p').should('exist');
   });
-  //with-feed-item
-  it('Stacked List Item Component', () => {
-    cy.visit('/iframe.html?id=layouts-stacked-list--with-feed-item');
-    cy.get('li').should('exist');
-    cy.get('a').should('exist');
+
+  // Panel with Shadows
+  it('Panel with  Shadows', () => {
+    cy.visit('/iframe.html?id=layouts-panel--with-shadow');
+    cy.get('div')
+      .should('have.class', 'cu-panel')
+      .and('have.class', 'shadow-lg');
+    cy.get('p').should('exist');
+  });
+  // Panel with Border and Shadows
+  it('Panel with Border and Shadows', () => {
+    cy.visit('/iframe.html?id=layouts-panel--shadow-and-border');
+    cy.get('div')
+      .should('have.class', 'cu-panel')
+      .and('have.class', 'border')
+      .and('have.class', 'border-cu-black-100')
+      .and('have.class', 'shadow-lg');
+    cy.get('p').should('exist');
+  });
+  // Panel with Title
+  it('Panel with Title', () => {
+    cy.visit('/iframe.html?id=layouts-panel--with-title');
+    cy.get('div').should('have.class', 'cu-panel');
+    cy.get('h2').contains('Panel Title');
   });
 });
+export {};

@@ -31,7 +31,7 @@ const DefaultTemplate: Story<NewsItemProps> = args => (
   </NewsItem>
 );
 
-const SingleItemPanelTemplate: Story<NewsItemProps> = args => (
+const SingleItemListTemplate: Story<NewsItemProps> = args => (
   <Column maxWidth="5xl">
     <Panel hasBorder>
       <NewsItem as="div" link={args.link}>
@@ -46,26 +46,7 @@ const SingleItemPanelTemplate: Story<NewsItemProps> = args => (
   </Column>
 );
 
-const StackedListPanelTemplate: Story<NewsItemProps> = () => (
-  <Container>
-    <Column maxWidth="5xl">
-      <Panel hasShadow>
-        {data.map(({ id, title, link, image, date, excerpt }) => (
-          <NewsItem key={id}>
-            <NewsItem.Image image={image} />
-            <NewsItem.Content>
-              <NewsItem.Title title={title} link={link} />
-              <NewsItem.Date date={date} />
-              <NewsItem.Excerpt excerpt={excerpt} />
-            </NewsItem.Content>
-          </NewsItem>
-        ))}
-      </Panel>
-    </Column>
-  </Container>
-);
-
-const StackedListPanelTitleTemplate: Story<NewsItemProps> = () => (
+const MultiItemListTemplate: Story<NewsItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
       <Panel header="News listing" hasBorder hasShadow>
@@ -95,22 +76,16 @@ Default.args = {
     'Tenetur libero voluptatem rerum occaecati qui est molestiae exercitationem. Voluptate quisquam iure assumenda consequatur ex et recusandae.',
 };
 
-export const SingleItemPanel = SingleItemPanelTemplate.bind({});
-SingleItemPanel.args = {
+export const SingleItemList = SingleItemListTemplate.bind({});
+SingleItemList.args = {
   ...Default.args,
 };
 
-export const StackedListPanel = StackedListPanelTemplate.bind({});
-StackedListPanel.args = {
-  ...Default.args,
-};
-
-export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
-StackedListPanelTitle.args = {
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
   ...Default.args,
 };
 
 Default.storyName = 'Default item';
-SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'List w/shadow';
-StackedListPanelTitle.storyName = 'List w/title';
+SingleItemList.storyName = 'Single item list';
+MultiItemList.storyName = 'Multi item list';

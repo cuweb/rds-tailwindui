@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { MarketplaceItem, MarketplaceItemProps } from './MarketplaceItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
-import { Panel } from '../../../layouts/Panel';
+import { StackedList } from '../../../layouts/StackedList';
 import { MarketplaceItemData as data } from './MarketplaceItemData';
 
 export default {
@@ -37,9 +37,9 @@ const DefaultTemplate: Story<MarketplaceItemProps> = args => (
   </MarketplaceItem>
 );
 
-const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
+const SingleItemListTemplate: Story<MarketplaceItemProps> = args => (
   <Column maxWidth="5xl">
-    <Panel hasBorder>
+    <StackedList hasBorder>
       <MarketplaceItem as="div" link={args.link}>
         <MarketplaceItem.Image image={args.image} alt={args.alt} />
         <MarketplaceItem.Content>
@@ -57,35 +57,14 @@ const SingleItemPanelTemplate: Story<MarketplaceItemProps> = args => (
           <MarketplaceItem.Category category={args.category} />
         </MarketplaceItem.Content>
       </MarketplaceItem>
-    </Panel>
+    </StackedList>
   </Column>
 );
 
-const StackedListPanelTemplate: Story<MarketplaceItemProps> = () => (
-  <Container>
-    <Column maxWidth="5xl">
-      <Panel hasShadow>
-        {data.map(
-          ({ id, title, link, image, alt, condition, cost, category }) => (
-            <MarketplaceItem key={id}>
-              <MarketplaceItem.Image image={image} alt={alt} />
-              <MarketplaceItem.Content>
-                <MarketplaceItem.Title title={title} link={link} />
-                <MarketplaceItem.Details condition={condition} cost={cost} />
-                <MarketplaceItem.Category category={category} />
-              </MarketplaceItem.Content>
-            </MarketplaceItem>
-          )
-        )}
-      </Panel>
-    </Column>
-  </Container>
-);
-
-const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
+const MultiItemListTemplate: Story<MarketplaceItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel header="Marketplace listing" hasBorder hasShadow>
+      <StackedList header="Marketplace listing" hasBorder hasShadow>
         {data.map(
           ({ id, title, link, image, alt, condition, cost, category }) => (
             <MarketplaceItem key={id}>
@@ -98,7 +77,7 @@ const StackedListPanelTitleTemplate: Story<MarketplaceItemProps> = () => (
             </MarketplaceItem>
           )
         )}
-      </Panel>
+      </StackedList>
     </Column>
   </Container>
 );
@@ -114,22 +93,16 @@ Default.args = {
   category: 'Category',
 };
 
-export const SingleItemPanel = SingleItemPanelTemplate.bind({});
-SingleItemPanel.args = {
+export const SingleItemList = SingleItemListTemplate.bind({});
+SingleItemList.args = {
   ...Default.args,
 };
 
-export const StackedListPanel = StackedListPanelTemplate.bind({});
-StackedListPanel.args = {
-  ...Default.args,
-};
-
-export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
-StackedListPanelTitle.args = {
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
   ...Default.args,
 };
 
 Default.storyName = 'Default item';
-SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'List w/shadow';
-StackedListPanelTitle.storyName = 'List w/title';
+SingleItemList.storyName = 'Single item list';
+MultiItemList.storyName = 'Multi item list';
