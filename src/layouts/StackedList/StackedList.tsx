@@ -35,7 +35,7 @@ export const StackedList = ({
   return (
     <div className={`${styles.wrapper} ${borderStyle} ${shadowStyle}`}>
       {header && <h2 className={`${styles.title}`}>{header}</h2>}
-      <div className={`${styles.grid} ${gridColumns}`}>{children}</div>
+      <ul className={`${styles.grid} ${gridColumns}`}>{children}</ul>
     </div>
   );
 };
