@@ -47,6 +47,8 @@ export { NumberCard, NumberCardProps } from './Cards/NumberCard';
 export { NewsItem, NewsItemProps } from './ListingItems/NewsItem';
 
 export { Pagination, PaginationProps } from './Pagination';
+export { PeopleCard, PeopleCardProps } from './Cards/PeopleCard';
+export { PeopleItems, PeopleItemsProps } from './ListingItems/PeopleItems';
 
 export { SocialShare, SocialShareProps } from './SocialShare';
 export { SearchForm } from './SearchForm/SearchForm';
