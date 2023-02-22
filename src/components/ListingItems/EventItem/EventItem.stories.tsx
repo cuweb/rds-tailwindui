@@ -40,7 +40,7 @@ const SingleItemListTemplate: Story<EventItemProps> = args => (
   <Column maxWidth="5xl">
     <StackedList hasBorder>
       <EventItem
-        as="div"
+        as="li"
         link={args.link}
         fontSize={args.fontSize}
         title={args.title}
@@ -56,13 +56,13 @@ const SingleItemListTemplate: Story<EventItemProps> = args => (
   </Column>
 );
 
-const SingleColListPanelTemplate: Story<EventItemProps> = args => (
+const MultiItemListTemplate: Story<EventItemProps> = args => (
   <Container>
     <Column maxWidth="5xl">
       <StackedList hasShadow>
         {data.map(() => (
           <EventItem
-            as="div"
+            as="li"
             link={args.link}
             fontSize={args.fontSize}
             title={args.title}
@@ -80,13 +80,13 @@ const SingleColListPanelTemplate: Story<EventItemProps> = args => (
   </Container>
 );
 
-const DoubleColListPanelTemplate: Story<EventItemProps> = args => (
+const MultiItemColumnsTemplate: Story<EventItemProps> = args => (
   <Container>
     <Column maxWidth="5xl">
       <StackedList cols="2" hasShadow>
         {data.map(() => (
           <EventItem
-            as="div"
+            as="li"
             link={args.link}
             fontSize={args.fontSize}
             title={args.title}
@@ -148,17 +148,17 @@ SingleItemList.args = {
   ...Default.args,
 };
 
-export const SingleColListPanel = SingleColListPanelTemplate.bind({});
-SingleColListPanel.args = {
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
   ...Default.args,
 };
 
-export const DoubleColListPanel = DoubleColListPanelTemplate.bind({});
-DoubleColListPanel.args = {
+export const MultiItemColumns = MultiItemColumnsTemplate.bind({});
+MultiItemColumns.args = {
   ...Default.args,
 };
 
 Default.storyName = 'Default item';
 SingleItemList.storyName = 'Single item list';
-SingleColListPanel.storyName = 'Multi item list';
-DoubleColListPanel.storyName = 'Two column item list';
+MultiItemList.storyName = 'Multi item list';
+MultiItemColumns.storyName = 'Multi item columns';

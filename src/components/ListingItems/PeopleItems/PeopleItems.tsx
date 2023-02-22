@@ -4,7 +4,11 @@ import { Tags } from '../../../types/Tags';
 import { Badge } from '../../Badge';
 import { Link } from '../../Link/Link';
 
+// Set types for as props
+type PeopleItemTypeProps = 'li' | 'div';
+
 export interface PeopleItemsProps {
+  as?: PeopleItemTypeProps;
   children?: React.ReactNode;
   firstName: string;
   lastName: string;
@@ -18,6 +22,7 @@ export interface PeopleItemsProps {
 }
 
 export const PeopleItems = ({
+  as: Component = 'div',
   firstName,
   lastName,
   email,
@@ -30,7 +35,7 @@ export const PeopleItems = ({
 }: PeopleItemsProps) => {
   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
   return (
-    <div className="not-prose group relative overflow-hidden @container">
+    <Component className="not-prose group relative overflow-hidden @container">
       <Link
         href={link}
         className="group relative flex cursor-pointer flex-row gap-4 bg-white p-6 hover:bg-slate-50 focus:outline-none md:gap-5 @sm:md:flex-col sm:grid-cols-1 @lg:md:flex-row @lg:lg:gap-8"
@@ -96,6 +101,6 @@ export const PeopleItems = ({
           />
         </div>
       </Link>
-    </div>
+    </Component>
   );
 };
