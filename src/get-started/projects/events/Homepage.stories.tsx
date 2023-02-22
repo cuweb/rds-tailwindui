@@ -12,14 +12,7 @@ import {
   Filter,
 } from '../../../components';
 
-import {
-  Main,
-  Column,
-  Container,
-  Panel,
-  StackedList,
-  Aside,
-} from '../../../layouts';
+import { Main, Column, Container, Panel, Aside } from '../../../layouts';
 
 import { EventItemData as dataCard } from '../../../components/Cards/EventCard/EventCardData';
 import { EventItemData as dataList } from '../../../components/ListingItems/EventItem/EventItemData';
@@ -87,35 +80,33 @@ export const Homepage = () => {
           <Column cols="2/3" maxWidth="7xl">
             <div>
               <Panel hasShadow>
-                <StackedList hasDividers>
-                  {dataList.map(
-                    ({
-                      id,
-                      title, // link,
-                      start_date,
-                      end_date,
-                      event_address,
-                      on_campus,
-                      on_campus_building,
-                      on_campus_room_number,
-                      tags,
-                    }) => (
-                      <EventItem
-                        key={id}
-                        as="div"
-                        link="#"
-                        title={title}
-                        startDateTime={start_date}
-                        endDateTime={end_date}
-                        event_address={event_address}
-                        on_campus={on_campus}
-                        on_campus_building={on_campus_building}
-                        on_campus_room_number={on_campus_room_number}
-                        tags={tags}
-                      />
-                    )
-                  )}
-                </StackedList>
+                {dataList.map(
+                  ({
+                    id,
+                    title, // link,
+                    start_date,
+                    end_date,
+                    event_address,
+                    on_campus,
+                    on_campus_building,
+                    on_campus_room_number,
+                    tags,
+                  }) => (
+                    <EventItem
+                      key={id}
+                      as="div"
+                      link="#"
+                      title={title}
+                      startDateTime={start_date}
+                      endDateTime={end_date}
+                      event_address={event_address}
+                      on_campus={on_campus}
+                      on_campus_building={on_campus_building}
+                      on_campus_room_number={on_campus_room_number}
+                      tags={tags}
+                    />
+                  )
+                )}
               </Panel>
 
               <Pagination

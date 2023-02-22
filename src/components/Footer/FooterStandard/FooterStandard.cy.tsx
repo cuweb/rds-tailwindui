@@ -1,7 +1,7 @@
 // UPDATE IFRAME URL
 describe('Footer', () => {
   it('Does Footer exist?', () => {
-    cy.visit('/iframe.html?id=components-footer-footer-standard--default');
+    cy.visit('/iframe.html?id=footers-standard--default');
     cy.get('footer').should('exist');
     cy.get('h3').should('exist');
     cy.get('p').should('exist');

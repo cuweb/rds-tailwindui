@@ -12,6 +12,7 @@ export interface PeopleCardProps {
   tags?: Tags;
   profileImage?: any;
   link?: string;
+  alt?: string;
 }
 
 const styles = {
@@ -28,9 +29,9 @@ export const PeopleCard = ({
   designation,
   profileImage,
   link = '',
+  alt,
 }: PeopleCardProps) => {
   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
-  console.log(' href ', link);
 
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white py-8 px-7 shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
@@ -46,7 +47,7 @@ export const PeopleCard = ({
                 ? profileImage
                 : 'https://source.unsplash.com/random/400x266'
             }
-            alt=""
+            alt={alt}
           />
         )}
 

@@ -50,13 +50,11 @@ const WithPanelGridTemplate: Story<ContainerProps> = args => (
     <Column cols="2">
       <div>
         <Panel hasBorder hasShadow>
-          <Panel.Title>Panel Header</Panel.Title>
           <p className="p-6">{content.paragraph}</p>
         </Panel>
       </div>
       <div>
         <Panel hasBorder hasShadow>
-          <Panel.Title>Panel Header</Panel.Title>
           <p className="p-6">{content.paragraph}</p>
         </Panel>
       </div>
@@ -69,13 +67,11 @@ const WithPanelStackedTemplate: Story<ContainerProps> = args => (
     <Column cols="1">
       <div>
         <Panel hasBorder hasShadow>
-          <Panel.Title>Panel Header</Panel.Title>
           <p className="p-6">{content.paragraph}</p>
         </Panel>
       </div>
       <div>
         <Panel hasBorder hasShadow>
-          <Panel.Title>Panel Header</Panel.Title>
           <p className="p-6">{content.paragraph}</p>
         </Panel>
       </div>

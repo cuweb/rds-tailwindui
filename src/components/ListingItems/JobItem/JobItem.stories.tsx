@@ -3,7 +3,6 @@ import { Meta, Story } from '@storybook/react';
 import { JobItem, JobItemProps } from './JobItem';
 import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
-import { Panel } from '../../../layouts/Panel';
 import { StackedList } from '../../../layouts/StackedList';
 import { JobItemData as data } from './JobItemData';
 
@@ -30,54 +29,32 @@ const DefaultTemplate: Story<JobItemProps> = args => (
   </JobItem>
 );
 
-const SingleItemPanelTemplate: Story<JobItemProps> = args => (
+const SingleItemListTemplate: Story<JobItemProps> = args => (
   <Column maxWidth="5xl">
-    <Panel hasBorder>
+    <StackedList hasBorder>
       <JobItem as="div" link={args.link}>
         <JobItem.Content>
           <JobItem.Title as="h3" fontSize={args.fontSize} title={args.title} />
           <JobItem.Details dateData={args.dateData} date={args.date} />
         </JobItem.Content>
       </JobItem>
-    </Panel>
+    </StackedList>
   </Column>
 );
 
-const StackedListPanelTemplate: Story<JobItemProps> = () => (
-  <Container>
-    <Column maxWidth="5xl">
-      <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, dateData, date }) => (
-            <JobItem key={id}>
-              <JobItem.Content>
-                <JobItem.Title title={title} link={link} />
-                <JobItem.Details dateData={dateData} date={date} />
-              </JobItem.Content>
-            </JobItem>
-          ))}
-        </StackedList>
-      </Panel>
-    </Column>
-  </Container>
-);
-
-const StackedListPanelTitleTemplate: Story<JobItemProps> = () => (
+const MultiItemListTemplate: Story<JobItemProps> = () => (
   <Container bgColor="grey">
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Job listing</Panel.Title>
-        <StackedList hasDividers>
-          {data.map(({ id, title, link, dateData, date }) => (
-            <JobItem key={id}>
-              <JobItem.Content>
-                <JobItem.Title title={title} link={link} />
-                <JobItem.Details dateData={dateData} date={date} />
-              </JobItem.Content>
-            </JobItem>
-          ))}
-        </StackedList>
-      </Panel>
+      <StackedList header="Job listings" hasBorder hasShadow>
+        {data.map(({ id, title, link, dateData, date }) => (
+          <JobItem key={id}>
+            <JobItem.Content>
+              <JobItem.Title title={title} link={link} />
+              <JobItem.Details dateData={dateData} date={date} />
+            </JobItem.Content>
+          </JobItem>
+        ))}
+      </StackedList>
     </Column>
   </Container>
 );
@@ -91,22 +68,16 @@ Default.args = {
   dateData: '2020-01-07',
 };
 
-export const SingleItemPanel = SingleItemPanelTemplate.bind({});
-SingleItemPanel.args = {
+export const SingleItemList = SingleItemListTemplate.bind({});
+SingleItemList.args = {
   ...Default.args,
 };
 
-export const StackedListPanel = StackedListPanelTemplate.bind({});
-StackedListPanel.args = {
-  ...Default.args,
-};
-
-export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
-StackedListPanelTitle.args = {
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
   ...Default.args,
 };
 
 Default.storyName = 'Default item';
-SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'List w/shadow';
-StackedListPanelTitle.storyName = 'List w/title';
+SingleItemList.storyName = 'Single item list';
+MultiItemList.storyName = 'Multi item list';

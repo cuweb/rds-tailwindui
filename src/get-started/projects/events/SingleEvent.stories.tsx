@@ -15,7 +15,6 @@ import {
   Aside,
   Container,
   Panel,
-  StackedList,
   Article,
 } from '../../../layouts';
 
@@ -100,17 +99,15 @@ export const SingleEvent = () => (
               />
             </Column>
             <Panel hasShadow>
-              <StackedList hasDividers>
-                {data.map(({ title, description, icon }) => (
-                  <DetailsItem key={title}>
-                    <DetailsItem.Icon icon={icon} />
-                    <DetailsItem.Content>
-                      <DetailsItem.Title title={title} />
-                      <DetailsItem.Description description={description} />
-                    </DetailsItem.Content>
-                  </DetailsItem>
-                ))}
-              </StackedList>
+              {data.map(({ title, description, icon }) => (
+                <DetailsItem key={title}>
+                  <DetailsItem.Icon icon={icon} />
+                  <DetailsItem.Content>
+                    <DetailsItem.Title title={title} />
+                    <DetailsItem.Description description={description} />
+                  </DetailsItem.Content>
+                </DetailsItem>
+              ))}
             </Panel>
           </Aside>
         </Column>
