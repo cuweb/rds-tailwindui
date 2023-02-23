@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Form } from '../BaseForm/Form';
 
 export default {
-  title: 'Components/Forms/Text Input',
+  title: 'Forms/Text Input',
   component: Form,
   argTypes: {},
   parameters: {

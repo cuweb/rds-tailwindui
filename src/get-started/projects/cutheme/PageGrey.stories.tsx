@@ -1,12 +1,12 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { TopNav, Banner, NewsCard, FooterBasic } from '../../components';
+import { TopNav, Banner, NewsCard, FooterBasic } from '../../../components';
 
-import { NewsCardData as data } from '../../components/Cards/NewsCard/NewsCardData';
-import { Container, Column, Main } from '../../layouts';
+import { NewsCardData as data } from '../../../components/Cards/NewsCard/NewsCardData';
+import { Container, Column, Main } from '../../../layouts';
 
 export default {
-  title: 'Projects/cutheme',
+  title: 'Get Started/Projects/cutheme',
   argTypes: {},
   parameters: {
     controls: { expanded: true },

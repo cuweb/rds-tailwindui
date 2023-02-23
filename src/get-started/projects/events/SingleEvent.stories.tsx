@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { DetailsItemData as data } from '../../components/ListingItems/DetailsItem/DetailsItemData';
+import { DetailsItemData as data } from '../../../components/ListingItems/DetailsItem/DetailsItemData';
 
 import {
   TopNav,
@@ -8,18 +8,18 @@ import {
   FooterBasic,
   DetailsItem,
   Button,
-} from '../../components';
+} from '../../../components';
 import {
   Main,
   Column,
   Aside,
   Container,
   Panel,
-  StackedList,
-} from '../../layouts';
+  Article,
+} from '../../../layouts';
 
 export default {
-  title: 'Projects/Events Calendar',
+  title: 'Get Started/Projects/Events Calendar',
   argTypes: {},
   parameters: {
     controls: { expanded: true },
@@ -85,9 +85,9 @@ export const SingleEvent = () => (
     <Main>
       <Container as="section">
         <Column cols="2/3" maxWidth="7xl">
-          <Container as="article" hasProse>
+          <Article>
             <EventContent />
-          </Container>
+          </Article>
 
           <Aside isSticky topSpace="8">
             <Column cols="1" gridGap="5">
@@ -99,17 +99,15 @@ export const SingleEvent = () => (
               />
             </Column>
             <Panel hasShadow>
-              <StackedList hasDividers>
-                {data.map(({ title, description, icon }) => (
-                  <DetailsItem key={title}>
-                    <DetailsItem.Icon icon={icon} />
-                    <DetailsItem.Content>
-                      <DetailsItem.Title title={title} />
-                      <DetailsItem.Description description={description} />
-                    </DetailsItem.Content>
-                  </DetailsItem>
-                ))}
-              </StackedList>
+              {data.map(({ title, description, icon }) => (
+                <DetailsItem key={title}>
+                  <DetailsItem.Icon icon={icon} />
+                  <DetailsItem.Content>
+                    <DetailsItem.Title title={title} />
+                    <DetailsItem.Description description={description} />
+                  </DetailsItem.Content>
+                </DetailsItem>
+              ))}
             </Panel>
           </Aside>
         </Column>

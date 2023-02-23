@@ -3,10 +3,10 @@ import { Meta, Story } from '@storybook/react';
 
 import { Banner, BannerProps } from './Banner';
 import { Button } from '../Button';
-import { Column } from '../../layouts';
+import { Column, Main } from '../../layouts';
 
 export default {
-  title: 'Components/Elements/Banner',
+  title: 'Headers/Banner',
   component: Banner,
   argTypes: {},
   parameters: {
@@ -14,7 +14,7 @@ export default {
   },
 } as Meta<typeof Banner>;
 
-const DefaultTemplate: Story<BannerProps> = args => <Banner {...args}></Banner>;
+const DefaultTemplate: Story<BannerProps> = args => <Banner {...args} />;
 
 const WithButtonsTemplate: Story<BannerProps> = args => (
   <Banner {...args}>
@@ -214,14 +214,27 @@ const WithParagraphTemplate: Story<BannerProps> = args => (
 
 const WithOverlapTemplate: Story<BannerProps> = args => (
   <>
-    <Banner {...args}></Banner>
-    <main>
-      <Column maxWidth="7xl">
+    <Banner {...args} />
+    <Main hasOverlap>
+      <Column maxWidth="5xl">
         <div className="px-8 pt-6 pb-24 bg-white rounded-lg">
           This is an example of the main wrapped overlapping the banner
         </div>
       </Column>
-    </main>
+    </Main>
+  </>
+);
+
+const WithOverlapImageTemplate: Story<BannerProps> = args => (
+  <>
+    <Banner {...args} />
+    <Main hasOverlap>
+      <Column maxWidth="5xl">
+        <div className="px-8 pt-6 pb-24 bg-white rounded-lg">
+          This is an example of the main wrapped overlapping the banner
+        </div>
+      </Column>
+    </Main>
   </>
 );
 
@@ -274,7 +287,15 @@ WithParagraph.args = {
 
 export const WithOverlap = WithOverlapTemplate.bind({});
 WithOverlap.args = {
-  title: 'Banner with Overlapping Main',
+  title: 'Banner with Content Overlap',
   isType: 'animated',
+  hasOverlap: true,
+};
+
+export const WithOverlapImage = WithOverlapImageTemplate.bind({});
+WithOverlapImage.args = {
+  title: 'Banner Image with Content Overlap',
+  isType: 'image',
+  image: `https://carleton.ca/about/wp-content/uploads/about-header-1600w-3.jpg`,
   hasOverlap: true,
 };

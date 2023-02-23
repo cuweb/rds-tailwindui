@@ -48,33 +48,39 @@ const WithTwoColumnsTemplate: Story<ContainerProps> = args => (
 const WithPanelGridTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
     <Column cols="2">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-6">{content.paragraph}</p>
-      </Panel>
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Panel Header</Panel.Title>
-        <p className="p-6">{content.paragraph}</p>
-      </Panel>
+      <div>
+        <Panel hasBorder hasShadow>
+          <p className="p-6">{content.paragraph}</p>
+        </Panel>
+      </div>
+      <div>
+        <Panel hasBorder hasShadow>
+          <p className="p-6">{content.paragraph}</p>
+        </Panel>
+      </div>
     </Column>
   </Container>
 );
 
 const WithPanelStackedTemplate: Story<ContainerProps> = args => (
   <Container bgColor={args.bgColor}>
-    <Panel hasBorder hasShadow hasGap>
-      <Panel.Title>Panel Header</Panel.Title>
-      <p className="p-6">{content.paragraph}</p>
-    </Panel>
-    <Panel hasBorder hasShadow>
-      <Panel.Title>Panel Header</Panel.Title>
-      <p className="p-6">{content.paragraph}</p>
-    </Panel>
+    <Column cols="1">
+      <div>
+        <Panel hasBorder hasShadow>
+          <p className="p-6">{content.paragraph}</p>
+        </Panel>
+      </div>
+      <div>
+        <Panel hasBorder hasShadow>
+          <p className="p-6">{content.paragraph}</p>
+        </Panel>
+      </div>
+    </Column>
   </Container>
 );
 
 const MarkupTemplate: Story<ContainerProps> = args => (
-  <Container bgColor={args.bgColor} content={data} />
+  <Container bgColor={args.bgColor}>{data}</Container>
 );
 
 export const Default = DefaultTemplate.bind({});

@@ -4,7 +4,7 @@ import { Form } from '../BaseForm/Form';
 import { RadioData } from './RadioData';
 
 export default {
-  title: 'Components/Forms/Radio',
+  title: 'Forms/Radio',
   component: Form,
   argTypes: {},
   parameters: {

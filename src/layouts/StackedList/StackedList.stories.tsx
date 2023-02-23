@@ -1,22 +1,22 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { StackedList, StackedListProps } from './StackedList';
-import { Container } from '../Container';
-import { Column } from '../Column';
-import { Panel } from '../Panel';
-import { FeedItem } from '../../components/ListingItems/FeedItem';
-// import { Pagination } from '../../components/Pagination/Pagination';
-import { FeedItemData as data } from '../../components/ListingItems/FeedItem/FeedItemData';
 
-const styles = {
-  spacing: `p-5`,
+const content = {
+  spacing: `p-6`,
+  paragraph: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id augue id est iaculis auctor. Vestibulum lobortis hendrerit enim, sit amet viverra velit tincidunt a. Sed lobortis consectetur sapien a egestas. Ut vestibulum turpis non molestie aliquam. Quisque dictum iaculis tellus, vel vehicula diam lobortis non.`,
 };
 
 export default {
-  title: 'Layouts/Stacked List',
+  title: 'Layouts/StackedList',
   component: StackedList,
   argTypes: {
-    dividers: {
+    hasBorder: {
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+    hasShadow: {
       table: {
         defaultValue: { summary: 'false' },
       },
@@ -28,110 +28,95 @@ export default {
 } as Meta<typeof StackedList>;
 
 const DefaultTemplate: Story<StackedListProps> = args => (
-  <StackedList hasDividers={args.hasDividers}>
-    <li className={`${styles.spacing}`}>List Item</li>
-    <li className={`${styles.spacing}`}>List Item</li>
-    <li className={`${styles.spacing}`}>List Item</li>
+  <StackedList hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
   </StackedList>
 );
 
-const WithDividersTemplate: Story<StackedListProps> = args => (
-  <StackedList hasDividers={args.hasDividers}>
-    <li className={`${styles.spacing}`}>List Item</li>
-    <li className={`${styles.spacing}`}>List Item</li>
-    <li className={`${styles.spacing}`}>List Item</li>
+const WithBorderTemplate: Story<StackedListProps> = args => (
+  <StackedList hasBorder={args.hasBorder}>
+    <p className={content.spacing}>{content.paragraph}</p>
   </StackedList>
 );
 
-const PanelAndDividersTemplate: Story<StackedListProps> = args => (
-  <Container bgColor="grey">
-    <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <StackedList hasDividers={args.hasDividers}>
-          <li className={`${styles.spacing}`}>List Item</li>
-          <li className={`${styles.spacing}`}>List Item</li>
-          <li className={`${styles.spacing}`}>List Item</li>
-        </StackedList>
-      </Panel>
-    </Column>
-  </Container>
+const WithShadowTemplate: Story<StackedListProps> = args => (
+  <StackedList hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </StackedList>
 );
 
-const WithFeedItemTemplate: Story<StackedListProps> = args => (
-  <Container bgColor="grey">
-    <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <StackedList hasDividers={args.hasDividers}>
-          {data.map(({ id, title, link, date, excerpt, category }) => (
-            <FeedItem key={id}>
-              <FeedItem.Content>
-                <FeedItem.Title title={title} link={link} />
-                <FeedItem.Date date={date} />
-                <FeedItem.Excerpt excerpt={excerpt} />
-                <FeedItem.Category category={category} />
-              </FeedItem.Content>
-            </FeedItem>
-          ))}
-        </StackedList>
-      </Panel>
-    </Column>
-  </Container>
+const ShadowAndBorderTemplate: Story<StackedListProps> = args => (
+  <StackedList hasBorder={args.hasBorder} hasShadow={args.hasShadow}>
+    <p className={content.spacing}>{content.paragraph}</p>
+  </StackedList>
 );
 
-const WithPaginationTemplate: Story<StackedListProps> = args => (
-  <Container bgColor="grey">
-    <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <StackedList hasDividers={args.hasDividers}>
-          {data.map(({ id, title, link, date, excerpt, category }) => (
-            <FeedItem key={id}>
-              <FeedItem.Content>
-                <FeedItem.Title title={title} link={link} />
-                <FeedItem.Date date={date} />
-                <FeedItem.Excerpt excerpt={excerpt} />
-                <FeedItem.Category category={category} />
-              </FeedItem.Content>
-            </FeedItem>
-          ))}
-        </StackedList>
-        {/* <Pagination
-          hasBorder
-          hasSpacing
-          totalCount={48}
-          siblingCount={1}
-          pageSize={5}
-        /> */}
-      </Panel>
-    </Column>
-  </Container>
+const WithTitleTemplate: Story<StackedListProps> = args => (
+  <StackedList
+    header="Stacked List Title"
+    hasBorder={args.hasBorder}
+    hasShadow={args.hasShadow}
+  >
+    <p className={content.spacing}>{content.paragraph}</p>
+  </StackedList>
+);
+
+const ConsecutiveTemplate: Story<StackedListProps> = args => (
+  <>
+    <StackedList
+      header="Stacked List Title"
+      hasBorder={args.hasBorder}
+      hasShadow={args.hasShadow}
+    >
+      <p className={content.spacing}>{content.paragraph}</p>
+    </StackedList>
+    <StackedList
+      header="Stacked List Title"
+      hasBorder={args.hasBorder}
+      hasShadow={args.hasShadow}
+    >
+      <p className={content.spacing}>{content.paragraph}</p>
+    </StackedList>
+  </>
 );
 
 export const Default = DefaultTemplate.bind({});
 Default.args = {
-  hasDividers: false,
+  hasBorder: false,
+  hasShadow: false,
 };
 
-export const WithDividers = WithDividersTemplate.bind({});
-WithDividers.args = {
-  hasDividers: true,
+export const WithBorder = WithBorderTemplate.bind({});
+WithBorder.args = {
+  hasBorder: true,
+  hasShadow: false,
 };
 
-export const PanelAndDividers = PanelAndDividersTemplate.bind({});
-PanelAndDividers.args = {
-  ...WithDividers.args,
+export const WithShadow = WithShadowTemplate.bind({});
+WithShadow.args = {
+  hasBorder: false,
+  hasShadow: true,
 };
 
-export const WithFeedItem = WithFeedItemTemplate.bind({});
-WithFeedItem.args = {
-  ...WithDividers.args,
+export const ShadowAndBorder = ShadowAndBorderTemplate.bind({});
+ShadowAndBorder.args = {
+  hasBorder: true,
+  hasShadow: true,
 };
 
-export const WithPagination = WithPaginationTemplate.bind({});
-WithPagination.args = {
-  ...WithDividers.args,
+export const WithTitle = WithTitleTemplate.bind({});
+WithTitle.args = {
+  ...ShadowAndBorder.args,
+};
+
+export const Consecutive = ConsecutiveTemplate.bind({});
+Consecutive.args = {
+  ...ShadowAndBorder.args,
 };
 
 Default.storyName = 'Default item';
-WithDividers.storyName = 'With item dviders';
-PanelAndDividers.storyName = 'Panel with dividers';
-WithFeedItem.storyName = 'List item component';
+WithBorder.storyName = 'With border';
+WithShadow.storyName = 'With shadow';
+ShadowAndBorder.storyName = 'With border & shadow';
+WithTitle.storyName = 'With a title';
+Consecutive.storyName = 'Consecutive panels';

@@ -2,13 +2,12 @@ import { Meta, Story } from '@storybook/react';
 import React from 'react';
 import { Column } from '../../../layouts/Column';
 import { Container } from '../../../layouts/Container';
-import { Panel } from '../../../layouts/Panel';
 import { StackedList } from '../../../layouts/StackedList';
 import { EventItem, EventItemProps } from './EventItem';
 import { EventItemData as data } from './EventItemData';
 
 export default {
-  title: 'Components/List Items/Events',
+  title: 'Cards & Lists/Events/List Item',
   component: EventItem,
   argTypes: {
     fontSize: {
@@ -37,11 +36,11 @@ const DefaultTemplate: Story<EventItemProps> = args => (
   />
 );
 
-const SingleItemPanelTemplate: Story<EventItemProps> = args => (
+const SingleItemListTemplate: Story<EventItemProps> = args => (
   <Column maxWidth="5xl">
-    <Panel hasBorder>
+    <StackedList hasBorder>
       <EventItem
-        as="div"
+        as="li"
         link={args.link}
         fontSize={args.fontSize}
         title={args.title}
@@ -53,59 +52,54 @@ const SingleItemPanelTemplate: Story<EventItemProps> = args => (
         on_campus_room_number={args.on_campus_room_number}
         tags={args.tags}
       />
-    </Panel>
+    </StackedList>
   </Column>
 );
 
-const StackedListPanelTemplate: Story<EventItemProps> = args => (
+const MultiItemListTemplate: Story<EventItemProps> = args => (
   <Container>
     <Column maxWidth="5xl">
-      <Panel hasShadow>
-        <StackedList hasDividers>
-          {data.map(() => (
-            <EventItem
-              as="div"
-              link={args.link}
-              fontSize={args.fontSize}
-              title={args.title}
-              startDateTime={args.startDateTime}
-              endDateTime={args.endDateTime}
-              event_address={args.event_address}
-              on_campus={args.on_campus}
-              on_campus_building={args.on_campus_building}
-              on_campus_room_number={args.on_campus_room_number}
-              tags={args.tags}
-            />
-          ))}
-        </StackedList>
-      </Panel>
+      <StackedList hasShadow>
+        {data.map(() => (
+          <EventItem
+            as="li"
+            link={args.link}
+            fontSize={args.fontSize}
+            title={args.title}
+            startDateTime={args.startDateTime}
+            endDateTime={args.endDateTime}
+            event_address={args.event_address}
+            on_campus={args.on_campus}
+            on_campus_building={args.on_campus_building}
+            on_campus_room_number={args.on_campus_room_number}
+            tags={args.tags}
+          />
+        ))}
+      </StackedList>
     </Column>
   </Container>
 );
 
-const StackedListPanelTitleTemplate: Story<EventItemProps> = args => (
-  <Container bgColor="grey">
+const MultiItemColumnsTemplate: Story<EventItemProps> = args => (
+  <Container>
     <Column maxWidth="5xl">
-      <Panel hasBorder hasShadow>
-        <Panel.Title>Event listing</Panel.Title>
-        <StackedList hasDividers>
-          {data.map(() => (
-            <EventItem
-              as="div"
-              link={args.link}
-              fontSize={args.fontSize}
-              title={args.title}
-              startDateTime={args.startDateTime}
-              endDateTime={args.endDateTime}
-              event_address={args.event_address}
-              on_campus={args.on_campus}
-              on_campus_building={args.on_campus_building}
-              on_campus_room_number={args.on_campus_room_number}
-              tags={args.tags}
-            />
-          ))}
-        </StackedList>
-      </Panel>
+      <StackedList cols="2" hasShadow>
+        {data.map(() => (
+          <EventItem
+            as="li"
+            link={args.link}
+            fontSize={args.fontSize}
+            title={args.title}
+            startDateTime={args.startDateTime}
+            endDateTime={args.endDateTime}
+            event_address={args.event_address}
+            on_campus={args.on_campus}
+            on_campus_building={args.on_campus_building}
+            on_campus_room_number={args.on_campus_room_number}
+            tags={args.tags}
+          />
+        ))}
+      </StackedList>
     </Column>
   </Container>
 );
@@ -149,22 +143,22 @@ Default.args = {
   },
 };
 
-export const SingleItemPanel = SingleItemPanelTemplate.bind({});
-SingleItemPanel.args = {
+export const SingleItemList = SingleItemListTemplate.bind({});
+SingleItemList.args = {
   ...Default.args,
 };
 
-export const StackedListPanel = StackedListPanelTemplate.bind({});
-StackedListPanel.args = {
+export const MultiItemList = MultiItemListTemplate.bind({});
+MultiItemList.args = {
   ...Default.args,
 };
 
-export const StackedListPanelTitle = StackedListPanelTitleTemplate.bind({});
-StackedListPanelTitle.args = {
+export const MultiItemColumns = MultiItemColumnsTemplate.bind({});
+MultiItemColumns.args = {
   ...Default.args,
 };
 
 Default.storyName = 'Default item';
-SingleItemPanel.storyName = 'Single item in panel';
-StackedListPanel.storyName = 'List w/shadow';
-StackedListPanelTitle.storyName = 'List w/title';
+SingleItemList.storyName = 'Single item list';
+MultiItemList.storyName = 'Multi item list';
+MultiItemColumns.storyName = 'Multi item columns';

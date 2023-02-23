@@ -1,7 +1,7 @@
 describe('Filter', () => {
   //default
   it('Default Filter exist?', () => {
-    cy.visit('/iframe.html?id=components-inputs-calendar--default');
+    cy.visit('/iframe.html?id=components-calendar--default');
     cy.get('button').should('exist');
     cy.get('h2').should('exist');
     cy.get('li').should('exist');

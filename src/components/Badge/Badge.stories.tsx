@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Badge, BadgeProps } from './Badge';
 
 export default {
-  title: 'Components/Elements/Badge',
+  title: 'Components/Badge',
   component: Badge,
   argTypes: {},
   parameters: {

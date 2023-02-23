@@ -1,6 +1,6 @@
 describe('Toast', () => {
   it(`Should render Default Toast`, () => {
-    cy.visit(`/iframe.html?id=components-notifications-toast--default`);
+    cy.visit(`/iframe.html?id=components-toast--default`);
     cy.get(`svg`).should('exist');
     cy.get(`p`).contains('Success');
     cy.get(`p`).contains('Successfully created');
@@ -9,7 +9,7 @@ describe('Toast', () => {
   });
 
   it(`Should render Multi Toast `, () => {
-    cy.visit(`/iframe.html?id=components-notifications-toast--multiple`);
+    cy.visit(`/iframe.html?id=components-toast--multiple`);
     cy.get('div').should('have.class', 'space-y-4');
     cy.get(`p`).contains('Success!');
     cy.get(`p`).contains('Error!');

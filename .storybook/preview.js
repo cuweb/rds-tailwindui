@@ -3,6 +3,7 @@ import '../styles/tailwind.css';
 export const parameters = {
     options: {
         storySort: {
+            method: 'alphabetical',
             order: [
                 'Get Started', [
                     'Introduction',
@@ -14,22 +15,21 @@ export const parameters = {
                     ],
                 ],
                 'Components',
+                'Cards & Lists',
+                'Headers',
+                'Footers',
                 'Layouts', [
                     'Main',
                     'Container',
+                    'Article',
                     'Column',
                     'Aside',
                     'Panel',
                     'Stacked List',
                 ],
-                'Project Templates', [
-                    'Events Calendar',
-                    'Intranet',
-                    'cutheme', [
-                        'Single Page',
-                        'Grey Container Intro'
-                    ]
-                ]
+                'Forms',
+                'Loading Screens',
+                'Project Templates'
             ],
         },
     },
