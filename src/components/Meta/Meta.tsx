@@ -21,6 +21,7 @@ const MetaBase = ({
         name="robots"
         content="max-snippet:-1,max-image-preview:standard,max-video-preview:-1"
       />
+      {children}
       <script
         dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -30,18 +31,8 @@ const MetaBase = ({
       })(window,document,'script','dataLayer','GTM-MH632FV');`,
         }}
       />
-      {children}
     </>
   );
-};
-
-// Meta Title
-export interface TitleProps {
-  children?: React.ReactNode;
-}
-
-const Title = ({ children }: TitleProps) => {
-  return <title>{children}</title>;
 };
 
 // Meta Icons
@@ -97,8 +88,7 @@ const Social = ({ type, card, title, image, description }: SocialProps) => {
 
 // Meta Dot Notation
 MetaBase.displayName = 'Meta';
-Title.displayName = 'Meta.Title';
 Icons.displayName = 'Meta.Icons';
 Social.displayName = 'Meta.Social';
 
-export const Meta = Object.assign(MetaBase, { Title, Icons, Social });
+export const Meta = Object.assign(MetaBase, { Icons, Social });
