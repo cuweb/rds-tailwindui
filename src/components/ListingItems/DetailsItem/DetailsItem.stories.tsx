@@ -5,6 +5,7 @@ import { Container } from '../../../layouts/Container';
 import { Column } from '../../../layouts/Column';
 import { StackedList } from '../../../layouts/StackedList';
 import { DetailsItemData as data } from './DetailsItemData';
+import { MapPinIcon } from '@heroicons/react/24/solid';
 
 export default {
   title: 'Cards & Lists/Details/List Item',
@@ -61,7 +62,7 @@ export const Default = DefaultTemplate.bind({});
 Default.args = {
   title: '405 Robertson Hall',
   description: '1125 Colonel By Drive, Ottawa, ON, K1A 4A4',
-  icon: 'MapPinIcon',
+  icon: MapPinIcon,
 };
 
 export const SingleItemList = SingleItemListTemplate.bind({});

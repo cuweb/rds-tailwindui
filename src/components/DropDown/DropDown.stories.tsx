@@ -38,9 +38,7 @@ WithButtonArrow.args = {
 export const WithHeroIcon = DefaultTemplate.bind({});
 WithHeroIcon.args = {
   renderAs: 'button',
-  children: (
-    <HeroIcon aria-hidden color="dark-grey" icon="BugAntIcon" isOutline />
-  ),
+  children: <HeroIcon aria-hidden color="dark-grey" icon="BugAntIcon" />,
 };
 
 Default.storyName = 'Default';

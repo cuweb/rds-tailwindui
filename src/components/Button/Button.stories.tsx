@@ -1,6 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Button, ButtonProps } from './Button';
+import { MapPinIcon, PlusIcon } from '@heroicons/react/20/solid';
 
 export default {
   title: 'Components/Button',
@@ -94,7 +95,7 @@ centeredButton.args = {
 export const IconTextButton = Template.bind({});
 IconTextButton.args = {
   title: 'Button with Icon',
-  icon: 'MapPinIcon',
+  icon: MapPinIcon,
   onClick: () => {
     alert('button has been clicked ');
   },
@@ -102,7 +103,7 @@ IconTextButton.args = {
 
 export const IconButton = Template.bind({});
 IconButton.args = {
-  icon: 'PlusIcon',
+  icon: PlusIcon,
   onClick: () => {
     alert('button has been clicked ');
   },

@@ -1,12 +1,12 @@
 import React from 'react';
-import { HeroIcon, IconName } from '../HeroIcon';
+import { HeroIcon } from '../HeroIcon';
 import ChevronDownIcon from '@heroicons/react/20/solid/ChevronDownIcon';
 import { Link } from '../Link/Link';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   title?: string;
-  icon?: IconName;
+  icon?: any;
   isType?: 'default' | 'ghost' | 'grey' | 'dark-grey' | 'white' | 'disabled';
   size?: 'sm' | 'base';
   hasShadow?: boolean;

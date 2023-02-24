@@ -4,6 +4,11 @@ import { LinkProps, mobileLoginProps, TopNav, TopNavProps } from './TopNav';
 import { Button } from '../Button';
 import { UserInfoType } from '../../types/UserInfo';
 import { DropDownItemProps } from '../DropDown/DropDown';
+import {
+  ArrowLeftOnRectangleIcon,
+  Cog8ToothIcon,
+  UserCircleIcon,
+} from '@heroicons/react/24/solid';
 
 export default {
   title: 'Headers/Top Nav',
@@ -59,18 +64,18 @@ const userMenuItems: DropDownItemProps[] = [
   {
     href: '/profile',
     title: 'Profile',
-    icon: 'UserCircleIcon',
+    icon: UserCircleIcon,
   },
   {
     href: '/settings',
     title: 'Settings',
     onClick: () => alert('Dropdown for settings has been clicked '),
-    icon: 'Cog8ToothIcon',
+    icon: Cog8ToothIcon,
   },
   {
     href: '/signout',
     title: 'Sign out ',
-    icon: 'ArrowLeftOnRectangleIcon',
+    icon: ArrowLeftOnRectangleIcon,
   },
 ];
 

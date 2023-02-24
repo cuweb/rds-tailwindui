@@ -1,6 +1,6 @@
 import React from 'react';
 import { rdsFontSizes } from '../../../utils/tailwindClasses';
-import { HeroIcon, IconName } from '../../HeroIcon';
+import { HeroIcon } from '../../HeroIcon';
 
 // Set types for as props
 type BaseItemTypeProps = 'li' | 'div';
@@ -11,7 +11,7 @@ export interface DetailsItemProps {
   fontSize?: 'base' | 'lg' | 'xl';
   title?: string;
   description?: string;
-  icon?: IconName;
+  icon?: any;
 }
 
 export interface ItemBaseProps {
@@ -60,7 +60,7 @@ const Title = ({
 const Icon = ({ icon }: DetailsItemProps) => {
   return (
     <div className="flex-none w-auto">
-      {icon && <HeroIcon icon={icon} size="6" color="dark-grey" isOutline />}
+      {icon && <HeroIcon icon={icon} size="6" color="dark-grey" />}
     </div>
   );
 };

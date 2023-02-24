@@ -1,0 +1,38 @@
+// import React from 'react';
+// import { Meta, Story } from '@storybook/react';
+// import { HeroIcon, HeroIconProps } from './HeroIcon';
+// import { BugAntIcon } from '@heroicons/react/24/solid';
+
+// export default {
+//   title: 'Components/HeroIcon',
+//   component: HeroIcon,
+//   argTypes: {},
+//   parameters: {
+//     controls: { expanded: true },
+//   },
+// } as Meta<typeof HeroIcon>;
+
+// const Template: Story<HeroIconProps> = args => (
+//   <HeroIcon {...args} aria-hidden={true} />
+// );
+
+// export const Default = Template.bind({});
+// Default.args = {
+//   icon: BugAntIcon,
+// };
+
+// export const Outline = Template.bind({});
+// Outline.args = {
+//   icon: BugAntIcon,
+//   isOutline: true,
+// };
+
+// export const Red = Template.bind({});
+// Red.args = {
+//   icon: BugAntIcon,
+//   color: 'red',
+// };
+
+// Default.storyName = 'Default';
+// Outline.storyName = 'Outlined Icon';
+// Red.storyName = 'Red Icon';
