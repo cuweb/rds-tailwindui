@@ -7,10 +7,6 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 import { Location } from '../Location/Location';
 
-function classNames(...classes: any) {
-  return classes.filter(Boolean).join(' ');
-}
-
 export const LocationPicker = () => {
   const [address, setAddress] = useState('');
   const [coordinates, setCoordinates] = useState({
@@ -33,57 +29,51 @@ export const LocationPicker = () => {
         onSelect={handleSelect}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps }) => (
-          <div>
-            <Combobox value={address} onChange={handleSelect}>
-              <div className="relative">
-                <MagnifyingGlassIcon
-                  className="pointer-events-none absolute top-3.5 left-4 h-5 w-5 text-gray-400"
+          <Combobox value={address} onChange={handleSelect}>
+            <div className="relative">
+              <MagnifyingGlassIcon
+                className="pointer-events-none absolute top-3.5 left-3.5 h-5 w-5 text-cu-black-400"
+                aria-hidden="true"
+              />
+              <Combobox.Input
+                className="w-full h-12 pl-10 pr-4 bg-white border rounded-lg border-cu-black-200 placeholder-cu-black-400 text-cu-black-800 sm:text-sm focus:outline-none focus:ring-0 focus:border-cu-black-400"
+                {...getInputProps({ placeholder: 'Type address' })}
+              />
+              {address && (
+                <XMarkIcon
+                  className="absolute top-3.5 right-3.5 h-5 w-5 text-cu-black-400"
                   aria-hidden="true"
+                  onClick={() => {
+                    setAddress('');
+                    setCoordinates({ lat: 0, lng: 0 });
+                  }}
                 />
-                <Combobox.Input
-                  className="w-full h-12 pr-4 text-gray-800 placeholder-gray-400 bg-transparent border-2 rounded-lg pl-11 focus:ring-0 sm:text-sm"
-                  {...getInputProps({ placeholder: 'Type address' })}
-                />
-                {address && (
-                  <XMarkIcon
-                    className="absolute top-3.5 right-4 h-4 w-4 text-gray-400"
-                    aria-hidden="true"
-                    onClick={() => {
-                      setAddress('');
-                      setCoordinates({ lat: 0, lng: 0 });
-                    }}
-                  />
-                )}
-              </div>
-
-              <Combobox.Options
-                static
-                className="overflow-y-auto text-sm text-gray-800 max-h-72 scroll-py-2 bg-slate-200"
-              >
-                {suggestions.map(suggestion => {
-                  return (
-                    <Combobox.Option
-                      key={suggestion.index}
-                      value={suggestion}
-                      className={({ active }) =>
-                        classNames(
-                          'cursor-default select-none px-4 py-2',
-                          active && 'bg-cu-red text-white'
-                        )
-                      }
-                    >
-                      <div {...getSuggestionItemProps(suggestion)}>
+              )}
+            </div>
+            <Combobox.Options className="px-1.5 mt-3 overflow-y-auto text-sm bg-white divide-y divide-cu-black-100 text-cu-black-800 max-h-80">
+              {suggestions.map(suggestion => {
+                return (
+                  <Combobox.Option key={suggestion.index} value={suggestion}>
+                    {({ active }) => (
+                      <li
+                        {...getSuggestionItemProps(suggestion)}
+                        className={`p-4 text-cu-black-600 hover:cursor-pointer ${
+                          active
+                            ? 'bg-cu-black-50 text-cu-black-900'
+                            : 'bg-white'
+                        }`}
+                      >
                         {suggestion.description}
-                      </div>
-                    </Combobox.Option>
-                  );
-                })}
-              </Combobox.Options>
-            </Combobox>
-          </div>
+                      </li>
+                    )}
+                  </Combobox.Option>
+                );
+              })}
+            </Combobox.Options>
+          </Combobox>
         )}
       </PlacesAutocomplete>
-      <div className="py-12">
+      <div className="py-5">
         <Location
           lat={coordinates?.lat.toString()}
           lng={coordinates?.lng.toString()}
