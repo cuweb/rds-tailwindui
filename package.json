@@ -41,7 +41,7 @@
     "build": "tsdx lint --fix && tsdx build && yarn build-assets && yarn size",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint --fix",
-    "prepare": "yarn build && husky install",
+    "prepare": "husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "format": "prettier -w src",
