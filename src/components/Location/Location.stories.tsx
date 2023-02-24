@@ -1,25 +1,21 @@
 import React from 'react';
 import { Meta } from '@storybook/react';
-import { EventLocation } from './EventLocation';
+import { Location } from './Location';
 
 export default {
   title: 'Components/Location',
-  component: EventLocation,
+  component: Location,
   argTypes: {},
   parameters: {
     controls: { expanded: true },
   },
   isLoaded: true,
-} as Meta<typeof EventLocation>;
+} as Meta<typeof Location>;
 const address = {
   lat: '45.3850225',
   lng: '-75.6946679',
   location: "Carleton University Raven's Nest",
 };
 export const Default = () => (
-  <EventLocation
-    lat={address.lat}
-    lng={address.lng}
-    location={address.location}
-  />
+  <Location lat={address.lat} lng={address.lng} location={address.location} />
 );

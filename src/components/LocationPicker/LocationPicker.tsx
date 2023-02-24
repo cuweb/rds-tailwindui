@@ -5,7 +5,7 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
-import { EventLocation } from '../EventLocation/EventLocation';
+import { Location } from '../Location/Location';
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(' ');
@@ -84,7 +84,7 @@ export const LocationPicker = () => {
         )}
       </PlacesAutocomplete>
       <div className="py-12">
-        <EventLocation
+        <Location
           lat={coordinates?.lat.toString()}
           lng={coordinates?.lng.toString()}
           location={address}
