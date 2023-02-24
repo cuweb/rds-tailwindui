@@ -19,24 +19,25 @@ export interface LinkProps {
 }
 
 export const Link = forwardRef(
-  ({
-    ref,
-    href,
-    as,
-    children,
-    prefetch,
-    passHref,
-    replace,
-    shallow,
-    scroll,
-    locale,
-    className,
-    onClick,
-    onMouseEnter,
-    onTouchStart,
-  }: LinkProps) => {
+  (
+    {
+      href,
+      as,
+      children,
+      prefetch,
+      passHref,
+      replace,
+      shallow,
+      scroll,
+      locale,
+      className,
+      onClick,
+      onMouseEnter,
+      onTouchStart,
+    }: LinkProps,
+    ref
+  ) => {
     const LinkParams = {
-      ref,
       href,
       as,
       prefetch,
@@ -53,7 +54,11 @@ export const Link = forwardRef(
 
     try {
       const Link = require('next/link');
-      return <Link {...LinkParams}>{children}</Link>;
+      return (
+        <Link ref={ref} {...LinkParams}>
+          {children}
+        </Link>
+      );
     } catch (e) {
       return <a {...LinkParams}>{children}</a>;
     }
