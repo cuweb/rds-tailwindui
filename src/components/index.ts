@@ -14,10 +14,6 @@ export { DetailsItem, DetailsItemProps } from './ListingItems/DetailsItem';
 export { EventLoader } from './Loaders/EventLoader';
 export { EventItem, EventItemProps } from './ListingItems/EventItem';
 export { EventCard, EventCardProps } from './Cards/EventCard';
-export {
-  EventLocation,
-  EventLocationProps,
-} from './EventLocation/EventLocation';
 
 export { Filter, FilterProps } from './Filter/Filter';
 export { FooterBasic } from './Footer/FooterBasic';
@@ -33,6 +29,7 @@ export { JobItem, JobItemProps } from './ListingItems/JobItem';
 
 export { Link } from './Link/Link';
 export { LinkItem, LinkItemProps } from './ListingItems/LinkItem';
+export { Location, LocationProps } from './Location/Location';
 export { LocationPicker } from './LocationPicker';
 
 export { Modal, ModalProps } from './Modal';

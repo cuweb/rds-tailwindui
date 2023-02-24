@@ -21,6 +21,13 @@ export interface PeopleItemsProps {
   alt?: string;
 }
 
+const styles = {
+  imageWrapper: ``,
+  imageGlobals: `h-20 w-20 apsect-square bg-cu-black-100 overflow-hidden border-4 border-white rounded-lg shadow-md @sm:md:h-28 @sm:md:w-28 @lg:md:h-60 @lg:md:w-60`,
+  hasImage: `object-cover w-full h-full`,
+  noImage: `w-full h-full flex items-center justify-center @sm:md:text-4xl font-semibold`,
+};
+
 export const PeopleItems = ({
   as: Component = 'div',
   firstName,
@@ -30,31 +37,37 @@ export const PeopleItems = ({
   tags,
   jobTitle,
   profileImage,
-  link = '',
   alt,
+  link = '',
 }: PeopleItemsProps) => {
   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
+
   return (
     <Component className="not-prose group relative overflow-hidden @container">
       <Link
         href={link}
-        className="group relative flex cursor-pointer flex-row gap-4 bg-white p-6 hover:bg-slate-50 focus:outline-none md:gap-5 @sm:md:flex-col sm:grid-cols-1 @lg:md:flex-row @lg:lg:gap-8"
+        className="group relative flex cursor-pointer flex-col gap-5 bg-white p-6 hover:bg-slate-50 focus:outline-none @lg:md:flex-row sm:grid-cols-1 @sm:md:gap-8"
       >
-        {/* Image  */}
-        <div className="h-28 w-28 @sm:md:h-36 @sm:md:w-36 @lg:md:h-60 @lg:md:w-60">
-          {profileImage && (
-            <img
-              className="object-cover w-full overflow-hidden border-4 border-white rounded-lg shadow-md"
-              src={profileImage}
-              alt={alt}
-            />
-          )}
-          {!profileImage && (
-            <div className="flex items-center justify-center w-full h-full overflow-hidden border-4 border-white rounded-lg shadow-md bg-cu-black-100 @md:text-xl @lg:text-4xl font-semibold">
-              {initials}
+        {profileImage && (
+          <div>
+            <div className={`${styles.imageGlobals}`}>
+              <img
+                className={`${styles.hasImage}`}
+                src={profileImage}
+                alt={alt}
+              />
             </div>
-          )}
-        </div>
+          </div>
+        )}
+        {!profileImage && (
+          <div>
+            <div className={`${styles.imageGlobals}`}>
+              <div className={`${styles.noImage}`}>
+                <p>{initials}</p>
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="flex flex-1 flex-col gap-1.5 pr-6 pt-1 md:gap-px @sm:md:pt-0 @lg:md:pt-2">
           <h3 className="text-lg font-semibold text-cu-black group-hover:text-cu-red md:text-xl @lg:md:text-2xl">
