@@ -64,6 +64,10 @@ export const NewsCard = ({
               {excerpt.length > 170
                 ? `${excerpt.substring(0, 170)}...`
                 : excerpt}
+              <span className="font-semibold text-cu-red group-hover:text-cyan-700">
+                {' '}
+                Read more
+              </span>
             </p>
           )}
         </div>
