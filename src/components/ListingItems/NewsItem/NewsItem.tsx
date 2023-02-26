@@ -14,7 +14,7 @@ export interface NewsItemProps {
   link?: string;
   image?: string;
   alt?: string;
-  date?: string;
+  date?: string | any;
   excerpt?: string;
   tags?: Tags;
 }
@@ -29,6 +29,12 @@ export const NewsItem = ({
   excerpt,
   tags,
 }: NewsItemProps) => {
+  const formatedDate = new Date(date).toLocaleString('en-US', {
+    month: 'long',
+    day: '2-digit',
+    year: 'numeric',
+  });
+
   return (
     <Component className="not-prose group relative overflow-hidden @container">
       <Link
@@ -48,7 +54,7 @@ export const NewsItem = ({
         <div className="flex flex-1 flex-col gap-1.5 pr-6 md:gap-2.5 @lg:md:pt-1.5">
           {date && (
             <p className="text-sm italic text-cu-black-600 @2xl:md:text-base">
-              January 7, 2020
+              {formatedDate}
             </p>
           )}
           <h3 className="text-lg font-semibold text-cu-black group-hover:text-cu-red @lg:md:text-xl @2xl:lg:text-2xl">
