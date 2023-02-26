@@ -74,7 +74,7 @@ Default.args = {
   image: 'https://source.unsplash.com/random/400x300',
   alt: 'This is the alt tag for the card image',
   excerpt:
-    'Tenetur libero voluptatem rerum occaecati qui est molestiae exercitationem. Voluptate quisquam iure assumenda consequatur ex et recusandae.',
+    'Tenetur libero voluptatem rerum occaecati qui est molestia exercitationem. Voluptate quisquam iure assumenda consequatur exet recusandae dignissim sodales feugiat. Tenetur libero voluptatem rerum occaecati qui est molestiae exercitationem. Voluptate quisquam iure assumenda consequatur ex et recusandae.',
   tags: {
     category: [
       {

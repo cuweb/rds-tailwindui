@@ -62,10 +62,11 @@ export const NewsItem = ({
           </h3>
           {excerpt && (
             <p className="text-sm text-cu-black-900 md:text-base @lg:md:text-lg">
-              Tenetur libero voluptatem rerum occaecati qui est molestiae
-              exercitationem. Voluptate quisquam iure assumenda consequatur ex
-              et recusandae dignissim sodales feugiat...{' '}
+              {excerpt.length > 170
+                ? `${excerpt.substring(0, 170)}...`
+                : excerpt}
               <span className="font-semibold text-cu-red group-hover:text-cyan-700">
+                {' '}
                 Read more
               </span>
             </p>
