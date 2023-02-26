@@ -35,7 +35,7 @@ export const NewsItem = ({
         href={link}
         className="group relative flex cursor-pointer flex-col gap-4 bg-white p-6 hover:bg-slate-50 focus:outline-none @lg:md:flex-row @lg:md:gap-8"
       >
-        {image && alt && (
+        {image && (
           <div className="hidden max-w-[30%] flex-none @lg:md:block">
             <img
               className="object-cover w-full rounded-md"
