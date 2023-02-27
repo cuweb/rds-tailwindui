@@ -45,7 +45,7 @@ export const NewsItem = ({
           <div className="hidden max-w-[30%] flex-none @lg:md:block">
             <img
               className="object-cover w-full rounded-md"
-              src="https://source.unsplash.com/random/400x300"
+              src={image ? image : 'https://source.unsplash.com/random/400x266'}
               alt={alt}
             />
           </div>
