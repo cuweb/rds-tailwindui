@@ -60,7 +60,7 @@ export const NewsCard = ({
           </HeadLevel>
 
           {excerpt && (
-            <p className="flex items-start text-base text-cu-black-600">
+            <p className="text-base text-cu-black-600">
               {excerpt.length > 170
                 ? `${excerpt.substring(0, 170)}...`
                 : excerpt}
