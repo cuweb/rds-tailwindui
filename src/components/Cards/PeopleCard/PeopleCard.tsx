@@ -13,6 +13,7 @@ export interface PeopleCardProps {
   profileImage?: any;
   link?: string;
   alt?: string;
+  noImage?: boolean;
 }
 
 const styles = {
@@ -30,6 +31,7 @@ export const PeopleCard = ({
   profileImage,
   link = '',
   alt,
+  noImage = false,
 }: PeopleCardProps) => {
   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
 
@@ -39,24 +41,28 @@ export const PeopleCard = ({
         href={link}
         className="relative flex flex-col h-full cursor-pointer"
       >
-        {profileImage && (
-          <img
-            className={`${styles.profile}`}
-            src={
-              profileImage
-                ? profileImage
-                : 'https://source.unsplash.com/random/400x266'
-            }
-            alt={alt}
-          />
-        )}
+        {!noImage && (
+          <>
+            {profileImage && (
+              <img
+                className={`${styles.profile}`}
+                src={
+                  profileImage
+                    ? profileImage
+                    : 'https://source.unsplash.com/random/400x266'
+                }
+                alt={alt}
+              />
+            )}
 
-        {!profileImage && (
-          <div
-            className={` ${styles.profile} flex items-center justify-center font-semibold text-4xl bg-cu-black-100`}
-          >
-            {initials}
-          </div>
+            {!profileImage && (
+              <div
+                className={` ${styles.profile} flex items-center justify-center font-semibold text-4xl bg-cu-black-100`}
+              >
+                {initials}
+              </div>
+            )}
+          </>
         )}
 
         <div className="flex flex-col items-center space-y-0.5 py-6 px-7">

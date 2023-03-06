@@ -263,3 +263,13 @@ export const MinimumPeople = () => (
     link="https://carleton.ca"
   />
 );
+
+export const PeopleNoImageDisplay = () => (
+  <PeopleCard
+    firstName="Carleton"
+    lastName="Banks"
+    email="george.hadjisophocleous@carleton.ca"
+    link="https://carleton.ca"
+    noImage
+  />
+);
