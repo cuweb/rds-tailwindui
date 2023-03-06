@@ -38,7 +38,7 @@ export function VideoCard({ source, tags, callback }: VideoCardProps) {
   useEffect(() => {
     callback(videoDuration);
   }, [callback, videoDuration]);
- 
+
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
       <div className="relative flex flex-col h-full">

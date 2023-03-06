@@ -43,7 +43,7 @@ export const YouTube = () => {
   );
 };
 
- export const Vimeo = () => {
+export const Vimeo = () => {
   const [, setDuration] = useState(null);
   const callbackcal = useCallback(
     (itemSelected: any) => {
@@ -53,7 +53,7 @@ export const YouTube = () => {
   );
   return (
     <VideoCard
-    callback={callbackcal}
+      callback={callbackcal}
       source="https://vimeo.com/106595658"
       tags={{
         category: [
@@ -81,11 +81,17 @@ export const GridCards = () => {
     },
     [setDuration]
   );
- return <Column cols="3" gridGap="10" maxWidth="7xl">
-    {data.map(item => (
-      <VideoCard source={item?.source} tags={item?.tags} callback={callbackcal} />
-    ))}
-  </Column>
+  return (
+    <Column cols="3" gridGap="10" maxWidth="7xl">
+      {data.map(item => (
+        <VideoCard
+          source={item?.source}
+          tags={item?.tags}
+          callback={callbackcal}
+        />
+      ))}
+    </Column>
+  );
 };
 
 YouTube.storyName = 'YouTube';
