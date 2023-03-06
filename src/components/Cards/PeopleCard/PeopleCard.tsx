@@ -6,7 +6,7 @@ import { Link } from '../../Link/Link';
 export interface PeopleCardProps {
   firstName: string;
   lastName: string;
-  designation?: string;
+  jobTitle?: string;
   email: string;
   phoneNumber?: string;
   tags?: Tags;
@@ -27,7 +27,7 @@ export const PeopleCard = ({
   email,
   phoneNumber,
   tags,
-  designation,
+  jobTitle,
   profileImage,
   link = '',
   alt,
@@ -69,9 +69,11 @@ export const PeopleCard = ({
           <h3 className="text-lg font-semibold text-cu-black  group-hover:text-cu-red @xs:md:text-2xl">
             {firstName + ' ' + lastName}
           </h3>
-          <p className="text-sm italic text-cu-black-600 @sm:md:text-lg">
-            {designation ? designation : ''}
-          </p>
+          {jobTitle && (
+            <p className="text-sm italic text-cu-black-600 @sm:md:text-lg">
+              {jobTitle}
+            </p>
+          )}
           <ul className="pt-3 space-y-1 text-center">
             <li className="text-sm text-cyan-700 hover:text-cu-red @lg:md:text-base">
               <a
@@ -81,9 +83,11 @@ export const PeopleCard = ({
                 {email}
               </a>
             </li>
-            <li className="text-sm text-cu-black-600 hover:text-cu-red @lg:md:text-base">
-              {phoneNumber ? phoneNumber : ''}
-            </li>
+            {phoneNumber && (
+              <li className="text-sm text-cu-black-600 hover:text-cu-red @lg:md:text-base">
+                {phoneNumber}
+              </li>
+            )}
           </ul>
         </div>
 
