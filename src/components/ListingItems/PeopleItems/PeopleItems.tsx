@@ -19,6 +19,7 @@ export interface PeopleItemsProps {
   profileImage?: string;
   link?: string;
   alt?: string;
+  noImage?: boolean;
 }
 
 const styles = {
@@ -39,6 +40,7 @@ export const PeopleItems = ({
   profileImage,
   alt,
   link = '',
+  noImage = false,
 }: PeopleItemsProps) => {
   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
 
@@ -48,25 +50,29 @@ export const PeopleItems = ({
         href={link}
         className="group relative flex cursor-pointer flex-col gap-5 bg-white p-6 hover:bg-slate-50 focus:outline-none @lg:md:flex-row sm:grid-cols-1 @sm:md:gap-8"
       >
-        {profileImage && (
-          <div>
-            <div className={`${styles.imageGlobals}`}>
-              <img
-                className={`${styles.hasImage}`}
-                src={profileImage}
-                alt={alt}
-              />
-            </div>
-          </div>
-        )}
-        {!profileImage && (
-          <div>
-            <div className={`${styles.imageGlobals}`}>
-              <div className={`${styles.noImage}`}>
-                <p>{initials}</p>
+        {!noImage && (
+          <>
+            {profileImage && (
+              <div>
+                <div className={`${styles.imageGlobals}`}>
+                  <img
+                    className={`${styles.hasImage}`}
+                    src={profileImage}
+                    alt={alt}
+                  />
+                </div>
               </div>
-            </div>
-          </div>
+            )}
+            {!profileImage && (
+              <div>
+                <div className={`${styles.imageGlobals}`}>
+                  <div className={`${styles.noImage}`}>
+                    <p>{initials}</p>
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
         )}
 
         <div className="flex flex-1 flex-col gap-1.5 pr-6 pt-1 md:gap-px @sm:md:pt-0 @lg:md:pt-2">

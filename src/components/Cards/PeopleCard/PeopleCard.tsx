@@ -6,13 +6,14 @@ import { Link } from '../../Link/Link';
 export interface PeopleCardProps {
   firstName: string;
   lastName: string;
-  designation?: string;
+  jobTitle?: string;
   email: string;
   phoneNumber?: string;
   tags?: Tags;
   profileImage?: any;
   link?: string;
   alt?: string;
+  noImage?: boolean;
 }
 
 const styles = {
@@ -26,10 +27,11 @@ export const PeopleCard = ({
   email,
   phoneNumber,
   tags,
-  designation,
+  jobTitle,
   profileImage,
   link = '',
   alt,
+  noImage = false,
 }: PeopleCardProps) => {
   const initials = `${firstName.split('')[0]}${lastName.split('')[0]}`;
 
@@ -39,33 +41,39 @@ export const PeopleCard = ({
         href={link}
         className="relative flex flex-col h-full cursor-pointer"
       >
-        {profileImage && (
-          <img
-            className={`${styles.profile}`}
-            src={
-              profileImage
-                ? profileImage
-                : 'https://source.unsplash.com/random/400x266'
-            }
-            alt={alt}
-          />
-        )}
+        {!noImage && (
+          <>
+            {profileImage && (
+              <img
+                className={`${styles.profile}`}
+                src={
+                  profileImage
+                    ? profileImage
+                    : 'https://source.unsplash.com/random/400x266'
+                }
+                alt={alt}
+              />
+            )}
 
-        {!profileImage && (
-          <div
-            className={` ${styles.profile} flex items-center justify-center font-semibold text-4xl bg-cu-black-100`}
-          >
-            {initials}
-          </div>
+            {!profileImage && (
+              <div
+                className={` ${styles.profile} flex items-center justify-center font-semibold text-4xl bg-cu-black-100`}
+              >
+                {initials}
+              </div>
+            )}
+          </>
         )}
 
         <div className="flex flex-col items-center space-y-0.5 py-6 px-7">
           <h3 className="text-lg font-semibold text-cu-black  group-hover:text-cu-red @xs:md:text-2xl">
             {firstName + ' ' + lastName}
           </h3>
-          <p className="text-sm italic text-cu-black-600 @sm:md:text-lg">
-            {designation ? designation : ''}
-          </p>
+          {jobTitle && (
+            <p className="text-sm italic text-cu-black-600 @sm:md:text-lg">
+              {jobTitle}
+            </p>
+          )}
           <ul className="pt-3 space-y-1 text-center">
             <li className="text-sm text-cyan-700 hover:text-cu-red @lg:md:text-base">
               <a
@@ -75,9 +83,11 @@ export const PeopleCard = ({
                 {email}
               </a>
             </li>
-            <li className="text-sm text-cu-black-600 hover:text-cu-red @lg:md:text-base">
-              {phoneNumber ? phoneNumber : ''}
-            </li>
+            {phoneNumber && (
+              <li className="text-sm text-cu-black-600 hover:text-cu-red @lg:md:text-base">
+                {phoneNumber}
+              </li>
+            )}
           </ul>
         </div>
 

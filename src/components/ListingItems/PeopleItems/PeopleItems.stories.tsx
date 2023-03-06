@@ -152,6 +152,31 @@ SingleItemList.args = {
   link: '#',
 };
 
+export const NoImagePeopleList = SingleItemListTemplate.bind({});
+NoImagePeopleList.args = {
+  firstName: 'Carleton',
+  lastName: 'Banks',
+  email: 'george.hadjisophocleous@carleton.ca',
+  phoneNumber: '613-520-2600 x1234',
+  tags: {
+    category: [
+      {
+        id: 1,
+        name: 'Breaking News',
+        slug: 'breaking-news',
+      },
+      {
+        id: 2,
+        name: 'Headline',
+        slug: 'headline',
+      },
+    ],
+  },
+  jobTitle: 'Manager',
+  link: '#',
+  noImage: true,
+};
+
 export const MultiItemList = MultiItemListTemplate.bind({});
 MultiItemList.args = {
   ...Default.args,
@@ -166,3 +191,4 @@ Default.storyName = 'Default item';
 SingleItemList.storyName = 'Item in panel';
 MultiItemList.storyName = 'Single column list';
 MultiItemColumns.storyName = 'Double column list';
+NoImagePeopleList.storyName = 'Not Displaying Image in List';

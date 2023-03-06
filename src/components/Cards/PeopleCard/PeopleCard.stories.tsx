@@ -36,7 +36,7 @@ Default.args = {
       },
     ],
   },
-  designation: 'Manager',
+  jobTitle: 'Manager',
   profileImage:
     'https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg',
 };
@@ -62,7 +62,7 @@ NoProfileImage.args = {
       },
     ],
   },
-  designation: 'Manager',
+  jobTitle: 'Manager',
 };
 
 export const MultipleCardsWithImage = () => (
@@ -87,7 +87,7 @@ export const MultipleCardsWithImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
       profileImage="https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg"
     />
     <PeopleCard
@@ -110,7 +110,7 @@ export const MultipleCardsWithImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
       profileImage="https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg"
     />
     <PeopleCard
@@ -133,7 +133,7 @@ export const MultipleCardsWithImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
       profileImage="https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg"
     />
     <PeopleCard
@@ -156,7 +156,7 @@ export const MultipleCardsWithImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
       profileImage="https://static.wikia.nocookie.net/freshprince/images/a/ac/1carlton.jpg"
     />
   </Column>
@@ -184,7 +184,7 @@ export const MultipleCardsWithoutImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
     />
     <PeopleCard
       firstName="Carleton"
@@ -206,7 +206,7 @@ export const MultipleCardsWithoutImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
     />
     <PeopleCard
       firstName="Carleton"
@@ -228,7 +228,7 @@ export const MultipleCardsWithoutImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
     />
     <PeopleCard
       firstName="Carleton"
@@ -250,7 +250,7 @@ export const MultipleCardsWithoutImage = () => (
           },
         ],
       }}
-      designation="Manager"
+      jobTitle="Manager"
     />
   </Column>
 );
@@ -261,5 +261,15 @@ export const MinimumPeople = () => (
     lastName="Banks"
     email="george.hadjisophocleous@carleton.ca"
     link="https://carleton.ca"
+  />
+);
+
+export const PeopleNoImageDisplay = () => (
+  <PeopleCard
+    firstName="Carleton"
+    lastName="Banks"
+    email="george.hadjisophocleous@carleton.ca"
+    link="https://carleton.ca"
+    noImage
   />
 );
