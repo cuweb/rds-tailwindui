@@ -37,8 +37,8 @@ export function VideoCard({ source, tags, callback }: VideoCardProps) {
   const duration = intervalToDuration({ start: 0, end: videoDuration * 1000 });
   useEffect(() => {
     callback(videoDuration);
-  }, [duration, callback, videoDuration]);
-console.log("video",videoDuration)
+  }, [callback, videoDuration]);
+ 
   return (
     <div className="not-prose group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg duration-300 ease-in @container hover:scale-105 md:max-w-lg">
       <div className="relative flex flex-col h-full">
