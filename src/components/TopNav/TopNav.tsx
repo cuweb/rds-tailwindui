@@ -32,6 +32,7 @@ export interface TopNavProps {
   navLinks?: LinkProps[];
   mobileLinks?: LinkProps[];
   userMenuItems?: any;
+  session?: any;
   userInfo?: UserInfoType;
   searchOn?: string;
   mobileLogin?: mobileLoginProps;
@@ -48,6 +49,7 @@ export const TopNav = ({
   navLinks,
   mobileLinks,
   userMenuItems,
+  session,
   userInfo,
   sticky,
   login,
@@ -131,9 +133,9 @@ export const TopNav = ({
                 </div>
               )}
               {children}
-
               {/* Login */}
-              {!userInfo && login}
+              {session === null && login}
+              {!userInfo && session !== null && <p>Loading</p>}
               {userInfo && !userMenuItems && (
                 <Avatar user={userInfo} size="xs" rounded="full" />
               )}
